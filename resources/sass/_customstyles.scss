@@ -1,0 +1,15 @@
+ul.icons {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    padding-left:0px;
+    font-size: 1.5rem;
+    li {
+        list-style-type: none;
+        span {
+            font-size: 1.3rem;
+            color: #666666;
+        }
+    }
+
+}
