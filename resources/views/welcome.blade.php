@@ -7,7 +7,6 @@
                 @foreach($properties as $property)
                     <div class="col-md-3">
                         <div class="card">
-
                             <div id="property{{ $property->id }}" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner" role="listbox">
                                     @foreach($property->PropertyPhotos as $prophoto)
@@ -32,19 +31,6 @@
                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                     <span class="sr-only">Next</span>
                                 </a>
-                            </div>
-
-                            <div class="card-body">
-                                <h4 class="card-title">{{$property->propname}}</h4>
-                                <h5 class="card-subtitle text-right">{{$property->propcost}}</h5>
-                                <p class="card-text"><img src="{{asset('avatar/mark-oliver.png')}}" width="80" alt=""></p>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <p class="card-text">
-                                    <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{$property->address}}, {{$property->city}}
-                                    <i class="fa fa-money" aria-hidden="true"></i>&nbsp;{{$property->propcost}}
-                                    <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;Date: {{$property->created_at->diffForHumans()}}
-                                </p>
-                                <a class="btn btn-success btn-sm" href="{{route('properties.show',[$property->id, $property->slug])}}">Enquire</a>
                             </div>
                         </div>
                     </div>
