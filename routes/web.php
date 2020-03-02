@@ -16,17 +16,27 @@ Route::get('/', 'PropertyController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/properties/{id}/{property}', 'PropertyController@show')->name('properties.show');
-Route::get('/properties/{id}/{property}/addphotos', 'PropertyController@addphotos')->name('properties.addphotos');
-Route::post('/propertyphoto/add', 'PropertyController@propertyphoto')->name('property.photo');
+
 //company
 Route::get('/company/{id}/{company}', 'CompanyController@index')->name('company.index');
-Route::get('/company/create', 'CompanyController@create');
+Route::get('/company/create', 'CompanyController@create')->name('company.view');
+Route::post('/company/create', 'CompanyController@store')->name('company.store');
+Route::post('/company/coverphoto', 'CompanyController@coverPhoto')->name('cover.photo');
+Route::post('/company/logo', 'CompanyController@companyLogo')->name('company.logo');
+
 // Company View
 Route::View('register/company','register-company')->name('register.company');
 Route::post('company/register', 'CompanyRegisterController@companyRegister')->name('company.register');
+
 // User Profile
-Route::get('user/profile', 'UserController@index');
+Route::get('user/profile', 'UserController@index')->name('user.view');
 Route::post('user/profile/create', 'UserController@store')->name('profile.create');
 Route::post('user/coverletter', 'UserController@coverletter')->name('cover.letter');
 Route::post('user/avatar', 'UserController@avatar')->name('avatar');
+
+// Properties
+Route::get('/properties/{id}/{property}', 'PropertyController@show')->name('properties.show');
+Route::get('/properties/{id}/{property}/addphotos', 'PropertyController@addphotos')->name('properties.addphotos');
+Route::post('/propertyphoto/add', 'PropertyController@propertyPhoto')->name('property.photo');
+Route::get('/property/create', 'PropertyController@create');
+Route::post('/property/create', 'PropertyController@store');

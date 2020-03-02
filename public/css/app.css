@@ -17,6 +17,26 @@ ul.icons li span {
   color: #666666;
 }
 
+img.prop_photo {
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  display: block;
+  /* remove extra space below image */
+}
+
+.carousel-item {
+  height: 169px;
+}
+
+.carousel-item .active {
+  background-color: #e4e4e4;
+}
+
+.carousel-item.active {
+  background-color: #cccccc;
+}
+
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors

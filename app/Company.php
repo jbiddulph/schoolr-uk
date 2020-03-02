@@ -11,7 +11,7 @@ class Company extends Model
         'user_id',
         'slug',
         'address',
-        'phone_number',
+        'telephone',
         'website',
         'logo',
         'cover_photo',

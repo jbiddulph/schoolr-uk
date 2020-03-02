@@ -49,10 +49,6 @@
                                 <span>{{$property->garage}}</span>
                             </li>
                         @endif
-{{--                        <li>
-                                <i class="fas fa-conservatory" aria-hidden="true"></i>
-                                {{$property->conservatory}}
-                            </li>--}}
                         @if ($property->outbuilding > 0)
                             <li>
                                 <i class="fas fa-home" aria-hidden="true"></i>

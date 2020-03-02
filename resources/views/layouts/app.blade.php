@@ -9,9 +9,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -56,14 +53,22 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 
-                                    @if(Auth::user()->user_type='company')
+                                    @if(Auth::user()->user_type=='company')
                                         {{ Auth::user()->name }}
                                     @else
                                         {{ Auth::user()->name }}
                                     @endif<span class="caret"></span>
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    @if(Auth::user()->user_type=='company')
+                                    <a class="dropdown-item" href="{{ route('company.view') }}">
+                                    {{ __('Company') }}
+                                    </a>
+                                    @elseif(Auth::user()->user_type='seeker')
+                                        <a class="dropdown-item" href="{{ route('user.view') }}">
+                                            {{ __('Profile') }}
+                                        </a>
+                                    @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -85,5 +90,8 @@
             @yield('content')
         </main>
     </div>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    @yield('script')
 </body>
 </html>

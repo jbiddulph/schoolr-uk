@@ -1,0 +1,377 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header"><h2>Property Create</h2></div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label for="propname">Property Name</label>
+                                    <input type="text" name="propname" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label for="proptype">Property Type</label>
+                                    <input type="text" name="proptype" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="propcost">Property Cost</label>
+                                    <input type="text" name="propcost" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="bedroom">Bedrooms</label>
+                                    <select name="bedroom" class="form-control" id="bedroom">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="bathroom">Bathroom</label>
+                                    <select name="bathroom" class="form-control" id="bathroom">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="kitchen">Kitchen</label>
+                                    <select name="kitchen" class="form-control" id="kitchen">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="garage">Garage</label>
+                                    <select name="garage" class="form-control" id="garage">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="reception">Reception</label>
+                                    <select name="reception" class="form-control" id="reception">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="conservatory">Conservatory</label>
+                                    <select name="conservatory" class="form-control" id="conservatory">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="outbuilding">Out Building</label>
+                                    <select name="outbuilding" class="form-control" id="outbuilding">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="address">Address</label>
+                                    <input type="text" name="address" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="town">Town</label>
+                                    <input type="text" name="town" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="county">County</label>
+                                    <select name="county" class="form-control">
+                                        <optgroup label="England">
+                                            <option value="">Please Select</option>
+                                            <option value="Bedfordshire">Bedfordshire</option>
+                                            <option value="Berkshire">Berkshire</option>
+                                            <option value="Bristol">Bristol</option>
+                                            <option value="Buckinghamshire">Buckinghamshire</option>
+                                            <option value="Cambridgeshire">Cambridgeshire</option>
+                                            <option value="Cheshire">Cheshire</option>
+                                            <option value="City of London">City of London</option>
+                                            <option value="Cornwall">Cornwall</option>
+                                            <option value="Cumbria">Cumbria</option>
+                                            <option value="Derbyshire">Derbyshire</option>
+                                            <option value="Devon">Devon</option>
+                                            <option value="Dorset">Dorset</option>
+                                            <option value="Durham">Durham</option>
+                                            <option value="East Riding of Yorkshire">East Riding of Yorkshire</option>
+                                            <option value="East Sussex">East Sussex</option>
+                                            <option value="Essex">Essex</option>
+                                            <option value="Gloucestershire">Gloucestershire</option>
+                                            <option value="Greater London">Greater London</option>
+                                            <option value="Greater Manchester">Greater Manchester</option>
+                                            <option value="Hampshire">Hampshire</option>
+                                            <option value="Herefordshire">Herefordshire</option>
+                                            <option value="Hertfordshire">Hertfordshire</option>
+                                            <option value="Isle of Wight">Isle of Wight</option>
+                                            <option value="Kent">Kent</option>
+                                            <option value="Lancashire">Lancashire</option>
+                                            <option value="Leicestershire">Leicestershire</option>
+                                            <option value="Lincolnshire">Lincolnshire</option>
+                                            <option value="Merseyside">Merseyside</option>
+                                            <option value="Norfolk">Norfolk</option>
+                                            <option value="North Yorkshire">North Yorkshire</option>
+                                            <option value="Northamptonshire">Northamptonshire</option>
+                                            <option value="Northumberland">Northumberland</option>
+                                            <option value="Nottinghamshire">Nottinghamshire</option>
+                                            <option value="Oxfordshire">Oxfordshire</option>
+                                            <option value="Rutland">Rutland</option>
+                                            <option value="Shropshire">Shropshire</option>
+                                            <option value="Somerset">Somerset</option>
+                                            <option value="South Yorkshire">South Yorkshire</option>
+                                            <option value="Staffordshire">Staffordshire</option>
+                                            <option value="Suffolk">Suffolk</option>
+                                            <option value="Surrey">Surrey</option>
+                                            <option value="Tyne and Wear">Tyne and Wear</option>
+                                            <option value="Warwickshire">Warwickshire</option>
+                                            <option value="West Midlands">West Midlands</option>
+                                            <option value="West Sussex">West Sussex</option>
+                                            <option value="West Yorkshire">West Yorkshire</option>
+                                            <option value="Wiltshire">Wiltshire</option>
+                                            <option value="Worcestershire">Worcestershire</option>
+                                        </optgroup>
+                                        <optgroup label="Wales">
+                                            <option value="Anglesey">Anglesey</option>
+                                            <option value="Brecknockshire">Brecknockshire</option>
+                                            <option value="Caernarfonshire">Caernarfonshire</option>
+                                            <option value="Carmarthenshire">Carmarthenshire</option>
+                                            <option value="Cardiganshire">Cardiganshire</option>
+                                            <option value="Denbighshire">Denbighshire</option>
+                                            <option value="Flintshire">Flintshire</option>
+                                            <option value="Glamorgan">Glamorgan</option>
+                                            <option value="Merioneth">Merioneth</option>
+                                            <option value="Monmouthshire">Monmouthshire</option>
+                                            <option value="Montgomeryshire">Montgomeryshire</option>
+                                            <option value="Pembrokeshire">Pembrokeshire</option>
+                                            <option value="Radnorshire">Radnorshire</option>
+                                        </optgroup>
+                                        <optgroup label="Scotland">
+                                            <option value="Aberdeenshire">Aberdeenshire</option>
+                                            <option value="Angus">Angus</option>
+                                            <option value="Argyllshire">Argyllshire</option>
+                                            <option value="Ayrshire">Ayrshire</option>
+                                            <option value="Banffshire">Banffshire</option>
+                                            <option value="Berwickshire">Berwickshire</option>
+                                            <option value="Buteshire">Buteshire</option>
+                                            <option value="Cromartyshire">Cromartyshire</option>
+                                            <option value="Caithness">Caithness</option>
+                                            <option value="Clackmannanshire">Clackmannanshire</option>
+                                            <option value="Dumfriesshire">Dumfriesshire</option>
+                                            <option value="Dunbartonshire">Dunbartonshire</option>
+                                            <option value="East Lothian">East Lothian</option>
+                                            <option value="Fife">Fife</option>
+                                            <option value="Inverness-shire">Inverness-shire</option>
+                                            <option value="Kincardineshire">Kincardineshire</option>
+                                            <option value="Kinross">Kinross</option>
+                                            <option value="Kirkcudbrightshire">Kirkcudbrightshire</option>
+                                            <option value="Lanarkshire">Lanarkshire</option>
+                                            <option value="Midlothian">Midlothian</option>
+                                            <option value="Morayshire">Morayshire</option>
+                                            <option value="Nairnshire">Nairnshire</option>
+                                            <option value="Orkney">Orkney</option>
+                                            <option value="Peeblesshire">Peeblesshire</option>
+                                            <option value="Perthshire">Perthshire</option>
+                                            <option value="Renfrewshire">Renfrewshire</option>
+                                            <option value="Ross-shire">Ross-shire</option>
+                                            <option value="Roxburghshire">Roxburghshire</option>
+                                            <option value="Selkirkshire">Selkirkshire</option>
+                                            <option value="Shetland">Shetland</option>
+                                            <option value="Stirlingshire">Stirlingshire</option>
+                                            <option value="Sutherland">Sutherland</option>
+                                            <option value="West Lothian">West Lothian</option>
+                                            <option value="Wigtownshire">Wigtownshire</option>
+                                        </optgroup>
+                                        <optgroup label="Northern Ireland">
+                                            <option value="Antrim">Antrim</option>
+                                            <option value="Armagh">Armagh</option>
+                                            <option value="Down">Down</option>
+                                            <option value="Fermanagh">Fermanagh</option>
+                                            <option value="Londonderry">Londonderry</option>
+                                            <option value="Tyrone">Tyrone</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="postcode">Postcode</label>
+                                    <input type="text" name="postcode" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="latitude">Latitude</label>
+                                    <input type="text" name="latitude" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="longitude">Longitude</label>
+                                    <input type="text" name="longitude" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="description">Description</label>
+                                    <textarea name="description" class="form-control" id="description" cols="30" rows="10"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="floorplan">Floorplan</label>
+                                    <input type="file" name="floorplan" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="brochure">Brochure</label>
+                                    <input type="file" name="brochure" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="last_date">Last Date</label>
+                                    <input type="text" name="last_date" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="category">Category</label>
+                                    <select name="category" class="form-control" id="category">
+                                        <option value="">Please select</option>
+                                        @foreach(App\Category::all() as $cat)
+                                            <option value="{{$cat->id   }}">{{$cat->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="is_featured">Featured</label>
+                                    <select name="is_featured" class="form-control" id="is_featured">
+                                        <option value="0">Not Featured</option>
+                                        <option value="1">Featured Property</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="is_live">Live</label>
+                                    <select name="is_live" class="form-control" id="is_live">
+                                        <option value="0">Draft</option>
+                                        <option value="1">Live</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <input type="submit" value="Add Property" class="btn btn-dark">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

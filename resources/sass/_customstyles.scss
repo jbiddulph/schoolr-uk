@@ -11,5 +11,20 @@ ul.icons {
             color: #666666;
         }
     }
+}
 
+img.prop_photo{
+    max-width: 100%;
+    max-height: 100%;
+    margin:auto;
+    display: block; /* remove extra space below image */
+}
+.carousel-item{
+    height: 169px;
+    .active {
+        background-color: #e4e4e4;
+    }
+}
+.carousel-item.active {
+    background-color: #cccccc;
 }
