@@ -4,6 +4,7 @@
     <div class="container">
         <h2>Properties</h2>
         <div class="row">
+
                 @foreach($properties as $property)
                     <div class="col-md-3">
                         <div class="card">
@@ -21,6 +22,18 @@
                                             </div>
                                         </div>
                                     @endforeach
+                                    @if(isset($property->propimage))
+                                        @php
+                                            $mainphoto = str_replace('public/', 'storage/', $property->propimage)
+                                        @endphp
+                                        <div class="mainpic">
+                                            <img class="d-block img-fluid prop_photo" src="{{ $mainphoto }}" alt="Property">
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h3>x</h3>
+                                                <p>and this is the photo description</p>
+                                            </div>
+                                        </div>
+                                    @endif
                                 </div>
 
                                 <a class="carousel-control-prev" href="#property{{ $property->id }}" role="button" data-slide="prev">
@@ -31,6 +44,18 @@
                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                     <span class="sr-only">Next</span>
                                 </a>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">{{$property->propname}}</h4>
+                                <h5 class="card-subtitle text-right">{{$property->propcost}}</h5>
+                                <p class="card-text"><img src="{{asset('avatar/mark-oliver.png')}}" width="80" alt=""></p>
+                                <p class="card-text">{{$property->description}}</p>
+                                <p class="card-text">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{$property->address}}, {{$property->city}}
+                                    <i class="fa fa-money" aria-hidden="true"></i>&nbsp;{{$property->propcost}}
+                                    <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;Date: {{$property->created_at->diffForHumans()}}
+                                </p>
+                                <a class="btn btn-success btn-sm" href="{{route('properties.show',[$property->id, $property->slug])}}">Enquire</a>
                             </div>
                         </div>
                     </div>

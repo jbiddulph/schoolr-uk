@@ -35,8 +35,11 @@ Route::post('user/coverletter', 'UserController@coverletter')->name('cover.lette
 Route::post('user/avatar', 'UserController@avatar')->name('avatar');
 
 // Properties
+Route::get('/properties/{id}/edit', 'PropertyController@edit')->name('property.edit');
 Route::get('/properties/{id}/{property}', 'PropertyController@show')->name('properties.show');
 Route::get('/properties/{id}/{property}/addphotos', 'PropertyController@addphotos')->name('properties.addphotos');
 Route::post('/propertyphoto/add', 'PropertyController@propertyPhoto')->name('property.photo');
-Route::get('/property/create', 'PropertyController@create');
-Route::post('/property/create', 'PropertyController@store');
+Route::get('/property/create', 'PropertyController@create')->name('property.create');
+Route::get('/property/my-property', 'PropertyController@myProperty')->name('property.myproperty');
+Route::post('/property/create', 'PropertyController@store')->name('property.store');
+

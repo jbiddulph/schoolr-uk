@@ -7,23 +7,44 @@
                 <div class="card">
                     <div class="card-header"><h2>Property Create</h2></div>
                     <div class="card-body">
+                        @if(Session::has('message'))
+                            <div class="alert alert-success">
+                                {{Session::get('message')}}
+                            </div>
+                        @endif
+                        <form action="{{route('property.store')}}" method="post" enctype="multipart/form-data">@csrf
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="form-group">
                                     <label for="propname">Property Name</label>
-                                    <input type="text" name="propname" class="form-control">
+                                    <input type="text" name="propname" class="form-control @error('propname') is-invalid @enderror" value="{{ old('propname') }}">
+                                    @error('propname')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-5">
                                 <div class="form-group">
                                     <label for="proptype">Property Type</label>
-                                    <input type="text" name="proptype" class="form-control">
+                                    <input type="text" name="proptype" class="form-control @error('proptype') is-invalid @enderror" value="{{ old('proptype') }}">
+                                    @error('proptype')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="propcost">Property Cost</label>
-                                    <input type="text" name="propcost" class="form-control">
+                                    <input type="text" name="propcost" class="form-control @error('propcost') is-invalid @enderror" value="{{ old('propcost') }}">
+                                    @error('propcost')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -151,18 +172,39 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="propimage">Property Photo</label>
+                                    <input type="file" name="propimage" class="form-control @error('propimage') is-invalid @enderror" value="{{ old('propimage') }}">
+                                    @error('propimage')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="address">Address</label>
-                                    <input type="text" name="address" class="form-control">
+                                    <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" value="{{ old('address') }}">
+                                    @error('address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="town">Town</label>
-                                    <input type="text" name="town" class="form-control">
+                                    <input type="text" name="town" class="form-control @error('town') is-invalid @enderror" value="{{ old('town') }}">
+                                    @error('town')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -287,19 +329,34 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="postcode">Postcode</label>
-                                    <input type="text" name="postcode" class="form-control">
+                                    <input type="text" name="postcode" class="form-control @error('postcode') is-invalid @enderror" value="{{ old('postcode') }}">
+                                    @error('postcode')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="latitude">Latitude</label>
-                                    <input type="text" name="latitude" class="form-control">
+                                    <input type="text" name="latitude" class="form-control @error('latitude') is-invalid @enderror" value="{{ old('latitude') }}">
+                                    @error('latitude')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="longitude">Longitude</label>
-                                    <input type="text" name="longitude" class="form-control">
+                                    <input type="text" name="longitude" class="form-control @error('longitude') is-invalid @enderror" value="{{ old('longitude') }}">
+                                    @error('longitude')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -315,13 +372,23 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="floorplan">Floorplan</label>
-                                    <input type="file" name="floorplan" class="form-control">
+                                    <input type="file" name="floorplan" class="form-control @error('floorplan') is-invalid @enderror" value="{{ old('floorplan') }}">
+                                    @error('floorplan')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="brochure">Brochure</label>
-                                    <input type="file" name="brochure" class="form-control">
+                                    <input type="file" name="brochure" class="form-control @error('brochure') is-invalid @enderror" value="{{ old('brochure') }}">
+                                    @error('brochure')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -329,16 +396,21 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="last_date">Last Date</label>
-                                    <input type="text" name="last_date" class="form-control">
+                                    <input type="text" name="last_date" class="form-control @error('last_date') is-invalid @enderror" value="{{ old('last_date') }}">
+                                    @error('last_date')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="category">Category</label>
-                                    <select name="category" class="form-control" id="category">
+                                    <label for="category_id">Category</label>
+                                    <select name="category_id" class="form-control" id="category_id">
                                         <option value="">Please select</option>
                                         @foreach(App\Category::all() as $cat)
-                                            <option value="{{$cat->id   }}">{{$cat->name}}</option>
+                                            <option value="{{$cat->id}}">{{$cat->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -369,6 +441,7 @@
                                 <input type="submit" value="Add Property" class="btn btn-dark">
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>

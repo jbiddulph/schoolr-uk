@@ -30,10 +30,14 @@
                         </li>
                     @endif
                 @else
+                    <li>
+                        <a href="{{route('property.create')}}">
+                            <button class="btn btn-secondary">Post a property</button></a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 
-                            @if(Auth::user()->user_type='company')
+                            @if(Auth::user()->user_type=='company')
                                 {{ Auth::user()->name }}
                             @else
                                 {{ Auth::user()->name }}
@@ -41,6 +45,12 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            @if(Auth::user()->user_type=='company')
+                                <a href="{{route('company.view')}}" class="dropdown-item">{{__('Company')}}</a>
+                                <a href="{{route('property.myproperty')}}" class="dropdown-item">{{__('My Properties')}}</a>
+                            @else
+                                <a href="{{route('user.view')}}" class="dropdown-item">{{__('Profile')}}</a>
+                            @endif
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
