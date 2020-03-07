@@ -38,7 +38,7 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="propcost">Property Cost</label>
+                                    <label for="propcost">Cost</label>
                                     <input type="text" name="propcost" class="form-control @error('propcost') is-invalid @enderror" value="{{ old('propcost') }}">
                                     @error('propcost')
                                     <span class="invalid-feedback" role="alert">
@@ -396,7 +396,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="last_date">Last Date</label>
-                                    <input type="text" name="last_date" class="form-control @error('last_date') is-invalid @enderror" value="{{ old('last_date') }}">
+                                    <input type="text" placeholder="YYYY-MM-DD" name="last_date" class="form-control @error('last_date') is-invalid @enderror" value="{{ old('last_date') }}">
                                     @error('last_date')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

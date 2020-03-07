@@ -77,10 +77,6 @@ class PropertyController extends Controller
         $floorplan = $request->file('floorplan')->store('public/property/brochure');
         $brochure = $request->file('brochure')->store('public/property/floorplan');
 
-        Log::info('$propertyphoto: '.$propertyphoto.'');
-        Log::info('$floorplan: '.$floorplan.'');
-        Log::info('$brochure: '.$brochure.'');
-
         Property::create([
             'user_id'=>$user_id,
             'company_id'=>$company_id,
@@ -111,39 +107,11 @@ class PropertyController extends Controller
             'is_live'=>request('is_live')
         ]);
 
-
-
-//
-Log::info('$user_id: '.PropertyPostRequest('propname').'');
-Log::info('$user_id: '.str_slug(PropertyPostRequest('propname')).'');
-Log::info('$user_id: '.PropertyPostRequest('propcost').'');
-Log::info('$user_id: '.PropertyPostRequest('proptype').'');
-Log::info('$user_id: '.$propertyphoto.'');
-Log::info('$user_id: '.PropertyPostRequest('bedroom').'');
-Log::info('$user_id: '.PropertyPostRequest('bathroom').'');
-Log::info('$user_id: '.PropertyPostRequest('kitchen').'');
-Log::info('$user_id: '.PropertyPostRequest('garage').'');
-Log::info('$user_id: '.PropertyPostRequest('reception').'');
-Log::info('$user_id: '.PropertyPostRequest('conservatory').'');
-Log::info('$user_id: '.PropertyPostRequest('outbuilding').'');
-Log::info('$user_id: '.PropertyPostRequest('address').'');
-Log::info('$user_id: '.PropertyPostRequest('town').'');
-Log::info('$user_id: '.PropertyPostRequest('county').'');
-Log::info('$user_id: '.PropertyPostRequest('postcode').'');
-Log::info('$user_id: '.PropertyPostRequest('latitude').'');
-Log::info('$user_id: '.PropertyPostRequest('longitude').'');
-Log::info('$user_id: '.PropertyPostRequest('description').'');
-Log::info('$user_id: '.$floorplan.'');
-Log::info('$user_id: '.$brochure.'');
-Log::info('$user_id: '.PropertyPostRequest('last_date').'');
-Log::info('$user_id: '.PropertyPostRequest('category_id').'');
-Log::info('$user_id: '.PropertyPostRequest('is_featured').'');
-Log::info('$user_id: '.PropertyPostRequest('is_live').'');
-
-
+        //LOGGING
+        Log::info('Property Name: '.request('propname').'');
         Log::info('$user_id: '.$user_id);
         Log::info('$company_id: '.$company_id);
-        Log::info('$user_id: '.$company_id);
+
         return redirect()->back()->with('message','Property added successfully!');
     }
 }
