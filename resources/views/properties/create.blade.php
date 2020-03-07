@@ -14,7 +14,7 @@
                         @endif
                         <form action="{{route('property.store')}}" method="post" enctype="multipart/form-data">@csrf
                         <div class="row">
-                            <div class="col-md-5">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="propname">Property Name</label>
                                     <input type="text" name="propname" class="form-control @error('propname') is-invalid @enderror" value="{{ old('propname') }}">
@@ -25,7 +25,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-md-5">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="proptype">Property Type</label>
                                     <input type="text" name="proptype" class="form-control @error('proptype') is-invalid @enderror" value="{{ old('proptype') }}">
@@ -36,7 +36,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="propcost">Cost</label>
                                     <input type="text" name="propcost" class="form-control @error('propcost') is-invalid @enderror" value="{{ old('propcost') }}">
@@ -49,7 +49,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="bedroom">Bedrooms</label>
                                     <select name="bedroom" class="form-control" id="bedroom">
@@ -66,7 +66,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="bathroom">Bathroom</label>
                                     <select name="bathroom" class="form-control" id="bathroom">
@@ -83,7 +83,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="kitchen">Kitchen</label>
                                     <select name="kitchen" class="form-control" id="kitchen">
@@ -100,9 +100,7 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="garage">Garage</label>
                                     <select name="garage" class="form-control" id="garage">
@@ -119,7 +117,10 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="reception">Reception</label>
                                     <select name="reception" class="form-control" id="reception">
@@ -136,7 +137,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="conservatory">Conservatory</label>
                                     <select name="conservatory" class="form-control" id="conservatory">
@@ -153,9 +154,7 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="outbuilding">Out Building</label>
                                     <select name="outbuilding" class="form-control" id="outbuilding">
@@ -170,17 +169,6 @@
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                     </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="propimage">Property Photo</label>
-                                    <input type="file" name="propimage" class="form-control @error('propimage') is-invalid @enderror" value="{{ old('propimage') }}">
-                                    @error('propimage')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -212,7 +200,7 @@
                                     <label for="county">County</label>
                                     <select name="county" class="form-control">
                                         <optgroup label="England">
-                                            <option value="">Please Select</option>
+                                            <option>Please Select</option>
                                             <option value="Bedfordshire">Bedfordshire</option>
                                             <option value="Berkshire">Berkshire</option>
                                             <option value="Bristol">Bristol</option>
@@ -369,7 +357,18 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="propimage">Property Photo</label>
+                                    <input type="file" name="propimage" class="form-control @error('propimage') is-invalid @enderror" value="{{ old('propimage') }}">
+                                    @error('propimage')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="floorplan">Floorplan</label>
                                     <input type="file" name="floorplan" class="form-control @error('floorplan') is-invalid @enderror" value="{{ old('floorplan') }}">
@@ -380,7 +379,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="brochure">Brochure</label>
                                     <input type="file" name="brochure" class="form-control @error('brochure') is-invalid @enderror" value="{{ old('brochure') }}">
