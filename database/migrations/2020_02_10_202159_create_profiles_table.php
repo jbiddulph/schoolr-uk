@@ -17,11 +17,13 @@ class CreateProfilesTable extends Migration
             $table->bigIncrements('id');
             $table->string('user_id');
             $table->string('address');
+            $table->string('phone_number');
             $table->string('gender');
             $table->string('dob');
             $table->string('experience');
             $table->string('bio');
             $table->string('cover_letter');
+            $table->string('identification');
             $table->string('avatar');
             $table->timestamps();
         });

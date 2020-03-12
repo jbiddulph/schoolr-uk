@@ -23,6 +23,8 @@ class CreateCompaniesTable extends Migration
             $table->string('website');
             $table->string('logo');
             $table->string('cover_photo');
+            $table->string('primary_color');
+            $table->string('secondary_color');
             $table->string('slogan');
             $table->string('description');
             $table->timestamps();

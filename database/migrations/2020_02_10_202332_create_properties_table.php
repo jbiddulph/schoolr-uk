@@ -19,8 +19,8 @@ class CreatePropertiesTable extends Migration
             $table->integer('user_id');
             $table->integer('company_id');
             $table->string('propname');
-            $table->decimal('propcost');
-            $table->string('proptype');
+            $table->integer('propcost');
+            $table->integer('proptype_id');
             $table->string('propimage');
             $table->integer('bedroom')->default(0);
             $table->integer('bathroom')->default(0);
@@ -31,9 +31,10 @@ class CreatePropertiesTable extends Migration
             $table->integer('outbuilding')->default(0);
             $table->string('address');
             $table->string('town');
+            $table->string('county');
             $table->string('postcode');
-            $table->float('latitude');
-            $table->float('longitude');
+            $table->string('latitude');
+            $table->string('longitude');
             $table->string('description');
             $table->string('floorplan');
             $table->string('brochure');

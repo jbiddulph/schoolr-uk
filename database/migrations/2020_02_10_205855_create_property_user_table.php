@@ -15,7 +15,7 @@ class CreatePropertyUserTable extends Migration
     {
         Schema::create('property_user', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('prop_id');
+            $table->integer('property_id');
             $table->integer('user_id');
             $table->timestamps();
         });
