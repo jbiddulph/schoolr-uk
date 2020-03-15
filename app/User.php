@@ -48,4 +48,5 @@ class User extends Authenticatable
     public function propertyphotos(){
         return $this->hasMany(PropertyPhotos::class);
     }
+
 }

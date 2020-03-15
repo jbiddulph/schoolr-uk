@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-3">
                     @if(empty(Auth::user()->profile->avatar))
-                <img src="{{asset('avatar/mark-oliver.png')}}" width="100" style="width: 100%;" alt="">
+                <img src="{{asset('avatar/company-logo.png')}}" width="100" style="width: 100%;" alt="">
                 @else
                     <img src="{{asset('uploads/avatar')}}/{{Auth::user()->profile->avatar}}" width="100" style="width: 100%;" alt="">
                 @endif
@@ -92,6 +92,20 @@
                             <button class="btn btn-success float-right" type="submit">Update Cover Letter</button>
                             @if($errors->has('cover_letter'))
                                 <div class="error text-danger">{{$errors->first('cover_letter')}}</div>
+                            @endif
+                        </div>
+                    </div>
+                </form>
+                <br />
+                <form action="{{route('identification')}}" method="POST" enctype="multipart/form-data">@csrf
+                    <div class="card">
+                        <div class="card-header">Update Identification</div>
+                        <div class="card-body">
+                            <input type="file" class="form-control" name="identification">
+                            <br />
+                            <button class="btn btn-success float-right" type="submit">Update Identification</button>
+                            @if($errors->has('identification'))
+                                <div class="error text-danger">{{$errors->first('identification')}}</div>
                             @endif
                         </div>
                     </div>

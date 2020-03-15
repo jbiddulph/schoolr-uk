@@ -36,8 +36,8 @@ $factory->define(App\Company::class, function (Faker $faker) {
         'address'=>$faker->address,
         'telephone'=>$faker->phoneNumber,
         'website'=>$faker->domainName,
-        'logo'=>'avatar/mark-oliver.png',
-        'cover_photo'=>'cover/mark-oliver-bw.png',
+        'logo'=>'logo/company-logo.png',
+        'cover_photo'=>'cover/pier_header.png',
         'slogan'=>'letting agents',
         'description'=>$faker->paragraph(rand(2,10))
     ];
@@ -47,11 +47,11 @@ $factory->define(App\Property::class, function (Faker $faker) {
     return [
         'user_id' => App\User::all()->random()->id,
         'company_id'=>App\Company::all()->random()->id,
-        'propname'=>$prop_name=$faker->text,
+        'propname'=>$prop_name=$faker->text(60),
         'slug'=>Str::slug($prop_name),
         'propcost'=>'399,000',
-        'proptype'=>'Sale',
-        'propimage'=>'property/penfold.jpg',
+        'proptype_id'=>'1',
+        'propimage'=>'property/pantiles.jpg',
         'address'=>$faker->address,
         'town'=>$faker->city,
         'postcode'=>$faker->postcode,
@@ -61,7 +61,9 @@ $factory->define(App\Property::class, function (Faker $faker) {
         'floorplan'=>'floorplan/penfold.jpg',
         'brochure'=>'brochure/penfold.pdf',
         'category_id'=>rand(1,5),
+        'is_live'=>'1',
         'description'=>$faker->paragraph(rand(2,10)),
         'last_date'=>$faker->dateTime
     ];
 });
+

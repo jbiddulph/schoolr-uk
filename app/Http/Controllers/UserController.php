@@ -7,7 +7,11 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    //
+    public function __construct()
+    {
+        $this->middleware('seeker');
+    }
+
     public function index() {
         return view('profile.index');
     }
@@ -37,6 +41,18 @@ class UserController extends Controller
                 'cover_letter'=>$cover
                 ]);
         return redirect()->back()->with('message','Cover Successfully Updated!');
+    }
+
+    public function identification(Request $request) {
+        $this->validate($request,[
+            'identification'=>'required'
+        ]);
+        $user_id = auth()->user()->id;
+        $identification = $request->file('identification')->store('public/files/');
+        Profile::where('user_id', $user_id)->update([
+            'identification'=>$identification
+        ]);
+        return redirect()->back()->with('message','Identification Successfully Updated!');
     }
 
     public function avatar(Request $request) {

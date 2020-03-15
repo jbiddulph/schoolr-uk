@@ -4,7 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PropertyTypes extends Model
+class PropertyType extends Model
 {
+    protected $guarded = [];
     //
 }

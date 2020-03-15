@@ -1,3 +1,112 @@
+html, body {
+    height: 100%
+}
+a {
+    color: $secondary_color!important;
+}
+p.short-description {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.card-header {
+    background-color: $primary-color!important;
+    color: #ffffff;
+    h2, h3 {
+        margin-bottom: 0px;
+    }
+    a {
+        color: #ffffff!important;
+    }
+}
+.card-title {
+    height: 76px;
+}
+.btn-primary {
+    background-color: $secondary-color!important;
+    border-color: $secondary-color-70!important;
+    color: #ffffff!important;
+}
+.dropdown-item:active {
+    background-color: $secondary-color!important;
+    color: #ffffff!important;
+}
+.navbar-brand {
+    padding-top: 0px!important;
+    padding-bottom: 0px!important;
+}
+.btn-secondary {
+    background-color: $primary-color!important;
+    border-color: $primary-color-70!important;
+    a {
+        color: #ffffff !important;
+    }
+    :hover {
+        text-decoration: none!important;
+    }
+}
+.navbar-brand {
+    .primary {
+        color: $primary-color!important;
+    }
+}
+.bg-secondary {
+    background-color: $primary-color!important;
+}
+.page-item.active .page-link {
+    background-color: $primary-color!important;
+    border-color: $primary-color!important;
+}
+/** colorbar **/
+.colorbar {
+    height: 0.6em;
+
+    background-color: #bab2b5;
+    background-image: -moz-linear-gradient(top, #bab2b5, #bab2b5);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#bab2b5), to(#bab2b5));
+    background-image: -webkit-linear-gradient(top, #bab2b5, #bab2b5);
+    background-image: -o-linear-gradient(top, #bab2b5, #bab2b5);
+    background-image: linear-gradient(to bottom, #bab2b5, #bab2b5);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffbb450', endColorstr='#fff89406', GradientType=0);
+}
+
+.colorbar:before {
+    height: 0.6em;
+    width: 50%;
+    display: block;
+    content: "";
+    float: left;
+
+    background-color: #123c69;
+    background-image: -moz-linear-gradient(top, #123c69, #123c69);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#123c69), to(#123c69));
+    background-image: -webkit-linear-gradient(top, #123c69, #123c69);
+    background-image: -o-linear-gradient(top, #123c69, #123c69);
+    background-image: linear-gradient(to bottom, #123c69, #123c69);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffbb450', endColorstr='#fff89406', GradientType=0);
+}
+
+.colorbar:after {
+    height: 0.6em;
+    width: 40%;
+    display: block;
+    content: "";
+    float: right;
+
+    background-color: #ac3b61;
+    background-image: -moz-linear-gradient(top, #ac3b61, #ac3b61);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ac3b61), to(#ac3b61));
+    background-image: -webkit-linear-gradient(top, #ac3b61, #ac3b61);
+    background-image: -o-linear-gradient(top, #ac3b61, #ac3b61);
+    background-image: linear-gradient(to bottom, #ac3b61, #ac3b61);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffbb450', endColorstr='#fff89406', GradientType=0);
+}
+/** END colorbar **/
+
 ul.icons {
     list-style-type: none;
     display: flex;
@@ -12,15 +121,31 @@ ul.icons {
         }
     }
 }
-
+.mainpic {
+    position: relative;
+}
+.edit-photo {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1;
+    display: block;
+    a {
+        color: rgba(0,0,0,0.5);
+    }
+}
 img.prop_photo{
     max-width: 100%;
     max-height: 100%;
     margin:auto;
     display: block; /* remove extra space below image */
 }
+.fa {
+    color: $secondary-color;
+}
+/** Carousel **/
 .carousel-item{
-    height: 169px;
+    min-height: auto;
     .active {
         background-color: #e4e4e4;
     }
@@ -28,3 +153,50 @@ img.prop_photo{
 .carousel-item.active {
     background-color: #cccccc;
 }
+/** END Carousel **/
+
+/** Company **/
+.company-profile {
+    padding-left: 0px!important;
+    padding-right: 0px!important;
+    .cover-photo {
+        position: relative;
+        .company-logo {
+            position: absolute;
+            top:0px;
+            left:60px;
+        }
+    }
+}
+.colorpicker {
+    border: solid thin black;
+    width: 100px;
+    height: 100px;
+}
+
+/** WELCOME **/
+.welcome {
+    .property-card {
+        transition: transform 0.3s;
+        //transition-timing-function: ease-in-out;
+    }
+    .property-card:hover {
+        transform: scale(1.03);
+    }
+}
+/** END WELCOME **/
+
+
+/** REGISTER **/
+
+
+
+/** FOOTER **/
+
+footer {
+    color: #ffffff;
+    text-align: center;
+    padding:30px;
+}
+
+/** END FOOTER **/

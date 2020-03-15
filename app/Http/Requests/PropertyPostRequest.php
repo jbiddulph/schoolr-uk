@@ -24,9 +24,9 @@ class PropertyPostRequest extends FormRequest
     public function rules()
     {
         return [
-            'propname'=>'required',
+            'propname'=>'required|max:45',
             'propcost'=>'required',
-            'proptype'=>'required',
+            'proptype_id'=>'required',
             'propimage'=>'required',
             'address'=>'required',
             'town'=>'required',

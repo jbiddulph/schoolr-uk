@@ -5,20 +5,35 @@ namespace App\Http\Controllers;
 use App\Company;
 use App\Profile;
 use App\PropertyPhotos;
+use Auth;
 use Illuminate\Http\Request;
 use App\Property;
 use Validator;
 use Illuminate\Support\Facades\Log;
 use App\Http\Requests\PropertyPostRequest;
+use Mapper;
 
 class PropertyController extends Controller
 {
-    //
+    public function __construct()
+    {
+        $this->middleware('company', ['except'=>array('index','show','interest','allProperties')]);
+    }
+
     public function index() {
-        $properties = Property::all();
-//        $propertyPhotos = PropertyPhotos::where('property_id', '=', $properties->id)
-//            ->get();
-        return view('welcome', compact('properties'));
+        $properties = Property::latest()->limit(10)->where('is_live',1)->get();
+        Mapper::map(50.8319292,-0.3155225, ['zoom' => 12, 'marker' => true]);
+        foreach ($properties as $p) {
+            Mapper::marker($p->latitude, $p->longitude);
+        }
+//        Mapper::marker($properties->latitude, $properties->longitude);
+        $companies = Company::get()->random(4);
+        if (Auth::check()) {
+            $loggedin = true;
+        } else {
+            $loggedin = false;
+        }
+        return view('welcome', compact('properties','companies', 'loggedin'));
     }
 
     public function myProperty() {
@@ -31,8 +46,37 @@ class PropertyController extends Controller
         return view('properties.edit', compact('property'));
     }
 
+    public function update(Request $request, $id) {
+        $property = Property::findOrFail($id);
+        $property->update($request->all());
+        return redirect()->back()->with('message','Property successfully updated!');
+    }
+
+    public function propuploadsedit($id) {
+        $property = Property::findOrFail($id);
+        return view('properties.uploads-edit', compact('property'));
+    }
+
+    public function propImageUpdate(Request $request, $id) {
+
+        $property = Property::findOrFail($id);
+        Log::info('This Property: '.$property.'');
+        $propertyphoto = $request->file('propimage')->store('public/property/photos');
+
+        $property->update([
+            'propimage'=>$propertyphoto,
+        ]);
+        return redirect()->back()->with('message','Property image updated!');
+    }
+
     public function show($id,Property $property) {
-        return view('properties.show',compact('property'));
+        Mapper::map($property->latitude,$property->longitude);
+        if (Auth::check()) {
+            $loggedin = true;
+        } else {
+            $loggedin = false;
+        }
+        return view('properties.show',compact('property', 'loggedin'));
     }
 
     public function addphotos($id, Property $property) {
@@ -83,7 +127,7 @@ class PropertyController extends Controller
             'propname'=>request('propname'),
             'slug'=>str_slug(request('propname')),
             'propcost'=>request('propcost'),
-            'proptype'=>request('proptype'),
+            'proptype_id'=>request('proptype_id'),
             'propimage'=>$propertyphoto,
             'bedroom'=>request('bedroom'),
             'bathroom'=>request('bathroom'),
@@ -109,9 +153,35 @@ class PropertyController extends Controller
 
         //LOGGING
         Log::info('Property Name: '.request('propname').'');
-        Log::info('$user_id: '.$user_id);
-        Log::info('$company_id: '.$company_id);
 
         return redirect()->back()->with('message','Property added successfully!');
+    }
+
+    public function interest(Request $request, $id) {
+        $propertyid = Property::findOrFail($id);
+        $propertyid->users()->attach(Auth::user()->id);
+        return redirect()->back()->with('message','Interest was sent!');
+    }
+
+    public function applicant() {
+        $applicants = Property::has('users')->where('user_id', auth()->user()->id)->get();
+        return view('properties.applicants', compact('applicants'));
+    }
+
+    public function allProperties() {
+        Mapper::map(50.8319292,-0.3155225, ['zoom' => 12, 'marker' => false]);
+        if (Auth::check()) {
+            $loggedin = true;
+        } else {
+            $loggedin = false;
+        }
+        $properties = Property::latest()->where('is_live',1)->paginate(10);
+        return view('properties.allproperties', compact('properties','loggedin'));
+    }
+    public function toggleLive(Request $request) {
+        $property = Property::find($request->id);
+        $property->is_live = $request->is_live;
+        $property->save();
+        return redirect()->back();
     }
 }

@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="colorbar"></div>
+<img src="{{asset('/cover/countryside_header.jpg')}}" style="width: 100%;" alt="Countryside">
+<div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header"><h3>Register as a user</h3></div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -43,7 +45,7 @@
                             <label for="dob" class="col-md-4 col-form-label text-md-right">{{ __('Date Of Birth') }}</label>
 
                             <div class="col-md-6">
-                                <input id="dob" type="date" class="form-control @error('dob') is-invalid @enderror" name="dob" value="{{ old('dob') }}" required autocomplete="dob">
+                                <input id="dob" type="text" class="date form-control @error('dob') is-invalid @enderror" name="dob" value="{{ old('dob') }}" required autocomplete="dob">
 
                                 @error('dob')
                                 <span class="invalid-feedback" role="alert">
@@ -58,7 +60,7 @@
 
                             <div class="col-md-6">
                                 <input type="radio" name="gender" value="male" required="">&nbsp;Male
-                                <input type="radio" name="gender" value="female" required="">&nbsp;Female
+                                <input type="radio" name="gender" value="female" class="ml-3" required="">&nbsp;Female
                                 @error('gender')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -102,4 +104,5 @@
         </div>
     </div>
 </div>
+<div class="colorbar mt-5"></div>
 @endsection

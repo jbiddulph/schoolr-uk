@@ -23,6 +23,7 @@ Route::get('/company/create', 'CompanyController@create')->name('company.view');
 Route::post('/company/create', 'CompanyController@store')->name('company.store');
 Route::post('/company/coverphoto', 'CompanyController@coverPhoto')->name('cover.photo');
 Route::post('/company/logo', 'CompanyController@companyLogo')->name('company.logo');
+Route::post('/company/branding', 'CompanyController@companyBrand')->name('company.branding');
 
 // Company View
 Route::View('register/company','register-company')->name('register.company');
@@ -32,14 +33,26 @@ Route::post('company/register', 'CompanyRegisterController@companyRegister')->na
 Route::get('user/profile', 'UserController@index')->name('user.view');
 Route::post('user/profile/create', 'UserController@store')->name('profile.create');
 Route::post('user/coverletter', 'UserController@coverletter')->name('cover.letter');
+Route::post('user/identification', 'UserController@identification')->name('identification');
 Route::post('user/avatar', 'UserController@avatar')->name('avatar');
 
 // Properties
 Route::get('/properties/{id}/edit', 'PropertyController@edit')->name('property.edit');
+Route::post('/properties/{id}/edit', 'PropertyController@update')->name('property.update');
+//Route::post('/properties/{id}/edit', 'PropertyController@toggleLive')->name('property.togglelive');
+Route::get('/changeStatus', 'PropertyController@toggleLive')->name('property.togglelive');
+Route::get('/properties/{id}/uploads-edit', 'PropertyController@propuploadsedit')->name('property.uploadsedit');
+Route::post('/properties/{id}/uploads-edit', 'PropertyController@propImageUpdate')->name('property.propImageUpdate');
+//Route::post('/properties/{id}/uploads-edit', 'PropertyController@brochureUpdate')->name('property.brochureUpdate');
+//Route::post('/properties/{id}/uploads-edit', 'PropertyController@floorplanUpdate')->name('property.floorplanUpdate');
 Route::get('/properties/{id}/{property}', 'PropertyController@show')->name('properties.show');
 Route::get('/properties/{id}/{property}/addphotos', 'PropertyController@addphotos')->name('properties.addphotos');
 Route::post('/propertyphoto/add', 'PropertyController@propertyPhoto')->name('property.photo');
 Route::get('/property/create', 'PropertyController@create')->name('property.create');
 Route::get('/property/my-property', 'PropertyController@myProperty')->name('property.myproperty');
+Route::get('/properties/all-properties', 'PropertyController@allProperties')->name('allproperties');
 Route::post('/property/create', 'PropertyController@store')->name('property.store');
+Route::post('/property/interest/{id}', 'PropertyController@interest')->name('property.interest');
+Route::get('/properties/applications', 'PropertyController@applicant')->name('applicants');
+
 

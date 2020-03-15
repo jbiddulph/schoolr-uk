@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="colorbar"></div>
+<img src="{{asset('/cover/seaside_header.jpg')}}" style="width: 100%;" alt="Seaside sussex">
+<div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -20,4 +22,5 @@
         </div>
     </div>
 </div>
+<div class="colorbar mt-5"></div>
 @endsection

@@ -1,5 +1,6 @@
 <?php
 
+use App\PropertyType;
 use Illuminate\Database\Seeder;
 use App\Category;
 
@@ -25,6 +26,15 @@ class DatabaseSeeder extends Seeder
         ];
         foreach ($categories as $category){
             Category::create(['name'=>$category]);
+        }
+
+        $propertytypes = [
+            'House',
+            'Bungalow',
+            'Flat'
+        ];
+        foreach ($propertytypes as $proptype){
+            PropertyType::create(['name'=>$proptype]);
         }
     }
 }

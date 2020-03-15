@@ -1,3 +1,4 @@
+@push('custom-scripts')
 @if (!$view->shared('javascript', false))
 
     @if ($view->share('javascript', true)) @endif
@@ -15,7 +16,7 @@
             }
 
         </script>
-        
+
         <script async defer type="text/javascript" src="//maps.googleapis.com/maps/api/js?v={!! $options['version'] !!}&region={!! $options['region'] !!}&language={!! $options['language'] !!}&key={!! $options['key'] !!}&libraries=places&callback=initialize_method"></script>
 
     @else
@@ -31,3 +32,4 @@
     @endif
 
 @endif
+@endpush

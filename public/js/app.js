@@ -49505,6 +49505,8 @@ module.exports = function(module) {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./custom-scripts.js */ "./resources/js/custom-scripts.js");
+
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
  * The following block of code may be used to automatically register your
@@ -49641,6 +49643,61 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/custom-scripts.js":
+/*!****************************************!*\
+  !*** ./resources/js/custom-scripts.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  $('.date').datepicker({
+    format: 'yyyy-mm-dd'
+  });
+  var colorpickerOptions1 = {
+    parts: ['map', 'bar', 'hex', 'hsv', 'rgb', 'alpha', 'preview', 'footer'],
+    altProperties: 'background-color',
+    altField: '.colorpicker1',
+    color: 'cccccc',
+    select: function select(event, color) {
+      var color_in_hex_format = color.formatted;
+      console.log(color_in_hex_format);
+    },
+    inline: false
+  };
+  var colorpickerOptions2 = {
+    parts: ['map', 'bar', 'hex', 'hsv', 'rgb', 'alpha', 'preview', 'footer'],
+    altProperties: 'background-color',
+    altField: '.colorpicker2',
+    color: 'cccccc',
+    select: function select(event, color) {
+      var color_in_hex_format = color.formatted;
+      console.log(color_in_hex_format);
+    },
+    inline: false
+  };
+  $('.colorpicker1').colorpicker(colorpickerOptions1).prepend('#');
+  $('.colorpicker2').colorpicker(colorpickerOptions2).prepend('#');
+  $('.toggle-class').change(function () {
+    var is_live = $(this).prop('checked') == true ? 1 : 0;
+    var property_id = $(this).data('id');
+    $.ajax({
+      type: "GET",
+      dataType: "json",
+      url: '/changeStatus',
+      data: {
+        'is_live': is_live,
+        'id': property_id
+      },
+      success: function success(data) {
+        console.log(data.success);
+      }
+    });
+  });
+});
 
 /***/ }),
 

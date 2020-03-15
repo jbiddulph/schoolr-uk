@@ -1,70 +1,63 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <h2>Properties</h2>
+    @if($loggedin && Auth::user()->user_type=='company')
+        <div class="container-fluid" style="border-top:6px solid {{Auth::user()->company->primary_color}}"></div>
+    @else
+        <div class="colorbar"></div>
+    @endif
+    <div style="width: 100%; height: 300px;">
+        {!! Mapper::render() !!}
+    </div>
+    <div class="container mt-4 welcome">
+        <h1>Properties</h1>
         <div class="row">
-
                 @foreach($properties as $property)
                     <div class="col-md-3">
-                        <div class="card">
-                            <div id="property{{ $property->id }}" class="carousel slide" data-ride="carousel">
-                                <div class="carousel-inner" role="listbox">
-                                    @foreach($property->PropertyPhotos as $prophoto)
-                                        @php
-                                            $photo = str_replace('public/', 'storage/', $prophoto->photo)
-                                        @endphp
-                                        <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                                            <img class="d-block img-fluid prop_photo" src="{{ $photo }}" alt="{{$prophoto->photo_title}}">
-                                            <div class="carousel-caption d-none d-md-block">
-                                                <h3>{{$prophoto->photo_title}}</h3>
-                                                <p>and this is the photo description</p>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                    @if(isset($property->propimage))
-                                        @php
-                                            $mainphoto = str_replace('public/', 'storage/', $property->propimage)
-                                        @endphp
-                                        <div class="mainpic">
-                                            <img class="d-block img-fluid prop_photo" src="{{ $mainphoto }}" alt="Property">
-                                            <div class="carousel-caption d-none d-md-block">
-                                                <h3>x</h3>
-                                                <p>and this is the photo description</p>
-                                            </div>
-                                        </div>
-                                    @endif
+                        <div class="property-card card mb-4">
+                            @if(isset($property->propimage))
+                                @php
+                                    $mainphoto = str_replace('public/', 'storage/', $property->propimage)
+                                @endphp
+                                <div class="mainpic">
+                                    <a href="{{route('properties.show',[$property->id, $property->slug])}}"><img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$property->propname}}"></a>
                                 </div>
-
-                                <a class="carousel-control-prev" href="#property{{ $property->id }}" role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next" href="#property{{ $property->id }}" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </div>
+                            @endif
                             <div class="card-body">
-                                <h4 class="card-title">{{$property->propname}}</h4>
-                                <h5 class="card-subtitle text-right">{{$property->propcost}}</h5>
-                                <p class="card-text"><img src="{{asset('avatar/mark-oliver.png')}}" width="80" alt=""></p>
-                                <p class="card-text">{{$property->description}}</p>
-                                <p class="card-text">
-                                    <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{$property->address}}, {{$property->city}}
-                                    <i class="fa fa-money" aria-hidden="true"></i>&nbsp;{{$property->propcost}}
-                                    <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;Date: {{$property->created_at->diffForHumans()}}
-                                </p>
-                                <a class="btn btn-success btn-sm" href="{{route('properties.show',[$property->id, $property->slug])}}">Enquire</a>
+                                <h4 class="card-title"><a href="{{route('properties.show',[$property->id, $property->slug])}}">{{$property->propname}}</a></h4>
+                                <h5 class="card-subtitle text-right">&pound;{{$property->propcost}}</h5>
+                                <p class="card-text short-description">{{$property->description}}</p>
+                                <a class="btn btn-primary btn-sm" href="{{route('properties.show',[$property->id, $property->slug])}}">Enquire</a>
                             </div>
                         </div>
                     </div>
                 @endforeach
         </div>
+        <div>
+            <a href="{{route('allproperties')}}">
+                <button class="btn btn-secondary btn-lg mt-4" style="width: 100%;">Browse all Properties</button>
+            </a>
+        </div>
+        <br />
+        <br />
+        <h2>Featured Companies</h2>
     </div>
+    <div class="container">
+        <div class="row">
+            @foreach($companies as $company)
+                <div class="col-md-3">
+                    <div class="card">
+
+                        <img class="d-block img-fluid prop_photo" src="{{asset('uploads/logo')}}/{{ $company->logo }}" alt="Company Logo">
+                        <div class="card-body">
+                            <h5 class="card-title">{{$company->cname}}</h5>
+                            <p class="card-text">{{str_limit($company->description, 20)}}</p>
+                            <a href="{{route('company.index',[$company->id, $company->slug])}}" class="btn btn-primary">Visit Company</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+    <div class="colorbar mt-5"></div>
 @endsection
-<style>
-    .fa {
-        color: #0E9A00;
-    }
-</style>

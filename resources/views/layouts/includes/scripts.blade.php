@@ -1,5 +1,3 @@
-<div id="map-canvas-{!! $id !!}" style="width: 100%; height: 100%; margin: 0; padding: 0; position: relative; overflow: hidden;"></div>
-@push('custom-scripts')
 <script type="text/javascript">
 
     var maps = [];
@@ -11,7 +9,7 @@
 
         var mapOptions_{!! $id !!} = {
             @if ($options['center'])
-                center: position,
+            center: position,
             @endif
             zoom: {!! $options['zoom'] !!},
             mapTypeId: google.maps.MapTypeId.{!! $options['type'] !!},
@@ -32,66 +30,66 @@
         var infowindows = [];
         var shapes = [];
 
-        @foreach ($options['markers'] as $key => $marker)
+            @foreach ($options['markers'] as $key => $marker)
             {!! $marker->render($key, $view) !!}
-        @endforeach
+            @endforeach
 
-        @foreach ($options['shapes'] as $key => $shape)
+            @foreach ($options['shapes'] as $key => $shape)
             {!! $shape->render($key, $view) !!}
-        @endforeach
+            @endforeach
 
-        @if ($options['overlay'] == 'BIKE')
-            var bikeLayer = new google.maps.BicyclingLayer();
-            bikeLayer.setMap(map_{!! $id !!});
-        @endif
-
-        @if ($options['overlay'] == 'TRANSIT')
-            var transitLayer = new google.maps.TransitLayer();
-            transitLayer.setMap(map_{!! $id !!});
-        @endif
-
-        @if ($options['overlay'] == 'TRAFFIC')
-            var trafficLayer = new google.maps.TrafficLayer();
-            trafficLayer.setMap(map_{!! $id !!});
-        @endif
-
-        var idleListener = google.maps.event.addListenerOnce(map_{!! $id !!}, "idle", function () {
-            map_{!! $id !!}.setZoom({!! $options['zoom'] !!});
-
-            @if (!$options['center'])
-                map_{!! $id !!}.fitBounds(bounds);
+            @if ($options['overlay'] == 'BIKE')
+        var bikeLayer = new google.maps.BicyclingLayer();
+        bikeLayer.setMap(map_{!! $id !!});
             @endif
 
-            @if ($options['locate'])
+            @if ($options['overlay'] == 'TRANSIT')
+        var transitLayer = new google.maps.TransitLayer();
+        transitLayer.setMap(map_{!! $id !!});
+            @endif
+
+            @if ($options['overlay'] == 'TRAFFIC')
+        var trafficLayer = new google.maps.TrafficLayer();
+        trafficLayer.setMap(map_{!! $id !!});
+            @endif
+
+        var idleListener = google.maps.event.addListenerOnce(map_{!! $id !!}, "idle", function () {
+                map_{!! $id !!}.setZoom({!! $options['zoom'] !!});
+
+                @if (!$options['center'])
+                map_{!! $id !!}.fitBounds(bounds);
+                @endif
+
+                    @if ($options['locate'])
                 if (typeof navigator !== 'undefined' && navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(function (position) {
                         map_{!! $id !!}.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
                     });
                 }
-            @endif
-        });
+                @endif
+            });
 
         var map = map_{!! $id !!};
 
         @if (isset($options['eventBeforeLoad']))
-            {!! $options['eventBeforeLoad'] !!}
+        {!! $options['eventBeforeLoad'] !!}
         @endif
 
         @if (isset($options['eventAfterLoad']))
-            google.maps.event.addListenerOnce(map_{!! $id !!}, "tilesloaded", function() {
-                {!! $options['eventAfterLoad'] !!}
-            });
-        @endif
+        google.maps.event.addListenerOnce(map_{!! $id !!}, "tilesloaded", function() {
+            {!! $options['eventAfterLoad'] !!}
+        });
+            @endif
 
-        @if ($options['cluster'])
-            var markerClusterOptions = {
+            @if ($options['cluster'])
+        var markerClusterOptions = {
                 imagePath: '{!! $options['clusters']['icon'] !!}',
                 gridSize: {!! $options['clusters']['grid'] !!},
                 maxZoom: @if ($options['clusters']['zoom'] === null) null @else {!! $options['clusters']['zoom'] !!} @endif,
                 averageCenter: @if ($options['clusters']['center'] === true) true @else false @endif,
                 minimumClusterSize: {!! $options['clusters']['size'] !!}
             };
-            var markerCluster = new MarkerClusterer(map_{!! $id !!}, markers, markerClusterOptions);
+        var markerCluster = new MarkerClusterer(map_{!! $id !!}, markers, markerClusterOptions);
         @endif
 
         maps.push({
@@ -105,9 +103,8 @@
 
     @if (!$options['async'])
 
-        google.maps.event.addDomListener(window, 'load', initialize_{!! $id !!});
+    google.maps.event.addDomListener(window, 'load', initialize_{!! $id !!});
 
     @endif
 
 </script>
-@endpush

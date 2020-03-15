@@ -1,20 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid" style="border-top:6px solid {{Auth::user()->company->primary_color}}"></div>
+    <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header"><h2>Property Create</h2></div>
+                    <div class="card-header"><h2>Property Update</h2></div>
                     <div class="card-body">
                         @if(Session::has('message'))
                             <div class="alert alert-success">
                                 {{Session::get('message')}}
                             </div>
                         @endif
-                        <form action="{{route('property.store')}}" method="post" enctype="multipart/form-data">@csrf
+                        <form action="{{route('property.update', [$property->id])}}" method="post" enctype="multipart/form-data">@csrf
                             <div class="row">
-                                <div class="col-md-5">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="propname">Property Name</label>
                                         <input type="text" name="propname" class="form-control @error('propname') is-invalid @enderror" value="{{ $property->propname }}">
@@ -25,18 +26,23 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="proptype">Property Type</label>
-                                        <input type="text" name="proptype" class="form-control @error('proptype') is-invalid @enderror" value="{{ $property->proptype }}">
-                                        @error('proptype')
+                                        <select name="proptype_id" class="form-control @error('proptype') is-invalid @enderror" id="proptype_id">
+                                            <option value="">Please select</option>
+                                            @foreach(App\PropertyType::all() as $propType)
+                                                <option value="{{$propType->id}}"{{$property->proptype_id==$propType->id?'selected':''}}>{{$propType->name}}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('proptype_id')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
-                                    </span>
+                                        </span>
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="propcost">Property Cost</label>
                                         <input type="text" name="propcost" class="form-control @error('propcost') is-invalid @enderror" value="{{ $property->propcost }}">
@@ -49,7 +55,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="bedroom">Bedrooms</label>
                                         <select name="bedroom" class="form-control" id="bedroom">
@@ -66,7 +72,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="bathroom">Bathroom</label>
                                         <select name="bathroom" class="form-control" id="bathroom">
@@ -83,7 +89,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="kitchen">Kitchen</label>
                                         <select name="kitchen" class="form-control" id="kitchen">
@@ -100,9 +106,7 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="garage">Garage</label>
                                         <select name="garage" class="form-control" id="garage">
@@ -119,7 +123,9 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="reception">Reception</label>
                                         <select name="reception" class="form-control" id="reception">
@@ -136,7 +142,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="conservatory">Conservatory</label>
                                         <select name="conservatory" class="form-control" id="conservatory">
@@ -153,9 +159,7 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="outbuilding">Out Building</label>
                                         <select name="outbuilding" class="form-control" id="outbuilding">
@@ -170,17 +174,6 @@
                                             <option value="8"{{$property->outbuilding==8?'selected':''}}>8</option>
                                             <option value="9"{{$property->outbuilding==9?'selected':''}}>9</option>
                                         </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="propimage">Property Photo</label>
-                                        <input type="file" name="propimage" class="form-control @error('propimage') is-invalid @enderror" value="{{ $property->propimage }}">
-                                        @error('propimage')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -371,32 +364,8 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="floorplan">Floorplan</label>
-                                        <input type="file" name="floorplan" class="form-control @error('floorplan') is-invalid @enderror" value="{{ $property->floorplan }}">
-                                        @error('floorplan')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="brochure">Brochure</label>
-                                        <input type="file" name="brochure" class="form-control @error('brochure') is-invalid @enderror" value="{{ $property->brochure }}">
-                                        @error('brochure')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
                                         <label for="last_date">Last Date</label>
-                                        <input type="text" name="last_date" class="form-control @error('last_date') is-invalid @enderror" value="{{ $property->last_date }}">
+                                        <input type="text" name="last_date" id="datepicker" class="form-control @error('last_date') is-invalid @enderror" value="{{ $property->last_date }}">
                                         @error('last_date')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -437,8 +406,8 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-4">
-                                    <input type="submit" value="Add Property" class="btn btn-dark">
+                                <div class="col-md-4 offset-8">
+                                    <input type="submit" value="Update Property" class="btn btn-dark">
                                 </div>
                             </div>
                         </form>
@@ -447,4 +416,5 @@
             </div>
         </div>
     </div>
+    <div class="container-fluid mt-4" style="border-top:6px solid {{Auth::user()->company->primary_color}}"></div>
 @endsection

@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid" style="border-top:6px solid {{Auth::user()->company->primary_color}}"></div>
+    <div class="container mt-4 mb-4">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -28,8 +29,13 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="proptype">Property Type</label>
-                                    <input type="text" name="proptype" class="form-control @error('proptype') is-invalid @enderror" value="{{ old('proptype') }}">
-                                    @error('proptype')
+                                    <select name="proptype_id" class="form-control @error('proptype_id') is-invalid @enderror" id="proptype_id">
+                                        <option value="">Please select</option>
+                                        @foreach(App\PropertyType::all() as $propType)
+                                            <option value="{{$propType->id}}">{{$propType->name}}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('proptype_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -395,7 +401,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="last_date">Last Date</label>
-                                    <input type="text" placeholder="YYYY-MM-DD" name="last_date" class="form-control @error('last_date') is-invalid @enderror" value="{{ old('last_date') }}">
+                                    <input type="text" placeholder="YYYY-MM-DD" name="last_date" id="datepicker" class="date form-control @error('last_date') is-invalid @enderror" value="{{ old('last_date') }}">
                                     @error('last_date')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -446,4 +452,6 @@
             </div>
         </div>
     </div>
+    <div class="container-fluid" style="border-bottom:6px solid {{Auth::user()->company->primary_color}}"></div>
 @endsection
+

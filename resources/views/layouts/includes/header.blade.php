@@ -1,7 +1,8 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-fixed-top navbar-expand-md navbar-light">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'MoveMe') }}
+        <a class="navbar-brand primary" href="{{ url('/') }}">
+            <img src="{{asset('logo/primary_marker.png')}}" height="40" alt="BN Here logo">
+            <strong class="mr-2">Local</strong>news, nightlife and property
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -30,10 +31,13 @@
                         </li>
                     @endif
                 @else
+                    @if(Auth::user()->user_type=='company')
                     <li>
                         <a href="{{route('property.create')}}">
-                            <button class="btn btn-secondary">Post a property</button></a>
+                            <button class="btn btn-secondary">Add a property</button>
+                        </a>
                     </li>
+                    @endif
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 
@@ -48,6 +52,7 @@
                             @if(Auth::user()->user_type=='company')
                                 <a href="{{route('company.view')}}" class="dropdown-item">{{__('Company')}}</a>
                                 <a href="{{route('property.myproperty')}}" class="dropdown-item">{{__('My Properties')}}</a>
+                                <a href="{{route('applicants')}}" class="dropdown-item">{{__('Applicants')}}</a>
                             @else
                                 <a href="{{route('user.view')}}" class="dropdown-item">{{__('Profile')}}</a>
                             @endif
