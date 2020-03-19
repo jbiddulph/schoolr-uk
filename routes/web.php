@@ -55,4 +55,11 @@ Route::post('/property/create', 'PropertyController@store')->name('property.stor
 Route::post('/property/interest/{id}', 'PropertyController@interest')->name('property.interest');
 Route::get('/properties/applications', 'PropertyController@applicant')->name('applicants');
 
+//Venues
+Route::get('/venues/all', 'VenueController@index')->name('venues.show');
+Route::post('/venues/all', 'VenueController@index')->name('venues');
+Route::get('/venues/towns/{town}', 'VenueController@town')->name('venues.town');
 
+//Save and unsave property
+Route::post('/saveproperty/{id}', 'FavouriteController@saveProperty');
+Route::post('/unsaveproperty/{id}', 'FavouriteController@unsaveProperty');

@@ -10,7 +10,7 @@
         {!! Mapper::render() !!}
     </div>
     <div class="container mt-4 welcome">
-        <h1>Properties</h1>
+        <h1 class="mb-4">Properties</h1>
         <div class="row">
                 @foreach($properties as $property)
                     <div class="col-md-3">
@@ -27,7 +27,7 @@
                                 <h4 class="card-title"><a href="{{route('properties.show',[$property->id, $property->slug])}}">{{$property->propname}}</a></h4>
                                 <h5 class="card-subtitle text-right">&pound;{{$property->propcost}}</h5>
                                 <p class="card-text short-description">{{$property->description}}</p>
-                                <a class="btn btn-primary btn-sm" href="{{route('properties.show',[$property->id, $property->slug])}}">Enquire</a>
+                                <div class="text-right"><a class="btn btn-primary btn-sm" href="{{route('properties.show',[$property->id, $property->slug])}}">Enquire</a></div>
                             </div>
                         </div>
                     </div>
@@ -38,9 +38,7 @@
                 <button class="btn btn-secondary btn-lg mt-4" style="width: 100%;">Browse all Properties</button>
             </a>
         </div>
-        <br />
-        <br />
-        <h2>Featured Companies</h2>
+        <h2 class="mb-4 mt-4">Featured Companies</h2>
     </div>
     <div class="container">
         <div class="row">

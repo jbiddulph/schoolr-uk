@@ -45,5 +45,18 @@ $( document ).ready(function() {
             }
         });
     })
+
+    $("#mapswitchform input:checkbox").change(
+        function()
+        {
+            if( $(this).is(":checked") )
+            {
+                $("#mapswitchform").submit();
+            } else {
+                $("#mapswitchform").submit();
+            }
+        }
+    )
+
 });
 

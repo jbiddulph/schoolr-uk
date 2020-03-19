@@ -30,4 +30,12 @@ class Property extends Model
         return \DB::table('property_user')->where('user_id', auth()->user()->id)
             ->where('property_id', $this->id)->exists();
     }
+    public function favourites() {
+        return $this->belongsToMany(Property::class, 'favourites',
+            'prop_id', 'user_id')->withTimestamps();
+    }
+    public function checkSaved() {
+        return \DB::table('favourites')->where('user_id', auth()->user()->id)
+            ->where('prop_id', $this->id)->exists();
+    }
 }

@@ -21,10 +21,15 @@ class PropertyController extends Controller
     }
 
     public function index() {
-        $properties = Property::latest()->limit(10)->where('is_live',1)->get();
-        Mapper::map(50.8319292,-0.3155225, ['zoom' => 12, 'marker' => true]);
+        $properties = Property::latest()->limit(8)->where('is_live',1)->get();
+        Mapper::map(50.8319292,-0.3155225, [
+            'zoom' => 12,
+            'marker' => false,
+            'cluster' => false
+        ]);
         foreach ($properties as $p) {
             Mapper::marker($p->latitude, $p->longitude);
+            Mapper::informationWindow($p->latitude, $p->longitude, '<a href="properties/'.$p->id.'/'.$p->slug.'">'.$p->propname.'</a>', ['icon' => ['url' => 'http://moveme.test/logo/primary_map_marker.png', 'scale' => 100]]);
         }
 //        Mapper::marker($properties->latitude, $properties->longitude);
         $companies = Company::get()->random(4);
@@ -70,7 +75,7 @@ class PropertyController extends Controller
     }
 
     public function show($id,Property $property) {
-        Mapper::map($property->latitude,$property->longitude);
+        Mapper::map($property->latitude,$property->longitude, ['icon' => ['url' => 'http://moveme.test/logo/primary_map_marker.png', 'scale' => 100]]);
         if (Auth::check()) {
             $loggedin = true;
         } else {
@@ -168,15 +173,52 @@ class PropertyController extends Controller
         return view('properties.applicants', compact('applicants'));
     }
 
-    public function allProperties() {
-        Mapper::map(50.8319292,-0.3155225, ['zoom' => 12, 'marker' => false]);
+    public function allProperties(Request $request) {
+        $propname = request('propname');
+        $minbeds = request('bedroom');
+        $proptype_id = request('proptype_id');
+        $category_id = request('category_id');
+        $town = request('town');
         if (Auth::check()) {
             $loggedin = true;
         } else {
             $loggedin = false;
         }
-        $properties = Property::latest()->where('is_live',1)->paginate(10);
-        return view('properties.allproperties', compact('properties','loggedin'));
+
+        if($propname||$minbeds||$proptype_id||$category_id||$town) {
+            $properties = Property::where('propname', 'like', "%{$propname}%")
+                ->where(static function ($query) use ($proptype_id, $minbeds, $category_id, $town) {
+                    $query->where('proptype_id', '=', $proptype_id)
+                        ->orWhere('bedroom', '=', $minbeds)
+                        ->orWhere('category_id', '=', $category_id)
+                        ->orWhere('town', '=', $town);
+                })->paginate(10);
+            Mapper::map(50.8319292,-0.3155225, [
+                'zoom' => 12,
+                'marker' => false,
+                'cluster' => false
+            ]);
+
+            foreach ($properties as $p) {
+                Mapper::marker($p->latitude, $p->longitude);
+                Mapper::informationWindow($p->latitude, $p->longitude, '<a href="properties/'.$p->id.'/'.$p->slug.'">'.$p->propname.'</a>', ['icon' => ['url' => 'http://moveme.test/logo/primary_map_marker.png', 'scale' => 100]]);
+            }
+            return view('properties.allproperties', compact('properties','loggedin'));
+        } else {
+            $properties = Property::latest()->where('is_live',1)->paginate(10);
+            Mapper::map(50.8319292,-0.3155225, [
+                'zoom' => 12,
+                'marker' => false,
+                'cluster' => false
+            ]);
+
+            foreach ($properties as $p) {
+                Mapper::marker($p->latitude, $p->longitude);
+                Mapper::informationWindow($p->latitude, $p->longitude, '<a href="properties/'.$p->id.'/'.$p->slug.'">'.$p->propname.'</a>', ['icon' => ['url' => 'http://moveme.test/logo/primary_map_marker.png', 'scale' => 100]]);
+            }
+            return view('properties.allproperties', compact('properties','loggedin'));
+        }
+
     }
     public function toggleLive(Request $request) {
         $property = Property::find($request->id);

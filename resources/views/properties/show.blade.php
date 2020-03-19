@@ -2,7 +2,7 @@
 
 @section('content')
     @if($loggedin)
-        <div class="container-fluid" style="border-top:6px solid {{Auth::user()->company->primary_color}}"></div>
+        <div class="container-fluid" style="border-top:6px solid {{$property->company->primary_color}}"></div>
     @else
         <div class="colorbar"></div>
     @endif
@@ -83,10 +83,10 @@
                 <br />
                 @if(Auth::check()&&Auth::user()->user_type=='seeker')
                     @if(!$property->checkInterest())
-                        <form action="{{route('property.interest', [$property->id] ) }}}" method="post">@csrf
-                            <button type="submit" class="btn btn-success" style="width: 100%;">Enquire</button>
-                        </form>
+                        <interest-component propertyid={{$property->id}}></interest-component>
                     @endif
+                        <br/><favproperty-component propertyid={{$property->id}}
+                            :favourited={{$property->checkSaved()?'true':'false'}}></favproperty-component>
                 @endif
             </div>
 
@@ -138,7 +138,7 @@
         </div>
     </div>
     @if($loggedin)
-        <div class="container-fluid mt-5" style="border-top:6px solid {{Auth::user()->company->primary_color}}"></div>
+        <div class="container-fluid mt-5" style="border-top:6px solid {{$property->company->primary_color}}"></div>
     @else
         <div class="colorbar mt-5"></div>
     @endif

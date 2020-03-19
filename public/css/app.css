@@ -16,6 +16,10 @@ p.short-description {
   -webkit-box-orient: vertical;
 }
 
+.welcome .card {
+  border-radius: 0rem;
+}
+
 .card-header {
   background-color: #123c69 !important;
   color: #ffffff;
@@ -75,6 +79,94 @@ p.short-description {
   background-color: #123c69 !important;
   border-color: #123c69 !important;
 }
+
+/** SWITCH **/
+
+.switchdesc {
+  line-height: 34px;
+  display: flex;
+  margin: 10px;
+}
+
+.switch {
+  margin: 0px 6px;
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #ac3b61;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px rgba(172, 59, 97, 0.7);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/** END SWITCH **/
+
+/** Towns List **/
+
+ul.towns-list {
+  padding: 10px;
+}
+
+ul.towns-list li {
+  list-style-type: none;
+  display: inline-flex;
+  margin: 2px;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+ul.towns-list li a {
+  color: #ffffff !important;
+}
+
+/** End Towns List **/
 
 /** colorbar **/
 
@@ -155,6 +247,13 @@ img.prop_photo {
 
 .fa {
   color: #ac3b61;
+}
+
+h4.card-title {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 /** Carousel **/
