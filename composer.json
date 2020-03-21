@@ -9,13 +9,14 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "cornford/googlmapper": "3.*",
         "fideloper/proxy": "^4.0",
+        "illuminate/contracts": "6.18.2",
         "illuminate/log": "^6.15",
         "laravel/framework": "^6.2",
         "laravel/helpers": "^1.1",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "^1.1",
-        "cornford/googlmapper": "3.*"
+        "laravel/ui": "^1.1"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
