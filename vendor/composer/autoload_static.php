@@ -114,6 +114,7 @@ class ComposerStaticInit5b70f143e7b22eee3457712954b49c5e
         array (
             'Illuminate\\View\\' => 16,
             'Illuminate\\Support\\' => 19,
+            'Illuminate\\Filesystem\\' => 22,
             'Illuminate\\Events\\' => 18,
             'Illuminate\\Contracts\\' => 21,
             'Illuminate\\Container\\' => 21,
@@ -341,6 +342,10 @@ class ComposerStaticInit5b70f143e7b22eee3457712954b49c5e
         'Illuminate\\Support\\' => 
         array (
             0 => __DIR__ . '/..' . '/illuminate/support',
+        ),
+        'Illuminate\\Filesystem\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/filesystem',
         ),
         'Illuminate\\Events\\' => 
         array (
@@ -1692,11 +1697,11 @@ class ComposerStaticInit5b70f143e7b22eee3457712954b49c5e
         'Illuminate\\Events\\CallQueuedListener' => __DIR__ . '/..' . '/illuminate/events/CallQueuedListener.php',
         'Illuminate\\Events\\Dispatcher' => __DIR__ . '/..' . '/illuminate/events/Dispatcher.php',
         'Illuminate\\Events\\EventServiceProvider' => __DIR__ . '/..' . '/illuminate/events/EventServiceProvider.php',
-        'Illuminate\\Filesystem\\Cache' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Filesystem/Cache.php',
-        'Illuminate\\Filesystem\\Filesystem' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Filesystem/Filesystem.php',
-        'Illuminate\\Filesystem\\FilesystemAdapter' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Filesystem/FilesystemAdapter.php',
-        'Illuminate\\Filesystem\\FilesystemManager' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Filesystem/FilesystemManager.php',
-        'Illuminate\\Filesystem\\FilesystemServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Filesystem/FilesystemServiceProvider.php',
+        'Illuminate\\Filesystem\\Cache' => __DIR__ . '/..' . '/illuminate/filesystem/Cache.php',
+        'Illuminate\\Filesystem\\Filesystem' => __DIR__ . '/..' . '/illuminate/filesystem/Filesystem.php',
+        'Illuminate\\Filesystem\\FilesystemAdapter' => __DIR__ . '/..' . '/illuminate/filesystem/FilesystemAdapter.php',
+        'Illuminate\\Filesystem\\FilesystemManager' => __DIR__ . '/..' . '/illuminate/filesystem/FilesystemManager.php',
+        'Illuminate\\Filesystem\\FilesystemServiceProvider' => __DIR__ . '/..' . '/illuminate/filesystem/FilesystemServiceProvider.php',
         'Illuminate\\Foundation\\AliasLoader' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/AliasLoader.php',
         'Illuminate\\Foundation\\Application' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Application.php',
         'Illuminate\\Foundation\\Auth\\Access\\Authorizable' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Auth/Access/Authorizable.php',
