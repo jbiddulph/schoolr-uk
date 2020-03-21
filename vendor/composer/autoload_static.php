@@ -101,7 +101,6 @@ class ComposerStaticInit5b70f143e7b22eee3457712954b49c5e
         'L' => 
         array (
             'League\\Flysystem\\' => 17,
-            'League\\CommonMark\\Ext\\Table\\' => 28,
             'League\\CommonMark\\' => 18,
             'Laravel\\Ui\\' => 11,
             'Laravel\\Tinker\\' => 15,
@@ -115,6 +114,7 @@ class ComposerStaticInit5b70f143e7b22eee3457712954b49c5e
         array (
             'Illuminate\\View\\' => 16,
             'Illuminate\\Support\\' => 19,
+            'Illuminate\\Events\\' => 18,
             'Illuminate\\Contracts\\' => 21,
             'Illuminate\\Container\\' => 21,
             'Illuminate\\' => 11,
@@ -314,10 +314,6 @@ class ComposerStaticInit5b70f143e7b22eee3457712954b49c5e
         array (
             0 => __DIR__ . '/..' . '/league/flysystem/src',
         ),
-        'League\\CommonMark\\Ext\\Table\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/league/commonmark-ext-table/src',
-        ),
         'League\\CommonMark\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/commonmark/src',
@@ -345,6 +341,10 @@ class ComposerStaticInit5b70f143e7b22eee3457712954b49c5e
         'Illuminate\\Support\\' => 
         array (
             0 => __DIR__ . '/..' . '/illuminate/support',
+        ),
+        'Illuminate\\Events\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/events',
         ),
         'Illuminate\\Contracts\\' => 
         array (
@@ -1689,9 +1689,9 @@ class ComposerStaticInit5b70f143e7b22eee3457712954b49c5e
         'Illuminate\\Database\\SqlServerConnection' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/SqlServerConnection.php',
         'Illuminate\\Encryption\\Encrypter' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Encryption/Encrypter.php',
         'Illuminate\\Encryption\\EncryptionServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Encryption/EncryptionServiceProvider.php',
-        'Illuminate\\Events\\CallQueuedListener' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Events/CallQueuedListener.php',
-        'Illuminate\\Events\\Dispatcher' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Events/Dispatcher.php',
-        'Illuminate\\Events\\EventServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Events/EventServiceProvider.php',
+        'Illuminate\\Events\\CallQueuedListener' => __DIR__ . '/..' . '/illuminate/events/CallQueuedListener.php',
+        'Illuminate\\Events\\Dispatcher' => __DIR__ . '/..' . '/illuminate/events/Dispatcher.php',
+        'Illuminate\\Events\\EventServiceProvider' => __DIR__ . '/..' . '/illuminate/events/EventServiceProvider.php',
         'Illuminate\\Filesystem\\Cache' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Filesystem/Cache.php',
         'Illuminate\\Filesystem\\Filesystem' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Filesystem/Filesystem.php',
         'Illuminate\\Filesystem\\FilesystemAdapter' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Filesystem/FilesystemAdapter.php',
@@ -2250,18 +2250,6 @@ class ComposerStaticInit5b70f143e7b22eee3457712954b49c5e
         'League\\CommonMark\\Event\\AbstractEvent' => __DIR__ . '/..' . '/league/commonmark/src/Event/AbstractEvent.php',
         'League\\CommonMark\\Event\\DocumentParsedEvent' => __DIR__ . '/..' . '/league/commonmark/src/Event/DocumentParsedEvent.php',
         'League\\CommonMark\\Exception\\UnexpectedEncodingException' => __DIR__ . '/..' . '/league/commonmark/src/Exception/UnexpectedEncodingException.php',
-        'League\\CommonMark\\Ext\\Table\\Table' => __DIR__ . '/..' . '/league/commonmark-ext-table/src/Table.php',
-        'League\\CommonMark\\Ext\\Table\\TableCaption' => __DIR__ . '/..' . '/league/commonmark-ext-table/src/TableCaption.php',
-        'League\\CommonMark\\Ext\\Table\\TableCaptionRenderer' => __DIR__ . '/..' . '/league/commonmark-ext-table/src/TableCaptionRenderer.php',
-        'League\\CommonMark\\Ext\\Table\\TableCell' => __DIR__ . '/..' . '/league/commonmark-ext-table/src/TableCell.php',
-        'League\\CommonMark\\Ext\\Table\\TableCellRenderer' => __DIR__ . '/..' . '/league/commonmark-ext-table/src/TableCellRenderer.php',
-        'League\\CommonMark\\Ext\\Table\\TableExtension' => __DIR__ . '/..' . '/league/commonmark-ext-table/src/TableExtension.php',
-        'League\\CommonMark\\Ext\\Table\\TableParser' => __DIR__ . '/..' . '/league/commonmark-ext-table/src/TableParser.php',
-        'League\\CommonMark\\Ext\\Table\\TableRenderer' => __DIR__ . '/..' . '/league/commonmark-ext-table/src/TableRenderer.php',
-        'League\\CommonMark\\Ext\\Table\\TableRow' => __DIR__ . '/..' . '/league/commonmark-ext-table/src/TableRow.php',
-        'League\\CommonMark\\Ext\\Table\\TableRowRenderer' => __DIR__ . '/..' . '/league/commonmark-ext-table/src/TableRowRenderer.php',
-        'League\\CommonMark\\Ext\\Table\\TableSection' => __DIR__ . '/..' . '/league/commonmark-ext-table/src/TableSection.php',
-        'League\\CommonMark\\Ext\\Table\\TableSectionRenderer' => __DIR__ . '/..' . '/league/commonmark-ext-table/src/TableSectionRenderer.php',
         'League\\CommonMark\\Extension\\Autolink\\AutolinkExtension' => __DIR__ . '/..' . '/league/commonmark/src/Extension/Autolink/AutolinkExtension.php',
         'League\\CommonMark\\Extension\\Autolink\\EmailAutolinkProcessor' => __DIR__ . '/..' . '/league/commonmark/src/Extension/Autolink/EmailAutolinkProcessor.php',
         'League\\CommonMark\\Extension\\Autolink\\InlineMentionParser' => __DIR__ . '/..' . '/league/commonmark/src/Extension/Autolink/InlineMentionParser.php',
@@ -3427,14 +3415,15 @@ class ComposerStaticInit5b70f143e7b22eee3457712954b49c5e
         'Psy\\CodeCleaner\\CallTimePassByReferencePass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/CallTimePassByReferencePass.php',
         'Psy\\CodeCleaner\\CalledClassPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/CalledClassPass.php',
         'Psy\\CodeCleaner\\CodeCleanerPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/CodeCleanerPass.php',
+        'Psy\\CodeCleaner\\EmptyArrayDimFetchPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/EmptyArrayDimFetchPass.php',
         'Psy\\CodeCleaner\\ExitPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/ExitPass.php',
         'Psy\\CodeCleaner\\FinalClassPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/FinalClassPass.php',
         'Psy\\CodeCleaner\\FunctionContextPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/FunctionContextPass.php',
         'Psy\\CodeCleaner\\FunctionReturnInWriteContextPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/FunctionReturnInWriteContextPass.php',
         'Psy\\CodeCleaner\\ImplicitReturnPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/ImplicitReturnPass.php',
         'Psy\\CodeCleaner\\InstanceOfPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/InstanceOfPass.php',
+        'Psy\\CodeCleaner\\LabelContextPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/LabelContextPass.php',
         'Psy\\CodeCleaner\\LeavePsyshAlonePass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/LeavePsyshAlonePass.php',
-        'Psy\\CodeCleaner\\LegacyEmptyPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/LegacyEmptyPass.php',
         'Psy\\CodeCleaner\\ListPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/ListPass.php',
         'Psy\\CodeCleaner\\LoopContextPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/LoopContextPass.php',
         'Psy\\CodeCleaner\\MagicConstantsPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/MagicConstantsPass.php',
@@ -3465,10 +3454,8 @@ class ComposerStaticInit5b70f143e7b22eee3457712954b49c5e
         'Psy\\Command\\ListCommand\\Enumerator' => __DIR__ . '/..' . '/psy/psysh/src/Command/ListCommand/Enumerator.php',
         'Psy\\Command\\ListCommand\\FunctionEnumerator' => __DIR__ . '/..' . '/psy/psysh/src/Command/ListCommand/FunctionEnumerator.php',
         'Psy\\Command\\ListCommand\\GlobalVariableEnumerator' => __DIR__ . '/..' . '/psy/psysh/src/Command/ListCommand/GlobalVariableEnumerator.php',
-        'Psy\\Command\\ListCommand\\InterfaceEnumerator' => __DIR__ . '/..' . '/psy/psysh/src/Command/ListCommand/InterfaceEnumerator.php',
         'Psy\\Command\\ListCommand\\MethodEnumerator' => __DIR__ . '/..' . '/psy/psysh/src/Command/ListCommand/MethodEnumerator.php',
         'Psy\\Command\\ListCommand\\PropertyEnumerator' => __DIR__ . '/..' . '/psy/psysh/src/Command/ListCommand/PropertyEnumerator.php',
-        'Psy\\Command\\ListCommand\\TraitEnumerator' => __DIR__ . '/..' . '/psy/psysh/src/Command/ListCommand/TraitEnumerator.php',
         'Psy\\Command\\ListCommand\\VariableEnumerator' => __DIR__ . '/..' . '/psy/psysh/src/Command/ListCommand/VariableEnumerator.php',
         'Psy\\Command\\ParseCommand' => __DIR__ . '/..' . '/psy/psysh/src/Command/ParseCommand.php',
         'Psy\\Command\\PsyVersionCommand' => __DIR__ . '/..' . '/psy/psysh/src/Command/PsyVersionCommand.php',
@@ -3496,7 +3483,6 @@ class ComposerStaticInit5b70f143e7b22eee3457712954b49c5e
         'Psy\\Exception\\ThrowUpException' => __DIR__ . '/..' . '/psy/psysh/src/Exception/ThrowUpException.php',
         'Psy\\Exception\\TypeErrorException' => __DIR__ . '/..' . '/psy/psysh/src/Exception/TypeErrorException.php',
         'Psy\\ExecutionClosure' => __DIR__ . '/..' . '/psy/psysh/src/ExecutionClosure.php',
-        'Psy\\ExecutionLoop' => __DIR__ . '/..' . '/psy/psysh/src/ExecutionLoop.php',
         'Psy\\ExecutionLoopClosure' => __DIR__ . '/..' . '/psy/psysh/src/ExecutionLoopClosure.php',
         'Psy\\ExecutionLoop\\AbstractListener' => __DIR__ . '/..' . '/psy/psysh/src/ExecutionLoop/AbstractListener.php',
         'Psy\\ExecutionLoop\\Listener' => __DIR__ . '/..' . '/psy/psysh/src/ExecutionLoop/Listener.php',
