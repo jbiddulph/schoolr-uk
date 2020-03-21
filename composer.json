@@ -13,6 +13,7 @@
         "fideloper/proxy": "^4.0",
         "illuminate/contracts": "6.18.2",
         "illuminate/log": "^6.15",
+        "illuminate/support": "6.18.2",
         "laravel/framework": "^6.2",
         "laravel/helpers": "^1.1",
         "laravel/tinker": "^2.0",
