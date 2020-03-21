@@ -11,6 +11,7 @@
         "php": "^7.2",
         "cornford/googlmapper": "3.*",
         "fideloper/proxy": "^4.0",
+        "illuminate/container": "6.18.2",
         "illuminate/contracts": "6.18.2",
         "illuminate/log": "^6.15",
         "illuminate/support": "6.18.2",
