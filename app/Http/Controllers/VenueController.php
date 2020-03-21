@@ -21,7 +21,7 @@ class VenueController extends Controller
                 $checked = '';
             }
 
-        $venueslist = Venue::latest()->where('is_live',1)->paginate(50);
+        $venueslist = Venue::latest()->where('is_live',1)->paginate(52);
         $venues = Venue::get();
         $towns = Venue::select('town')->distinct()->get();
 
@@ -33,12 +33,12 @@ class VenueController extends Controller
         if($mapswitch == 'on') {
             foreach ($venues as $v) {
                 Mapper::marker($v->latitude, $v->longitude);
-                Mapper::informationWindow($v->latitude, $v->longitude, '<a href="venue/' . $v->id . '/' . $v->slug . '">' . $v->venuename . '</a>', ['icon' => ['url' => 'http://moveme.test/logo/primary_map_marker.png', 'scale' => 100]]);
+                Mapper::informationWindow($v->latitude, $v->longitude, '<a href="/venues/' . str_slug($v->town) . '/' . str_slug($v->venuename) . '/'. $v->id .'">' . $v->venuename . '</a>', ['icon' => ['url' => 'http://moveme.test/logo/primary_map_marker.png', 'scale' => 100]]);
             }
         } else {
             foreach ($venueslist as $v) {
                 Mapper::marker($v->latitude, $v->longitude);
-                Mapper::informationWindow($v->latitude, $v->longitude, '<a href="venue/' . $v->id . '/' . $v->slug . '">' . $v->venuename . '</a>', ['icon' => ['url' => 'http://moveme.test/logo/primary_map_marker.png', 'scale' => 100]]);
+                Mapper::informationWindow($v->latitude, $v->longitude, '<a href="/venues/' . str_slug($v->town) . '/' . str_slug($v->venuename) . '/'. $v->id .'">' . $v->venuename . '</a>', ['icon' => ['url' => 'http://moveme.test/logo/primary_map_marker.png', 'scale' => 100]]);
             }
         }
 
@@ -51,11 +51,13 @@ class VenueController extends Controller
 
     public function town(Request $request, $town) {
 
-        $venueslist = Venue::latest()->where('is_live',1)->where('town', $town)->paginate(50);
+        $venueslist = Venue::latest()->where('is_live',1)->where('town', $town)->paginate(52);
         $venues = Venue::get();
         $towns = Venue::select('town')->distinct()->get();
 
-        if($town == 'Brighton'){
+        if($town == 'brighton'){
+            $town = 'Brighton Sussex';
+        } elseif($town == 'Brighton') {
             $town = 'Brighton Sussex';
         }
         if($town == 'Peacehaven'){
@@ -71,13 +73,30 @@ class VenueController extends Controller
 
             foreach ($venueslist as $v) {
                 Mapper::marker($v->latitude, $v->longitude);
-                Mapper::informationWindow($v->latitude, $v->longitude, '<a href="venue/' . $v->id . '/' . $v->slug . '">' . $v->venuename . '</a>', ['icon' => ['url' => 'http://moveme.test/logo/primary_map_marker.png', 'scale' => 100]]);
+                Mapper::informationWindow($v->latitude, $v->longitude, '<a href="/venues/' . str_slug($v->town) . '/' . str_slug($v->venuename) . '/'. $v->id .'">' . $v->venuename . '</a>', ['icon' => ['url' => 'http://moveme.test/logo/primary_map_marker.png', 'scale' => 100]]);
             }
 
         return view('venues.town', compact(
             'venues',
             'venueslist',
             'towns'));
+    }
+
+    public function venue($town, $venue, $id) {
+        $towns = Venue::select('town')->distinct()->get();
+        $thevenue = Venue::findOrFail($id);
+        Mapper::map($thevenue->latitude,$thevenue->longitude, [
+            'zoom' => 16,
+            'marker' => true,
+            'cluster' => false
+        ]);
+        Mapper::informationWindow($thevenue->latitude, $thevenue->longitude, '<a href="/venues/' . str_slug($thevenue->town) . '/' . str_slug($thevenue->venuename) . '/'. $thevenue->id .'">' . $thevenue->venuename . '</a>', ['icon' => ['url' => 'http://moveme.test/logo/primary_map_marker.png', 'scale' => 100]]);
+        return view('venues.venue', compact(
+            'towns',
+            'town',
+            'venue',
+        'id',
+        'thevenue'));
     }
 
 }

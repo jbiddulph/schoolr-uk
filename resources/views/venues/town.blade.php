@@ -5,7 +5,7 @@
     <div style="width: 100%; height: 300px;">
         {!! Mapper::render() !!}
     </div>
-    <small class="justify-content-end" style="text-align: right;">Map markers are shown on paginated search of 50 max per page</small>
+    <small class="justify-content-end" style="text-align: right;">Map markers are shown on paginated search of 52 max per page</small>
     <div class="container mt-4 welcome">
         <h1>Venues in {{request('town')}}</h1>
         <div class="row">
@@ -24,7 +24,7 @@
                                 $mainphoto = str_replace('public/', 'storage/', $venue->photo)
                             @endphp
                             <div class="mainpic">
-                                <a href="{{route('venues.show',[$venue->id, $venue->slug])}}"><img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$venue->venuename}}"></a>
+                                <a href="/venues/{{ str_slug($venue->town)}}/{{str_slug($venue->venuename)}}/{{$venue->id}}"><img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$venue->venuename}}"></a>
                             </div>
                         @endif
                         <div class="card-body">

@@ -59,6 +59,7 @@ Route::get('/properties/applications', 'PropertyController@applicant')->name('ap
 Route::get('/venues/all', 'VenueController@index')->name('venues.show');
 Route::post('/venues/all', 'VenueController@index')->name('venues');
 Route::get('/venues/towns/{town}', 'VenueController@town')->name('venues.town');
+Route::get('/venues/{town}/{name}/{id}', 'VenueController@venue')->name('venue.name');
 
 //Save and unsave property
 Route::post('/saveproperty/{id}', 'FavouriteController@saveProperty');
