@@ -15,7 +15,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    @if(Auth::user()->user_type == "admin")
+                        You are logged into Administration!
+                    @endif
                     You are logged in!
                 </div>
             </div>
