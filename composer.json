@@ -11,6 +11,7 @@
         "php": "^7.2",
         "cornford/googlmapper": "3.*",
         "fideloper/proxy": "^4.0",
+        "filp/whoops": "^2.7",
         "fzaninotto/faker": "^1.9",
         "illuminate/container": "6.18.2",
         "illuminate/contracts": "6.18.2",
