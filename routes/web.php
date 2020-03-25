@@ -17,6 +17,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//Administration
+Route::get('/admin', 'AdministrationController@index');
+
 //company
 Route::get('/company/{id}/{company}', 'CompanyController@index')->name('company.index');
 Route::get('/company/create', 'CompanyController@create')->name('company.view');

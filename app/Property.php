@@ -3,10 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Property extends Model
 {
-
+    use Notifiable, LogsActivity;
     protected $fillable = ['user_id', 'company_id', 'propname', 'slug', 'propcost', 'proptype_id', 'propimage',
         'bedroom', 'bathroom', 'kitchen', 'garage', 'reception', 'conservatory', 'outbuilding', 'address',
         'town', 'county', 'postcode', 'latitude', 'longitude', 'description', 'floorplan', 'brochure',

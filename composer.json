@@ -18,10 +18,11 @@
         "illuminate/log": "^6.15",
         "illuminate/support": "6.18.2",
         "illuminate/view": "6.18.2",
-        "laravel/framework": "^7.0",
+        "laravel/framework": "6.18.1",
         "laravel/helpers": "^1.1",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "^1.1"
+        "laravel/ui": "^1.1",
+        "spatie/laravel-activitylog": "^3.14"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

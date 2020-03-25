@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PropertyPhotos extends Model
 {
+
     protected $guarded = [];
     //
     public function property() {
