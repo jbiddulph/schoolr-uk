@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b28ecf84ddcd6f467c43f75ef41c64fb",
+    "content-hash": "0fc58556be15ec492ca9ec6371debaf5",
     "packages": [
         {
             "name": "cornford/googlmapper",
