@@ -80,6 +80,10 @@ p.short-description {
   border-color: #123c69 !important;
 }
 
+span.small_slogan {
+  font-size: 0.8rem;
+}
+
 /** SWITCH **/
 
 .switchdesc {

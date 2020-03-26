@@ -1,7 +1,7 @@
 <nav class="navbar navbar-fixed-top navbar-expand-md navbar-light">
     <a class="navbar-brand primary" href="{{ url('/') }}">
         <img src="{{asset('logo/primary_marker.png')}}" height="40" alt="BN Here logo">
-        <strong class="mr-2">Local</strong>news, nightlife, property
+        <strong class="mr-2">Local</strong><span class="small_slogan">news, nightlife, property</span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
         <span class="navbar-toggler-icon"></span>
