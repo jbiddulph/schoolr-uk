@@ -1,7 +1,7 @@
 <nav class="navbar navbar-fixed-top navbar-expand-md navbar-light">
     <a class="navbar-brand primary" href="{{ url('/') }}">
         <img src="{{asset('logo/primary_marker.png')}}" height="40" alt="BN Here logo">
-        <strong class="mr-2">Local</strong>news, nightlife and property
+        <strong class="mr-2">Local</strong>news, nightlife, property
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
         <span class="navbar-toggler-icon"></span>
@@ -41,7 +41,7 @@
                 @if(Auth::user()->user_type=='company')
                 <li>
                     <a href="{{route('property.create')}}">
-                        <button class="btn btn-secondary">Add a property</button>
+                        <button class="btn btn-secondary">Add property</button>
                     </a>
                 </li>
                 @endif
