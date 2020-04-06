@@ -56,7 +56,7 @@
     </div>
 @endsection
 @section('script')
-    <script src="http://malsup.github.com/jquery.form.js"></script>
+    <script src="https://malsup.github.com/jquery.form.js"></script>
     <script type="text/javascript">
     $(document).ready(function(){
         $('#myForm').ajaxForm({
