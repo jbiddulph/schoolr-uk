@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'BN-Here') }}</title>
+    <title>Local Property, News and Events in the South - BN Here</title>
 
 
     <!-- Fonts -->
