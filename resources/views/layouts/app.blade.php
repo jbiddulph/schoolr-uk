@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163275218-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-163275218-1');
+    </script>
     <meta charset="utf-8">
     <meta name="description" content="Properties, Events and news along the south coast within East and West Sussex."/>
     <meta name="keywords" content="Brighton News, Hove News, Portslade Latest, Shoreham News, News Lancing, Worthing News">
@@ -10,7 +19,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Local Property, News and Events in the South - BN Here</title>
-
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
