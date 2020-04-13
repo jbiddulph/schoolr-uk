@@ -40,7 +40,7 @@ class SubscriptionController extends Controller
         $user->newSubscription('main', $planId)->create($paymentMethod);
 
         return response([
-            'success_url'=>redirect()->intended('/')->getTargetUrl(),
+            'success_url'=>redirect()->intended('/property/create')->getTargetUrl(),
             'message'=>'success'
         ]);
     }
