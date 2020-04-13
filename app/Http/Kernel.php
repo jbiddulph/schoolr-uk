@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\CheckSubscription;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -64,6 +65,9 @@ class Kernel extends HttpKernel
         'company' => \App\Http\Middleware\Company::class,
         'seeker' => \App\Http\Middleware\Seeker::class,
         'admin' => \App\Http\Middleware\Admin::class,
+        'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+        'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
+        'check-subscription' => \App\Http\Middleware\CheckSubscription::class
     ];
 
     /**

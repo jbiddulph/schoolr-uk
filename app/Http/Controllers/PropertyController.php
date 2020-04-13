@@ -226,4 +226,5 @@ class PropertyController extends Controller
         $property->save();
         return redirect()->back();
     }
+
 }

@@ -33,8 +33,8 @@ Route::View('register/company','register-company')->name('register.company');
 Route::post('company/register', 'CompanyRegisterController@companyRegister')->name('company.register');
 
 // User Profile
-Route::get('user/profile', 'UserController@index')->name('user.view');
-Route::post('user/profile/create', 'UserController@store')->name('profile.create');
+Route::get('user/profile', 'UserController@profile')->name('user.view');
+Route::post('user/profile/create', 'UserController@profilestore')->name('profile.create');
 Route::post('user/coverletter', 'UserController@coverletter')->name('cover.letter');
 Route::post('user/identification', 'UserController@identification')->name('identification');
 Route::post('user/avatar', 'UserController@avatar')->name('avatar');
@@ -51,7 +51,7 @@ Route::post('/properties/{id}/uploads-edit', 'PropertyController@propImageUpdate
 Route::get('/properties/{id}/{property}', 'PropertyController@show')->name('properties.show');
 Route::get('/properties/{id}/{property}/addphotos', 'PropertyController@addphotos')->name('properties.addphotos');
 Route::post('/propertyphoto/add', 'PropertyController@propertyPhoto')->name('property.photo');
-Route::get('/property/create', 'PropertyController@create')->name('property.create');
+Route::get('/property/create', 'PropertyController@create')->name('property.create')->middleware(['auth','check-subscription']);
 Route::get('/property/my-property', 'PropertyController@myProperty')->name('property.myproperty');
 Route::get('/properties/all-properties', 'PropertyController@allProperties')->name('allproperties');
 Route::post('/property/create', 'PropertyController@store')->name('property.store');
@@ -67,3 +67,16 @@ Route::get('/venues/{town}/{name}/{id}', 'VenueController@venue')->name('venue.n
 //Save and unsave property
 Route::post('/saveproperty/{id}', 'FavouriteController@saveProperty');
 Route::post('/unsaveproperty/{id}', 'FavouriteController@unsaveProperty');
+
+//Subscribe
+Route::get('/subscribe', 'SubscriptionController@payment');
+Route::post('/subscribe', 'SubscriptionController@subscribe');
+
+
+Route::group(['middleware'=>'role:super-admin'], function (){
+    Route::resource('admin/permission', 'Admin\\PermissionController');
+    Route::resource('admin/role', 'Admin\\RoleController');
+    Route::resource('admin/user', 'UserController');
+});
+
+

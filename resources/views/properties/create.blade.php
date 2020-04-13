@@ -7,6 +7,12 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header"><h2>Property Create</h2></div>
+                    @if(!auth()->user()->subscribed('main'))
+                        HELLO
+                    @else
+                        Goodbye
+                    @endif
+
                     <div class="card-body">
                         @if(Session::has('message'))
                             <div class="alert alert-success">

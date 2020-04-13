@@ -7,12 +7,14 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Company;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Cashier\Billable;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use Notifiable, LogsActivity, Billable;
+    use Notifiable, LogsActivity, Billable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -20,7 +22,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'user_type'
+        'name', 'email', 'password', 'user_type', 'stripe_id'
     ];
 
     /**
@@ -31,6 +33,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    protected function setPasswordAttribute($value)
+    {
+        if($value){
+            $this->attributes['password']= app('hash')->needsRehash($value)?Hash::make($value):$value;
+        }
+    }
 
     /**
      * The attributes that should be cast to native types.

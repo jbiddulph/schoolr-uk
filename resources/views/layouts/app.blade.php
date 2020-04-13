@@ -38,7 +38,7 @@
 
         gtag('config', 'UA-28646788-2');
     </script>
-
+    @yield('head')
 </head>
 <body>
     <div id="app">
