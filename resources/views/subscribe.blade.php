@@ -65,6 +65,8 @@
                     axios.post('/subscribe',{
                         payment_method: setupIntent.payment_method,
                         plan: plan
+                    }).then((data)=>{
+                        location.replace(data.data.success)
                     });
                 }
             });

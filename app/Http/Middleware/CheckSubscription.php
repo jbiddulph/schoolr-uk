@@ -15,9 +15,11 @@ class CheckSubscription
      */
     public function handle($request, Closure $next)
     {
+
         if(!$request->user()->subscribed('main')){
-            redirect('subscribe');
+            return redirect('subscribe');
         }
+
         return $next($request);
     }
 }
