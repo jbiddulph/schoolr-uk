@@ -9,64 +9,68 @@
     <div style="width: 100%; height: 300px;">
         {!! Mapper::render() !!}
     </div>
-    <div class="container mt-4 welcome">
-        <h1>Properties</h1>
+    <div class="container-fluid welcome search-block">
         <div class="row">
-            <form action="{{route('allproperties')}}" method="GET">
-                <div class="form-inline">
-                    <div class="form-group mr-2">
-                        <label>Search</label>
-                        <input type="text" name="propname" class="form-control ml-2">
+            <div class="col-md-12">
+                <form action="{{route('allproperties')}}" method="GET">
+                    <div class="form-inline">
+                        <div class="form-group mr-2">
+                            <label>Search:</label>
+                            <input type="text" name="propname" class="form-control ml-2">
+                        </div>
+                        <div class="form-group mr-2">
+                            <label>Max Beds:</label>
+                            <select name="bedroom" class="form-control ml-2" id="bedroom">
+                                <option value="">Please Select</option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                            </select>
+                        </div>
+                        <div class="form-group mr-2">
+                            <label>Type:</label>
+                            <select name="proptype_id" class="form-control @error('proptype_id') is-invalid @enderror ml-2" id="proptype_id">
+                                <option value="">Please select</option>
+                                @foreach(App\PropertyType::all() as $propType)
+                                    <option value="{{$propType->id}}">{{$propType->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group mr-2">
+                            <label>Status:</label>
+                            <select name="category_id" class="form-control ml-2" id="category_id">
+                                <option value="">Please select</option>
+                                @foreach(App\Category::all() as $cat)
+                                    <option value="{{$cat->id}}">{{$cat->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group mr-2">
+                            <label>Town:</label>
+                            <select name="town" class="form-control ml-2" id="category_id">
+                                <option value="">Please select</option>
+                                @foreach(App\Property::select('town')->distinct()->get() as $town)
+                                    <option value="{{$town->town}}">{{$town->town}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group mr-2">
+                            <input type="submit" value="search" class="btn-primary btn btn-md">
+                        </div>
                     </div>
-                    <div class="form-group mr-2">
-                        <label>Max Beds</label>
-                        <select name="bedroom" class="form-control ml-2" id="bedroom">
-                            <option value="">Please select</option>
-                            <option value="0">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                        </select>
-                    </div>
-                    <div class="form-group mr-2">
-                        <label>Type</label>
-                        <select name="proptype_id" class="form-control @error('proptype_id') is-invalid @enderror ml-2" id="proptype_id">
-                            <option value="">Please select</option>
-                            @foreach(App\PropertyType::all() as $propType)
-                                <option value="{{$propType->id}}">{{$propType->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group mr-2">
-                        <label>Category</label>
-                        <select name="category_id" class="form-control ml-2" id="category_id">
-                            <option value="">Please select</option>
-                            @foreach(App\Category::all() as $cat)
-                                <option value="{{$cat->id}}">{{$cat->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group mr-2">
-                        <label>Town</label>
-                        <select name="town" class="form-control ml-2" id="category_id">
-                            <option value="">Please select</option>
-                            @foreach(App\Property::select('town')->distinct()->get() as $town)
-                                <option value="{{$town->town}}">{{$town->town}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group mr-2">
-                        <input type="submit" value="search" class="btn-primary btn btn-sm">
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
+    </div>
+    <div class="container-fluid mt-4 welcome">
+        <h1>Property List</h1>
         <div class="row">
             @foreach($properties as $property)
                 <div class="col-md-3">

@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="colorbar"></div>
+    <div class="container mt-4">
+        <h1>User Administration - <a href="/admin">Admin</a></h1>
         <div class="row">
             @include('admin.sidebar')
 

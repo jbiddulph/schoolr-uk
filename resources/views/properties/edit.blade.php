@@ -1,10 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+    @if(Auth::user()->user_type != 'admin')
     <div class="container-fluid" style="border-top:6px solid {{Auth::user()->company->primary_color}}"></div>
+    @endif
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                @if(Auth::user()->user_type == 'admin')
+                    <a href="/admin">Edit Property List</a>
+                @endif
                 <div class="card">
                     <div class="card-header"><h2>Property Update</h2></div>
                     <div class="card-body">
@@ -13,7 +18,11 @@
                                 {{Session::get('message')}}
                             </div>
                         @endif
+                        @if(Auth::user()->user_type != 'admin')
                         <form action="{{route('property.update', [$property->id])}}" method="post" enctype="multipart/form-data">@csrf
+                        @else
+                        <form action="{{route('adminproperty.update', [$property->id])}}" method="post" enctype="multipart/form-data">@csrf
+                        @endif
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
@@ -416,5 +425,7 @@
             </div>
         </div>
     </div>
+    @if(Auth::user()->user_type != 'admin')
     <div class="container-fluid mt-4" style="border-top:6px solid {{Auth::user()->company->primary_color}}"></div>
+    @endif
 @endsection

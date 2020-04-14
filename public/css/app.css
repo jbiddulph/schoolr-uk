@@ -20,6 +20,10 @@ p.short-description {
   border-radius: 0rem;
 }
 
+h1 {
+  color: #123c69;
+}
+
 .card-header {
   background-color: #123c69 !important;
   color: #ffffff;
@@ -352,6 +356,12 @@ footer {
 #monthly-option img {
   margin-top: 30px;
   border: 4px solid #ffffff;
+}
+
+.search-block {
+  background-color: #123c69;
+  color: #ffffff;
+  padding: 20px;
 }
 
 /*!

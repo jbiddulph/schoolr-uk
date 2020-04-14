@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Company;
-use App\Profile;
 use App\PropertyPhotos;
 use Auth;
 use Illuminate\Http\Request;

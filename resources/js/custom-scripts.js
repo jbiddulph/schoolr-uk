@@ -46,6 +46,36 @@ $( document ).ready(function() {
         });
     })
 
+    $('.toggle-live-property').change(function() {
+        var is_live = $(this).prop('checked') == true ? 1 : 0;
+        var property_id = $(this).data('id');
+
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: '/changePropertyStatus',
+            data: {'is_live': is_live, 'id': property_id},
+            success: function(data){
+                console.log(data.success)
+            }
+        });
+    })
+
+    $('.toggle-live-venue').change(function() {
+        var is_live = $(this).prop('checked') == true ? 1 : 0;
+        var venue_id = $(this).data('id');
+
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: '/changeVenueStatus',
+            data: {'is_live': is_live, 'id': venue_id},
+            success: function(data){
+                console.log(data.success)
+            }
+        });
+    })
+
     $("#mapswitchform input:checkbox").change(
         function()
         {
