@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.subscription')
 
 @section('head')
     <script src="https://js.stripe.com/v3/"></script>
@@ -31,12 +31,20 @@
 @endsection
 
 @section('content')
-<div class="container">
+
+<div class="container subscription-page">
     <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <h3>Subscribe</h3>
+        <div class="col-md-8 offset-2">
+            <h2>Customise your company page and start listing properties with unlimited photos</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-5">
             <div class="card">
-                <div class="card-header">Subscribe</div>
+                <div class="card-header">Choose your subscription type below</div>
                 <div class="card-body">
                     @if(session('status'))
                         <div class="alert alert-success" role="alert">
@@ -57,6 +65,17 @@
                         </button>
                 </div>
             </div>
+        </div>
+        <div class="col-md-3 justify-content-center">
+            <div id="monthly-option">
+                <img src="{{asset('assets/media/misc/monthly-option.jpg')}}" alt="" width="100%" align="right">
+            </div>
+            <div id="yearly-option">
+                <img src="{{asset('assets/media/misc/yearly-option.jpg')}}" alt="" width="100%" align="right">
+            </div>
+        </div>
+        <div class="col-md-2">
+
         </div>
     </div>
 </div>

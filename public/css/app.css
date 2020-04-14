@@ -323,6 +323,37 @@ footer {
 
 /** END FOOTER **/
 
+#yearly-option {
+  display: none;
+}
+
+h2 {
+  color: #ffffff;
+}
+
+.subscribe .card-header {
+  background-color: #ac3b61 !important;
+}
+
+.subscription-page {
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+.subscribe {
+  background-color: #123c69;
+}
+
+#yearly-option img {
+  margin-top: 30px;
+  border: 4px solid #ffffff;
+}
+
+#monthly-option img {
+  margin-top: 30px;
+  border: 4px solid #ffffff;
+}
+
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors

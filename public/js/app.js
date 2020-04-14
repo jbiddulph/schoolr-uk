@@ -50063,6 +50063,15 @@ $(document).ready(function () {
       $("#mapswitchform").submit();
     }
   });
+  $('#subscription-plan').on('change', function () {
+    if (this.value == 'plan_H5l5lbmw0nviEe') {
+      $("#yearly-option").show();
+      $("#monthly-option").hide();
+    } else if (this.value == 'plan_H4tzGPX4F3m9zD') {
+      $("#yearly-option").hide();
+      $("#monthly-option").show();
+    }
+  });
 });
 
 /***/ }),
