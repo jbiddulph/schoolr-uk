@@ -29,7 +29,7 @@ class PropertyController extends Controller
         ]);
         foreach ($properties as $p) {
             Mapper::marker($p->latitude, $p->longitude);
-            Mapper::informationWindow($p->latitude, $p->longitude, '<a href="properties/'.$p->id.'/'.$p->slug.'">'.$p->propname.'</a>', ['icon' => ['url' => 'http://moveme.test/logo/primary_map_marker.png', 'scale' => 100]]);
+            Mapper::informationWindow($p->latitude, $p->longitude, '<a href="properties/'.$p->id.'/'.$p->slug.'">'.$p->propname.'</a>', ['icon' => ['url' => 'https://bnhere.co.uk/logo/primary_map_marker.png', 'scale' => 100]]);
         }
 //        Mapper::marker($properties->latitude, $properties->longitude);
         $companies = Company::get()->random(4);
@@ -75,7 +75,7 @@ class PropertyController extends Controller
     }
 
     public function show($id,Property $property) {
-        Mapper::map($property->latitude,$property->longitude, ['icon' => ['url' => 'http://moveme.test/logo/primary_map_marker.png', 'scale' => 100]]);
+        Mapper::map($property->latitude,$property->longitude, ['icon' => ['url' => 'https://bnhere.co.uk/logo/primary_map_marker.png', 'scale' => 100]]);
         if (Auth::check()) {
             $loggedin = true;
         } else {
@@ -201,7 +201,7 @@ class PropertyController extends Controller
 
             foreach ($properties as $p) {
                 Mapper::marker($p->latitude, $p->longitude);
-                Mapper::informationWindow($p->latitude, $p->longitude, '<a href="properties/'.$p->id.'/'.$p->slug.'">'.$p->propname.'</a>', ['icon' => ['url' => 'http://moveme.test/logo/primary_map_marker.png', 'scale' => 100]]);
+                Mapper::informationWindow($p->latitude, $p->longitude, '<a href="properties/'.$p->id.'/'.$p->slug.'">'.$p->propname.'</a>', ['icon' => ['url' => 'https://bnhere.co.uk/logo/primary_map_marker.png', 'scale' => 100]]);
             }
             return view('properties.allproperties', compact('properties','loggedin'));
         } else {
@@ -214,7 +214,7 @@ class PropertyController extends Controller
 
             foreach ($properties as $p) {
                 Mapper::marker($p->latitude, $p->longitude);
-                Mapper::informationWindow($p->latitude, $p->longitude, '<a href="properties/'.$p->id.'/'.$p->slug.'">'.$p->propname.'</a>', ['icon' => ['url' => 'http://moveme.test/logo/primary_map_marker.png', 'scale' => 100]]);
+                Mapper::informationWindow($p->latitude, $p->longitude, '<a href="properties/'.$p->id.'/'.$p->slug.'">'.$p->propname.'</a>', ['icon' => ['url' => 'https://bnhere.co.uk/logo/primary_map_marker.png', 'scale' => 100]]);
             }
             return view('properties.allproperties', compact('properties','loggedin'));
         }
