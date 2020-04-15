@@ -14,7 +14,7 @@
 Route::get('/', 'PropertyController@index');
 
 Auth::routes();
-Route::get('/admin', 'AdministrationController@index');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 //company
@@ -71,6 +71,7 @@ Route::post('/subscribe', 'SubscriptionController@subscribe');
 
 
 Route::group(['middleware'=>'role:super-admin'], function (){
+    Route::get('/admin', 'AdministrationController@index');
     Route::get('/admin/property', 'AdministrationController@property');
     Route::get('/admin/venue', 'AdministrationController@venue');
     Route::resource('admin/permission', 'Admin\\PermissionController');
@@ -81,6 +82,8 @@ Route::group(['middleware'=>'role:super-admin'], function (){
     //Edit Venues
     Route::get('/admin/venues/{id}/edit', 'AdministrationController@venueEdit')->name('adminvenue.edit');
     Route::post('/admin/venues/{id}/edit', 'AdministrationController@venueUpdate')->name('adminvenue.update');
+    Route::get('/admin/venues/{id}/uploads-edit', 'AdministrationController@venueuploadsedit')->name('adminvenue.uploadsedit');
+    Route::post('/admin/venues/{id}/uploads-edit', 'AdministrationController@venueImageUpdate')->name('adminvenue.venueImageUpdate');
     //Edit Properties
     Route::get('/admin/properties/{id}/edit', 'AdministrationController@propertyEdit')->name('adminproperty.edit');
     Route::post('/admin/properties/{id}/edit', 'AdministrationController@propertyUpdate')->name('adminproperty.update');

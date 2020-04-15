@@ -44,6 +44,23 @@ class AdministrationController extends Controller
         $property->update($request->all());
         return redirect()->back()->with('message','Property successfully updated!');
     }
+    public function venueuploadsedit($id) {
+        $venue = Venue::findOrFail($id);
+        return view('venues.uploads-edit', compact('venue'));
+    }
+
+    public function venueImageUpdate(Request $request, $id) {
+
+        $venue = Venue::findOrFail($id);
+        Log::info('This Venue: '.$venue.'');
+        $venuephoto = $request->file('photo')->store('public/venues/photos');
+
+        $venue->update([
+            'photo'=>$venuephoto,
+        ]);
+        return redirect()->back()->with('message','Venue image updated!');
+    }
+
     public function propuploadsedit($id) {
         $property = Property::findOrFail($id);
         return view('properties.uploads-edit', compact('property'));
