@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.list')
 
 @section('content')
     <div class="colorbar"></div>
@@ -15,16 +15,16 @@
             @endforeach
             </ul>
         </div>
-        <div class="row">
+        <div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'>
             @foreach($venueslist as $venue)
-                <div class="col-md-3">
-                    <div class="property-card card mb-4">
+                <div class="grid-list">
+                    <div class="venue-card card mb-4">
                         @if(isset($venue->photo))
                             @php
                                 $mainphoto = str_replace('public/', 'storage/', $venue->photo)
                             @endphp
                             <div class="mainpic">
-                                <a href="/venues/{{ str_slug($venue->town)}}/{{str_slug($venue->venuename)}}/{{$venue->id}}"><img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$venue->venuename}}"></a>
+                                <a href="/venues/{{ str_slug($venue->town)}}/{{str_slug($venue->venuename)}}/{{$venue->id}}"><img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$venue->venuename}}" width="180"></a>
                             </div>
                         @endif
                         <div class="card-body">

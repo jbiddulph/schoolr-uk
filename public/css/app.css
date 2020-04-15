@@ -364,6 +364,27 @@ footer {
   padding: 20px;
 }
 
+/** WELCOME **/
+
+.welcome .venue-card {
+  transition: transform 0.3s;
+}
+
+.welcome .venue-card img {
+  width: 100%;
+}
+
+.welcome .venue-card:hover {
+  transform: scale(1.03);
+}
+
+.grid-list {
+  width: 200px;
+  margin: 0px 10px;
+}
+
+/** END WELCOME **/
+
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors

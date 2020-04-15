@@ -1,0 +1,18 @@
+/** WELCOME **/
+.welcome {
+    .venue-card {
+        transition: transform 0.3s;
+        //transition-timing-function: ease-in-out;
+        img {
+            width:100%;
+        }
+    }
+    .venue-card:hover {
+        transform: scale(1.03);
+    }
+}
+.grid-list {
+    width:200px;
+    margin: 0px 10px
+}
+/** END WELCOME **/

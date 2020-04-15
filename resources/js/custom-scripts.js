@@ -101,5 +101,26 @@ $( document ).ready(function() {
             $("#monthly-option").show();
         }
     });
+
+    // $('.grid').masonry({
+    //     // options...
+    //     itemSelector: '.grid-item',
+    //     columnWidth: 200
+    // });
+
+    // vanilla JS
+// init with element
+    var grid = document.querySelector('.grid');
+    var msnry = new Masonry( grid, {
+        // options...
+        itemSelector: '.grid-item',
+        columnWidth: 180,
+        gutter: 20
+    });
+
+// init with selector
+    var msnry = new Masonry( '.grid', {
+        // options...
+    });
 });
 
