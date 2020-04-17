@@ -17,10 +17,12 @@ class CreateEventsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('venue_id');
             $table->string('eventName');
+            $table->string('eventPhoto');
             $table->date('eventDate');
             $table->time('eventTime');
             $table->string('eventType');
             $table->string('eventCost');
+            $table->integer('is_live')->default(1);
             $table->timestamps();
         });
     }

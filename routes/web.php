@@ -74,6 +74,7 @@ Route::group(['middleware'=>'role:super-admin'], function (){
     Route::get('/admin', 'AdministrationController@index');
     Route::get('/admin/property', 'AdministrationController@property');
     Route::get('/admin/venue', 'AdministrationController@venue');
+    Route::get('/admin/event', 'AdministrationController@event');
     Route::resource('admin/permission', 'Admin\\PermissionController');
     Route::resource('admin/role', 'Admin\\RoleController');
     Route::resource('admin/user', 'UserController');
@@ -86,6 +87,13 @@ Route::group(['middleware'=>'role:super-admin'], function (){
     Route::post('/admin/venues/{id}/edit', 'AdministrationController@venueUpdate')->name('adminvenue.update');
     Route::get('/admin/venues/{id}/uploads-edit', 'AdministrationController@venueuploadsedit')->name('adminvenue.uploadsedit');
     Route::post('/admin/venues/{id}/uploads-edit', 'AdministrationController@venueImageUpdate')->name('adminvenue.venueImageUpdate');
+    //Edit Events
+    Route::get('/admin/events/create', 'AdministrationController@eventCreate')->name('adminevent.create');
+    Route::post('/admin/events/create', 'AdministrationController@eventStore')->name('adminevent.store');
+    Route::get('/admin/events/{id}/edit', 'AdministrationController@eventEdit')->name('adminevent.edit');
+    Route::post('/admin/events/{id}/edit', 'AdministrationController@eventUpdate')->name('adminevent.update');
+    Route::get('/admin/events/{id}/uploads-edit', 'AdministrationController@eventuploadsedit')->name('adminevent.uploadsedit');
+    Route::post('/admin/events/{id}/uploads-edit', 'AdministrationController@eventImageUpdate')->name('adminevent.eventImageUpdate');
     //Edit Properties
     Route::get('/admin/properties/{id}/edit', 'AdministrationController@propertyEdit')->name('adminproperty.edit');
     Route::post('/admin/properties/{id}/edit', 'AdministrationController@propertyUpdate')->name('adminproperty.update');

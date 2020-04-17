@@ -28,6 +28,10 @@ class AdministrationController extends Controller
         $venues = Venue::paginate(52);
         return view('administration.adminvenue', compact('venues'));
     }
+    public function event() {
+        $events = Event::paginate(52);
+        return view('administration.adminevent', compact('events'));
+    }
     public function venueCreate() {
         return view('venues.create');
     }
