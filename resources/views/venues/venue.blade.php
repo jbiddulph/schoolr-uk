@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.venue')
 
 @section('content')
     <div class="colorbar"></div>
