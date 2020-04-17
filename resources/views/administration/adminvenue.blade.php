@@ -4,6 +4,9 @@
     <div class="colorbar"></div>
     <div class="container mt-4">
         <h1>Venue Administration - <a href="/admin">Admin</a></h1>
+        <a href="{{route('adminvenue.create')}}">
+            <button class="btn btn-secondary">Add Venue</button>
+        </a>
         <div class="row">
             @if(count($venues) > 0)
                 @foreach($venues as $venue)
@@ -16,20 +19,19 @@
                                             $mainphoto = str_replace('public/', 'storage/', $venue->photo)
                                         @endphp
                                         <div class="mainpic">
-                                            <div class="edit-photo"><a href="{{route('adminproperty.uploadsedit',[$venue->id])}}"><i class="fas fa-camera fa-2x"></i></a></div>
+                                            <div class="edit-photo"><input data-id="{{$venue->id}}" name="is_live" class="toggle-live-venue" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $venue->is_live ? 'checked' : '' }}></div>
                                             <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="Property">
                                         </div>
                                     @endif
                                 </div>
                             </div>
                             <div class="card-body">
-                                <a href="{{route('adminvenue.edit',[$venue->id])}}"><h4 class="card-title">{{$venue->venuename}}</h4>
-                                <h5 class="card-subtitle text-right">{{$venue->venuetype}}</h5>
+                                <a href="{{route('adminvenue.edit',[$venue->id])}}"><h3 class="card-title">{{$venue->venuename}}</h3>
                                 <p class="card-text short-description">
                                     {{$venue->address}}<br />
                                     {{$venue->town}}
                                 </p>
-                                <input data-id="{{$venue->id}}" name="is_live" class="toggle-live-venue" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $venue->is_live ? 'checked' : '' }}></a>
+                                </a>
                             </div>
                         </div>
                     </div>

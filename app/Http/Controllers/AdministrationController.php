@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Company;
+use App\Http\Requests\VenuePostRequest;
 use App\Property;
 use App\User;
 use App\Profile;
@@ -25,6 +27,35 @@ class AdministrationController extends Controller
     public function venue() {
         $venues = Venue::paginate(52);
         return view('administration.adminvenue', compact('venues'));
+    }
+    public function venueCreate() {
+        return view('venues.create');
+    }
+    public function venueStore(VenuePostRequest $request) {
+
+        $venuephoto = $request->file('photo')->store('public/venues/photos');
+
+        Venue::create([
+            'venuename'=>request('venuename'),
+            'slug'=>str_slug(request('venuename')),
+            'venuetype'=>request('venuetype'),
+            'address'=>request('address'),
+            'photo'=>$venuephoto,
+            'address2'=>request('address2'),
+            'town'=>request('town'),
+            'county'=>request('county'),
+            'postcode'=>request('postcode'),
+            'postalsearch'=>request('postalsearch'),
+            'telephone'=>request('telephone'),
+            'latitude'=>request('latitude'),
+            'longitude'=>request('longitude'),
+            'website'=>request('website')
+        ]);
+
+        //LOGGING
+        Log::info('Venue Name: '.request('venuename').'');
+
+        return redirect()->back()->with('message','Venue added successfully!');
     }
     public function venueEdit($id) {
         $venue = Venue::findOrFail($id);

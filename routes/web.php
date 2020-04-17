@@ -80,6 +80,8 @@ Route::group(['middleware'=>'role:super-admin'], function (){
     Route::get('/changePropertyStatus', 'AdministrationController@togglePropertyLive')->name('adminproperty.togglelive');
     Route::get('/changeVenueStatus', 'AdministrationController@toggleVenueLive')->name('adminvenue.togglelive');
     //Edit Venues
+    Route::get('/admin/venues/create', 'AdministrationController@venueCreate')->name('adminvenue.create');
+    Route::post('/admin/venues/create', 'AdministrationController@venueStore')->name('adminvenue.store');
     Route::get('/admin/venues/{id}/edit', 'AdministrationController@venueEdit')->name('adminvenue.edit');
     Route::post('/admin/venues/{id}/edit', 'AdministrationController@venueUpdate')->name('adminvenue.update');
     Route::get('/admin/venues/{id}/uploads-edit', 'AdministrationController@venueuploadsedit')->name('adminvenue.uploadsedit');

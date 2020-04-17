@@ -303,6 +303,11 @@ h4.card-title {
   height: 100px;
 }
 
+.toggle-live-venue {
+  height: 20px;
+  width: 20px;
+}
+
 /** WELCOME **/
 
 .welcome .property-card {

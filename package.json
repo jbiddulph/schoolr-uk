@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "ajax-form": "^2.1.4"
+        "ajax-form": "^2.1.4",
+        "masonry-layout": "^4.2.2"
     }
 }
