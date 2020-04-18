@@ -369,6 +369,20 @@ footer {
   padding: 20px;
 }
 
+.mainpic {
+  position: relative;
+}
+
+.mainpic span {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  padding: 0px 8px;
+  font-size: 0.8rem;
+}
+
 /** WELCOME **/
 
 .welcome .venue-card {

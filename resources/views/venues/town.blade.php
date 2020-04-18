@@ -5,17 +5,9 @@
     <div style="width: 100%; height: 300px;">
         {!! Mapper::render() !!}
     </div>
-    <small class="justify-content-end" style="text-align: right;">Map markers are shown on paginated search of 52 max per page</small>
     <div class="container mt-4 welcome">
         <h1>Venues in {{request('town')}}</h1>
-        <div class="row">
-            <ul class="towns-list">
-            @foreach($towns as $town)
-                <li><h3><a href="{{route('venues.town', [$town->town])}}" class="btn btn-secondary btn-sm">{{$town->town}}</a></h3></li>
-            @endforeach
-            </ul>
-        </div>
-        <div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'>
+        <div class="grid mt-4" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'>
             @foreach($venueslist as $venue)
                 <div class="grid-list">
                     <div class="venue-card card mb-4">
@@ -25,18 +17,20 @@
                             @endphp
                             <div class="mainpic">
                                 <a href="/venues/{{ str_slug($venue->town)}}/{{str_slug($venue->venuename)}}/{{$venue->id}}"><img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$venue->venuename}}" width="180"></a>
+                                <span class="postal">{{$venue->postalsearch}}</span>
                             </div>
                         @endif
                         <div class="card-body">
-                            <strong>{{$venue->postalsearch}}</strong>
-{{--                            <h4 class="card-title"><a href="{{route('venues.show',[$venue->id, $venue->slug])}}">{{$venue->propname}}</a></h4>--}}
-                            <h5 class="card-subtitle text-right">{{$venue->venuename}}</h5>
+{{--                        <h4 class="card-title"><a href="{{route('venues.show',[$venue->id, $venue->slug])}}">{{$venue->propname}}</a></h4>--}}
+                            <h5 class="card-subtitle">{{$venue->venuename}}</h5>
                             <p class="card-text">{{$venue->address}}<br />
-                            {{$venue->address2}}<br />
+                            @if($venue->address2 != '')
+                                {{$venue->address2}}<br />
+                            @endif
                             {{$venue->town}}<br />
                             {{$venue->county}}<br />
                             {{$venue->postcode}}</p>
-                            <p class="card-text short-description">{{$venue->telephone}}</p>
+                            <p class="card-text short-description"><i class="fas fa-phone-alt"></i>&nbsp;{{$venue->telephone}}</p>
 {{--                            <a class="btn btn-primary btn-sm" href="{{route('properties.show',[$venue->id, $venue->slug])}}">Enquire</a>--}}
                         </div>
                     </div>
@@ -47,6 +41,13 @@
             <div class="offset-md-2 col-md-8 text-center">
                 {{$venueslist->links()}}
             </div>
+        </div>
+        <div class="row">
+            <ul class="towns-list">
+                @foreach($towns as $town)
+                    <li><h3><a href="{{route('venues.town', [$town->town])}}" class="btn btn-secondary btn-md">{{$town->town}}</a></h3></li>
+                @endforeach
+            </ul>
         </div>
     </div>
     <div class="colorbar mt-5"></div>

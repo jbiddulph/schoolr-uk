@@ -71,7 +71,7 @@
     </div>
     <div class="container-fluid mt-4 welcome">
         <h1>Property List</h1>
-        <div class="row">
+        <div class="row mt-4">
             @foreach($properties as $property)
                 <div class="col-md-3">
                     <div class="property-card card mb-4">
@@ -89,7 +89,7 @@
                             <h5 class="card-subtitle text-right">&pound;{{$property->propcost}}</h5>
                             <p class="card-text short-description">{{$property->description}}</p>
                             <div class="text-right">
-                                <a class="btn btn-primary btn-sm" href="{{route('properties.show',[$property->id, $property->slug])}}">Enquire</a>
+                                <a class="btn btn-primary btn-md" href="{{route('properties.show',[$property->id, $property->slug])}}">Read More</a>
                             </div>
                         </div>
                     </div>

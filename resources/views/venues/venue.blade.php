@@ -5,17 +5,9 @@
     <div style="width: 100%; height: 300px;">
         {!! Mapper::render() !!}
     </div>
-    <small class="justify-content-end" style="text-align: right;">Map markers are shown on paginated search of 52 max per page</small>
     <div class="container mt-4 welcome">
         <h1>{{$thevenue->venuename}}, <a href="{{route('venues.town', [request('town')])}}" style="text-transform: capitalize;">{{request('town')}}</a></h1>
-        <div class="row">
-            <ul class="towns-list">
-            @foreach($towns as $town)
-                <li><h3><a href="{{route('venues.town', [$town->town])}}" class="btn btn-secondary btn-sm">{{$town->town}}</a></h3></li>
-            @endforeach
-            </ul>
-        </div>
-        <div class="row">
+        <div class="row mt-4">
             <div class="col-md-3">
                 <div class="property-card card mb-4">
                     @if(isset($thevenue->photo))
@@ -40,6 +32,13 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row">
+            <ul class="towns-list">
+                @foreach($towns as $town)
+                    <li><h3><a href="{{route('venues.town', [$town->town])}}" class="btn btn-secondary btn-md">{{$town->town}}</a></h3></li>
+                @endforeach
+            </ul>
         </div>
     </div>
     <div class="colorbar mt-5"></div>

@@ -191,7 +191,7 @@ class PropertyController extends Controller
                         ->orWhere('bedroom', '=', $minbeds)
                         ->orWhere('category_id', '=', $category_id)
                         ->orWhere('town', '=', $town);
-                })->paginate(10);
+                })->paginate(20);
             Mapper::map(50.8319292,-0.3155225, [
                 'zoom' => 12,
                 'marker' => false,
@@ -204,7 +204,7 @@ class PropertyController extends Controller
             }
             return view('properties.allproperties', compact('properties','loggedin'));
         } else {
-            $properties = Property::latest()->where('is_live',1)->paginate(10);
+            $properties = Property::latest()->where('is_live',1)->paginate(20);
             Mapper::map(50.8319292,-0.3155225, [
                 'zoom' => 12,
                 'marker' => false,

@@ -31,7 +31,7 @@
                 <a href="/admin/venue">
                     <div class="card mb-4">
                         <div class="card-body text-center">
-                            <h4>Venues</h4>
+                            <h4>Pubs & Venues</h4>
                             <i class="fas fa-beer fa-8x text-center mb-3"></i><br />
                             <button class="btn btn-sm btn-dark">Edit Venues</button>
                         </div>
@@ -43,7 +43,7 @@
                     <div class="card mb-4">
                         <div class="card-body text-center">
                             <h4>Events</h4>
-                            <i class="fas fa-beer fa-8x text-center mb-3"></i><br />
+                            <i class="far fa-calendar-alt fa-8x text-center mb-3"></i><br />
                             <button class="btn btn-sm btn-dark">Edit Events</button>
                         </div>
                     </div>

@@ -5,6 +5,7 @@
     <div style="width: 100%; height: 300px;">
         {!! Mapper::render() !!}
     </div>
+    <small class="justify-content-center" style="width: 100%; display:flex;">Map markers are shown on paginated search of 52 max per page</small>
     <form action="{{route('venues')}}" name="mapswitchform" id="mapswitchform" method="post" enctype="multipart/form-data">@csrf
         <div class="switchdesc justify-content-center text-center">
             <span>Paginated</span>
@@ -16,7 +17,7 @@
         </div>
     </form>
     <div class="container mt-4 welcome">
-        <h1>Venues</h1>
+        <h1>Pubs &amp; Venues</h1>
         <div class="row">
             <ul class="towns-list">
             @foreach($towns as $town)
@@ -24,7 +25,7 @@
             @endforeach
             </ul>
         </div>
-        <div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'>
+        <div class="grid mt-4" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'>
             @foreach($venueslist as $venue)
                 <div class="grid-list">
                     <div class="venue-card card mb-4">
