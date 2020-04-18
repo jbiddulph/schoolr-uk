@@ -38,6 +38,17 @@
                     </div>
                 </a>
             </div>
+            <div class="col-md-3">
+                <a href="/admin/event">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            <h4>Events</h4>
+                            <i class="fas fa-beer fa-8x text-center mb-3"></i><br />
+                            <button class="btn btn-sm btn-dark">Edit Events</button>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
     <div class="colorbar mt-5"></div>

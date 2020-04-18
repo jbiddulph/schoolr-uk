@@ -24,7 +24,6 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e167166ec4.js" crossorigin="anonymous"></script>
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -50,9 +49,12 @@
     @include('layouts.includes.footer')
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    @yield('script')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://vanderlee.github.io/colorpicker/jquery.colorpicker.js"></script>
+
+        @yield('script')
+
     @stack('custom-scripts')
 </body>
 </html>

@@ -70,6 +70,9 @@ Route::get('/subscribe', 'SubscriptionController@payment');
 Route::post('/subscribe', 'SubscriptionController@subscribe');
 
 
+Route::post('/admin/searchvenues', 'VenueController@searchVenues')->name('search.venues');
+Route::post('/admin/searchvenuetowns', 'VenueController@searchVenueTowns')->name('search.venuetowns');
+
 Route::group(['middleware'=>'role:super-admin'], function (){
     Route::get('/admin', 'AdministrationController@index');
     Route::get('/admin/property', 'AdministrationController@property');
@@ -89,6 +92,7 @@ Route::group(['middleware'=>'role:super-admin'], function (){
     Route::post('/admin/venues/{id}/uploads-edit', 'AdministrationController@venueImageUpdate')->name('adminvenue.venueImageUpdate');
     //Edit Events
     Route::get('/admin/events/create', 'AdministrationController@eventCreate')->name('adminevent.create');
+
     Route::post('/admin/events/create', 'AdministrationController@eventStore')->name('adminevent.store');
     Route::get('/admin/events/{id}/edit', 'AdministrationController@eventEdit')->name('adminevent.edit');
     Route::post('/admin/events/{id}/edit', 'AdministrationController@eventUpdate')->name('adminevent.update');

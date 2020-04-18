@@ -9,7 +9,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 class Event extends Model
 {
     use Notifiable, LogsActivity;
-    protected $fillable = ['venue_id', 'eventName', 'eventDate', 'eventTime', 'eventCategory', 'eventCost'];
+    protected $fillable = ['venue_id', 'eventName', 'slug', 'eventPhoto', 'eventDate', 'eventTimeStart', 'eventTimeEnd', 'eventType', 'eventCost', 'is_live'];
 
     public function venue() {
         return $this->belongsTo(Venue::class);

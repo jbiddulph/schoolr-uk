@@ -17,9 +17,11 @@ class CreateEventsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('venue_id');
             $table->string('eventName');
+            $table->string('slug');
             $table->string('eventPhoto');
             $table->date('eventDate');
-            $table->time('eventTime');
+            $table->time('eventTimeStart');
+            $table->time('eventTimeEnd');
             $table->string('eventType');
             $table->string('eventCost');
             $table->integer('is_live')->default(1);

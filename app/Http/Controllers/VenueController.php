@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Property;
 use App\Venue;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Mapper;
+use Illuminate\Support\Facades\DB;
+
 
 class VenueController extends Controller
 {
@@ -47,6 +50,47 @@ class VenueController extends Controller
             'venueslist',
                 'towns',
                 'checked'));
+    }
+
+    public function searchVenueTowns(Request $request) {
+        $query = $request->get('query');
+        $data = DB::table('venues')->where('town','LIKE','%'.$query.'%')->get();
+//        Log::info('Venue Query Here: '.$query.'');
+//        Log::info('Venue Data Here: '.$data.'');
+        $output = '<ul class="dropdown-menu" style="padding:10px; display:block; position:relative; height: 300px; overflow-y: scroll;">';
+
+        foreach ($data as $row){
+            $output .= '<li>
+                <div class="form-check">
+  <input class="form-check-input" type="radio" name="selectedVenueID" id="'.$row->slug.'" value="'.$row->id.'">
+  <label class="form-check-label" for="'.$row->slug.'">
+            '.$row->venuename.', '.$row->town.'
+            </label>
+</div></li>';
+        }
+        $output .= '</ul>';
+        return $output;
+//        return response()->json($data);
+    }
+
+    public function searchVenues(Request $request) {
+        $query = $request->get('query');
+        $data = DB::table('venues')->where('venuename','LIKE','%'.$query.'%')->get();
+//        Log::info('Venue Query Here: '.$query.'');
+//        Log::info('Venue Data Here: '.$data.'');
+        $output = '<ul class="dropdown-menu" style="padding:10px; display:block; position:relative; height: 300px; overflow-y: scroll;">';
+
+        foreach ($data as $row){
+            $output .= '<li>
+                <div class="form-check">
+  <input class="form-check-input" type="radio" name="selectedVenueID" id="'.$row->slug.'" value="'.$row->id.'">
+  <label class="form-check-label" for="'.$row->slug.'">
+            '.$row->venuename.', '.$row->town.'
+            </label>
+</div></li>';
+        }
+        $output .= '</ul>';
+        return $output;
     }
 
     public function town(Request $request, $town) {

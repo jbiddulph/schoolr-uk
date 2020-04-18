@@ -16,7 +16,7 @@
                                 <div role="listbox">
                                     @if(isset($event->eventPhoto))
                                         @php
-                                            $mainphoto = str_replace('public/', 'storage/', $event->photo)
+                                            $mainphoto = str_replace('public/', 'storage/', $event->eventPhoto)
                                         @endphp
                                         <div class="mainpic">
                                             <div class="edit-photo"><input data-id="{{$event->id}}" name="is_live" class="toggle-live-venue" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $event->is_live ? 'checked' : '' }}></div>

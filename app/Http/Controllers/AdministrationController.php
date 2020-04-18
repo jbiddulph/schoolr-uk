@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Company;
+use App\Event;
 use App\Http\Requests\VenuePostRequest;
+use App\Http\Requests\EventPostRequest;
 use App\Property;
 use App\User;
 use App\Profile;
@@ -31,6 +33,57 @@ class AdministrationController extends Controller
     public function event() {
         $events = Event::paginate(52);
         return view('administration.adminevent', compact('events'));
+    }
+    public function eventCreate() {
+        return view('events.create');
+    }
+    public function eventStore(EventPostRequest $request) {
+        $eventphoto = $request->file('eventPhoto')->store('public/events/photos');
+        Log::info('Venue venue_id Here: '.request('venue_id').'');
+        Log::info('Venue eventName Here: '.request('eventName').'');
+        Log::info('Venue slug Here: '.request('slug').'');
+        Log::info('Venue eventPhoto Here: '.$eventphoto.'');
+        Log::info('Venue eventDate Here: '.request('eventDate').'');
+        Log::info('Venue eventTimeStart Here: '.request('eventTimeStart').'');
+        Log::info('Venue eventTimeEnd Here: '.request('eventTimeEnd').'');
+        Log::info('Venue eventType Here: '.request('eventType').'');
+        Log::info('Venue eventCost Here: '.request('eventCost').'');
+        Event::create([
+            'venue_id'=>request('venue_id'),
+            'eventName'=>request('eventName'),
+            'slug'=>str_slug(request('eventName')),
+            'eventPhoto'=>$eventphoto,
+            'eventDate'=>request('eventDate'),
+            'eventTimeStart'=>request('eventTimeStart'),
+            'eventTimeEnd'=>request('eventTimeEnd'),
+            'eventType'=>request('eventType'),
+            'eventCost'=>request('eventCost')
+        ]);
+
+        return redirect()->back()->with('message','Event added successfully!');
+    }
+    public function eventEdit($id) {
+        $event = Event::findOrFail($id);
+        return view('events.edit', compact('event'));
+    }
+    public function eventUpdate(Request $request, $id) {
+        $event = Event::findOrFail($id);
+        $event->update($request->all());
+        return redirect()->back()->with('message','Event successfully updated!');
+    }
+    public function eventuploadsedit($id) {
+        $event = Event::findOrFail($id);
+        return view('events.uploads-edit', compact('event'));
+    }
+    public function eventImageUpdate(Request $request, $id) {
+
+        $event = Venue::findOrFail($id);
+        $eventphoto = $request->file('eventPhoto')->store('public/events/photos');
+
+        $event->update([
+            'eventPhoto'=>$eventphoto,
+        ]);
+        return redirect()->back()->with('message','Event image updated!');
     }
     public function venueCreate() {
         return view('venues.create');
@@ -70,20 +123,10 @@ class AdministrationController extends Controller
         $venue->update($request->all());
         return redirect()->back()->with('message','Venue successfully updated!');
     }
-    public function propertyEdit($id) {
-        $property = Property::findOrFail($id);
-        return view('properties.edit', compact('property'));
-    }
-    public function propertyUpdate(Request $request, $id) {
-        $property = Property::findOrFail($id);
-        $property->update($request->all());
-        return redirect()->back()->with('message','Property successfully updated!');
-    }
     public function venueuploadsedit($id) {
         $venue = Venue::findOrFail($id);
         return view('venues.uploads-edit', compact('venue'));
     }
-
     public function venueImageUpdate(Request $request, $id) {
 
         $venue = Venue::findOrFail($id);
@@ -94,6 +137,15 @@ class AdministrationController extends Controller
             'photo'=>$venuephoto,
         ]);
         return redirect()->back()->with('message','Venue image updated!');
+    }
+    public function propertyEdit($id) {
+        $property = Property::findOrFail($id);
+        return view('properties.edit', compact('property'));
+    }
+    public function propertyUpdate(Request $request, $id) {
+        $property = Property::findOrFail($id);
+        $property->update($request->all());
+        return redirect()->back()->with('message','Property successfully updated!');
     }
 
     public function propuploadsedit($id) {
