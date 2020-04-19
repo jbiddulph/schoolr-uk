@@ -5,35 +5,32 @@
     <div class="container-fluid" style="border-top:6px solid {{Auth::user()->company->primary_color}}"></div>
     @endif
     <div class="container mt-4">
-        @if(Auth::user()->user_type == 'admin')
-            <a href="/admin/event">Edit Event List</a>
-        @endif
+        <h1>Edit Event | <a href="/admin">Admin</a>@if(Auth::user()->user_type == 'admin')
+                | <a href="/admin/event">Edit Event List</a>
+            @endif</h1>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header"><h2>Event Create</h2></div>
+                    <div class="card-header"><h2>Event: {{$event->eventName}}</h2></div>
                     <div class="card-body">
                         @if(Session::has('message'))
                             <div class="alert alert-success">
                                 {{Session::get('message')}}
                             </div>
                         @endif
-                            <form action="{{route('adminevent.store')}}" method="post" enctype="multipart/form-data">@csrf
+                            <form action="{{route('adminevent.update', [$event->id])}}" method="post" enctype="multipart/form-data">@csrf
                                 <div class="row">
                                     <div class="col-md-12">
                                         <label for="eventPhoto">Event Photo</label>
-                                        <input type="file" class="form-control @error('eventPhoto') is-invalid @enderror" name="eventPhoto">
-                                        <br />
-                                        @if($errors->has('eventPhoto'))
-                                            <div class="error text-danger">{{$errors->first('eventPhoto')}}</div>
-                                        @endif
+                                        <input type="file" class="form-control" name="eventPhoto" value="{{ $event->eventPhoto }}">
+
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="propname">Event Name</label>
-                                            <input type="text" name="eventName" class="form-control @error('eventName') is-invalid @enderror">
+                                            <input type="text" name="eventName" class="form-control @error('eventName') is-invalid @enderror" value="{{ $event->eventName }}">
                                             @error('eventName')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -44,7 +41,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="eventtype">Event Type</label>
-                                            <input type="text" name="eventType" class="form-control @error('eventType') is-invalid @enderror">
+                                            <input type="text" name="eventType" class="form-control @error('eventType') is-invalid @enderror" value="{{ $event->eventType }}">
                                             @error('eventType')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -55,7 +52,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="eventCost">Event Cost</label>
-                                            <input type="text" name="eventCost" class="form-control @error('eventCost') is-invalid @enderror">
+                                            <input type="text" name="eventCost" class="form-control @error('eventCost') is-invalid @enderror" value="{{ $event->eventCost }}">
                                             @error('eventCost')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -68,7 +65,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="eventDate">Event Date</label>
-                                            <input type="text" name="eventDate" id="eventDate" class="form-control @error('eventDate') is-invalid @enderror">
+                                            <input type="text" name="eventDate" id="eventDate" class="form-control @error('eventDate') is-invalid @enderror"  value="{{ $event->eventDate }}">
                                             @error('eventDate')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -79,7 +76,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="eventStartTime">Start Time</label>
-                                            <input type="text" name="eventTimeStart" class="timepicker form-control @error('eventTimeStart') is-invalid @enderror">
+                                            <input type="text" name="eventTimeStart" class="timepicker form-control @error('eventTimeStart') is-invalid @enderror" value="{{ $event->eventTimeStart }}">
                                             @error('eventTimeStart')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -90,7 +87,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="eventTimeEnd">End Time</label>
-                                            <input type="text" name="eventTimeEnd" class="timepicker form-control @error('eventTimeEnd') is-invalid @enderror">
+                                            <input type="text" name="eventTimeEnd" class="timepicker form-control @error('eventTimeEnd') is-invalid @enderror" value="{{ $event->eventTimeEnd }}">
                                             @error('eventTimeEnd')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -100,7 +97,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <input type="hidden" name="venue_id" id="venue_id" value="">
+                                    <input type="hidden" name="venue_id" id="venue_id" value="{{ $event->id }}">
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">

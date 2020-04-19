@@ -12,7 +12,7 @@
                 @foreach($venues as $venue)
                     <div class="col-md-3">
                         <div class="card mb-4">
-                            <div id="property{{ $venue->id }}">
+                            <div id="venue{{ $venue->id }}">
                                 <div role="listbox">
                                     @if(isset($venue->photo))
                                         @php
@@ -20,7 +20,7 @@
                                         @endphp
                                         <div class="mainpic">
                                             <div class="edit-photo"><input data-id="{{$venue->id}}" name="is_live" class="toggle-live-venue" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $venue->is_live ? 'checked' : '' }}></div>
-                                            <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="Property">
+                                            <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="Venue">
                                         </div>
                                     @endif
                                 </div>

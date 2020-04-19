@@ -4,11 +4,12 @@
     <div class="colorbar"></div>
     <div class="container mt-4">
         <h1>Event Administration - <a href="/admin">Admin</a></h1>
+        <h2>Deleted Events</h2>
+        <a href="{{route('admin.event')}}">
+            <button class="btn btn-secondary">< Back</button>
+        </a>
         <a href="{{route('adminevent.create')}}">
             <button class="btn btn-secondary">Add Event</button>
-        </a>
-        <a href="{{route('events.deleted')}}">
-            <button class="btn btn-secondary">Deleted Events</button>
         </a>
         <div class="row">
             @if(count($events) > 0)
@@ -38,16 +39,19 @@
 
                                 </p>
                                 </a>
-                                <a href="{{ route('perm.delete', [$event->id]) }}">
+                                <a href="{{route('event.restoredelete', [$event->id])}}">
+                                    <button class="btn btn-warning btn-sm"><i class="fas fa-trash-restore-alt"></i> ({{$event->id}})</button>
+                                </a>
+                                <a href="{{route('event.permdelete', [$event->id])}}">
                                     <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> ({{$event->id}})</button>
                                 </a>
+
                             </div>
                         </div>
                     </div>
                 @endforeach
             @endif
         </div>
-        {{ $events->links() }}
     </div>
     <div class="colorbar mt-5"></div>
 @endsection

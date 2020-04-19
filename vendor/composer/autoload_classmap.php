@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Category' => $baseDir . '/app/Category.php',
     'App\\Company' => $baseDir . '/app/Company.php',
+    'App\\Console\\Commands\\everyDay' => $baseDir . '/app/Console/Commands/everyDay.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Event' => $baseDir . '/app/Event.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
@@ -23,6 +24,7 @@ return array(
     'App\\Http\\Controllers\\CompanyController' => $baseDir . '/app/Http/Controllers/CompanyController.php',
     'App\\Http\\Controllers\\CompanyRegisterController' => $baseDir . '/app/Http/Controllers/CompanyRegisterController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\EventController' => $baseDir . '/app/Http/Controllers/EventController.php',
     'App\\Http\\Controllers\\FavouriteController' => $baseDir . '/app/Http/Controllers/FavouriteController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\PropertyController' => $baseDir . '/app/Http/Controllers/PropertyController.php',
@@ -41,6 +43,7 @@ return array(
     'App\\Http\\Middleware\\TrimStrings' => $baseDir . '/app/Http/Middleware/TrimStrings.php',
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+    'App\\Http\\Requests\\EventPostRequest' => $baseDir . '/app/Http/Requests/EventPostRequest.php',
     'App\\Http\\Requests\\PropertyPostRequest' => $baseDir . '/app/Http/Requests/PropertyPostRequest.php',
     'App\\Http\\Requests\\VenuePostRequest' => $baseDir . '/app/Http/Requests/VenuePostRequest.php',
     'App\\Profile' => $baseDir . '/app/Profile.php',

@@ -5,9 +5,9 @@
     <div class="container-fluid" style="border-top:6px solid {{Auth::user()->company->primary_color}}"></div>
     @endif
     <div class="container mt-4">
-        @if(Auth::user()->user_type == 'admin')
-            <a href="/admin/venue">Edit Venue List</a>
-        @endif
+        <h1>Edit Venue | <a href="/admin">Admin</a>@if(Auth::user()->user_type == 'admin')
+               | <a href="/admin/venue">Edit Venue List</a>
+            @endif</h1>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">

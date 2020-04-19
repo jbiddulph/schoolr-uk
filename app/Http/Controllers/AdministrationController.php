@@ -19,6 +19,7 @@ class AdministrationController extends Controller
 //    {
 //        $this->middleware('admin');
 //    }
+
     public function index() {
         return view('administration.dashboard');
     }
@@ -39,15 +40,6 @@ class AdministrationController extends Controller
     }
     public function eventStore(EventPostRequest $request) {
         $eventphoto = $request->file('eventPhoto')->store('public/events/photos');
-        Log::info('Venue venue_id Here: '.request('venue_id').'');
-        Log::info('Venue eventName Here: '.request('eventName').'');
-        Log::info('Venue slug Here: '.request('slug').'');
-        Log::info('Venue eventPhoto Here: '.$eventphoto.'');
-        Log::info('Venue eventDate Here: '.request('eventDate').'');
-        Log::info('Venue eventTimeStart Here: '.request('eventTimeStart').'');
-        Log::info('Venue eventTimeEnd Here: '.request('eventTimeEnd').'');
-        Log::info('Venue eventType Here: '.request('eventType').'');
-        Log::info('Venue eventCost Here: '.request('eventCost').'');
         Event::create([
             'venue_id'=>request('venue_id'),
             'eventName'=>request('eventName'),
@@ -68,7 +60,24 @@ class AdministrationController extends Controller
     }
     public function eventUpdate(Request $request, $id) {
         $event = Event::findOrFail($id);
-        $event->update($request->all());
+
+        if ($request->file('eventPhoto') != ''){
+            $eventphoto = $request->file('eventPhoto')->store('public/events/photos');
+            $event->update([
+                'eventPhoto'=>$eventphoto,
+            ]);
+        }
+
+        $event->update([
+            'venue_id'=>request('venue_id'),
+            'eventName'=>request('eventName'),
+            'slug'=>str_slug(request('eventName')),
+            'eventDate'=>request('eventDate'),
+            'eventTimeStart'=>request('eventTimeStart'),
+            'eventTimeEnd'=>request('eventTimeEnd'),
+            'eventType'=>request('eventType'),
+            'eventCost'=>request('eventCost')
+        ]);
         return redirect()->back()->with('message','Event successfully updated!');
     }
     public function eventuploadsedit($id) {

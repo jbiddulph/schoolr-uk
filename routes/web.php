@@ -75,9 +75,9 @@ Route::post('/admin/searchvenuetowns', 'VenueController@searchVenueTowns')->name
 
 Route::group(['middleware'=>'role:super-admin'], function (){
     Route::get('/admin', 'AdministrationController@index');
-    Route::get('/admin/property', 'AdministrationController@property');
-    Route::get('/admin/venue', 'AdministrationController@venue');
-    Route::get('/admin/event', 'AdministrationController@event');
+    Route::get('/admin/property', 'AdministrationController@property')->name('admin.property');
+    Route::get('/admin/venue', 'AdministrationController@venue')->name('admin.venue');
+    Route::get('/admin/event', 'AdministrationController@event')->name('admin.event');
     Route::resource('admin/permission', 'Admin\\PermissionController');
     Route::resource('admin/role', 'Admin\\RoleController');
     Route::resource('admin/user', 'UserController');
@@ -92,12 +92,20 @@ Route::group(['middleware'=>'role:super-admin'], function (){
     Route::post('/admin/venues/{id}/uploads-edit', 'AdministrationController@venueImageUpdate')->name('adminvenue.venueImageUpdate');
     //Edit Events
     Route::get('/admin/events/create', 'AdministrationController@eventCreate')->name('adminevent.create');
-
     Route::post('/admin/events/create', 'AdministrationController@eventStore')->name('adminevent.store');
     Route::get('/admin/events/{id}/edit', 'AdministrationController@eventEdit')->name('adminevent.edit');
     Route::post('/admin/events/{id}/edit', 'AdministrationController@eventUpdate')->name('adminevent.update');
     Route::get('/admin/events/{id}/uploads-edit', 'AdministrationController@eventuploadsedit')->name('adminevent.uploadsedit');
     Route::post('/admin/events/{id}/uploads-edit', 'AdministrationController@eventImageUpdate')->name('adminevent.eventImageUpdate');
+
+    //Delete Events
+    Route::get('/admin/event/delete/{id}', 'EventController@permanentDelete')->name('perm.delete');
+    Route::get('/admin/event/soft/{id}', 'EventController@softDelete');
+    Route::get('/admin/event/withsoftdelete','EventController@eventsWithSoftDelete');
+    Route::get('/admin/event/softdeleted','EventController@softDeleted')->name('events.deleted');
+    Route::get('/admin/event/{id}','EventController@restoreDeletedEvent')->name('event.restoredelete');
+    Route::get('/admin/event/deletesoft/{id}','EventController@permanentDeleteSoftDeleted')->name('event.permdelete');
+
     //Edit Properties
     Route::get('/admin/properties/{id}/edit', 'AdministrationController@propertyEdit')->name('adminproperty.edit');
     Route::post('/admin/properties/{id}/edit', 'AdministrationController@propertyUpdate')->name('adminproperty.update');

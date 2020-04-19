@@ -5,11 +5,11 @@
     <div class="container-fluid" style="border-top:6px solid {{Auth::user()->company->primary_color}}"></div>
     @endif
     <div class="container mt-4">
+        <h1>Edit Event | <a href="/admin">Admin</a>@if(Auth::user()->user_type == 'admin')
+                | <a href="/admin/property">Edit Property List</a>
+            @endif</h1>
         <div class="row justify-content-center">
             <div class="col-md-8">
-                @if(Auth::user()->user_type == 'admin')
-                    <a href="/admin">Edit Property List</a>
-                @endif
                 <div class="card">
                     <div class="card-header"><h2>Property Update</h2></div>
                     <div class="card-body">

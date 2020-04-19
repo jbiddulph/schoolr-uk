@@ -484,6 +484,7 @@ class ComposerStaticInit5b70f143e7b22eee3457712954b49c5e
     public static $classMap = array (
         'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
         'App\\Company' => __DIR__ . '/../..' . '/app/Company.php',
+        'App\\Console\\Commands\\everyDay' => __DIR__ . '/../..' . '/app/Console/Commands/everyDay.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Event' => __DIR__ . '/../..' . '/app/Event.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -499,6 +500,7 @@ class ComposerStaticInit5b70f143e7b22eee3457712954b49c5e
         'App\\Http\\Controllers\\CompanyController' => __DIR__ . '/../..' . '/app/Http/Controllers/CompanyController.php',
         'App\\Http\\Controllers\\CompanyRegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/CompanyRegisterController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\EventController' => __DIR__ . '/../..' . '/app/Http/Controllers/EventController.php',
         'App\\Http\\Controllers\\FavouriteController' => __DIR__ . '/../..' . '/app/Http/Controllers/FavouriteController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\PropertyController' => __DIR__ . '/../..' . '/app/Http/Controllers/PropertyController.php',
@@ -517,6 +519,7 @@ class ComposerStaticInit5b70f143e7b22eee3457712954b49c5e
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Requests\\EventPostRequest' => __DIR__ . '/../..' . '/app/Http/Requests/EventPostRequest.php',
         'App\\Http\\Requests\\PropertyPostRequest' => __DIR__ . '/../..' . '/app/Http/Requests/PropertyPostRequest.php',
         'App\\Http\\Requests\\VenuePostRequest' => __DIR__ . '/../..' . '/app/Http/Requests/VenuePostRequest.php',
         'App\\Profile' => __DIR__ . '/../..' . '/app/Profile.php',
