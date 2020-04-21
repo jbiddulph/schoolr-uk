@@ -30,7 +30,6 @@ class PropertyPostRequest extends FormRequest
             'proptype_id'=>'required',
             'propimage'=>'required',
             'address'=>'required',
-            'town'=>'required',
             'county'=>'required',
             'postcode'=>'required',
             'latitude'=>'required',

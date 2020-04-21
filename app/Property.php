@@ -11,7 +11,7 @@ class Property extends Model
     use Notifiable, LogsActivity;
     protected $fillable = ['user_id', 'company_id', 'propname', 'slug', 'propcost', 'proptype_id', 'propimage',
         'bedroom', 'bathroom', 'kitchen', 'garage', 'reception', 'conservatory', 'outbuilding', 'address',
-        'town', 'county', 'postcode', 'latitude', 'longitude', 'short_summary', 'description', 'summary', 'floorplan', 'brochure',
+        'town', 'othertown', 'county', 'postcode', 'latitude', 'longitude', 'short_summary', 'description', 'summary', 'floorplan', 'brochure',
         'last_date', 'category_id', 'is_featured', 'is_live'];
 
     public function getRouteKeyName() {
