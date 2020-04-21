@@ -21,8 +21,7 @@
                         <div class="mainpic">
                             <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="Property">
                             <div class="carousel-caption d-none d-md-block">
-                                <h3>x</h3>
-                                <p>and this is the photo description</p>
+                                <h3>&pound; {{$property->propcost}}</h3>
                             </div>
                         </div>
                     @endif
@@ -66,8 +65,8 @@
                                 </li>
                             @endif
                         </ul>
-
-                        <p>Created at: {{$property->created_at->diffForHumans()}}</p>
+                        <p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{$property->address}}, {{$property->town}}</p>
+{{--                        <p>Created at: {{$property->created_at->diffForHumans()}}</p>--}}
                         <p>Company: <a href="{{route('company.index', [$property->company->id,$property->company->slug])}}">
                                 {{$property->company->cname}}
                             </a>
@@ -114,7 +113,7 @@
                                     <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                                         <img class="d-block prop_photo" src="/{{ $photo }}" alt="{{$prophoto->photo_title}}">
                                         <div class="carousel-caption d-none d-md-block">
-                                            <p>{{$prophoto->photo_title}}</p>
+{{--                                            <p>{{$prophoto->photo_title}}</p>--}}
                                         </div>
                                     </div>
                                 @endforeach
@@ -129,9 +128,7 @@
                             </div>
                         </div>
                         <p class="card-text">
-                            <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{$property->address}}, {{$property->city}}
-                            <i class="fa fa-money" aria-hidden="true"></i>&nbsp;{{$property->propcost}}
-                            <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;Date: {{$property->created_at->diffForHumans()}}
+{{--                            <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;Date: {{$property->created_at->diffForHumans()}}--}}
                         </p>
                     </div>
                 </div>
