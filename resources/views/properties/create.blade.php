@@ -394,8 +394,29 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
+                                    <label for="summary-ckeditor">Short Summary</label>
+                                    <input name="short_summary" type="text" class="form-control @error('short_summary') is-invalid @enderror" value="{{ old('short_summary') }}">
+                                    @error('short_summary')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="summary-ckeditor">Summary</label>
+                                    <textarea name="summary" class="form-control" id="summary-ckeditor" cols="30" rows="10"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
                                     <label for="summary-ckeditor">Description</label>
-                                    <textarea name="description" class="form-control" id="summary-ckeditor" cols="30" rows="10"></textarea>
+                                    <textarea name="description" class="form-control" id="summary-ckeditor2" cols="30" rows="10"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -496,6 +517,7 @@
         <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
         <script>
             CKEDITOR.replace( 'summary-ckeditor' );
+            CKEDITOR.replace( 'summary-ckeditor2' );
         </script>
         <script type="text/javascript">
             $( document ).ready(function() {

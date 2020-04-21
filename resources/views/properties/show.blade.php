@@ -100,6 +100,8 @@
                     <div class="card-header">{{$property->propname}}</div>
 
                     <div class="card-body">
+                        <h3>Summary</h3>
+                        <p>{!! $property->summary !!}</p>
                         <h3>Description</h3>
                         <p>{!! $property->description !!}</p>
                         <div id="property{{ $property->id }}" class="carousel slide" data-ride="carousel">

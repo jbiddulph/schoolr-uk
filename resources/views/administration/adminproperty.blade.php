@@ -35,7 +35,7 @@
                                         <img src="{{asset('uploads/logo')}}/{{Auth::user()->company->logo}}" width="80" style="width: 50%;" alt="">
                                     @endif
                                 </p>
-                                <p class="card-text short-description">{!! $property->description !!}</p>
+                                <p class="card-text short-description">{{ $property->short_summary }}</p>
                                 <a href="{{route('adminproperty.edit',[$property->id])}}"><button class="btn btn-sm btn-dark">Edit</button></a>
                                 <input data-id="{{$property->id}}" name="is_live" class="toggle-live-property" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $property->is_live ? 'checked' : '' }}>
                             </div>
