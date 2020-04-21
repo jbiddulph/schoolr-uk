@@ -4,7 +4,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-2">
+                @if(Auth::user()->user_type != 'admin')
                 <form action="{{route('property.photo')}}" id="myForm" method="POST" enctype="multipart/form-data">@csrf
+                @else
+                <form action="{{route('adminproperty.photo')}}" id="myForm2" method="POST" enctype="multipart/form-data">@csrf
+                @endif
                     <div class="card">
                         <div class="card-header">
                             Add Photos for Property {{$property->propname}}

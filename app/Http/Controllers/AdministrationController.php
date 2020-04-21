@@ -8,11 +8,13 @@ use App\Http\Requests\PropertyPostRequest;
 use App\Http\Requests\VenuePostRequest;
 use App\Http\Requests\EventPostRequest;
 use App\Property;
+use App\PropertyPhotos;
 use App\User;
 use App\Profile;
 use App\Venue;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 
 class AdministrationController extends Controller
 {
@@ -194,6 +196,32 @@ class AdministrationController extends Controller
         Log::info('Property Name: '.request('propname').'');
 
         return redirect()->back()->with('message','Property added successfully!');
+    }
+    public function addphotos($id, Property $property) {
+        $propertyPhotos = PropertyPhotos::where('property_id', '=', $id)
+            ->get();
+        $params = array_merge(['propertyId' => $id, 'photos' => $propertyPhotos], compact('property'));
+        return view('properties.addphotos', $params);
+    }
+    public function propertyPhoto(Request $request) {
+        $rules = array(
+//            'file' => 'required'
+        );
+        $error = Validator::make($request->all(), $rules);
+        if($error->fails())
+        {
+            return response()->json(['errors' => $error->errors()->all()]);
+        }
+        $user_id = auth()->user()->id;
+        $propertyphoto = $request->file('property_photo')->store('public/property/photos');
+
+        PropertyPhotos::create([
+            'user_id'=>$user_id,
+            'property_id'=>request('property_id'),
+            'photo_title'=>request('photo_title'),
+            'photo'=>$propertyphoto
+        ]);
+        return redirect()->back()->with('message','Photo Added to property!');
     }
     public function propertyEdit($id) {
         $property = Property::findOrFail($id);

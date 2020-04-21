@@ -8,6 +8,9 @@
         <h1>Edit Event | <a href="/admin">Admin</a>@if(Auth::user()->user_type == 'admin')
                 | <a href="/admin/property">Edit Property List</a>
             @endif</h1>
+        <a href="{{route('adminproperty.addphotos', [$property->id, $property->slug])}}">
+            <button class="btn btn-secondary">Add Photo Gallery</button>
+        </a>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">

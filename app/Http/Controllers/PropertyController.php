@@ -146,6 +146,8 @@ class PropertyController extends Controller
             'postcode'=>request('postcode'),
             'latitude'=>request('latitude'),
             'longitude'=>request('longitude'),
+            'short_summary'=>request('short_summary'),
+            'summary'=>request('summary'),
             'description'=>request('description'),
             'floorplan'=>$floorplan,
             'brochure'=>$brochure,

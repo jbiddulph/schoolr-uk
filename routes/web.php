@@ -111,6 +111,8 @@ Route::group(['middleware'=>'role:super-admin'], function (){
     Route::post('/admin/properties/create', 'AdministrationController@propertyStore')->name('adminproperty.store');
     Route::get('/admin/properties/{id}/edit', 'AdministrationController@propertyEdit')->name('adminproperty.edit');
     Route::post('/admin/properties/{id}/edit', 'AdministrationController@propertyUpdate')->name('adminproperty.update');
+    Route::get('/admin/properties/{id}/{property}/addphotos', 'AdministrationController@addphotos')->name('adminproperty.addphotos');
+    Route::post('/admin/propertyphoto/add', 'AdministrationController@propertyPhoto')->name('adminproperty.photo');
     Route::get('/admin/properties/{id}/uploads-edit', 'AdministrationController@propuploadsedit')->name('adminproperty.uploadsedit');
     Route::post('/admin/properties/{id}/uploads-edit', 'AdministrationController@propImageUpdate')->name('adminproperty.propImageUpdate');
 });
