@@ -162,6 +162,11 @@ class AdministrationController extends Controller
         $floorplan = $request->file('floorplan')->store('public/property/brochure');
         $brochure = $request->file('brochure')->store('public/property/floorplan');
 
+        $requestedtown = request('town');
+        if($requestedtown == ''){
+            $requestedtown = request('othertown');
+        }
+
         Property::create([
             'user_id'=>$user_id,
             'company_id'=>$company_id,
@@ -178,7 +183,7 @@ class AdministrationController extends Controller
             'conservatory'=>request('conservatory'),
             'outbuilding'=>request('outbuilding'),
             'address'=>request('address'),
-            'town'=>request('town'),
+            'town'=>$requestedtown,
             'county'=>request('county'),
             'postcode'=>request('postcode'),
             'latitude'=>request('latitude'),
