@@ -223,14 +223,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="town">Town</label>
-                                    <select name="town" class="form-control @error('user_id') is-invalid @enderror" id="town">
-                                        <option value="">Please select</option>
-                                        @foreach(App\Property::select('town')->distinct()->get() as $town)
-                                            <option value="{{$town->town}} {{(old('town') == $town->town?'selected':'')}}">{{$town->town}}</option>
-                                        @endforeach
-                                            <option value="other">Other</option>
-                                    </select>
-                                    <input type="text" name="othertown" id="other_town" class="form-control @error('town') is-invalid @enderror" value="{{ old('othertown') }}">
+                                    <input type="text" name="town" id="town" class="form-control @error('town') is-invalid @enderror" value="{{ old('town') }}">
                                     @error('town')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
