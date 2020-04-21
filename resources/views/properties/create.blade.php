@@ -62,7 +62,7 @@
                                     <select name="proptype_id" class="form-control @error('proptype_id') is-invalid @enderror" id="proptype_id">
                                         <option value="">Please select</option>
                                         @foreach(App\PropertyType::all() as $propType)
-                                            <option value="{{$propType->id}} {{(old('proptype_id') == $propType->id?'selected':'')}}">{{$propType->name}}</option>
+                                            <option value="{{$propType->id}}">{{$propType->name}}</option>
                                         @endforeach
                                     </select>
                                     @error('proptype_id')
@@ -223,7 +223,14 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="town">Town</label>
-                                    <input type="text" name="town" id="town" class="form-control @error('town') is-invalid @enderror" value="{{ old('town') }}">
+                                    <select name="town" class="form-control @error('user_id') is-invalid @enderror" id="town">
+                                        <option value="">Please select</option>
+                                        @foreach(App\Property::select('town')->distinct()->get() as $town)
+                                            <option value="{{$town->town}}">{{$town->town}}</option>
+                                        @endforeach
+                                            <option value="other">Other</option>
+                                    </select>
+                                    <input type="text" name="othertown" id="other_town" class="form-control @error('town') is-invalid @enderror" value="{{ old('town') }}">
                                     @error('town')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

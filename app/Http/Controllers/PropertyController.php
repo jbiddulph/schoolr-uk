@@ -116,7 +116,7 @@ class PropertyController extends Controller
     }
 
     public function store(PropertyPostRequest $request) {
-
+dd($request->all());
         $user_id = auth()->user()->id;
         $company = Company::where('user_id',$user_id)->first();
         $company_id = $company->id;
@@ -124,7 +124,10 @@ class PropertyController extends Controller
         $propertyphoto = $request->file('propimage')->store('public/property/photos');
         $floorplan = $request->file('floorplan')->store('public/property/brochure');
         $brochure = $request->file('brochure')->store('public/property/floorplan');
-
+        $requestedtown = request('town');
+        if($requestedtown == ''){
+            $requestedtown = request('othertown');
+        }
         Property::create([
             'user_id'=>$user_id,
             'company_id'=>$company_id,
@@ -141,7 +144,7 @@ class PropertyController extends Controller
             'conservatory'=>request('conservatory'),
             'outbuilding'=>request('outbuilding'),
             'address'=>request('address'),
-            'town'=>request('town'),
+            'town'=>$requestedtown,
             'county'=>request('county'),
             'postcode'=>request('postcode'),
             'latitude'=>request('latitude'),
