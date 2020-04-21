@@ -26,7 +26,7 @@
                             <div class="card-body">
                                 <h4 class="card-title"><a href="{{route('properties.show',[$property->id, $property->slug])}}">{{$property->propname}}</a></h4>
                                 <h5 class="card-subtitle text-right">&pound;{{$property->propcost}}</h5>
-                                <p class="card-text short-description">{{$property->description}}</p>
+                                <p class="card-text short-description">{!! $property->description !!}</p>
                                 <div class="text-right"><a class="btn btn-primary btn-md" href="{{route('properties.show',[$property->id, $property->slug])}}">Enquire</a></div>
                             </div>
                         </div>

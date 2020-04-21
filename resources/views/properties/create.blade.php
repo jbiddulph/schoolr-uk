@@ -1,16 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid" style="border-top:6px solid {{Auth::user()->company->primary_color}}"></div>
+    @if(Auth::user()->user_type != 'admin')
+        <div class="container-fluid" style="border-top:6px solid {{Auth::user()->company->primary_color}}"></div>
+    @endif
     <div class="container mt-4 mb-4">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header"><h2>Property Create</h2></div>
                     @if(!auth()->user()->subscribed('main'))
-                        HELLO
+
                     @else
-                        Goodbye
+
                     @endif
 
                     <div class="card-body">
@@ -19,7 +21,29 @@
                                 {{Session::get('message')}}
                             </div>
                         @endif
-                        <form action="{{route('property.store')}}" method="post" enctype="multipart/form-data">@csrf
+                        @if(Auth::user()->user_type != 'admin')
+                            <form action="{{route('property.store')}}" method="post" enctype="multipart/form-data">@csrf
+                        @else
+                            <form action="{{route('adminproperty.store')}}" method="post" enctype="multipart/form-data">@csrf
+                        @endif
+                        @if(Auth::user()->user_type == 'admin')
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="proptype">User</label>
+                                    <select name="user_id" class="form-control @error('user_id') is-invalid @enderror" id="user_id">
+                                        <option value="">Please select</option>
+                                        @foreach(App\User::all()->where('user_type', '=', 'company') as $user)
+                                            <option value="{{$user->id}}">{{$user->name}}, {{$user->user_type}}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('user_id')
+                                    <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                    @enderror
+                                </div>
+                            </div>
+                        @endif
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
@@ -199,7 +223,14 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="town">Town</label>
-                                    <input type="text" name="town" class="form-control @error('town') is-invalid @enderror" value="{{ old('town') }}">
+                                    <select name="town" class="form-control @error('user_id') is-invalid @enderror" id="town">
+                                        <option value="">Please select</option>
+                                        @foreach(App\Property::select('town')->distinct()->get() as $town)
+                                            <option value="{{$town->town}}">{{$town->town}}</option>
+                                        @endforeach
+                                            <option value="other">Other</option>
+                                    </select>
+                                    <input type="text" name="othertown" id="other_town" class="form-control @error('town') is-invalid @enderror" value="{{ old('town') }}">
                                     @error('town')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -363,8 +394,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="description">Description</label>
-                                    <textarea name="description" class="form-control" id="description" cols="30" rows="10"></textarea>
+                                    <label for="summary-ckeditor">Description</label>
+                                    <textarea name="description" class="form-control" id="summary-ckeditor" cols="30" rows="10"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -458,6 +489,26 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid" style="border-bottom:6px solid {{Auth::user()->company->primary_color}}"></div>
+    @if(Auth::user()->user_type != 'admin')
+        <div class="container-fluid" style="border-bottom:6px solid {{Auth::user()->company->primary_color}}"></div>
+    @endif
+    @section('script')
+        <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+        <script>
+            CKEDITOR.replace( 'summary-ckeditor' );
+        </script>
+        <script type="text/javascript">
+            $( document ).ready(function() {
+                $('#other_town').css('display','none');
+                $("select#town").change(function(){
+                    var selectedTown = $(this).children("option:selected").val();
+                    if(selectedTown == 'other') {
+                        $('#town').css('display','none');
+                        $('#other_town').css('display','block');
+                    }
+                });
+            });
+        </script>
+    @endsection
 @endsection
 

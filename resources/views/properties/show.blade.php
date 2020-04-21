@@ -101,7 +101,7 @@
 
                     <div class="card-body">
                         <h3>Description</h3>
-                        <p>{{$property->description}}</p>
+                        <p>{!! $property->description !!}</p>
                         <div id="property{{ $property->id }}" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner" role="listbox">
                                 @foreach($property->PropertyPhotos as $prophoto)

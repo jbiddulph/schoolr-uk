@@ -107,6 +107,8 @@ Route::group(['middleware'=>'role:super-admin'], function (){
     Route::get('/admin/event/deletesoft/{id}','EventController@permanentDeleteSoftDeleted')->name('event.permdelete');
 
     //Edit Properties
+    Route::get('/admin/properties/create', 'AdministrationController@propertyCreate')->name('adminproperty.create');
+    Route::post('/admin/properties/create', 'AdministrationController@propertyStore')->name('adminproperty.store');
     Route::get('/admin/properties/{id}/edit', 'AdministrationController@propertyEdit')->name('adminproperty.edit');
     Route::post('/admin/properties/{id}/edit', 'AdministrationController@propertyUpdate')->name('adminproperty.update');
     Route::get('/admin/properties/{id}/uploads-edit', 'AdministrationController@propuploadsedit')->name('adminproperty.uploadsedit');

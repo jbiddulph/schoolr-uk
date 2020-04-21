@@ -32,7 +32,7 @@
                                         <img src="{{asset('uploads/logo')}}/{{Auth::user()->company->logo}}" width="80" style="width: 50%;" alt="">
                                     @endif
                                 </p>
-                                <p class="card-text short-description">{{$property->description}}</p>
+                                <p class="card-text short-description">{!! $property->description !!}</p>
                                 <a class="btn btn-primary btn-sm" href="{{route('properties.show',[$property->id, $property->slug])}}">Enquire</a>
                                 <a href="{{route('property.edit',[$property->id])}}"><button class="btn btn-sm btn-dark">Edit</button></a>
                                 <input data-id="{{$property->id}}" name="is_live" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $property->is_live ? 'checked' : '' }}>

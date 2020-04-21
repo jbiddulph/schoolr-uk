@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Company;
 use App\Event;
+use App\Http\Requests\PropertyPostRequest;
 use App\Http\Requests\VenuePostRequest;
 use App\Http\Requests\EventPostRequest;
 use App\Property;
@@ -147,6 +148,53 @@ class AdministrationController extends Controller
         ]);
         return redirect()->back()->with('message','Venue image updated!');
     }
+    public function propertyCreate() {
+        return view('properties.create');
+    }
+    public function propertyStore(PropertyPostRequest $request) {
+        $user_id = $request->user_id;
+        $company = Company::where('user_id',$user_id)->first();
+        $company_id = $company->id;
+
+        $propertyphoto = $request->file('propimage')->store('public/property/photos');
+        $floorplan = $request->file('floorplan')->store('public/property/brochure');
+        $brochure = $request->file('brochure')->store('public/property/floorplan');
+
+        Property::create([
+            'user_id'=>$user_id,
+            'company_id'=>$company_id,
+            'propname'=>request('propname'),
+            'slug'=>str_slug(request('propname')),
+            'propcost'=>request('propcost'),
+            'proptype_id'=>request('proptype_id'),
+            'propimage'=>$propertyphoto,
+            'bedroom'=>request('bedroom'),
+            'bathroom'=>request('bathroom'),
+            'kitchen'=>request('kitchen'),
+            'garage'=>request('garage'),
+            'reception'=>request('reception'),
+            'conservatory'=>request('conservatory'),
+            'outbuilding'=>request('outbuilding'),
+            'address'=>request('address'),
+            'town'=>request('town'),
+            'county'=>request('county'),
+            'postcode'=>request('postcode'),
+            'latitude'=>request('latitude'),
+            'longitude'=>request('longitude'),
+            'description'=>request('description'),
+            'floorplan'=>$floorplan,
+            'brochure'=>$brochure,
+            'last_date'=>request('last_date'),
+            'category_id'=>request('category_id'),
+            'is_featured'=>request('is_featured'),
+            'is_live'=>request('is_live')
+        ]);
+
+        //LOGGING
+        Log::info('Property Name: '.request('propname').'');
+
+        return redirect()->back()->with('message','Property added successfully!');
+    }
     public function propertyEdit($id) {
         $property = Property::findOrFail($id);
         return view('properties.edit', compact('property'));
@@ -173,6 +221,7 @@ class AdministrationController extends Controller
         ]);
         return redirect()->back()->with('message','Property image updated!');
     }
+
     public function togglePropertyLive(Request $request) {
         $property = Property::find($request->id);
         $property->is_live = $request->is_live;
@@ -185,4 +234,5 @@ class AdministrationController extends Controller
         $Venue->save();
         return redirect()->back();
     }
+
 }

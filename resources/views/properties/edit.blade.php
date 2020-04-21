@@ -366,7 +366,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="description">Description</label>
-                                        <textarea name="description" class="form-control" id="description" cols="30" rows="10">{{ $property->description }}</textarea>
+                                        <textarea name="description" class="form-control" id="summary-ckeditor" cols="30" rows="10">{{ $property->description }}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -428,4 +428,10 @@
     @if(Auth::user()->user_type != 'admin')
     <div class="container-fluid mt-4" style="border-top:6px solid {{Auth::user()->company->primary_color}}"></div>
     @endif
+    @section('script')
+        <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+        <script>
+            CKEDITOR.replace( 'summary-ckeditor' );
+        </script>
+    @endsection
 @endsection
