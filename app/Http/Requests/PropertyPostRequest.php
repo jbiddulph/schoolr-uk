@@ -30,15 +30,15 @@ class PropertyPostRequest extends FormRequest
             'proptype_id'=>'required',
 //            'propimage'=>'required',
             'address'=>'required',
-//            'county'=>'required',
-//            'postcode'=>'required',
-//            'latitude'=>'required',
-//            'longitude'=>'required',
+            'county'=>'required',
+            'postcode'=>'required',
+            'latitude'=>'required',
+            'longitude'=>'required',
 //            'description'=>'required',
 //            'floorplan'=>'required',
 //            'brochure'=>'required',
 //            'last_date'=>'required',
-//            'category_id'=>'required'
+            'category_id'=>'required'
         ];
     }
 }
