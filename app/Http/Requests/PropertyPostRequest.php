@@ -26,7 +26,7 @@ class PropertyPostRequest extends FormRequest
         return [
 //            'user_id'=>'required',
             'propname'=>'required|max:45',
-//            'propcost'=>'required',
+            'propcost'=>'required',
 //            'proptype_id'=>'required',
 //            'propimage'=>'required',
 //            'address'=>'required',
