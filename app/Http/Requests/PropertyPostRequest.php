@@ -24,21 +24,21 @@ class PropertyPostRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id'=>'required',
+//            'user_id'=>'required',
             'propname'=>'required|max:45',
-            'propcost'=>'required',
-            'proptype_id'=>'required',
-            'propimage'=>'required',
-            'address'=>'required',
-            'county'=>'required',
-            'postcode'=>'required',
-            'latitude'=>'required',
-            'longitude'=>'required',
+//            'propcost'=>'required',
+//            'proptype_id'=>'required',
+//            'propimage'=>'required',
+//            'address'=>'required',
+//            'county'=>'required',
+//            'postcode'=>'required',
+//            'latitude'=>'required',
+//            'longitude'=>'required',
 //            'description'=>'required',
 //            'floorplan'=>'required',
 //            'brochure'=>'required',
 //            'last_date'=>'required',
-            'category_id'=>'required'
+//            'category_id'=>'required'
         ];
     }
 }
