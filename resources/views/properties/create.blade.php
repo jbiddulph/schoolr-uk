@@ -43,6 +43,8 @@
                                     @enderror
                                 </div>
                             </div>
+                        @else
+                                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
                         @endif
                         <div class="row">
                             <div class="col-md-4">
@@ -403,7 +405,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="summary-ckeditor">Summary</label>
-                                    <textarea name="summary" class="form-control" id="summary-ckeditor" cols="30" rows="10"></textarea>
+                                    <textarea name="summary" class="form-control" id="summary-ckeditor" cols="30" rows="10">{{ old('summary') }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -412,7 +414,7 @@
                                 <div class="form-group">
                                     <label for="summary-ckeditor">Description</label>
                                     <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="summary-ckeditor2" cols="30" rows="10">{{ old('description') }}</textarea>
-                                    @error('propimage')
+                                    @error('description')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

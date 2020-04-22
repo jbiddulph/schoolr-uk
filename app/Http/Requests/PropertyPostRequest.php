@@ -24,7 +24,7 @@ class PropertyPostRequest extends FormRequest
     public function rules()
     {
         return [
-//            'user_id'=>'required',
+            'user_id'=>'required',
             'propname'=>'required|max:45',
             'propcost'=>'required',
             'proptype_id'=>'required',
@@ -35,9 +35,9 @@ class PropertyPostRequest extends FormRequest
             'latitude'=>'required',
             'longitude'=>'required',
             'description'=>'required',
-//            'floorplan'=>'required',
-//            'brochure'=>'required',
-//            'last_date'=>'required',
+            'floorplan'=>'required',
+            'brochure'=>'required',
+            'last_date'=>'required',
             'category_id'=>'required'
         ];
     }
