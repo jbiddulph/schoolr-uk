@@ -411,7 +411,12 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="summary-ckeditor">Description</label>
-                                    <textarea name="description" class="form-control" id="summary-ckeditor2" cols="30" rows="10"></textarea>
+                                    <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="summary-ckeditor2" cols="30" rows="10">{{ old('description') }}</textarea>
+                                    @error('propimage')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
