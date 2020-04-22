@@ -95,14 +95,27 @@
                         {{Session::get('message')}}
                     </div>
                 @endif
-                <div class="card">
-                    <div class="card-header">{{$property->propname}}</div>
-
-                    <div class="card-body">
-                        <h3>Summary</h3>
+                <h1>{{$property->propname}}, {{$property->town}}</h1>
+                <div id="tabs">
+                    <ul>
+                        <li><a href="#tabs-1">Summary</a></li>
+                        <li><a href="#tabs-2">Description</a></li>
+                        <li><a href="#tabs-3">Gallery</a></li>
+                        <li><a href="#tabs-4">Floorplan</a></li>
+                    </ul>
+                    <div id="tabs-1">
+                        <h2>Summary</h2>
                         <p>{!! $property->summary !!}</p>
-                        <h3>Description</h3>
+                    </div>
+                    <div id="tabs-2">
+                        <h2>Description</h2>
                         <p>{!! $property->description !!}</p>
+                        <p class="card-text">
+                            {{--                            <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;Date: {{$property->created_at->diffForHumans()}}--}}
+                        </p>
+                    </div>
+                    <div id="tabs-3">
+                        <h2>Gallery</h2>
                         <div id="property{{ $property->id }}" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner" role="listbox">
                                 @foreach($property->PropertyPhotos as $prophoto)
@@ -113,7 +126,7 @@
                                     <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                                         <img class="d-block prop_photo" src="/{{ $photo }}" alt="{{$prophoto->photo_title}}">
                                         <div class="carousel-caption d-none d-md-block">
-{{--                                            <p>{{$prophoto->photo_title}}</p>--}}
+                                            {{--                                            <p>{{$prophoto->photo_title}}</p>--}}
                                         </div>
                                     </div>
                                 @endforeach
@@ -127,13 +140,20 @@
                                 </a>
                             </div>
                         </div>
-                        <p class="card-text">
-{{--                            <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;Date: {{$property->created_at->diffForHumans()}}--}}
-                        </p>
+                    </div>
+                    <div id="tabs-4">
+                        <h2>Floorplan</h2>
+                        @if(isset($property->floorplan))
+                            @php
+                                $floorplanphoto = str_replace('public/', 'storage/', $property->floorplan)
+                            @endphp
+                            <div class="mainpic">
+                                <img class="d-block img-fluid prop_photo" src="/{{ $floorplanphoto }}" alt="Floorplan for {{$property->propname}} in {{$property->town}}" />
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
     @if($loggedin)
@@ -141,4 +161,11 @@
     @else
         <div class="colorbar mt-5"></div>
     @endif
+    @section('script')
+        <script>
+            $( function() {
+                $( "#tabs" ).tabs();
+            } );
+        </script>
+    @endsection
 @endsection
