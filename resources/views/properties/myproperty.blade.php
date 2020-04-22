@@ -24,7 +24,7 @@
                             </div>
                             <div class="card-body">
                                 <h4 class="card-title">{{$property->propname}}</h4>
-                                <h5 class="card-subtitle text-right">&pound;{{$property->propcost}}</h5>
+                                <h5 class="card-subtitle text-right">&pound;{!! number_format($property->propcost); !!}</h5>
                                 <p class="card-text">
                                     @if(empty(Auth::user()->company->logo))
                                         <img src="{{asset('avatar/default.png')}}" width="80" style="width: 50%;" alt="">

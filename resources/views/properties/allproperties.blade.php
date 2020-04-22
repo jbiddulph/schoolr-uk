@@ -82,7 +82,7 @@
                             @endphp
                             <div class="mainpic">
                                 <a href="{{route('properties.show',[$property->id, $property->slug])}}"><img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$property->propname}}"></a>
-                                <h5 class="card-subtitle text-right">&pound;&nbsp;{{$property->propcost}}</h5>
+                                <h5 class="card-subtitle text-right">&pound;&nbsp;{!! number_format($property->propcost); !!}</h5>
                             </div>
                         @endif
                         <div class="card-body">

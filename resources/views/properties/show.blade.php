@@ -21,7 +21,7 @@
                         <div class="mainpic">
                             <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="Property">
                             <div class="carousel-caption d-none d-md-block">
-                                <h3>&pound; {{$property->propcost}}</h3>
+                                <h3>&pound; {!! number_format($property->propcost); !!}</h3>
                             </div>
                         </div>
                     @endif

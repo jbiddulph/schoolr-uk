@@ -44,7 +44,7 @@
                             </p>
                         </td>
                         <td><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{$property->address}}, {{$property->city}}</td>
-                        <td><i class="fa fa-money" aria-hidden="true"></i>&nbsp;{{$property->propcost}}</td>
+                        <td><i class="fa fa-money" aria-hidden="true"></i>&nbsp;{!! number_format($property->propcost); !!}</td>
                         <td><i class="fa fa-globe" aria-hidden="true"></i>&nbsp;Date: {{$property->created_at->diffForHumans()}}</td>
                         <td><a href="{{route('properties.show',[$property->id, $property->slug])}}"><button class="btn btn-primary btn-sm">Enquire</button></a></td>
                     </tr>
