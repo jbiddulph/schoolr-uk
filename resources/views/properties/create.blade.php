@@ -399,22 +399,22 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="summary-ckeditor">Summary</label>
-                                    <textarea name="summary" class="form-control" id="summary-ckeditor" cols="30" rows="10"></textarea>
-                                </div>
-                            </div>
-                        </div>
 {{--                        <div class="row">--}}
 {{--                            <div class="col-md-12">--}}
 {{--                                <div class="form-group">--}}
-{{--                                    <label for="summary-ckeditor">Description</label>--}}
-{{--                                    <textarea name="description" class="form-control" id="summary-ckeditor2" cols="30" rows="10"></textarea>--}}
+{{--                                    <label for="summary-ckeditor">Summary</label>--}}
+{{--                                    <textarea name="summary" class="form-control" id="summary-ckeditor" cols="30" rows="10"></textarea>--}}
 {{--                                </div>--}}
 {{--                            </div>--}}
 {{--                        </div>--}}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="summary-ckeditor">Description</label>
+                                    <textarea name="description" class="form-control" id="summary-ckeditor2" cols="30" rows="10"></textarea>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
