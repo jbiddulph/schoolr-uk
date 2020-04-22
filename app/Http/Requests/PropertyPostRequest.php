@@ -37,7 +37,6 @@ class PropertyPostRequest extends FormRequest
             'description'=>'required',
             'floorplan'=>'required',
             'brochure'=>'required',
-            'last_date'=>'required',
             'category_id'=>'required'
         ];
     }

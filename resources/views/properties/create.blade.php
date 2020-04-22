@@ -458,18 +458,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="last_date">Last Date</label>
-                                    <input type="text" placeholder="YYYY-MM-DD" name="last_date" id="datepicker" class="date form-control @error('last_date') is-invalid @enderror" value="{{ old('last_date') }}">
-                                    @error('last_date')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="category_id">Category</label>
                                     <select name="category_id" class="form-control" id="category_id">
@@ -480,9 +469,7 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="is_featured">Featured</label>
                                     <select name="is_featured" class="form-control" id="is_featured">
@@ -491,7 +478,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="is_live">Live</label>
                                     <select name="is_live" class="form-control" id="is_live">
