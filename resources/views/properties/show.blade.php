@@ -12,8 +12,10 @@
     <div class="container mt-4">
         <div class="row">
             <div class="col-md-4">
+                <a href="{{route('allproperties')}}">
+                    <button class="btn btn-secondary btn-lg mt-4" style="width: 100%;">Back to all Properties</button>
+                </a>
                 <div class="card">
-
                     @if(isset($property->propimage))
                         @php
                             $mainphoto = str_replace('public/', 'storage/', $property->propimage)
