@@ -223,14 +223,14 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="town">Town</label>
-{{--                                    <select name="town" class="form-control" id="town">--}}
-{{--                                        <option value="">Please select</option>--}}
-{{--                                        @foreach(App\Property::select('town')->distinct()->get() as $town)--}}
-{{--                                            <option value="{{$town->town}}">{{$town->town}}</option>--}}
-{{--                                        @endforeach--}}
-{{--                                            <option value="other">Other</option>--}}
-{{--                                    </select>--}}
-                                    <input type="text" name="town" id="town" class="form-control" value="{{ old('town') }}">
+                                    <select name="town" class="form-control" id="town">
+                                        <option value="">Please select</option>
+                                        @foreach(App\Property::select('town')->distinct()->get() as $town)
+                                            <option value="{{$town->town}}">{{$town->town}}</option>
+                                        @endforeach
+                                            <option value="other">Other</option>
+                                    </select>
+                                    <input type="text" name="othertown" id="other_town" class="form-control" value="{{ old('town') }}">
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -407,14 +407,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="summary-ckeditor">Description</label>
-                                    <textarea name="description" class="form-control" id="summary-ckeditor2" cols="30" rows="10"></textarea>
-                                </div>
-                            </div>
-                        </div>
+{{--                        <div class="row">--}}
+{{--                            <div class="col-md-12">--}}
+{{--                                <div class="form-group">--}}
+{{--                                    <label for="summary-ckeditor">Description</label>--}}
+{{--                                    <textarea name="description" class="form-control" id="summary-ckeditor2" cols="30" rows="10"></textarea>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
@@ -512,7 +512,7 @@
         <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
         <script>
             CKEDITOR.replace( 'summary-ckeditor' );
-            CKEDITOR.replace( 'summary-ckeditor2' );
+            // CKEDITOR.replace( 'summary-ckeditor2' );
         </script>
         <script type="text/javascript">
             $( document ).ready(function() {
