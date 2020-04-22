@@ -10,9 +10,9 @@
                 <div class="card">
                     <div class="card-header"><h2>Property Create</h2></div>
                     @if(!auth()->user()->subscribed('main'))
-
+                        <p>subscribed</p>
                     @else
-
+                        <p>Not subscribed</p>
                     @endif
 
                     <div class="card-body">
