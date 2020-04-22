@@ -18,7 +18,7 @@
             <!-- Authentication Links -->
             @guest
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('venues.show') }}">Venues</a>
+                    <a class="nav-link" href="{{ route('venues.show') }}">Pubs &amp; Venues</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('allproperties')}}">All Properties</a>
