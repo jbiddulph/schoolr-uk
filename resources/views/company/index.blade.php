@@ -35,14 +35,15 @@
                     {{--                    <img src="{{asset('/uploads/coverphoto/default.jpg')}}" style="width: 100%;" alt="Company cover">--}}
                     <h1>{{$company->cname}}</h1>
                     <h2>{{$company->slogan}}</h2>
-                    <p>Address: {{$company->address}}, <br />phone: {{$company->telephone}} <br />website: {{$company->website}}<br />{{$company->description}}</p>
+                    <p>Address: {{$company->address}}, <br />phone: {{$company->telephone}} <br />website: {{$company->website}}</p>
                 </div>
             @endif
         </div>
     </div>
     <div class="container">
         <div class="container-fluid mt-4 welcome">
-            <h1>Property List</h1>
+            <h1>{{$company->cname}} - Property List</h1>
+            <p>{{$company->description}}</p>
             <div class="row mt-4">
                 @foreach($company->properties as $property)
                     <div class="col-md-3">
