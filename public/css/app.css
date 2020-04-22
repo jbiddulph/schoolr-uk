@@ -16,6 +16,49 @@ p.short-description {
   -webkit-box-orient: vertical;
 }
 
+ul.loginreg {
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+}
+
+ul.loginreg li {
+  list-style-type: none;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.bgcover {
+  position: relative;
+}
+
+.bgcover h1 {
+  position: absolute;
+  left: 0px;
+  bottom: 200px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  padding: 10px 20px;
+}
+
+.bgcover h2 {
+  position: absolute;
+  left: 0px;
+  bottom: 130px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  padding: 10px 20px;
+}
+
+.bgcover p {
+  position: absolute;
+  left: 0px;
+  bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  padding: 10px 20px;
+}
+
 .welcome .card {
   border-radius: 0rem;
 }

@@ -77,6 +77,21 @@
                         @else
                             <p class="card-text"><img src="{{asset('uploads/logo')}}/company-logo.png" width="80" alt=""></p>
                         @endif
+                        <h4>Call: <a href="tel:{{ $property->company->telephone }}" title="{{$property->company->cname}}, {{ $property->company->telephone }}">{{ $property->company->telephone }}</a></h4>
+                        <small>Don't forget to mention BN-here!</small>
+                        <h5>Register or Login to enquire</h5>
+                        <ul class="loginreg">
+                            <li class="nav-item">
+                                @if (Route::has('register'))
+                                <a class="nav-link" href="{{ route('register') }}">
+                                    <button class="btn btn-md btn-primary">{{ __('User Register') }}</button></a>
+                                @endif
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">
+                                    <button class="btn btn-md btn-primary">{{ __('Login') }}</button></a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <br />
