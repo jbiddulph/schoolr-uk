@@ -26,19 +26,19 @@ class PropertyPostRequest extends FormRequest
         return [
 //            'user_id'=>'required',
             'propname'=>'required|max:45',
-//            'propcost'=>'required',
-//            'proptype_id'=>'required',
-//            'propimage'=>'required',
-//            'address'=>'required',
-//            'county'=>'required',
-//            'postcode'=>'required',
-//            'latitude'=>'required',
-//            'longitude'=>'required',
-//            'description'=>'required',
-//            'floorplan'=>'required',
-//            'brochure'=>'required',
-//            'last_date'=>'required',
-//            'category_id'=>'required'
+            'propcost'=>'required',
+            'proptype_id'=>'required',
+            'propimage'=>'required',
+            'address'=>'required',
+            'county'=>'required',
+            'postcode'=>'required',
+            'latitude'=>'required',
+            'longitude'=>'required',
+            'description'=>'required',
+            'floorplan'=>'required',
+            'brochure'=>'required',
+            'last_date'=>'required',
+            'category_id'=>'required'
         ];
     }
 }
