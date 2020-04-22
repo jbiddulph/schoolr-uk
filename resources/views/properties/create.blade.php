@@ -220,19 +220,31 @@
                                     @enderror
                                 </div>
                             </div>
-{{--                            <div class="col-md-4">--}}
-{{--                                <div class="form-group">--}}
-{{--                                    <label for="town">Town</label>--}}
-{{--                                    <select name="town" class="form-control" id="town">--}}
-{{--                                        <option value="">Please select</option>--}}
-{{--                                        @foreach(App\Property::select('town')->distinct()->get() as $town)--}}
-{{--                                            <option value="{{$town->town}}">{{$town->town}}</option>--}}
-{{--                                        @endforeach--}}
-{{--                                            <option value="other">Other</option>--}}
-{{--                                    </select>--}}
-{{--                                    <input type="text" name="othertown" id="other_town" class="form-control" value="{{ old('town') }}">--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="town">Town</label>
+                                    <select name="town" class="form-control" id="town">
+                                        <option value="">Please select</option>
+                                        @foreach(App\Property::select('town')->distinct()->get() as $town)
+                                            <option value="{{$town->town}}">{{$town->town}}</option>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="town">Town</label>
+                                                    <select name="town" class="form-control" id="town">
+                                                        <option value="">Please select</option>
+                                                        @foreach(App\Property::select('town')->distinct()->get() as $town)
+                                                            <option value="{{$town->town}}">{{$town->town}}</option>
+                                                        @endforeach
+                                                        <option value="other">Other</option>
+                                                    </select>
+                                                    <input type="text" name="othertown" id="other_town" class="form-control" value="{{ old('town') }}">
+                                                </div>
+                                            </div>@endforeach
+                                            <option value="other">Other</option>
+                                    </select>
+                                    <input type="text" name="othertown" id="other_town" class="form-control" value="{{ old('town') }}">
+                                </div>
+                            </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="county">County</label>
