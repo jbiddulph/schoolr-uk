@@ -21,7 +21,6 @@
                                 {{Session::get('message')}}
                             </div>
                         @endif
-                        {{Auth::user()->user_type}}
                         @if(Auth::user()->user_type != 'admin')
                             <form action="{{route('property.store')}}" method="post" enctype="multipart/form-data">@csrf
                         @else

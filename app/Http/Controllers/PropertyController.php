@@ -116,7 +116,6 @@ class PropertyController extends Controller
     }
 
     public function store(PropertyPostRequest $request) {
-dd($request->all());
         $user_id = auth()->user()->id;
         $company = Company::where('user_id',$user_id)->first();
         $company_id = $company->id;
