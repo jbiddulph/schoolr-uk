@@ -430,6 +430,26 @@ footer {
 
 /** END WELCOME **/
 
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active,
+.ui-state-active:focus,
+a.ui-button:active,
+.ui-button:focus,
+.ui-button:active,
+.ui-button.ui-state-active:hover {
+  background-color: #ffffff !important;
+  border-color: #123c69 !important;
+  color: #123c69 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.ui-tabs-anchor:active,
+.ui-tabs-anchor:focus {
+  outline: none;
+}
+
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors

@@ -1,0 +1,11 @@
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, .ui-state-active:focus, a.ui-button:active, .ui-button:focus, .ui-button:active, .ui-button.ui-state-active:hover{
+    background-color:#ffffff!important;
+    border-color:$primary-color!important;
+    color:$primary-color!important;
+    outline: none!important;
+    box-shadow: none!important;
+}
+
+.ui-tabs-anchor:active, .ui-tabs-anchor:focus{
+    outline:none;
+}
