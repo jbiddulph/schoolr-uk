@@ -231,7 +231,7 @@ class PropertyController extends Controller
 
             foreach ($properties as $p) {
                 Mapper::marker($p->latitude, $p->longitude);
-                Mapper::informationWindow($p->latitude, $p->longitude, '<a href="properties/'.$p->id.'/'.$p->slug.'">'.$p->propname.'</a>', ['icon' => ['url' => 'https://bnhere.co.uk/logo/primary_map_marker.png', 'scale' => 100]]);
+                Mapper::informationWindow($p->latitude, $p->longitude, '<a href="/'.$p->id.'/'.$p->slug.'">'.$p->propname.'</a>', ['icon' => ['url' => 'https://bnhere.co.uk/logo/primary_map_marker.png', 'scale' => 100]]);
             }
             return view('properties.allproperties', compact('properties','loggedin'));
         } else {
