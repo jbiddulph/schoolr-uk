@@ -13,6 +13,7 @@ public_html/storage
 public_html/hot
 
 storage/*.key
+storage/app/public/*
 .env
 Homestead.yaml
 Homestead.json
@@ -33,3 +34,4 @@ yarn-error.log
 
 .DS_Store
 storage.DS_Store
+app/storage/*
