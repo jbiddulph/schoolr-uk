@@ -33,9 +33,9 @@
                     </div>
                 @endforeach
         </div>
-        <div>
+        <div style="justify-content: center;">
             <a href="{{route('allproperties')}}">
-                <button class="btn btn-secondary btn-lg mt-4" style="width: 100%;">Browse all Properties</button>
+                <button class="btn btn-secondary btn-lg mt-4" style="width: 50%;">Browse all Properties</button>
             </a>
         </div>
         <h2 class="mb-4 mt-4">Featured Companies</h2>
