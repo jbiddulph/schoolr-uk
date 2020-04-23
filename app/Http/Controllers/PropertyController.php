@@ -20,7 +20,7 @@ class PropertyController extends Controller
     }
 
     public function index() {
-        $properties = Property::get()->random(8)->where('is_live',1)->get();
+        $properties = Property::where('is_live',1)->get()->random(8);
         Mapper::map(50.8319292,-0.3155225, [
             'zoom' => 12,
             'marker' => false,
