@@ -35,3 +35,9 @@ yarn-error.log
 .DS_Store
 storage.DS_Store
 app/storage/*
+storage/app/public/property/photos
+storage/app/public/property/floorplan
+storage/app/public/property/brochure
+storage/app/public/files
+storage/app/public/events/photos
+storage/app/public/venues/photos

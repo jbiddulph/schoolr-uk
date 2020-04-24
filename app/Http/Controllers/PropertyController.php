@@ -216,10 +216,11 @@ class PropertyController extends Controller
         }
 
         if($propname||$minbeds||$proptype_id||$category_id||$town) {
-            $properties = Property::where('propname', 'like', "%{$propname}%")
-                ->where(static function ($query) use ($proptype_id, $minbeds, $category_id, $town) {
+            $properties = Property::where('propname', 'LIKE', "%{$propname}%")
+                ->where(static function ($query) use ($proptype_id, $propname, $minbeds, $category_id, $town) {
                     $query->where('proptype_id', '=', $proptype_id)
-                        ->orWhere('bedroom', '=', $minbeds)
+                        ->orWhere('propname', 'LIKE', "%".$propname."%")
+                        ->orWhere('bedroom', '>', $minbeds)
                         ->orWhere('category_id', '=', $category_id)
                         ->orWhere('town', '=', $town);
                 })->paginate(20);
