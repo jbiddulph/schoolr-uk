@@ -18,10 +18,13 @@
             <!-- Authentication Links -->
             @guest
                 <li class="nav-item">
+                    <a class="nav-link" href="{{route('allproperties')}}">All Properties</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('venues.show') }}">Pubs &amp; Venues</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('allproperties')}}">All Properties</a>
+                    <a class="nav-link" href="{{ route('events.show') }}">Events</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -45,12 +48,15 @@
                     </a>
                 </li>
                 @endif
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('venues.show') }}">Pubs &amp; Venues</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('allproperties')}}">All Properties</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('allproperties')}}">All Properties</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('venues.show') }}">Pubs &amp; Venues</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('events.show') }}">Events</a>
+                    </li>
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 

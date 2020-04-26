@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Venue;
+use Mapper;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -14,7 +16,25 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $eventslist = Event::latest()->where('is_live',1)->paginate(52);
+        $events = Event::get();
+
+        $towns = Venue::select('town')->distinct()->get();
+
+        Mapper::map(50.8319292,-0.3155225, [
+            'zoom' => 12,
+            'marker' => false,
+            'cluster' => false
+        ]);
+        foreach ($eventslist as $e) {
+            Mapper::marker($e->venue->latitude, $e->venue->longitude);
+            Mapper::informationWindow($e->venue->latitude, $e->venue->longitude, '<a href="/venues/' . str_slug($e->venue->town) . '/' . str_slug($e->venue->venuename) . '/'. $e->venue->id .'">' . $e->venue->venuename . '</a>', ['icon' => ['url' => 'https://bnhere.co.uk/logo/primary_map_marker.png', 'scale' => 100]]);
+        }
+        return view('events.all', compact(
+            'events',
+            'towns',
+            'eventslist'));
+
     }
 
     private function notFoundMessage()

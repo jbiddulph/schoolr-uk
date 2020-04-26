@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Event;
 use App\Property;
 use App\Venue;
 use Illuminate\Http\Request;
@@ -127,8 +128,11 @@ class VenueController extends Controller
     }
 
     public function venue($town, $venue, $id) {
+
         $towns = Venue::select('town')->distinct()->get();
         $thevenue = Venue::findOrFail($id);
+        $events = Event::latest()->where("venue_id", "=", "$id")->get();
+
         Mapper::map($thevenue->latitude,$thevenue->longitude, [
             'zoom' => 16,
             'marker' => true,
@@ -140,7 +144,8 @@ class VenueController extends Controller
             'town',
             'venue',
         'id',
-        'thevenue'));
+        'thevenue',
+        'events'));
     }
 
 }

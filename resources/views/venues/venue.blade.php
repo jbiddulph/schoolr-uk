@@ -32,6 +32,11 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-6">
+                @foreach($events as $event)
+                    {{$event->eventName}}
+                @endforeach
+            </div>
         </div>
         <div class="row">
             <ul class="towns-list">
