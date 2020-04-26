@@ -10,6 +10,7 @@
 
         gtag('config', 'UA-163275218-1');
     </script>
+    <script data-ad-client="ca-pub-1907813559893319" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <meta charset="utf-8">
     <meta name="description" content="{{$thevenue->town}} pubs and venues, Properties, Events and news along the south coast within East and West Sussex."/>
     <meta name="keywords" content="{{$thevenue->town}} pubs, {{$thevenue->town}}, {{$thevenue->town}} News, {{$thevenue->town}} property">

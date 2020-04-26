@@ -10,6 +10,7 @@
 
         gtag('config', 'UA-163275218-1');
     </script>
+    <script data-ad-client="ca-pub-1907813559893319" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <meta charset="utf-8">
     <meta name="description" content="Properties, Events and news along the south coast within East and West Sussex."/>
