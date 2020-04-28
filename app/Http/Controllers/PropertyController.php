@@ -220,7 +220,7 @@ class PropertyController extends Controller
                 ->where(static function ($query) use ($proptype_id, $propname, $minbeds, $category_id, $town) {
                     $query->where('proptype_id', '=', $proptype_id)
                         ->orWhere('propname', 'LIKE', "%".$propname."%")
-                        ->orWhere('bedroom', '>', $minbeds)
+                        ->orWhere('bedroom', '=>', $minbeds)
                         ->orWhere('category_id', '=', $category_id)
                         ->orWhere('town', '=', $town);
                 })->paginate(20);
