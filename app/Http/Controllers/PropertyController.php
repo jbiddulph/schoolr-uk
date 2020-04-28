@@ -20,7 +20,7 @@ class PropertyController extends Controller
     }
 
     public function index() {
-        $properties = Property::where('is_live',1)->get()->random(8);
+        $properties = Property::where('is_live',1)->inRandomOrder()->paginate(8);
         Mapper::map(50.8319292,-0.3155225, [
             'zoom' => 12,
             'marker' => false,
@@ -31,7 +31,7 @@ class PropertyController extends Controller
             Mapper::informationWindow($p->latitude, $p->longitude, '<a href="/properties/'.$p->id.'/'.$p->slug.'">'.$p->propname.'</a>', ['icon' => ['url' => 'https://bnhere.co.uk/logo/primary_map_marker.png', 'scale' => 100]]);
         }
 //        Mapper::marker($properties->latitude, $properties->longitude);
-        $companies = Company::get()->random(4);
+        $companies = Company::inRandomOrder()->paginate(4);
         if (Auth::check()) {
             $loggedin = true;
         } else {
@@ -217,13 +217,19 @@ class PropertyController extends Controller
 
         if($propname||$minbeds||$proptype_id||$category_id||$town) {
             $properties = Property::where('propname', 'LIKE', "%{$propname}%")
-                ->where(static function ($query) use ($proptype_id, $propname, $minbeds, $category_id, $town) {
-                    $query->where('proptype_id', '=', $proptype_id)
+                ->orWhere(static function ($query) use ($proptype_id, $propname, $minbeds, $category_id, $town) {
+                    $query->orWhere('proptype_id', $proptype_id)
                         ->orWhere('propname', 'LIKE', "%".$propname."%")
-                        ->orWhere('bedroom', '=', $minbeds)
-                        ->orWhere('category_id', '=', $category_id)
-                        ->orWhere('town', '=', $town);
+                        ->orWhere('bedroom', $minbeds)
+                        ->orWhere('category_id', $category_id)
+                        ->orWhere('town', $town);
                 })->paginate(20);
+//            $properties = Property::where('proptype_id', $proptype_id)
+//                ->orWhere('propname', 'LIKE', "%".$propname."%")
+//                ->orWhere('bedroom', $minbeds)
+//                ->orWhere('category_id', $category_id)
+//                ->orWhere('town', $town)
+//                ->paginate(20);
             Mapper::map(50.8319292,-0.3155225, [
                 'zoom' => 12,
                 'marker' => false,
