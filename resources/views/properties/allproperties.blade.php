@@ -19,7 +19,7 @@
                             <input type="text" name="propname" class="form-control ml-2">
                         </div>
                         <div class="form-group mr-2">
-                            <label>Max Beds:</label>
+                            <label>Bedrooms:</label>
                             <select name="bedroom" class="form-control ml-2" id="bedroom">
                                 <option value="">Please Select</option>
                                 <option value="0">0</option>
