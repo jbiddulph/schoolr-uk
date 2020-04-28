@@ -216,20 +216,20 @@ class PropertyController extends Controller
         }
 
         if($propname||$minbeds||$proptype_id||$category_id||$town) {
-            $properties = Property::where('propname', 'LIKE', "%{$propname}%")
-                ->orWhere(static function ($query) use ($proptype_id, $propname, $minbeds, $category_id, $town) {
-                    $query->orWhere('proptype_id', $proptype_id)
-                        ->orWhere('propname', 'LIKE', "%".$propname."%")
-                        ->orWhere('bedroom', $minbeds)
-                        ->orWhere('category_id', $category_id)
-                        ->orWhere('town', $town);
-                })->paginate(20);
-//            $properties = Property::where('proptype_id', $proptype_id)
-//                ->orWhere('propname', 'LIKE', "%".$propname."%")
-//                ->orWhere('bedroom', $minbeds)
-//                ->orWhere('category_id', $category_id)
-//                ->orWhere('town', $town)
-//                ->paginate(20);
+//            $properties = Property::where('propname', 'LIKE', "%{$propname}%")
+//                ->orWhere(static function ($query) use ($proptype_id, $propname, $minbeds, $category_id, $town) {
+//                    $query->orWhere('proptype_id', $proptype_id)
+//                        ->orWhere('propname', 'LIKE', "%".$propname."%")
+//                        ->orWhere('bedroom', $minbeds)
+//                        ->orWhere('category_id', $category_id)
+//                        ->orWhere('town', $town);
+//                })->paginate(20);
+            $properties = Property::where('proptype_id', $proptype_id)
+                ->orWhere('propname', 'LIKE', "%".$propname."%")
+                ->orWhere('bedroom', $minbeds)
+                ->orWhere('category_id', $category_id)
+                ->orWhere('town', $town)
+                ->paginate(20);
             Mapper::map(50.8319292,-0.3155225, [
                 'zoom' => 12,
                 'marker' => false,
