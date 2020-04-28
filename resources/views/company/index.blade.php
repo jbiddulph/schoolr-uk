@@ -42,7 +42,7 @@
     </div>
     <div class="container">
         <div class="container-fluid mt-4 welcome">
-            <h1>{{$company->cname}} - Property List</h1>
+            <h2>{{$company->cname}} - Property List</h2>
             <p>{{$company->description}}</p>
             <div class="row mt-4">
                 @foreach($company->properties as $property)

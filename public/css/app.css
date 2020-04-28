@@ -72,6 +72,10 @@ h1 {
   color: #ffffff;
 }
 
+.card-header h1 {
+  color: #ffffff;
+}
+
 .card-header h2,
 .card-header h3 {
   margin-bottom: 0px;

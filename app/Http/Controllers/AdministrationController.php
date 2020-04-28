@@ -154,7 +154,6 @@ class AdministrationController extends Controller
         return view('properties.create');
     }
     public function propertyStore(PropertyPostRequest $request) {
-        dd($request->all());
         $user_id = $request->user_id;
         $company = Company::where('user_id',$user_id)->first();
         $company_id = $company->id;

@@ -58,6 +58,9 @@ h1 {
 .card-header {
     background-color: $primary-color!important;
     color: #ffffff;
+    h1 {
+        color: #ffffff;
+    }
     h2, h3 {
         margin-bottom: 0px;
     }
