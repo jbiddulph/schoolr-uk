@@ -37,12 +37,12 @@ class VenueController extends Controller
         if($mapswitch == 'on') {
             foreach ($venues as $v) {
                 Mapper::marker($v->latitude, $v->longitude);
-                Mapper::informationWindow($v->latitude, $v->longitude, '<a href="/venues/' . str_slug($v->town) . '/' . str_slug($v->venuename) . '/'. $v->id .'">' . $v->venuename . '</a>', ['icon' => ['url' => 'https://bnhere.co.uk/logo/secondary_map_marker@2x.png', 'scale' => 100]]);
+                Mapper::informationWindow($v->latitude, $v->longitude, '<a href="/venues/' . str_slug($v->town) . '/' . str_slug($v->venuename) . '/'. $v->id .'">' . $v->venuename . '</a>', ['icon' => ['url' => 'https://bnhere.co.uk/logo/secondary_map_marker@2x.png', 'scale' => 60]]);
             }
         } else {
             foreach ($venueslist as $v) {
                 Mapper::marker($v->latitude, $v->longitude);
-                Mapper::informationWindow($v->latitude, $v->longitude, '<a href="/venues/' . str_slug($v->town) . '/' . str_slug($v->venuename) . '/'. $v->id .'">' . $v->venuename . '</a>', ['icon' => ['url' => 'https://bnhere.co.uk/logo/secondary_map_marker@2x.png', 'scale' => 100]]);
+                Mapper::informationWindow($v->latitude, $v->longitude, '<a href="/venues/' . str_slug($v->town) . '/' . str_slug($v->venuename) . '/'. $v->id .'">' . $v->venuename . '</a>', ['icon' => ['url' => 'https://bnhere.co.uk/logo/secondary_map_marker@2x.png', 'scale' => 60]]);
             }
         }
 
