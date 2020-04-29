@@ -214,22 +214,26 @@ class PropertyController extends Controller
         } else {
             $loggedin = false;
         }
+        $query = Property::query();
 
+        $query->paginate(20);
         if($propname||$minbeds||$proptype_id||$category_id||$town) {
-//            $properties = Property::where('propname', 'LIKE', "%{$propname}%")
-//                ->orWhere(static function ($query) use ($proptype_id, $propname, $minbeds, $category_id, $town) {
-//                    $query->orWhere('proptype_id', $proptype_id)
-//                        ->orWhere('propname', 'LIKE', "%".$propname."%")
-//                        ->orWhere('bedroom', $minbeds)
-//                        ->orWhere('category_id', $category_id)
-//                        ->orWhere('town', $town);
-//                })->paginate(20);
-            $properties = Property::where('proptype_id', $proptype_id)
-                ->orWhere('propname', 'LIKE', "%".$propname."%")
-                ->orWhere('bedroom', $minbeds)
-                ->orWhere('category_id', $category_id)
-                ->orWhere('town', $town)
-                ->paginate(20);
+            $properties = Property::when($propname, function ($query) use ($propname) {
+                return $query->orWhere('propname', 'LIKE', "%".$propname."%");
+            })
+                ->when($proptype_id, function ($query) use ($proptype_id) {
+                    return $query->orWhere('proptype_id', $proptype_id);
+                })
+                ->when($minbeds, function ($query) use ($minbeds) {
+                    return $query->orWhere('bedroom', $minbeds);
+                })
+                ->when($category_id, function ($query) use ($category_id) {
+                    return $query->orWhere('category_id', $category_id);
+                })
+                ->when($town, function ($query) use ($town) {
+                    return $query->orWhere('town', $town);
+                })->paginate(20);
+//            dd($properties);
             Mapper::map(50.8319292,-0.3155225, [
                 'zoom' => 12,
                 'marker' => false,
