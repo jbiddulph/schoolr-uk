@@ -12,26 +12,26 @@
     <div class="container mt-4 welcome">
         <h1 class="mb-4">Properties</h1>
         <div class="row">
-                @foreach($properties as $property)
-                    <div class="col-md-3">
-                        <div class="property-card card mb-4">
-                            @if(isset($property->propimage))
-                                @php
-                                    $mainphoto = str_replace('public/', 'storage/', $property->propimage)
-                                @endphp
-                                <div class="mainpic">
-                                    <a href="{{route('properties.show',[$property->id, $property->slug])}}"><img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$property->propname}}"></a>
-                                </div>
-                            @endif
-                            <div class="card-body">
-                                <h4 class="card-title"><a href="{{route('properties.show',[$property->id, $property->slug])}}">{{$property->propname}}</a></h4>
-                                <h5 class="card-subtitle text-right">&pound;{!! number_format($property->propcost); !!}</h5>
-                                <p class="card-text short-description">{{ $property->short_summary }}</p>
-                                <div class="text-right"><a class="btn btn-primary btn-md" href="{{route('properties.show',[$property->id, $property->slug])}}">Enquire</a></div>
+            @foreach($properties as $property)
+                <div class="col-md-3">
+                    <div class="property-card card mb-4">
+                        @if(isset($property->propimage))
+                            @php
+                                $mainphoto = str_replace('public/', 'storage/', $property->propimage)
+                            @endphp
+                            <div class="mainpic">
+                                <a href="{{route('properties.show',[$property->id, $property->slug])}}"><img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$property->propname}}"></a>
                             </div>
+                        @endif
+                        <div class="card-body">
+                            <h4 class="card-title"><a href="{{route('properties.show',[$property->id, $property->slug])}}">{{$property->propname}}</a></h4>
+                            <h5 class="card-subtitle text-right">&pound;{!! number_format($property->propcost); !!}</h5>
+                            <p class="card-text short-description">{{ $property->short_summary }}</p>
+                            <div class="text-right"><a class="btn btn-primary btn-md" href="{{route('properties.show',[$property->id, $property->slug])}}">Enquire</a></div>
                         </div>
                     </div>
-                @endforeach
+                </div>
+            @endforeach
         </div>
         <div>
             <a href="{{route('allproperties')}}">

@@ -69,9 +69,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://vanderlee.github.io/colorpicker/jquery.colorpicker.js"></script>
-
-        @yield('script')
-
+    @yield('script')
     @stack('custom-scripts')
 </body>
 </html>

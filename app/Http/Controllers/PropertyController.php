@@ -21,12 +21,13 @@ class PropertyController extends Controller
 
     public function index() {
         $properties = Property::where('is_live',1)->inRandomOrder()->paginate(8);
+        $allproperties = Property::all();
         Mapper::map(50.8319292,-0.3155225, [
             'zoom' => 12,
             'marker' => false,
             'cluster' => false
         ]);
-        foreach ($properties as $p) {
+        foreach ($allproperties as $p) {
             Mapper::marker($p->latitude, $p->longitude);
             Mapper::informationWindow($p->latitude, $p->longitude, '<a href="/properties/'.$p->id.'/'.$p->slug.'">'.$p->propname.'</a>', ['icon' => ['url' => 'https://bnhere.co.uk/logo/primary_map_marker.png', 'scale' => 100]]);
         }
@@ -37,7 +38,7 @@ class PropertyController extends Controller
         } else {
             $loggedin = false;
         }
-        return view('welcome', compact('properties','companies', 'loggedin'));
+        return view('welcome', compact('properties', 'allproperties', 'companies', 'loggedin'));
     }
 
     public function myProperty() {

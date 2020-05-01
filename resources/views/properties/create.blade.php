@@ -232,7 +232,7 @@
                                         @endforeach
                                             <option value="other">Other</option>
                                     </select>
-                                    <input type="text" name="othertown" id="other_town" class="form-control" value="{{ old('town') }}">
+                                    <input type="text" name="town" id="other_town" class="form-control" value="{{ old('town') }}">
                                 </div>
                             </div>
                             <div class="col-md-4">
