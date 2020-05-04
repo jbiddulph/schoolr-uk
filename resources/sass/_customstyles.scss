@@ -68,6 +68,15 @@ h1 {
         color: #ffffff!important;
     }
 }
+.covid {
+    background-color: $secondary-color;
+    color: #ffffff;
+    padding:20px;
+    h3 {
+        border-bottom: 2px solid #ffffff;
+        margin-bottom:10px;
+    }
+}
 .card-title {
     height: 76px;
 }

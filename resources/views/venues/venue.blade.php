@@ -32,7 +32,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-9">
+                <div class="covid">
+                    <h3>Covid-19 Lockdown notice</h3>
+                    <h4>Due to the current lockdown and social distancing measures that are in place to help save lives.</h4>
+                    <h4>Venues and pubs will have a limited amount of events listed.</h4>
+                </div>
                 @foreach($events as $event)
                     {{$event->eventName}}
                 @endforeach
