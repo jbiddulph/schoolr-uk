@@ -76,7 +76,7 @@ Route::post('/subscribe', 'SubscriptionController@subscribe');
 Route::post('/admin/searchvenues', 'VenueController@searchVenues')->name('search.venues');
 Route::post('/admin/searchvenuetowns', 'VenueController@searchVenueTowns')->name('search.venuetowns');
 
-Route::group(['middleware'=>'role:Agent'], function () {
+Route::group(['middleware'=>'role:super-agent'], function () {
     Route::get('/admin/properties/{id}/{property}/addphotos', 'AdministrationController@addphotos')->name('adminproperty.addphotos');
 });
 
