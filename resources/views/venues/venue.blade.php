@@ -33,14 +33,14 @@
                 </div>
             </div>
             <div class="col-md-9">
-                <div class="covid">
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+
+                    <div class="covid alert alert-warning alert-dismissible fade show" role="alert">
                         <strong>Covid-19 Lockdown notice</strong> Due to the current lockdown and social distancing measures that are in place to help save lives, venues and pubs will have a limited amount of events listed.
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                </div>
+                ß
                 @foreach($events as $event)
                     {{$event->eventName}}
                 @endforeach
