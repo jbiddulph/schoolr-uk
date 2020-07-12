@@ -15,7 +15,7 @@
                             $mainphoto = str_replace('public/', 'storage/', $thevenue->photo)
                         @endphp
                         <div class="mainpic">
-                            <a href="venues.show',[$thevenue->id, $thevenue->slug])}}"><img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$thevenue->venuename}}"></a>
+                            <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$thevenue->venuename}}">
                         </div>
                     @endif
                     <div class="card-body">
