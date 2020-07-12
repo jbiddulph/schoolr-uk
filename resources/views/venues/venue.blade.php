@@ -34,7 +34,7 @@
             </div>
             <div class="col-md-9">
 
-                    <div class="alert alert-outline-danger alert-dismissible fade show" role="alert">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <strong>Covid-19 Lockdown notice</strong> Due to the current lockdown and social distancing measures that are in place to help save lives, venues and pubs will have a limited amount of events listed.
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
