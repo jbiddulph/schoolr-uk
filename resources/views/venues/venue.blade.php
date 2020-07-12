@@ -36,6 +36,9 @@
                 <div class="covid">
                     <h3><strong>Covid-19 Lockdown notice</strong></h3>
                     <h4>Due to the current lockdown and social distancing measures that are in place to help save lives, venues and pubs will have a limited amount of events listed.</h4>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 @foreach($events as $event)
                     {{$event->eventName}}
