@@ -19,7 +19,7 @@
                         </div>
                     @endif
                     <div class="card-body">
-                        <strong>{{$thevenue->postalsearch}}xx</strong>
+                        <strong>{{$thevenue->postalsearch}}</strong>
 {{--                            <h4 class="card-title"><a href="{{route('venues.show',[$thevenue->id, $thevenue->slug])}}">{{$thevenue->propname}}</a></h4>--}}
                         <h5 class="card-subtitle text-right">{{$thevenue->venuename}}</h5>
                         <p class="card-text">{{$thevenue->address}}<br />
