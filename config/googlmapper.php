@@ -20,7 +20,7 @@ return [
     | A Google API key to link Googlmapper to Google's API.
     |
     */
-    'key' => env('GOOGLE_API_KEY', 'AIzaSyAr8fbu4-LcfWxyH9bCFMi7peY2B7_DDuM'),
+    'key' => env('GOOGLE_API_KEY', 'AIzaSyAtqWsq5Ai3GYv6dSa6311tZiYKlbYT4mw'),
 
     /*
     |--------------------------------------------------------------------------
@@ -103,7 +103,7 @@ return [
     | The default zoom level Googlmapper should use.
     |
     */
-    'zoom' => 15,
+    'zoom' => 8,
 
     /*
     |--------------------------------------------------------------------------
@@ -153,7 +153,7 @@ return [
     | Set if street view control should be displayed by Googlmapper.
     |
     */
-    'streetViewControl' => false,
+    'streetViewControl' => true,
 
     /*
     |--------------------------------------------------------------------------
