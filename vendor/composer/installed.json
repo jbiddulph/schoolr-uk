@@ -64,17 +64,17 @@
     },
     {
         "name": "cornford/googlmapper",
-        "version": "v3.2.0",
-        "version_normalized": "3.2.0.0",
+        "version": "v3.3.1",
+        "version_normalized": "3.3.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/bradcornford/Googlmapper.git",
-            "reference": "13ec39c863f0575675d2bc5d0397e92ce7418459"
+            "reference": "57ba75a4b71135edabefc92fb0fa2f64a0a6f596"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/bradcornford/Googlmapper/zipball/13ec39c863f0575675d2bc5d0397e92ce7418459",
-            "reference": "13ec39c863f0575675d2bc5d0397e92ce7418459",
+            "url": "https://api.github.com/repos/bradcornford/Googlmapper/zipball/57ba75a4b71135edabefc92fb0fa2f64a0a6f596",
+            "reference": "57ba75a4b71135edabefc92fb0fa2f64a0a6f596",
             "shasum": ""
         },
         "require": {
@@ -90,7 +90,7 @@
             "phpunit/phpunit": "^8.4",
             "squizlabs/php_codesniffer": "^3.5"
         },
-        "time": "2020-03-05T07:53:49+00:00",
+        "time": "2020-07-06T10:15:21+00:00",
         "type": "library",
         "extra": {
             "laravel": {
