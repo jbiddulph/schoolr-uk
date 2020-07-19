@@ -110,18 +110,20 @@ $( document ).ready(function() {
 
     // vanilla JS
 // init with element
-    var grid = document.querySelector('.grid');
-    var msnry = new Masonry( grid, {
-        // options...
-        itemSelector: '.grid-item',
-        columnWidth: 180,
-        gutter: 20
-    });
+    var $container = $('.container');
+    $container.imagesLoaded( function() {
+        var grid = document.querySelector('.grid');
+        var msnry = new $container.Masonry( grid, {
+            // options...
+            itemSelector: '.grid-item',
+            columnWidth: 180,
+            gutter: 20
+        });
 
-// init with selector
-    var msnry = new Masonry( '.grid', {
-        // options...
+    // init with selector
+        var msnry = new $container.Masonry( '.grid', {
+            // options...
+        });
     });
-
 });
 
