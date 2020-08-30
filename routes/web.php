@@ -30,7 +30,7 @@ Route::View('register/company','register-company')->name('register.company');
 Route::post('company/register', 'CompanyRegisterController@companyRegister')->name('company.register');
 
 // Landlord View
-Route::View('register/landlord','register-company')->name('register.landlord');
+Route::View('register/landlord','register-landlord')->name('register.landlord');
 Route::post('landlord/register', 'LandlordRegisterController@landlordRegister')->name('landlord.register');
 
 // User Profile
