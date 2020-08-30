@@ -29,6 +29,10 @@ Route::post('/company/branding', 'CompanyController@companyBrand')->name('compan
 Route::View('register/company','register-company')->name('register.company');
 Route::post('company/register', 'CompanyRegisterController@companyRegister')->name('company.register');
 
+// Landlord View
+Route::View('register/landlord','register-company')->name('register.landlord');
+Route::post('landlord/register', 'LandlordRegisterController@landlordRegister')->name('landlord.register');
+
 // User Profile
 Route::get('user/profile', 'UserController@profile')->name('user.view');
 Route::post('user/profile/create', 'UserController@profilestore')->name('profile.create');
