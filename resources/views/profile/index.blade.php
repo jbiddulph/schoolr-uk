@@ -16,7 +16,7 @@
                         <div class="card-body">
                             <input type="file" class="form-control" name="avatar">
                             <br />
-                            <button class="btn btn-success float-right" type="submit">Update Cover Letter</button>
+                            <button class="btn btn-success float-right" type="submit">Update Avatar</button>
                             @if($errors->has('avatar'))
                                 <div class="error text-danger">{{$errors->first('avatar')}}</div>
                             @endif

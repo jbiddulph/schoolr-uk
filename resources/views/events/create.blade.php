@@ -138,6 +138,7 @@
     @section('script')
         <script type="text/javascript">
         $(document).ready(function(){
+
             $('#venuetown').keyup(function() {
                 var query = $(this).val();
                 if(query != ''){
@@ -171,10 +172,12 @@
                     });
                     var venueval = $("input:radio[name=selectedVenueID]:checked").val();
                     $("input:text[name=venue_id]").val(venueval);
+
                 }
             });
             function saveevent() {
                 var venueval = $("input:radio[name=selectedVenueID]:checked").val();
+
                 $("#venue_id").val(venueval);
             }
             $( "#saveevent" ).on( "click", saveevent );
