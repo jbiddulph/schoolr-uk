@@ -12,7 +12,7 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('company.register') }}">
                             @csrf
-                            <input type="hidden" value="company" name="user_type">
+                            <input type="hidden" value="landlord" name="user_type">
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Company Name') }}</label>
 
