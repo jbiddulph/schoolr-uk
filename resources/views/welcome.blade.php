@@ -15,7 +15,7 @@
                     <div class="property-card card mb-4">
                         @if(isset($venue->photo))
                             @php
-                                $mainphoto = str_replace('public/venues/', 'storage/', $venue->photo)
+                                $mainphoto = str_replace('public/venues/', 'storage/venues/photos/', $venue->photo)
                             @endphp
                             <div class="mainpic">
                                 <a href="{{route('properties.show',[$venue->id, $venue->slug])}}"><img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$venue->venuename}}"></a>
