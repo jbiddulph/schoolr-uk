@@ -10,7 +10,7 @@
                     <div class="card-header"><h1>Landlord Register</h1></div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('company.register') }}">
+                        <form method="POST" action="{{ route('landlord.register') }}">
                             @csrf
                             <input type="hidden" value="landlord" name="user_type">
                             <div class="form-group row">
