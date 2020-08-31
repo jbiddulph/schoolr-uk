@@ -64,7 +64,7 @@ class VenueController extends Controller
         ]);
         foreach ($allvenues as $p) {
             Mapper::marker($p->latitude, $p->longitude);
-            Mapper::informationWindow($p->latitude, $p->longitude, '<a href="/venues/'.$p->id.'/'.$p->slug.'">'.$p->venuename.'</a>', ['icon' => ['url' => 'https://bnhere.co.uk/logo/primary_map_marker.png', 'scale' => 100]]);
+            Mapper::informationWindow($p->latitude, $p->longitude, '<a href="/venues/'.str_slug($p->town).'/'.str_slug($p->town).'/'.$p->id.'">'.$p->venuename.'</a>', ['icon' => ['url' => 'https://bnhere.co.uk/logo/primary_map_marker.png', 'scale' => 100]]);
         }
 //        Mapper::marker($properties->latitude, $properties->longitude);
 
