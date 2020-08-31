@@ -7,6 +7,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Company;
+use App\Venue;
+
 use Illuminate\Support\Facades\Hash;
 use Laravel\Cashier\Billable;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -54,6 +56,9 @@ class User extends Authenticatable
     }
     public function company(){
         return $this->hasOne(Company::class);
+    }
+    public function venue(){
+        return $this->hasOne(Venue::class);
     }
     public function propertyphotos(){
         return $this->hasMany(PropertyPhotos::class);

@@ -15,6 +15,7 @@ class AddUserIdToVenuesTable extends Migration
     {
         Schema::table('venues', function (Blueprint $table) {
             //
+            $table->integer('user_id')->after('id');
         });
     }
 
