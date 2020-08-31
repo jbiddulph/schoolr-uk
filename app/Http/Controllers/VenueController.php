@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Company;
 use App\Event;
 use App\Property;
 use App\Venue;
@@ -51,6 +52,28 @@ class VenueController extends Controller
             'venueslist',
                 'towns',
                 'checked'));
+    }
+
+    public function welcome() {
+        $venues = Venue::where('is_live',1)->inRandomOrder()->paginate(8);
+        $allvenues = Venue::all();
+        Mapper::map(50.8319292,-0.3155225, [
+            'zoom' => 12,
+            'marker' => false,
+            'cluster' => false
+        ]);
+        foreach ($allvenues as $p) {
+            Mapper::marker($p->latitude, $p->longitude);
+            Mapper::informationWindow($p->latitude, $p->longitude, '<a href="/venues/'.$p->id.'/'.$p->slug.'">'.$p->venuename.'</a>', ['icon' => ['url' => 'https://bnhere.co.uk/logo/primary_map_marker.png', 'scale' => 100]]);
+        }
+//        Mapper::marker($properties->latitude, $properties->longitude);
+
+//        if (Auth::check()) {
+//            $loggedin = true;
+//        } else {
+//            $loggedin = false;
+//        }
+        return view('welcome', compact('venues', 'allvenues'));
     }
 
     public function searchVenueTowns(Request $request) {

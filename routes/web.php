@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', 'PropertyController@index');
+//Route::get('/', 'PropertyController@index');
+Route::get('/', 'VenueController@welcome');
 
 Auth::routes();
 

@@ -13,30 +13,11 @@
                         <form method="POST" action="{{ route('landlord.register') }}">
                             @csrf
                             <input type="hidden" value="landlord" name="user_type">
+
                             <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Company Name') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="cname" type="text" class="form-control @error('cname') is-invalid @enderror" name="cname" value="{{ old('cname') }}" required autocomplete="cname" autofocus>
-
-                                    @error('cname')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">Search Venue Name</label>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="venuetown">Search by town</label>
-                                        <input type="text" name="venuetown" id="venuetown" placeholder="Start typing town" class="form-control">
-                                        <div id="venueTownList"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="venuenamesearch">Search Venue Name</label>
                                         <input type="text" name="venuenamesearch" id="venuenamesearch" placeholder="Start typing venue name" class="form-control">
                                         <div id="venueList"></div>
                                     </div>

@@ -17,9 +17,9 @@
         <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->
             @guest
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('allproperties')}}">All Properties</a>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" href="{{route('allproperties')}}">All Properties</a>--}}
+{{--                </li>--}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('venues.show') }}">Pubs &amp; Venues</a>
                 </li>
@@ -34,7 +34,7 @@
                         @if (Route::has('register'))
                             <a class="nav-link" href="{{ route('register') }}">{{ __('User Register') }}</a>
                         @endif
-                        <a class="nav-link" href="{{ route('register.company') }}">{{ __('Company Register') }}</a>
+                        <a class="nav-link" href="{{ route('register.landlord') }}">{{ __('Landlord Register') }}</a>
                     </div>
                 </li>
                 <li class="nav-item">
