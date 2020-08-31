@@ -18,12 +18,11 @@
                                 $mainphoto = str_replace('public/venues/', 'storage/venues/', $venue->photo)
                             @endphp
                             <div class="mainpic">
-                                <a href="{{route('properties.show',[$venue->id, $venue->slug])}}"><img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$venue->venuename}}"></a>
+                                <a href="/venues/{{ str_slug($venue->town)}}/{{str_slug($venue->venuename)}}/{{$venue->id}}"><img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$venue->venuename}}"></a>
                             </div>
                         @endif
                         <div class="card-body">
-                            <h4 class="card-title"><a href="{{route('properties.show',[$venue->id, $venue->slug])}}">{{$venue->venuename}}</a></h4>
-                            <div class="text-right"><a class="btn btn-primary btn-md" href="{{route('venues.show',[$venue->id, $venue->slug])}}">Enquire</a></div>
+                            <h4 class="card-title"><a href="/venues/{{ str_slug($venue->town)}}/{{str_slug($venue->venuename)}}/{{$venue->id}}">{{$venue->venuename}}</a></h4>
                         </div>
                     </div>
                 </div>
