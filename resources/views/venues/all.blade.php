@@ -25,9 +25,9 @@
             @endforeach
             </ul>
         </div>
-        <div class="grid mt-4">
+        <div class="row">
             @foreach($venueslist as $venue)
-                <div class="grid-list">
+                <div class="col-md-2 col-sm-12">
                     <div class="venue-card card mb-4">
                         @if(isset($venue->photo))
                             @php

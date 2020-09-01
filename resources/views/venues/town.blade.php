@@ -9,7 +9,7 @@
         <h1>Venues in {{request('town')}}</h1>
         <div class="grid mt-4">
             @foreach($venueslist as $venue)
-                <div class="grid-list">
+                <div class="col-md-2 col-sm-12">
                     <div class="venue-card card mb-4">
                         @if(isset($venue->photo))
                             @php

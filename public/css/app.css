@@ -11435,5 +11435,9 @@ a.text-dark:focus {
   ul.towns-list li h3 .btn-group-sm > a.btn {
     font-size: 22px;
   }
+
+  .venue-card .mainpic a {
+    height: 240px !important;
+  }
 }
 
