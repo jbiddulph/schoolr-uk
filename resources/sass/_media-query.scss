@@ -13,6 +13,20 @@
             }
         }
     }
+    .card-text {
+        display:flex;
+        justify-content: space-between;
+        flex-direction: row;
+        .address {
+            font-size: 1.2rem;
+        }
+    }
+    .mainpic {
+        position: relative;
+        h2 {
+            top: 30px;
+        }
+    }
     .venue-card {
         .mainpic {
             a {

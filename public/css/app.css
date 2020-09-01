@@ -291,6 +291,16 @@ ul.icons li span {
   position: relative;
 }
 
+.mainpic h2 {
+  position: absolute;
+  top: 8px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  padding: 4px 8px;
+  font-size: 1.2rem;
+}
+
 .edit-photo {
   position: absolute;
   top: 15px;
@@ -11434,6 +11444,24 @@ a.text-dark:focus {
   ul.towns-list li h3 a.btn-sm,
   ul.towns-list li h3 .btn-group-sm > a.btn {
     font-size: 22px;
+  }
+
+  .card-text {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  .card-text .address {
+    font-size: 1.2rem;
+  }
+
+  .mainpic {
+    position: relative;
+  }
+
+  .mainpic h2 {
+    top: 30px;
   }
 
   .venue-card .mainpic a {

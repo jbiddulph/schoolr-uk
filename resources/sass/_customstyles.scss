@@ -266,8 +266,18 @@ ul.icons {
         }
     }
 }
+
 .mainpic {
     position: relative;
+    h2 {
+        position: absolute;
+        top: 8px;
+        left:0px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #ffffff;
+        padding: 4px 8px;
+        font-size: 1.2rem;
+    }
 }
 .edit-photo {
     position: absolute;

@@ -7,7 +7,7 @@
     </div>
     <div class="container mt-4 welcome">
         <h1>Venues in {{request('town')}}</h1>
-        <div class="grid mt-4">
+        <div class="grid mt-4 row">
             @foreach($venueslist as $venue)
                 <div class="col-md-2 col-sm-12">
                     <div class="venue-card card mb-4">
@@ -22,20 +22,23 @@
                                     height: 120px;">
 {{--                                    <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$venue->venuename}}" width="180">--}}
                                 </a>
+                                <h2 class="card-subtitle">{{$venue->venuename}}</h2>
                                 <span class="postal">{{$venue->postalsearch}}</span>
                             </div>
                         @endif
                         <div class="card-body">
 {{--                        <h4 class="card-title"><a href="{{route('venues.show',[$venue->id, $venue->slug])}}">{{$venue->propname}}</a></h4>--}}
-                            <h5 class="card-subtitle">{{$venue->venuename}}</h5>
-                            <p class="card-text">{{$venue->address}}<br />
+
+                            <div class="card-text">
+                                <div class="address">{{$venue->address}}<br />
                             @if($venue->address2 != '')
                                 {{$venue->address2}}<br />
                             @endif
                             {{$venue->town}}<br />
                             {{$venue->county}}<br />
-                            {{$venue->postcode}}</p>
-                            <p class="card-text short-description"><i class="fas fa-phone-alt"></i>&nbsp;{{$venue->telephone}}</p>
+                            {{$venue->postcode}}</div>
+                                <span><a href="tel:{{$venue->telephone}}"><i class="fas fa-2x fa-phone-alt"></i></a></span>
+                            </div>
 {{--                            <a class="btn btn-primary btn-sm" href="{{route('properties.show',[$venue->id, $venue->slug])}}">Enquire</a>--}}
                         </div>
                     </div>
