@@ -2,6 +2,7 @@
 .welcome {
     .venue-card {
         transition: transform 0.3s;
+        width:100%;
         //transition-timing-function: ease-in-out;
         img {
             width:100%;
@@ -12,7 +13,7 @@
     }
 }
 .grid-list {
-    width:198px;
+    width:161px;
     margin: 0px 10px;
     display: inline-flex;
 }
