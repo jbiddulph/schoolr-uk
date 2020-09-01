@@ -9,26 +9,36 @@
         <h1>{{$thevenue->venuename}}, <a href="{{route('venues.town', [request('town')])}}" style="text-transform: capitalize;">{{request('town')}}</a></h1>
         <div class="row mt-4">
             <div class="col-md-3">
-                <div class="property-card card mb-4">
+                <div class="venue-card card mb-4">
                     @if(isset($thevenue->photo))
                         @php
                             $mainphoto = str_replace('public/', 'storage/', $thevenue->photo)
                         @endphp
                         <div class="mainpic">
-                            <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$thevenue->venuename}}">
+                            <a href="/venues/{{ str_slug($thevenue->town)}}/{{str_slug($thevenue->venuename)}}/{{$thevenue->id}}" style="background-image: url('/\{{ $mainphoto }}'); background-repeat: no-repeat;     background-size: cover;
+                                display: block;
+                                width: 100%;
+                                height: 120px;">
+                                {{--                                    <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$venue->venuename}}" width="180">--}}
+                            </a>
+                            <h2 class="card-subtitle">{{$thevenue->venuename}}</h2>
+                            <span class="postal">{{$thevenue->postalsearch}}</span>
                         </div>
                     @endif
                     <div class="card-body">
-                        <strong>{{$thevenue->postalsearch}}</strong>
-{{--                            <h4 class="card-title"><a href="{{route('venues.show',[$thevenue->id, $thevenue->slug])}}">{{$thevenue->propname}}</a></h4>--}}
-                        <h5 class="card-subtitle text-right">{{$thevenue->venuename}}</h5>
-                        <p class="card-text">{{$thevenue->address}}<br />
-                        {{$thevenue->address2}}<br />
-                        {{$thevenue->town}}<br />
-                        {{$thevenue->county}}<br />
-                        {{$thevenue->postcode}}</p>
-                        <p class="card-text short-description">{{$thevenue->telephone}}</p>
-{{--                            <a class="btn btn-primary btn-sm" href="{{route('properties.show',[$thevenue->id, $thevenue->slug])}}">Enquire</a>--}}
+                        {{--                        <h4 class="card-title"><a href="{{route('venues.show',[$venue->id, $venue->slug])}}">{{$venue->propname}}</a></h4>--}}
+
+                        <div class="card-text">
+                            <div class="address">{{$thevenue->address}}<br />
+                                @if($thevenue->address2 != '')
+                                    {{$thevenue->address2}}<br />
+                                @endif
+                                {{$thevenue->town}}<br />
+                                {{$thevenue->county}}<br />
+                                {{$thevenue->postcode}}</div>
+                            <span><a href="tel:{{$thevenue->telephone}}"><i class="fas fa-2x fa-phone-alt"></i></a></span>
+                        </div>
+                        {{--                            <a class="btn btn-primary btn-sm" href="{{route('properties.show',[$venue->id, $venue->slug])}}">Enquire</a>--}}
                     </div>
                 </div>
             </div>
