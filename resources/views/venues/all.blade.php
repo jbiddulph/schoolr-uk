@@ -25,7 +25,7 @@
             @endforeach
             </ul>
         </div>
-        <div class="grid mt-4" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'>
+        <div class="grid mt-4">
             @foreach($venueslist as $venue)
                 <div class="grid-list">
                     <div class="venue-card card mb-4">
