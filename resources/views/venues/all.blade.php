@@ -34,20 +34,30 @@
                                 $mainphoto = str_replace('public/', 'storage/', $venue->photo)
                             @endphp
                             <div class="mainpic">
-{{--                                <a href="/venues/{{ str_slug($venue->town)}}/{{str_slug($venue->venuename)}}/{{$venue->id}}">--}}
                                 <a href="/venues/{{ str_slug($venue->town)}}/{{str_slug($venue->venuename)}}/{{$venue->id}}" style="background-image: url('/\{{ $mainphoto }}'); background-repeat: no-repeat;     background-size: cover;
                                     display: block;
                                     width: 100%;
                                     height: 120px;">
-{{--                                    <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$venue->venuename}}" width="180">--}}
+                                    {{--                                    <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$venue->venuename}}" width="180">--}}
                                 </a>
+                                <h2 class="card-subtitle">{{$venue->venuename}}</h2>
+                                <span class="postal">{{$venue->postalsearch}}</span>
                             </div>
                         @endif
                         <div class="card-body">
-                            <strong>{{$venue->postalsearch}}</strong>
-                            <h5 class="card-subtitle text-right">{{$venue->venuename}}</h5>
-                            <p class="card-text">{{$venue->town}}<br />
-                            </p>
+                            {{--                        <h4 class="card-title"><a href="{{route('venues.show',[$venue->id, $venue->slug])}}">{{$venue->propname}}</a></h4>--}}
+
+                            <div class="card-text">
+                                <div class="address">{{$venue->address}}<br />
+                                    @if($venue->address2 != '')
+                                        {{$venue->address2}}<br />
+                                    @endif
+                                    {{$venue->town}}<br />
+                                    {{$venue->county}}<br />
+                                    {{$venue->postcode}}</div>
+                                <span><a href="tel:{{$venue->telephone}}"><i class="fas fa-2x fa-phone-alt"></i></a></span>
+                            </div>
+                            {{--                            <a class="btn btn-primary btn-sm" href="{{route('properties.show',[$venue->id, $venue->slug])}}">Enquire</a>--}}
                         </div>
                     </div>
                 </div>
