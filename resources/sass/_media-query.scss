@@ -2,6 +2,12 @@
     /* Here, rules for anything less than Ipads width, with the
        advice to design for the smallest common width, 320px.
        This is the majority of smarthphones. */
+    .welcome {
+        text-align: center;
+        h1 {
+
+        }
+    }
     ul.towns-list {
         li {
             padding:2px 0;
