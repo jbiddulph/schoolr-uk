@@ -34,7 +34,13 @@
                                 $mainphoto = str_replace('public/', 'storage/', $venue->photo)
                             @endphp
                             <div class="mainpic">
-                                <a href="/venues/{{ str_slug($venue->town)}}/{{str_slug($venue->venuename)}}/{{$venue->id}}"><img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$venue->venuename}}" width="180"></a>
+{{--                                <a href="/venues/{{ str_slug($venue->town)}}/{{str_slug($venue->venuename)}}/{{$venue->id}}">--}}
+                                <a href="/venues/{{ str_slug($venue->town)}}/{{str_slug($venue->venuename)}}/{{$venue->id}}" style="background-image: url('/\{{ $mainphoto }}'); background-repeat: no-repeat;     background-size: cover;
+                                    display: block;
+                                    width: 100%;
+                                    height: 120px;">
+{{--                                    <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$venue->venuename}}" width="180">--}}
+                                </a>
                             </div>
                         @endif
                         <div class="card-body">
