@@ -15,9 +15,9 @@
             @endforeach
             </ul>
         </div>
-        <div class="grid mt-4" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'>
+        <div class="grid mt-4 row">
             @foreach($eventslist as $event)
-                <div class="grid-list">
+                <div class="col-md-2 col-sm-12">
                     <div class="venue-card card mb-4">
                         @if(isset($event->eventPhoto))
                             @php
