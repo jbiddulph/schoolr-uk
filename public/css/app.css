@@ -11450,6 +11450,10 @@ a.text-dark:focus {
     font-size: 22px;
   }
 
+  ul.towns-list li h3 a.btn-md {
+    font-size: 22px;
+  }
+
   .card-text {
     display: flex;
     justify-content: space-between;
