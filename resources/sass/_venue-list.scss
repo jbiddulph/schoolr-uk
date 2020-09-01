@@ -12,8 +12,9 @@
     }
 }
 .grid-list {
-    width:200px;
-    margin: 0px 10px
+    width:198px;
+    margin: 0px 10px;
+    display: inline-flex;
 }
 #venueList label.form-check-label {
     font-size: 20px!important;
