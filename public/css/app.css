@@ -11433,6 +11433,18 @@ a.text-dark:focus {
      advice to design for the smallest common width, 320px.
      This is the majority of smarthphones. */
 
+  #navbarSupportedContent .navbar-nav {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  .dropdown-menu {
+    background-color: #d8d9da;
+    border: none;
+    font-size: 1rem;
+    text-align: center;
+  }
+
   .welcome {
     text-align: center;
   }
