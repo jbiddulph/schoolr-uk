@@ -76,11 +76,15 @@
 @section('script')
     <script type="text/javascript">
         $(document).ready(function(){
+            window.onload = function () {
+                $('#phone_number').click(function() {
+                    $('.phone_number').focus();
+                });
+            };
 
-
-            // $('#phone_number').click(function() {
-                $('.phone_number').focus();
-            // });
+            $('#phone_number').click(function() {
+                $('.phone_number').find('input').focus(); // works well on my iPhone - Keyboard slides in
+            });
 
 
 
