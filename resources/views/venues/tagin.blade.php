@@ -79,7 +79,7 @@
 
 
             $('#phone_number').click(function() {
-                $('.phone_number').find('input').focus(); // works well on my iPhone - Keyboard slides in
+                $('.phone_number').focus();
             });
 
 
