@@ -78,9 +78,9 @@
         $(document).ready(function(){
 
 
-            $('#phone_number').click(function() {
+            // $('#phone_number').click(function() {
                 $('.phone_number').focus();
-            });
+            // });
 
 
 
