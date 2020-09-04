@@ -76,11 +76,7 @@
 @section('script')
     <script type="text/javascript">
         $(document).ready(function(){
-            window.onload = function () { document.getElementById('phone_number') && document.getElementById('phone_number').focus(); };
-
-
-
-            //$("#phone_number").click(function(){ $("input[name='phone_number']").trigger('focus') });
+            $("#phone_number").click(function(){ $("input[name='phone_number']").trigger('focus') });
         });
     </script>
 @endsection
