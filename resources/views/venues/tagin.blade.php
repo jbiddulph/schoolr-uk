@@ -63,7 +63,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-4 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">Tag in!</button>
+                                    <button type="submit" class="btn bt-lg btn-primary">Tag in!</button>
                                 </div>
                             </div>
                         </form>
