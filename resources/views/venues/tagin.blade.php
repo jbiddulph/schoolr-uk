@@ -76,7 +76,13 @@
 @section('script')
     <script type="text/javascript">
         $(document).ready(function(){
-            $("#phone_number").click(function(){ $("input[name='phone_number']").trigger('focus') });
+            window.onload = function () {
+                $("#phone_number").click(function(){ $("input[name='phone_number']").trigger('focus') });
+            };
+
+
+
+
         });
     </script>
 @endsection
