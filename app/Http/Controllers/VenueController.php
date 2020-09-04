@@ -194,9 +194,9 @@ class VenueController extends Controller
         ]);
 
         //LOGGING
-        Log::info('Phone number: '.request('phone_number').'');
+        //Log::info('Phone number: '.request('phone_number').'');
 
-        return redirect()->back()->with('message','Venue added successfully!');
+        return redirect()->back()->with('message','Tagged in successfully!');
     }
 
 }

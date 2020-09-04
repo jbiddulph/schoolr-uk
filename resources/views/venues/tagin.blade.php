@@ -19,7 +19,7 @@
                                     <div class="form-group">
                                         <label for="propname">Phone number</label>
                                         <input type="hidden" name="venue_id" value="{{$thevenue->id}}">
-                                        <input type="number" name="phone_number" class="form-control @error('phone_number') is-invalid @enderror" >
+                                        <input type="number" id="phone_number" name="phone_number" class="form-control @error('phone_number') is-invalid @enderror" >
                                         @error('venuename')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -61,4 +61,11 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#phone_number").focus();
+        });
+    </script>
 @endsection
