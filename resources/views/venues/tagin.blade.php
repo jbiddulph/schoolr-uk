@@ -19,7 +19,7 @@
                                     <div class="form-group">
                                         <label for="propname">Phone number</label>
                                         <input type="hidden" name="venue_id" value="{{$thevenue->id}}">
-                                        <input type="number" id="phone_number" name="phone_number" class="form-control @error('phone_number') is-invalid @enderror" >
+                                        <input type="number" id="phone_number" name="phone_number" class="phone_number form-control @error('phone_number') is-invalid @enderror" >
                                         @error('venuename')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -76,9 +76,13 @@
 @section('script')
     <script type="text/javascript">
         $(document).ready(function(){
-            window.onload = function () {
-                $("#phone_number").click(function(){ $("input[name='phone_number']").trigger('focus') });
-            };
+
+
+            $('#phone_number').click(function() {
+                $('.phone_number').find('input').focus(); // works well on my iPhone - Keyboard slides in
+            });
+
+
 
 
 
