@@ -77,7 +77,9 @@
     <script type="text/javascript">
         $(document).ready(function(){
             window.onload = function () {
-                $('.phone_number').focus();
+                $('#phone_number').click(function() {
+                    $('.phone_number').focus();
+                });
             };
         });
     </script>
