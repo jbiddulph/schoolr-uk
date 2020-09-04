@@ -41,7 +41,18 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="address">Reason for visit</label>
-                                        <input type="text" name="reason_visit" class="form-control @error('reason_visit') is-invalid @enderror">
+                                        <select name="reason_visit" id="reason_visit" class="form-control @error('reason_visit') is-invalid @enderror">
+                                            <option value="">Please select</option>
+                                            <option value="meet">Meet someone</option>
+                                            <option value="friends">Meet friends</option>
+                                            <option value="socialise">Socialise</option>
+                                            <option value="eat">To eat</option>
+                                            <option value="music">For the music</option>
+                                            <option value="sport">To watch sport</option>
+                                            <option value="passing">Just passing</option>
+                                            <option value="other">Other</option>
+                                        </select>
+
                                         @error('address')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -65,7 +76,11 @@
 @section('script')
     <script type="text/javascript">
         $(document).ready(function(){
-            $("#phone_number").focus();
+            window.onload = function () { document.getElementById('phone_number') && document.getElementById('phone_number').focus(); };
+
+
+
+            //$("#phone_number").click(function(){ $("input[name='phone_number']").trigger('focus') });
         });
     </script>
 @endsection
