@@ -18,7 +18,7 @@
                                 {{Session::get('message')}}
                             </div>
                         @endif
-                        <form action="{{route('adminvenue.update', [$venue->id])}}" method="post" enctype="multipart/form-data">@csrf
+                        <form action="{{route('venue.tagin', [$venue->id])}}" method="post" enctype="multipart/form-data">@csrf
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">

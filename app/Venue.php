@@ -18,4 +18,7 @@ class Venue extends Model
     public function user() {
         return $this->belongsTo('App\User');
     }
+    public function tagins() {
+        return $this->hasMany('App\Tagin');
+    }
 }
