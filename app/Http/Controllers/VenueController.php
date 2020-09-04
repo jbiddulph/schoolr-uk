@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Company;
 use App\Event;
+use App\Http\Requests\TaginPostRequest;
+use App\Http\Requests\VenuePostRequest;
 use App\Property;
+use App\Tagin;
 use App\Venue;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -169,6 +172,31 @@ class VenueController extends Controller
         'id',
         'thevenue',
         'events'));
+    }
+
+    public function venueTagin($id) {
+
+        $thevenue = Venue::findOrFail($id);
+        $venue = $thevenue->name;
+        return view('venues.tagin', compact(
+            'id',
+            'thevenue',
+        'venue'));
+    }
+
+    public function tagin(TaginPostRequest $request) {
+
+        Tagin::create([
+            'venue_id'=>request('venue_id'),
+            'phone_number'=>request('phone_number'),
+            'email_address'=>request('email_address'),
+            'reason_visit'=>request('reason_visit')
+        ]);
+
+        //LOGGING
+        Log::info('Phone number: '.request('phone_number').'');
+
+        return redirect()->back()->with('message','Venue added successfully!');
     }
 
 }
