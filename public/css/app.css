@@ -1,405 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);@charset "UTF-8";
 
-html,
-body {
-  height: 100%;
-}
-
-a {
-  color: #ac3b61 !important;
-}
-
-p.short-description {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-}
-
-ul.loginreg {
-  padding: 0px;
-  margin: 0px;
-  display: flex;
-}
-
-ul.loginreg li {
-  list-style-type: none;
-  display: inline-flex;
-  justify-content: space-between;
-}
-
-.bgcover {
-  position: relative;
-}
-
-.bgcover h1 {
-  position: absolute;
-  left: 0px;
-  bottom: 200px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #ffffff;
-  padding: 10px 20px;
-}
-
-.bgcover h2 {
-  position: absolute;
-  left: 0px;
-  bottom: 130px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #ffffff;
-  padding: 10px 20px;
-}
-
-.bgcover p {
-  position: absolute;
-  left: 0px;
-  bottom: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #ffffff;
-  padding: 10px 20px;
-}
-
-.welcome .card {
-  border-radius: 0rem;
-}
-
-h1 {
-  color: #123c69;
-}
-
-.card-header {
-  background-color: #123c69 !important;
-  color: #ffffff;
-}
-
-.card-header h1 {
-  color: #ffffff;
-}
-
-.card-header h2,
-.card-header h3 {
-  margin-bottom: 0px;
-}
-
-.card-header a {
-  color: #ffffff !important;
-}
-
-.covid {
-  background-color: #ac3b61;
-  color: #ffffff;
-  padding: 20px;
-}
-
-.covid h3 {
-  border-bottom: 2px solid #ffffff;
-  margin-bottom: 10px;
-}
-
-.card-title {
-  height: 76px;
-}
-
-.btn-primary {
-  background-color: #ac3b61 !important;
-  border-color: rgba(172, 59, 97, 0.7) !important;
-  color: #ffffff !important;
-}
-
-.dropdown-item:active {
-  background-color: #ac3b61 !important;
-  color: #ffffff !important;
-}
-
-.navbar-brand {
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-
-.btn-secondary {
-  background-color: #123c69 !important;
-  border-color: rgba(18, 60, 105, 0.7) !important;
-}
-
-.btn-secondary a {
-  color: #ffffff !important;
-}
-
-.btn-secondary :hover {
-  text-decoration: none !important;
-}
-
-.navbar-brand .primary {
-  color: #123c69 !important;
-}
-
-.bg-secondary {
-  background-color: #123c69 !important;
-}
-
-.page-item.active .page-link {
-  background-color: #123c69 !important;
-  border-color: #123c69 !important;
-}
-
-span.small_slogan {
-  font-size: 0.8rem;
-}
-
-/** SWITCH **/
-
-.switchdesc {
-  line-height: 34px;
-  display: flex;
-  margin: 10px;
-}
-
-.switch {
-  margin: 0px 6px;
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: 0.4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: 0.4s;
-}
-
-input:checked + .slider {
-  background-color: #ac3b61;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px rgba(172, 59, 97, 0.7);
-}
-
-input:checked + .slider:before {
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-
-/** END SWITCH **/
-
-/** Towns List **/
-
-ul.towns-list {
-  padding: 10px;
-}
-
-ul.towns-list li {
-  list-style-type: none;
-  display: inline-flex;
-  margin: 2px;
-  padding: 4px;
-  border-radius: 4px;
-}
-
-ul.towns-list li a {
-  color: #ffffff !important;
-}
-
-/** End Towns List **/
-
-/** colorbar **/
-
-.colorbar {
-  height: 0.6em;
-  background-color: #bab2b5;
-  background-image: linear-gradient(to bottom, #bab2b5, #bab2b5);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fffbb450", endColorstr="#fff89406", GradientType=0);
-}
-
-.colorbar:before {
-  height: 0.6em;
-  width: 50%;
-  display: block;
-  content: "";
-  float: left;
-  background-color: #123c69;
-  background-image: linear-gradient(to bottom, #123c69, #123c69);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fffbb450", endColorstr="#fff89406", GradientType=0);
-}
-
-.colorbar:after {
-  height: 0.6em;
-  width: 40%;
-  display: block;
-  content: "";
-  float: right;
-  background-color: #ac3b61;
-  background-image: linear-gradient(to bottom, #ac3b61, #ac3b61);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fffbb450", endColorstr="#fff89406", GradientType=0);
-}
-
-/** END colorbar **/
-
-ul.icons {
-  list-style-type: none;
-  display: flex;
-  justify-content: space-evenly;
-  padding-left: 0px;
-  font-size: 1.5rem;
-}
-
-ul.icons li {
-  list-style-type: none;
-}
-
-ul.icons li span {
-  font-size: 1.3rem;
-  color: #666666;
-}
-
-.mainpic {
-  position: relative;
-}
-
-.mainpic h2 {
-  position: absolute;
-  top: 5px;
-  left: 0px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #ffffff;
-  padding: 4px 8px;
-  font-size: 1.2rem;
-}
-
-.edit-photo {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  z-index: 1;
-  display: block;
-}
-
-.edit-photo a {
-  color: rgba(0, 0, 0, 0.5);
-}
-
-img.prop_photo {
-  max-width: 100%;
-  max-height: 100%;
-  margin: auto;
-  display: block;
-  /* remove extra space below image */
-}
-
-.fa {
-  color: #ac3b61;
-}
-
-h4.card-title {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-}
-
-/** Carousel **/
-
-.carousel-item {
-  min-height: auto;
-}
-
-.carousel-item .active {
-  background-color: #e4e4e4;
-}
-
-.carousel-item.active {
-  background-color: #cccccc;
-}
-
-/** END Carousel **/
-
-/** Company **/
-
-.company-profile {
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
-
-.company-profile .cover-photo {
-  position: relative;
-}
-
-.company-profile .cover-photo .company-logo {
-  position: absolute;
-  top: 0px;
-  left: 60px;
-}
-
-.colorpicker {
-  border: solid thin black;
-  width: 100px;
-  height: 100px;
-}
-
-.toggle-live-venue {
-  height: 20px;
-  width: 20px;
-}
-
-/** WELCOME **/
-
-.welcome .property-card {
-  transition: transform 0.3s;
-}
-
-.welcome .property-card:hover {
-  transform: scale(1.03);
-}
-
-/** END WELCOME **/
-
-/** REGISTER **/
-
-/** FOOTER **/
-
-footer {
-  color: #ffffff;
-  text-align: center;
-  padding: 30px;
-}
-
-/** END FOOTER **/
-
 #yearly-option {
   display: none;
 }
@@ -11488,4 +11088,409 @@ a.text-dark:focus {
     height: 240px !important;
   }
 }
+
+html,
+body {
+  height: 100%;
+}
+
+a {
+  color: #ac3b61 !important;
+}
+
+p.short-description {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+ul.loginreg {
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+}
+
+ul.loginreg li {
+  list-style-type: none;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.bgcover {
+  position: relative;
+}
+
+.bgcover h1 {
+  position: absolute;
+  left: 0px;
+  bottom: 200px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  padding: 10px 20px;
+}
+
+.bgcover h2 {
+  position: absolute;
+  left: 0px;
+  bottom: 130px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  padding: 10px 20px;
+}
+
+.bgcover p {
+  position: absolute;
+  left: 0px;
+  bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  padding: 10px 20px;
+}
+
+.welcome .card {
+  border-radius: 0rem;
+}
+
+h1 {
+  color: #123c69;
+}
+
+.card-header {
+  background-color: #123c69 !important;
+  color: #ffffff;
+}
+
+.card-header h1 {
+  color: #ffffff;
+}
+
+.card-header h2,
+.card-header h3 {
+  margin-bottom: 0px;
+}
+
+.card-header a {
+  color: #ffffff !important;
+}
+
+.covid {
+  background-color: #ac3b61;
+  color: #ffffff;
+  padding: 20px;
+}
+
+.covid h3 {
+  border-bottom: 2px solid #ffffff;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  height: 76px;
+}
+
+.btn-primary {
+  background-color: #ac3b61 !important;
+  border-color: rgba(172, 59, 97, 0.7) !important;
+  color: #ffffff !important;
+}
+
+.dropdown-item:active {
+  background-color: #ac3b61 !important;
+  color: #ffffff !important;
+}
+
+.navbar-brand {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+.btn-secondary {
+  background-color: #123c69 !important;
+  border-color: rgba(18, 60, 105, 0.7) !important;
+}
+
+.btn-secondary a {
+  color: #ffffff !important;
+}
+
+.btn-secondary :hover {
+  text-decoration: none !important;
+}
+
+.navbar-brand .primary {
+  color: #123c69 !important;
+}
+
+.bg-secondary {
+  background-color: #123c69 !important;
+}
+
+.page-item.active .page-link {
+  background-color: #123c69 !important;
+  border-color: #123c69 !important;
+}
+
+span.small_slogan {
+  font-size: 0.8rem;
+}
+
+/** SWITCH **/
+
+.switchdesc {
+  line-height: 34px;
+  display: flex;
+  margin: 10px;
+}
+
+.switch {
+  margin: 0px 6px;
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #ac3b61;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px rgba(172, 59, 97, 0.7);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/** END SWITCH **/
+
+/** Towns List **/
+
+ul.towns-list {
+  padding: 10px;
+}
+
+ul.towns-list li {
+  list-style-type: none;
+  display: inline-flex;
+  margin: 2px;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+ul.towns-list li a {
+  color: #ffffff !important;
+}
+
+/** End Towns List **/
+
+/** colorbar **/
+
+.colorbar {
+  height: 0.6em;
+  background-color: #bab2b5;
+  background-image: linear-gradient(to bottom, #bab2b5, #bab2b5);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fffbb450", endColorstr="#fff89406", GradientType=0);
+}
+
+.colorbar:before {
+  height: 0.6em;
+  width: 50%;
+  display: block;
+  content: "";
+  float: left;
+  background-color: #123c69;
+  background-image: linear-gradient(to bottom, #123c69, #123c69);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fffbb450", endColorstr="#fff89406", GradientType=0);
+}
+
+.colorbar:after {
+  height: 0.6em;
+  width: 40%;
+  display: block;
+  content: "";
+  float: right;
+  background-color: #ac3b61;
+  background-image: linear-gradient(to bottom, #ac3b61, #ac3b61);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fffbb450", endColorstr="#fff89406", GradientType=0);
+}
+
+/** END colorbar **/
+
+ul.icons {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+  padding-left: 0px;
+  font-size: 1.5rem;
+}
+
+ul.icons li {
+  list-style-type: none;
+}
+
+ul.icons li span {
+  font-size: 1.3rem;
+  color: #666666;
+}
+
+.mainpic {
+  position: relative;
+}
+
+.mainpic h2 {
+  position: absolute;
+  top: 5px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  padding: 4px 8px;
+  font-size: 1.2rem;
+}
+
+.edit-photo {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 1;
+  display: block;
+}
+
+.edit-photo a {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+img.prop_photo {
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  display: block;
+  /* remove extra space below image */
+}
+
+.fa {
+  color: #ac3b61;
+}
+
+.justify-content-center {
+  margin-top: 40px !important;
+  margin-bottom: 80px !important;
+}
+
+h4.card-title {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/** Carousel **/
+
+.carousel-item {
+  min-height: auto;
+}
+
+.carousel-item .active {
+  background-color: #e4e4e4;
+}
+
+.carousel-item.active {
+  background-color: #cccccc;
+}
+
+/** END Carousel **/
+
+/** Company **/
+
+.company-profile {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.company-profile .cover-photo {
+  position: relative;
+}
+
+.company-profile .cover-photo .company-logo {
+  position: absolute;
+  top: 0px;
+  left: 60px;
+}
+
+.colorpicker {
+  border: solid thin black;
+  width: 100px;
+  height: 100px;
+}
+
+.toggle-live-venue {
+  height: 20px;
+  width: 20px;
+}
+
+/** WELCOME **/
+
+.welcome .property-card {
+  transition: transform 0.3s;
+}
+
+.welcome .property-card:hover {
+  transform: scale(1.03);
+}
+
+/** END WELCOME **/
+
+/** REGISTER **/
+
+/** FOOTER **/
+
+footer {
+  color: #ffffff;
+  text-align: center;
+  padding: 30px;
+}
+
+/** END FOOTER **/
 
