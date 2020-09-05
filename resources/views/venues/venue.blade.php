@@ -28,7 +28,12 @@
                         {{$thevenue->county}}<br />
                         {{$thevenue->postcode}}</p>
                         <p class="card-text short-description">{{$thevenue->telephone}}</p>
-{{--                            <a class="btn btn-primary btn-sm" href="{{route('properties.show',[$thevenue->id, $thevenue->slug])}}">Enquire</a>--}}
+                        @if($thevenue->user_id != '')
+                            <div class="flag flag-up"><i class="fas fa-key"></i></div>
+                        @else
+                            <a class="btn btn-primary btn-sm" href="{{route('register.claim',["venue_id"=>$thevenue->id, "venue_name"=>$thevenue->slug])}}">Claim this venue</a>
+                        @endif
+
                     </div>
                 </div>
             </div>

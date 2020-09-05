@@ -4,8 +4,10 @@
         transition: transform 0.3s;
         width:100%;
         //transition-timing-function: ease-in-out;
-        img {
-            width:100%;
+        .mainpic {
+            img {
+                width:100%;
+            }
         }
     }
     .venue-card:hover {

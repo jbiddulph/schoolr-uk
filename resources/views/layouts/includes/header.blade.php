@@ -48,9 +48,11 @@
                     </a>
                 </li>
                 @endif
+                    @if(Auth::user()->user_type=='landlord')
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('allproperties')}}">All Properties</a>
+                        <a class="nav-link" href="/subscribe">Edit my pub</a>
                     </li>
+                    @endif
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('venues.show') }}">Pubs &amp; Venues</a>
                     </li>

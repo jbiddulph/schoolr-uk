@@ -28,7 +28,11 @@
                         @endif
                         <div class="card-body">
 {{--                        <h4 class="card-title"><a href="{{route('venues.show',[$venue->id, $venue->slug])}}">{{$venue->propname}}</a></h4>--}}
-
+                            @if($venue->user_id != '')
+                                <div class="flag flag-up"><i class="fas fa-key"></i></div>
+                            @else
+                                <div class="flag flag-down"><i class="fas fa-check"></i></div>
+                            @endif
                             <div class="card-text">
                                 <div class="address">{{$venue->address}}<br />
                             @if($venue->address2 != '')
@@ -37,7 +41,11 @@
                             {{$venue->town}}<br />
                             {{$venue->county}}<br />
                             {{$venue->postcode}}</div>
-                                <span><a href="tel:{{$venue->telephone}}"><i class="fas fa-2x fa-phone-alt"></i></a></span>
+                                <span>
+                                    <a href="tel:{{$venue->telephone}}">
+                                        <i class="fas fa-2x fa-phone-alt"></i>
+                                    </a>
+                                </span>
                             </div>
 {{--                            <a class="btn btn-primary btn-sm" href="{{route('properties.show',[$venue->id, $venue->slug])}}">Enquire</a>--}}
                         </div>

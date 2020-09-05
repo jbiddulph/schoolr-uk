@@ -21,8 +21,8 @@ class SubscriptionController extends Controller
     public function payment()
     {
         $availablePlans = [
-            'plan_H4tzGPX4F3m9zD'=>"Monthly - £40.00",
-            'plan_H5l5lbmw0nviEe'=>"Yearly - £440.00 Save 10%"
+            'price_1HNvjiB9HABsmFZYGdYz4Muy'=>"Monthly - £10.00",
+            'plan_H5l5lbmw0nviEe'=>"Yearly - £110.00 Save £10"
         ];
         $user = auth()->user();
         $data = [

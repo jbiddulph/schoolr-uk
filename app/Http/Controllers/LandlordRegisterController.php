@@ -11,17 +11,32 @@ use Illuminate\Support\Str;
 class LandlordRegisterController extends Controller
 {
     public function landlordRegister() {
+
+        $venue = Venue::findOrFail(request('selectedVenueID'));
+
         $user =  User::create([
-            'name' => request('cname'),
+            'name' => $venue->venuename,
+            'venue_id' => $venue->id,
             'email' => request('email'),
             'user_type' => request('user_type'),
             'password' => Hash::make(request('password')),
         ]);
 
-        $venue = Venue::findOrFail(request('selectedVenueID'));
+
         $venue->user_id = $user->id;
+        $venue->email = $user->email;
         $venue->save();
 
         return redirect()->to('login');
+    }
+    public function registerClaim() {
+        $venue = Venue::findOrFail(request('venue_id'));
+        $venue_id = $venue->id;
+        $venue_name = $venue->venuename;
+
+        return view('register-claim', compact(
+            'venue_id',
+            'venue_name'));
+
     }
 }

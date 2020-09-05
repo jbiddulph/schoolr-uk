@@ -32,6 +32,8 @@ Route::post('company/register', 'CompanyRegisterController@companyRegister')->na
 
 // Landlord View
 Route::View('register/landlord','register-landlord')->name('register.landlord');
+//Route::View('register/claim','register-claim')->name('register.claim');
+Route::get('register/claim','LandlordRegisterController@registerClaim')->name('register.claim');
 Route::post('landlord/register', 'LandlordRegisterController@landlordRegister')->name('landlord.register');
 
 // User Profile
@@ -70,6 +72,10 @@ Route::get('/venues/towns/{town}', 'VenueController@town')->name('venues.town');
 Route::get('/venues/{town}/{name}/{id}', 'VenueController@venue')->name('venue.name');
 Route::get('/venues/{id}/tagin', 'VenueController@venueTagin')->name('venue.venuetagin');
 Route::post('/venues/{id}/tagin/add', 'VenueController@tagin')->name('venue.tagin');
+Route::get('/venues/{id}/edit', 'AdministrationController@venueEdit')->name('venue.edit');
+Route::post('/venues/{id}/edit', 'AdministrationController@venueUpdate')->name('venue.update');
+Route::get('/venues/{id}/uploads-edit', 'AdministrationController@venueuploadsedit')->name('venue.uploadsedit');
+Route::post('/venues/{id}/uploads-edit', 'AdministrationController@venueImageUpdate')->name('venue.venueImageUpdate');
 
 //Save and unsave property
 Route::post('/saveproperty/{id}', 'FavouriteController@saveProperty');

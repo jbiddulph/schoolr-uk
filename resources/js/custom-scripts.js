@@ -95,7 +95,7 @@ $( document ).ready(function() {
             $("#yearly-option").show();
             $("#monthly-option").hide();
         }
-        else if ( this.value == 'plan_H4tzGPX4F3m9zD')
+        else if ( this.value == 'price_1HNvjiB9HABsmFZYGdYz4Muy')
         {
             $("#yearly-option").hide();
             $("#monthly-option").show();

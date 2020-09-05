@@ -308,6 +308,29 @@ h4.card-title {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
+.card-body {
+    position: relative;
+    .flag {
+        padding:0px 0px 2px 2px;
+        color: #ffffff;
+    }
+    .flag-up {
+        position:absolute;
+        top: 0px;
+        right: 0px;
+        background-color: #F9B819;
+        height: 20px;
+        width: 20px;
+    }
+    .flag-down {
+        position:absolute;
+        top: 0px;
+        right: 0px;
+        background-color: #45E055;
+        height: 20px;
+        width: 20px;
+    }
+}
 /** Carousel **/
 .carousel-item{
     min-height: auto;

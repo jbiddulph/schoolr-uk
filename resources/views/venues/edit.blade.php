@@ -1,15 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-    @if(Auth::user()->user_type != 'admin')
-    <div class="container-fluid" style="border-top:6px solid {{Auth::user()->company->primary_color}}"></div>
-    @endif
+
+    <div class="container-fluid" style="border-top:6px solid #ff0000"></div>
+
     <div class="container mt-4">
-        <h1>Edit Venue | <a href="/admin">Admin</a>@if(Auth::user()->user_type == 'admin')
-               | <a href="/admin/venue">Edit Venue List</a>
-            @endif</h1>
+        @if(Auth::user()->user_type == 'admin')
+            <h1>Edit Venue | <a href="/admin">Admin</a>
+                   | <a href="/admin/venue">Edit Venue List</a>
+            </h1>
+        @else
+            <h1>Edit {{ $venue->venuetype }}</h1>
+        @endif
         <div class="row justify-content-center">
             <div class="col-md-8">
+                @if(!auth()->user()->subscribed('main') || Auth::user()->user_type != 'admin')
+                    <p>subscribed</p>
+                @else
+                    <p>Not subscribed</p>
+                @endif
                 <div class="card">
                     <div class="card-header"><h2>Venue Update</h2></div>
                     <div class="card-body">
@@ -18,7 +27,11 @@
                                 {{Session::get('message')}}
                             </div>
                         @endif
-                        <form action="{{route('venue.tagin', [$venue->id])}}" method="post" enctype="multipart/form-data">@csrf
+                            @if(!auth()->user()->subscribed('main'))
+                                <form action="{{route('venue.update', [$venue->id])}}" method="post" enctype="multipart/form-data">@csrf
+                            @else(Auth::user()->user_type != 'admin')
+                                <form action="{{route('adminvenue.update', [$venue->id])}}" method="post" enctype="multipart/form-data">@csrf
+                            @endif
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
@@ -176,7 +189,11 @@
                     <div class="card-body">
                         <div class="row">
                             <p>{{$venue->venuename}}</p>
+                            @if(!auth()->user()->subscribed('main'))
+                                <form action="{{route('venue.venueImageUpdate', [$venue->id])}}" method="POST" enctype="multipart/form-data">@csrf
+                            @else(Auth::user()->user_type != 'admin')
                             <form action="{{route('adminvenue.venueImageUpdate', [$venue->id])}}" method="POST" enctype="multipart/form-data">@csrf
+                            @endif
                                 @if(isset($venue->photo))
                                     @php
                                         $mainphoto = str_replace('public/', 'storage/', $venue->photo)
@@ -198,7 +215,7 @@
             </div>
         </div>
     </div>
-    @if(Auth::user()->user_type != 'admin')
-    <div class="container-fluid mt-4" style="border-top:6px solid {{Auth::user()->company->primary_color}}"></div>
-    @endif
+
+    <div class="container-fluid mt-4" style="border-top:6px solid #ff0000;"></div>
+
 @endsection

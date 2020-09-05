@@ -15,10 +15,11 @@
                             <input type="hidden" value="landlord" name="user_type">
 
                             <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">Search Venue Name</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-right">Venue Name</label>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" name="venuenamesearch" id="venuenamesearch" placeholder="Start typing venue name" class="form-control">
+                                        <input type="text" readonly name="venuenamesearch" placeholder="Start typing venue name" class="form-control" value="{{ $venue_name }}">
+                                        <input type="hidden" value="{{ $venue_id }}" name="selectedVenueID">
                                         <div id="venueList"></div>
                                     </div>
                                 </div>
