@@ -7,6 +7,10 @@
         <a href="{{route('adminvenue.create')}}">
             <button class="btn btn-secondary">Add Venue</button>
         </a>
+{{--        <a href="{{route('venues.addressLabels', ['town',''])}}">--}}
+{{--            <button class="btn btn-secondary">Add Venue</button>--}}
+{{--        </a>--}}
+
         <div class="row">
             @if(count($venues) > 0)
                 @foreach($venues as $venue)

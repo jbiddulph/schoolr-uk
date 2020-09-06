@@ -168,6 +168,7 @@ class ComposerStaticInitf32865fe7f33d0c0e0310538a6ceded2
         'C' => 
         array (
             'Cron\\' => 5,
+            'Crabbly\\Fpdf\\' => 13,
             'Cornford\\Googlmapper\\' => 21,
             'Collective\\Html\\' => 16,
             'Carbon\\' => 7,
@@ -502,6 +503,10 @@ class ComposerStaticInitf32865fe7f33d0c0e0310538a6ceded2
         array (
             0 => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron',
         ),
+        'Crabbly\\Fpdf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/crabbly/fpdf-laravel/src',
+        ),
         'Cornford\\Googlmapper\\' => 
         array (
             0 => __DIR__ . '/..' . '/cornford/googlmapper/src',
@@ -728,6 +733,9 @@ class ComposerStaticInitf32865fe7f33d0c0e0310538a6ceded2
         'Cornford\\Googlmapper\\Models\\Streetview' => __DIR__ . '/..' . '/cornford/googlmapper/src/Models/Streetview.php',
         'Cornford\\Googlmapper\\Traits\\Languages' => __DIR__ . '/..' . '/cornford/googlmapper/src/Traits/Languages.php',
         'Cornford\\Googlmapper\\Traits\\Regions' => __DIR__ . '/..' . '/cornford/googlmapper/src/Traits/Regions.php',
+        'Crabbly\\Fpdf\\Exception' => __DIR__ . '/..' . '/crabbly/fpdf-laravel/src/Exception.php',
+        'Crabbly\\Fpdf\\Fpdf' => __DIR__ . '/..' . '/crabbly/fpdf-laravel/src/Fpdf.php',
+        'Crabbly\\Fpdf\\FpdfServiceProvider' => __DIR__ . '/..' . '/crabbly/fpdf-laravel/src/FpdfServiceProvider.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/CronExpression.php',
         'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/DayOfMonthField.php',

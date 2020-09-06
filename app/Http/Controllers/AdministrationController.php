@@ -38,6 +38,10 @@ class AdministrationController extends Controller
         $events = Event::paginate(52);
         return view('administration.adminevent', compact('events'));
     }
+    public function town() {
+        $towns = Venue::select('town')->distinct()->get();
+        return view('administration.admintown', compact('towns'));
+    }
     public function eventCreate() {
         return view('events.create');
     }

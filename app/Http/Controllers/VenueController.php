@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Mapper;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\PDF_Label;
 
 
 class VenueController extends Controller
@@ -197,6 +199,42 @@ class VenueController extends Controller
         //Log::info('Phone number: '.request('phone_number').'');
 
         return redirect()->back()->with('message','Tagged in successfully!');
+    }
+
+    public function pdf(){
+
+        $venueslist = Venue::latest()->where('is_live',1)->where('town', 'Lancing')->paginate(52);
+        foreach ($venueslist as $v) {
+
+            //create pdf document
+            $pdf = app('Fpdf');
+            $pdf->AddPage();
+            $pdf->SetFont('Arial','B',16);
+            $pdf->Cell(40,10,$v->venuename);
+
+            //save file
+            Storage::put('/Lancing/'.$v->venuename.'.pdf', $pdf->Output('S'));
+        }
+
+        return view('venues.pdf', compact(
+            'pdf'));
+    }
+
+    public function addressLabels($town) {
+        $pdf = new PDF_Label('L7163');
+
+        $pdf->AddPage();
+        $venueslist = Venue::latest()->where('is_live',1)->where('town', $town)->paginate(1000);
+
+        // Print labels
+        foreach ($venueslist as $v) {
+            $text = sprintf("%s\n%s%s\n%s\n%s\n%s", "$v->venuename", "$v->address", "$v->address2", "$v->town", "$v->county", "$v->postcode");
+            $pdf->Add_Label($text);
+        }
+
+        Storage::put('/labels/'.$town.'/addresses.pdf', $pdf->Output('S'));
+        return view('venues.addresses', compact(
+            'pdf'));
     }
 
 }

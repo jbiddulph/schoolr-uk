@@ -76,6 +76,8 @@ Route::get('/venues/{id}/edit', 'AdministrationController@venueEdit')->name('ven
 Route::post('/venues/{id}/edit', 'AdministrationController@venueUpdate')->name('venue.update');
 Route::get('/venues/{id}/uploads-edit', 'AdministrationController@venueuploadsedit')->name('venue.uploadsedit');
 Route::post('/venues/{id}/uploads-edit', 'AdministrationController@venueImageUpdate')->name('venue.venueImageUpdate');
+Route::get('/venues/pdfs', 'VenueController@pdf')->name('venues.pdf');
+Route::get('/venues/{town}/address-labels', 'VenueController@addressLabels')->name('venues.addressLabels');
 
 //Save and unsave property
 Route::post('/saveproperty/{id}', 'FavouriteController@saveProperty');
@@ -98,6 +100,7 @@ Route::group(['middleware'=>'role:super-admin'], function (){
     Route::get('/admin/property', 'AdministrationController@property')->name('admin.property');
     Route::get('/admin/venue', 'AdministrationController@venue')->name('admin.venue');
     Route::get('/admin/event', 'AdministrationController@event')->name('admin.event');
+    Route::get('/admin/town', 'AdministrationController@town')->name('admin.town');
     Route::resource('admin/permission', 'Admin\\PermissionController');
     Route::resource('admin/role', 'Admin\\RoleController');
     Route::resource('admin/user', 'UserController');

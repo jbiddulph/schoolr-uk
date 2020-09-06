@@ -162,6 +162,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Cornford\Googlmapper\MapperServiceProvider::class,
+        Crabbly\Fpdf\FpdfServiceProvider::class,
 
         /*
          * Package Service Providers...
