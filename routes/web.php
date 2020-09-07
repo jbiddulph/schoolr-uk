@@ -79,6 +79,10 @@ Route::post('/venues/{id}/uploads-edit', 'AdministrationController@venueImageUpd
 Route::get('/venues/pdfs', 'VenueController@pdf')->name('venues.pdf');
 Route::get('/venues/{town}/address-labels', 'VenueController@addressLabels')->name('venues.addressLabels');
 
+//Tagins
+Route::get('tagins','TaginController@index');
+Route::get('tagin/chart','TaginController@chart');
+
 //Save and unsave property
 Route::post('/saveproperty/{id}', 'FavouriteController@saveProperty');
 Route::post('/unsaveproperty/{id}', 'FavouriteController@unsaveProperty');
