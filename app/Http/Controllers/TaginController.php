@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Tagin;
+use App\Venue;
 use Illuminate\Http\Request;
 
 class TaginController extends Controller
@@ -18,9 +19,8 @@ class TaginController extends Controller
      */
     public function chart()
     {
-        $result = \DB::table('tagins')
-            ->where('venue_id','=','1149079')
-            ->orderBy('id', 'ASC')
+        $result = Venue::groupBy('town')
+            ->selectRaw('count(*) as total, town')
             ->get();
         return response()->json($result);
     }

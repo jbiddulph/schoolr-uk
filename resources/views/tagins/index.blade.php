@@ -23,22 +23,23 @@
     <script type="text/javascript">
 
     var url = "{{url('tagin/chart')}}";
-    var phone_number = new Array();
-    var venue_id = new Array();
+    var town = new Array();
+    var total = new Array();
     $(document).ready(function(){
         $.get(url, function(response){
             response.forEach(function(data){
-                phone_number.push(data.phone_number);
-                venue_id.push(data.venue_id);
+
+                town.push(data.town);
+                total.push(data.total);
             });
             var ctx = document.getElementById("canvas").getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels:phone_number,
+                    labels:town,
                     datasets: [{
-                        label: 'Venue ID',
-                        data: venue_id,
+                        label: 'Venues',
+                        data: total,
                         borderWidth: 1
                     }]
                 },
