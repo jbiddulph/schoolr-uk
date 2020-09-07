@@ -2,14 +2,8 @@
 
 @section('content')
     <div class="colorbar"></div>
-    <div class="container mt-4">
-        <h1>Event Administration - <a href="/admin">Admin</a></h1>
-        <a href="{{route('adminevent.create')}}">
-            <button class="btn btn-secondary">Add Event</button>
-        </a>
-        <a href="{{route('events.deleted')}}">
-            <button class="btn btn-secondary">Deleted Events</button>
-        </a>
+    <div class="container mt-4 townadmin">
+        <h1>Town Administration - <a href="/admin">Admin</a></h1>
         <div class="row">
             @if(count($towns) > 0)
                 @foreach($towns as $town)
@@ -19,7 +13,11 @@
                                 {{ $town->town }}
                             </div>
                             <div class="card-body">
-                                <a href="{{route('venues.addressLabels', [$town->town])}}"><h3 class="card-title"> save labels PDF for {{ $town->town }}</h3>
+                                <a href="{{route('venues.addressLabels', [$town->town])}}">
+                                    <h4 class="card-title"> <i class="far fa-address-card"></i> Address Labels</h4>
+                                </a>
+                                <a href="{{route('venues.pdf', [$town->town])}}">
+                                    <h4 class="card-title"> <i class="fas fa-envelope-open-text"></i> Letters </h4>
                                 </a>
                             </div>
                         </div>

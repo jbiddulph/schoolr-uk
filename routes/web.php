@@ -76,12 +76,8 @@ Route::get('/venues/{id}/edit', 'AdministrationController@venueEdit')->name('ven
 Route::post('/venues/{id}/edit', 'AdministrationController@venueUpdate')->name('venue.update');
 Route::get('/venues/{id}/uploads-edit', 'AdministrationController@venueuploadsedit')->name('venue.uploadsedit');
 Route::post('/venues/{id}/uploads-edit', 'AdministrationController@venueImageUpdate')->name('venue.venueImageUpdate');
-Route::get('/venues/pdfs', 'VenueController@pdf')->name('venues.pdf');
+Route::get('/venues/{town}/pdfs', 'VenueController@pdf')->name('venues.pdf');
 Route::get('/venues/{town}/address-labels', 'VenueController@addressLabels')->name('venues.addressLabels');
-
-//Tagins
-Route::get('tagins','TaginController@index');
-Route::get('tagin/chart','TaginController@chart');
 
 //Save and unsave property
 Route::post('/saveproperty/{id}', 'FavouriteController@saveProperty');
@@ -117,6 +113,11 @@ Route::group(['middleware'=>'role:super-admin'], function (){
     Route::post('/admin/venues/{id}/edit', 'AdministrationController@venueUpdate')->name('adminvenue.update');
     Route::get('/admin/venues/{id}/uploads-edit', 'AdministrationController@venueuploadsedit')->name('adminvenue.uploadsedit');
     Route::post('/admin/venues/{id}/uploads-edit', 'AdministrationController@venueImageUpdate')->name('adminvenue.venueImageUpdate');
+
+    //Charts
+    Route::get('/admin/charts','TaginController@index');
+    Route::get('/admin/charts/chart','TaginController@chart');
+
     //Edit Events
     Route::get('/admin/events/create', 'AdministrationController@eventCreate')->name('adminevent.create');
     Route::post('/admin/events/create', 'AdministrationController@eventStore')->name('adminevent.store');

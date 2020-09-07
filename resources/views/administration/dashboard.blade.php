@@ -55,9 +55,20 @@
                 <a href="/admin/town">
                     <div class="card mb-4">
                         <div class="card-body text-center">
-                            <h4>Towns</h4>
-                            <i class="fas fa-beer fa-8x text-center mb-3"></i><br />
-                            <button class="btn btn-sm btn-dark">Edit Towns</button>
+                            <h4>Stationary</h4>
+                            <i class="fas fa-pencil-ruler fa-8x text-center mb-3"></i><br />
+                            <button class="btn btn-sm btn-dark">Letters / Labels</button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="/admin/charts">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            <h4>Charts</h4>
+                            <i class="fas fa-chart-bar fa-8x text-center mb-3"></i><br />
+                            <button class="btn btn-sm btn-dark">View Charts</button>
                         </div>
                     </div>
                 </a>

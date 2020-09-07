@@ -22,7 +22,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js" charset="utf-8"></script>
     <script type="text/javascript">
 
-    var url = "{{url('tagin/chart')}}";
+    var url = "{{url('/admin/charts/chart')}}";
     var town = new Array();
     var total = new Array();
     $(document).ready(function(){
@@ -38,7 +38,7 @@
                 data: {
                     labels:town,
                     datasets: [{
-                        label: 'Venues',
+                        label: 'Venues ',
                         data: total,
                         borderWidth: 1
                     }]

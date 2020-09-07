@@ -201,9 +201,9 @@ class VenueController extends Controller
         return redirect()->back()->with('message','Tagged in successfully!');
     }
 
-    public function pdf(){
+    public function pdf($town){
 
-        $venueslist = Venue::latest()->where('is_live',1)->where('town', 'Lancing')->paginate(52);
+        $venueslist = Venue::latest()->where('is_live',1)->where('town', $town)->paginate(52);
         foreach ($venueslist as $v) {
 
             //create pdf document
@@ -213,7 +213,7 @@ class VenueController extends Controller
             $pdf->Cell(40,10,$v->venuename);
 
             //save file
-            Storage::put('/Lancing/'.$v->venuename.'.pdf', $pdf->Output('S'));
+            Storage::put('/letters/'.$town.'/'.$v->venuename.'.pdf', $pdf->Output('S'));
         }
 
         return view('venues.pdf', compact(
