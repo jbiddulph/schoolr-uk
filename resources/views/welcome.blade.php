@@ -35,13 +35,13 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                333
+
             </div>
             <div class="col-md-4">
-                222
+
             </div>
             <div class="col-md-4">
-                111
+
             </div>
         </div>
     </div>
