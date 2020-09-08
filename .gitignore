@@ -7,7 +7,7 @@ yarn-error.log
 bootstrap/compiled.php
 app/storage/
 
-
+.DS_Store
 # Laravel 5 & Lumen specific with changed public path
 public_html/storage
 public_html/hot
