@@ -35,7 +35,7 @@
 <div class="container subscription-page">
     <div class="row">
         <div class="col-md-8 offset-sm-2">
-            <h2>Customise your company page and start listing properties with unlimited photos</h2>
+            <h2>Customise your venue page and start listing events now</h2>
         </div>
     </div>
     <div class="row">
