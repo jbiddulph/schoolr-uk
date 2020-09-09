@@ -36,6 +36,14 @@ Route::View('register/landlord','register-landlord')->name('register.landlord');
 Route::get('register/claim','LandlordRegisterController@registerClaim')->name('register.claim');
 Route::post('landlord/register', 'LandlordRegisterController@landlordRegister')->name('landlord.register');
 
+//Subscribe
+Route::get('/subscribe', 'SubscriptionController@payment');
+Route::post('/subscribe', 'SubscriptionController@subscribe');
+
+// Landlord Edit Venue
+Route::get('/venue/{id}/edit', 'VenueController@venueEdit')->name('venue.edit');
+Route::post('/venue/{id}/edit', 'VenueController@venueUpdate')->name('venue.update');
+
 // User Profile
 Route::get('user/profile', 'UserController@profile')->name('user.view');
 Route::post('user/profile/create', 'UserController@profilestore')->name('profile.create');
@@ -72,8 +80,8 @@ Route::get('/venues/towns/{town}', 'VenueController@town')->name('venues.town');
 Route::get('/venues/{town}/{name}/{id}', 'VenueController@venue')->name('venue.name');
 Route::get('/venues/{id}/tagin', 'VenueController@venueTagin')->name('venue.venuetagin');
 Route::post('/venues/{id}/tagin/add', 'VenueController@tagin')->name('venue.tagin');
-Route::get('/venues/{id}/edit', 'AdministrationController@venueEdit')->name('venue.edit');
-Route::post('/venues/{id}/edit', 'AdministrationController@venueUpdate')->name('venue.update');
+//Route::get('/venues/{id}/edit', 'AdministrationController@venueEdit')->name('venue.edit');
+//Route::post('/venues/{id}/edit', 'AdministrationController@venueUpdate')->name('venue.update');
 Route::get('/venues/{id}/uploads-edit', 'AdministrationController@venueuploadsedit')->name('venue.uploadsedit');
 Route::post('/venues/{id}/uploads-edit', 'AdministrationController@venueImageUpdate')->name('venue.venueImageUpdate');
 Route::get('/venues/{town}/pdfs', 'VenueController@pdf')->name('venues.pdf');
@@ -82,10 +90,6 @@ Route::get('/venues/{town}/address-labels', 'VenueController@addressLabels')->na
 //Save and unsave property
 Route::post('/saveproperty/{id}', 'FavouriteController@saveProperty');
 Route::post('/unsaveproperty/{id}', 'FavouriteController@unsaveProperty');
-
-//Subscribe
-Route::get('/subscribe', 'SubscriptionController@payment');
-Route::post('/subscribe', 'SubscriptionController@subscribe');
 
 
 Route::post('/admin/searchvenues', 'VenueController@searchVenues')->name('search.venues');

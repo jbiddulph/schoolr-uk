@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Venue;
 use Illuminate\Http\Request;
 
 class SubscriptionController extends Controller
@@ -35,12 +36,15 @@ class SubscriptionController extends Controller
     public function subscribe(Request $request)
     {
         $user = auth()->user();
+        $venueid = $user->venue_id;
         $paymentMethod = $request->payment_method;
         $planId = $request->plan;
         $user->newSubscription('main', $planId)->create($paymentMethod);
+//        $venueid = Venue::where('user_id',$userid)->get();
+
 
         return response([
-            'success_url'=>redirect()->intended('/property/create')->getTargetUrl(),
+            'success_url'=>redirect()->intended('/venue/'.$venueid.'/edit')->getTargetUrl(),
             'message'=>'success'
         ]);
     }

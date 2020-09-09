@@ -237,4 +237,14 @@ class VenueController extends Controller
             'pdf'));
     }
 
+    public function venueEdit($id) {
+        $venue = Venue::findOrFail($id);
+        return view('venues.edit', compact('venue'));
+    }
+    public function venueUpdate(Request $request, $id) {
+        $venue = Venue::findOrFail($id);
+        $venue->update($request->all());
+        return redirect()->back()->with('message','Venue successfully updated!');
+    }
+
 }
