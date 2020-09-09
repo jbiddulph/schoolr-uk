@@ -213,7 +213,7 @@ class VenueController extends Controller
             $pdf->Cell(40,10,$v->venuename);
 
             //save file
-            Storage::put('/letters/'.$town.'/'.$v->venuename.'.pdf', $pdf->Output('S'));
+            Storage::put('/public/letters/'.$town.'/'.$v->venuename.'.pdf', $pdf->Output('S'));
         }
 
         return view('venues.pdf', compact(
@@ -232,7 +232,7 @@ class VenueController extends Controller
             $pdf->Add_Label($text);
         }
 
-        Storage::put('/labels/'.$town.'/addresses.pdf', $pdf->Output('S'));
+        Storage::put('/public/labels/'.$town.'/addresses.pdf', $pdf->Output('S'));
         return view('venues.addresses', compact(
             'pdf'));
     }
