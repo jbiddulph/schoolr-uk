@@ -27,7 +27,7 @@
                                 {{Session::get('message')}}
                             </div>
                         @endif
-                            @if(!auth()->user()->subscribed('main'))
+                            @if(auth()->user()->subscribed('main'))
                                 <form action="{{route('venue.update', [$venue->id])}}" method="post" enctype="multipart/form-data">@csrf
                             @else(Auth::user()->user_type != 'admin')
                                 <form action="{{route('adminvenue.update', [$venue->id])}}" method="post" enctype="multipart/form-data">@csrf
