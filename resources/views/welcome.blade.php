@@ -35,7 +35,7 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <a href="{{Storage::url('app/public/letters/Southwick/TheCricketers.pdf')}}">{{Storage::url('TheCricketers.pdf')}}</a>
+                <a href="{{Storage::url('/labels/Lancing/addresses.pdf')}}">{{Storage::url('TheCricketers.pdf')}}</a>
 
             </div>
             <div class="col-md-4">
