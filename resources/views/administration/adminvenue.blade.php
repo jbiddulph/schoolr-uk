@@ -36,7 +36,7 @@
                                     {{$venue->town}}
                                 </p>
                                 </a>
-                                @if(is_link(Storage::url('letters/'. $venue->town .'/'.$venue->venuename.'.pdf')))
+                                @if(asset::url('letters/'. $venue->town .'/'.$venue->venuename.'.pdf'))
                                     <a href="{{Storage::url('letters/'. $venue->town .'/'.$venue->venuename.'.pdf')}}">View Letter</a>
                                 @endif
                             </div>
