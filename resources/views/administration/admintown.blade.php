@@ -15,7 +15,7 @@
                             <div class="card-body">
                                 <a href="{{route('venues.addressLabels', [$town->town])}}">
                                     <h4 class="card-title"> <i class="far fa-address-card"></i> Address Labels</h4>
-                                    <a href="{{Storage::url('labels/{{ $town->town }}/addresses.pdf')}}">View Labels</a>
+                                    <a href="{{Storage::url('labels/'. $town->town .'/addresses.pdf')}}">View Labels</a>
                                 </a>
                                 <a href="{{route('venues.pdf', [$town->town])}}">
                                     <h4 class="card-title"> <i class="fas fa-envelope-open-text"></i> Letters </h4>
