@@ -36,6 +36,7 @@
                                     {{$venue->town}}
                                 </p>
                                 </a>
+                                <a href="{{Storage::url('letters/'. $venue->town .'/'.$venue->venuename.'')}}">View Letter</a>
                             </div>
                         </div>
                     </div>
