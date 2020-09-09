@@ -35,7 +35,7 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <a href="{{asset('storage/letters/southwick/TheCricketers.pdf')}}">storage/app/letters/Southwick/TheCricketers.pdf</a>
+                <a href="{{asset('letters/southwick/TheCricketers.pdf')}}">storage/app/letters/Southwick/TheCricketers.pdf</a>
             </div>
             <div class="col-md-4">
 
