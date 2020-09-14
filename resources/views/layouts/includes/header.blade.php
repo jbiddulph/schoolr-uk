@@ -79,7 +79,9 @@
                             <a href="{{route('property.myproperty')}}" class="dropdown-item">{{__('My Properties')}}</a>
                             <a href="{{route('applicants')}}" class="dropdown-item">{{__('Applicants')}}</a>
                         @else
-{{--                            <a href="{{route('user.view')}}" class="dropdown-item">{{__('Profile')}}</a>--}}
+                            @if(!Auth::user()->user_type=='landlord')
+                            <a href="{{route('user.view')}}" class="dropdown-item">{{__('Profile')}}</a>
+                            @endif
                         @endif
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
