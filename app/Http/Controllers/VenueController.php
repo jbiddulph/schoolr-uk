@@ -213,6 +213,7 @@ class VenueController extends Controller
 //            $pdf->Cell(40,10,$v->venuename);
 
             //set document properties
+            $pdf = app('Fpdf');
             $pdf->SetAuthor('Lana Kovacevic');
             $pdf->SetTitle('FPDF tutorial');
 
