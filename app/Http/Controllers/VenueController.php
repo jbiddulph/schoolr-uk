@@ -207,10 +207,36 @@ class VenueController extends Controller
         foreach ($venueslist as $v) {
 
             //create pdf document
-            $pdf = app('Fpdf');
-            $pdf->AddPage();
-            $pdf->SetFont('Arial','B',16);
-            $pdf->Cell(40,10,$v->venuename);
+//            $pdf = app('Fpdf');
+//            $pdf->AddPage();
+//            $pdf->SetFont('Arial','B',16);
+//            $pdf->Cell(40,10,$v->venuename);
+
+            //set document properties
+            $pdf->SetAuthor('Lana Kovacevic');
+            $pdf->SetTitle('FPDF tutorial');
+
+//set font for the entire document
+            $pdf->SetFont('Helvetica','B',20);
+            $pdf->SetTextColor(50,60,100);
+
+//set up a page
+            $pdf->AddPage('P');
+            $pdf->SetDisplayMode(real,'default');
+
+//insert an image and make it a link
+            $pdf->Image('logo.png',10,20,33,0,' ','http://www.fpdf.org/');
+
+//display the title with a border around it
+            $pdf->SetXY(50,20);
+            $pdf->SetDrawColor(50,60,100);
+            $pdf->Cell(100,10,'FPDF Tutorial',1,0,'C',0);
+
+//Set x and y position for the main text, reduce font size and write content
+            $pdf->SetXY (10,50);
+            $pdf->SetFontSize(10);
+            $pdf->Write(5,'Congratulations! You have generated a PDF.');
+
 
             //save file
             Storage::put('/public/letters/'.$town.'/'.$v->venuename.'.pdf', $pdf->Output('S'));
