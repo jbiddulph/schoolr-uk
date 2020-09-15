@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="container-fluid" style="border-top:6px solid #ff0000"></div>
+    <div class="colorbar"></div>
 
     <div class="container mt-4">
         @if(Auth::user()->user_type == 'admin')
@@ -10,17 +10,17 @@
                    | <a href="/admin/venue">Edit Venue List</a>
             </h1>
         @else
-            <h1>Edit {{ $venue->venuetype }}</h1>
+            <h1>Edit Venue</h1>{{ $venue->venuetype }}
         @endif
         <div class="row justify-content-center">
             <div class="col-md-8">
                 @if(!auth()->user()->subscribed('main') || Auth::user()->user_type != 'admin')
-                    <p>subscribed</p>
+{{--                    <p>subscribed</p>--}}
                 @else
-                    <p>Not subscribed</p>
+{{--                    <p>Not subscribed</p>--}}
                 @endif
                 <div class="card">
-                    <div class="card-header"><h2>Venue Update</h2></div>
+                    <div class="card-header"><h2>Editing {{ $venue->venuename }}</h2></div>
                     <div class="card-body">
                         @if(Session::has('message'))
                             <div class="alert alert-success">
@@ -182,40 +182,40 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h2>Venue Photo</h2>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <p>{{$venue->venuename}}</p>
-                            @if(!auth()->user()->subscribed('main'))
-                                <form action="{{route('venue.venueImageUpdate', [$venue->id])}}" method="POST" enctype="multipart/form-data">@csrf
-                            @else(Auth::user()->user_type != 'admin')
-                            <form action="{{route('adminvenue.venueImageUpdate', [$venue->id])}}" method="POST" enctype="multipart/form-data">@csrf
-                            @endif
-                                @if(isset($venue->photo))
-                                    @php
-                                        $mainphoto = str_replace('public/', 'storage/', $venue->photo)
-                                    @endphp
-                                    <div class="mainpic">
-                                        <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="Property">
-                                    </div>
-                                @endif
-                                <input type="file" class="form-control" name="photo">
-                                <br />
-                                <button class="btn btn-dark float-right" type="submit">Update Venue Image</button>
-                                @if($errors->has('photo'))
-                                    <div class="error text-danger">{{$errors->first('photo')}}</div>
-                                @endif
-                            </form>
+                <div class="card" style="width: 18rem;">
+                    @if(isset($venue->photo))
+                        @php
+                            $mainphoto = str_replace('public/', 'storage/', $venue->photo)
+                        @endphp
+                        <div class="mainpic">
+                            <img class="card-img-top" src="/{{ $mainphoto }}" alt="Venue picture">
                         </div>
+                    @endif
+                    <div class="card-body">
+                        @if(auth()->user()->subscribed('main'))
+                        <form action="{{route('venue.venueImageUpdate', [$venue->id])}}" method="POST" enctype="multipart/form-data">@csrf
+                        @else(Auth::user()->user_type === 'admin')
+                        <form action="{{route('adminvenue.venueImageUpdate', [$venue->id])}}" method="POST" enctype="multipart/form-data">@csrf
+                            @endif
+                            <h5 class="card-title">{{$venue->venuename}}</h5>
+                            <p class="card-text">{{$venue->address}}, <br />
+                                {{$venue->address2}}<br />
+                                {{$venue->town}}<br />
+                                {{$venue->county}}
+                            </p>
+                            <input type="file" class="form-control" name="photo">
+                            <br />
+                            <button class="btn btn-dark float-right" type="submit">Update Venue Image</button>
+                            @if($errors->has('photo'))
+                                <div class="error text-danger">{{$errors->first('photo')}}</div>
+                            @endif
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="container-fluid mt-4" style="border-top:6px solid #ff0000;"></div>
+    <div class="colorbar"></div>
 
 @endsection
