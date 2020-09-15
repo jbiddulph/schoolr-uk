@@ -48,7 +48,7 @@
                     </a>
                 </li>
                 @endif
-                    @if(Auth::user()->user_type=='landlord')
+                    @if(Auth::user()->user_type=='landlord' && !Auth::user()->subscribed('main'))
                     <li class="nav-item">
                         <a class="nav-link" href="/subscribe">Edit my pub</a>
                     </li>
