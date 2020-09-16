@@ -37,7 +37,7 @@
 
                     </div>
                         <div class="qr-code" style="text-align:center; padding-bottom: 20px;">
-                            <img src="{{url('qrcodes/'. $thevenue->town .'/venues/qrcode-'.$thevenue->id.'.png')}}" width="250" />
+                            <img src="{{url('qrcodes/'. $thevenue->town .'/customers/tagin-'.$thevenue->id.'.png')}}" width="250" />
                         </div>
                 </div>
             </div>
