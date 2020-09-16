@@ -39,7 +39,6 @@
                                 @if(Storage::url('letters/'. $venue->town .'/'.$venue->venuename.'.pdf'))
                                     <a href="{{Storage::url('letters/'. $venue->town .'/'.$venue->venuename.'.pdf')}}">View Letter</a>
                                 @endif
-{{--                                {!! QrCode::size(250)->generate('ItSolutionStuff.com'); !!}--}}
                             </div>
                         </div>
                     </div>
