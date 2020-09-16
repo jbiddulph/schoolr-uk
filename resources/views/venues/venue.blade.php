@@ -2,23 +2,29 @@
 
 @section('content')
     <div class="colorbar"></div>
-    <div style="width: 100%; height: 300px;">
-        {!! Mapper::render() !!}
+    <div style="height: 300px;" class="header-img">
+        @if(isset($thevenue->photo))
+            @php
+                $mainphoto = str_replace('public/', 'storage/', $thevenue->photo)
+            @endphp
+            <div class="mainpic">
+                <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$thevenue->venuename}}">
+            </div>
+        @endif
+            <div class="qr-code" style="text-align:center; padding-bottom: 20px;">
+                <h3>Customer Tag-in</h3>
+                <img src="{{url('qrcodes/'. $thevenue->town .'/customers/tagin-'.$thevenue->id.'.png')}}" width="150" />
+            </div>
     </div>
     <div class="container mt-4 welcome">
         <h1>{{$thevenue->venuename}}, <a href="{{route('venues.town', [request('town')])}}" style="text-transform: capitalize;">{{request('town')}}</a></h1>
         <div class="row mt-4">
             <div class="col-md-4">
                 <div class="property-card card mb-4">
-                    @if(isset($thevenue->photo))
-                        @php
-                            $mainphoto = str_replace('public/', 'storage/', $thevenue->photo)
-                        @endphp
-                        <div class="mainpic">
-                            <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$thevenue->venuename}}">
-                        </div>
-                    @endif
-
+{{--                    MAP--}}
+                    <div style="width: 100%; height: 300px;">
+                        {!! Mapper::render() !!}
+                    </div>
                     <div class="card-body">
                         <strong>{{$thevenue->postalsearch}}</strong>
 {{--                            <h4 class="card-title"><a href="{{route('venues.show',[$thevenue->id, $thevenue->slug])}}">{{$thevenue->propname}}</a></h4>--}}
@@ -36,10 +42,6 @@
                         @endif
 
                     </div>
-                        <div class="qr-code" style="text-align:center; padding-bottom: 20px;">
-                            <h3>Customer Tag-in</h3>
-                            <img src="{{url('qrcodes/'. $thevenue->town .'/customers/tagin-'.$thevenue->id.'.png')}}" width="250" />
-                        </div>
                 </div>
             </div>
             <div class="col-md-8">

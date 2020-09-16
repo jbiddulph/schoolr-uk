@@ -279,6 +279,18 @@ ul.icons {
         font-size: 1.2rem;
     }
 }
+.header-img {
+    width:100%;
+    heigt:300px!important;
+    position:relative!important;
+    .qr-code {
+        position: absolute;
+        bottom: 20px;
+        right: 50px;
+        background-color: #ffffff;
+        padding:10px;
+    }
+}
 .edit-photo {
     position: absolute;
     top: 15px;
