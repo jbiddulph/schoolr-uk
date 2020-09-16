@@ -37,6 +37,7 @@
 
                     </div>
                         <div class="qr-code" style="text-align:center; padding-bottom: 20px;">
+                            <h3>Customer Tag-in</h3>
                             <img src="{{url('qrcodes/'. $thevenue->town .'/customers/tagin-'.$thevenue->id.'.png')}}" width="250" />
                         </div>
                 </div>
