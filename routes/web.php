@@ -18,6 +18,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
 //company
 Route::get('/company/{id}/{company}', 'CompanyController@index')->name('company.index');
 Route::get('/company/create', 'CompanyController@create')->name('company.view');
@@ -72,6 +73,16 @@ Route::get('/properties/applications', 'PropertyController@applicant')->name('ap
 
 //Events
 Route::get('/events/all', 'EventController@index')->name('events.show');
+
+
+Route::get('qr-code-g', function () {
+    \QrCode::size(500)
+        ->format('png')
+        ->generate('ItSolutionStuff.com', public_path('images/qrcode.png'));
+
+    return view('qrCode');
+
+});
 
 //Venues
 Route::get('/venues/all', 'VenueController@index')->name('venues.show');

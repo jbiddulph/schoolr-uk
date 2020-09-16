@@ -48,6 +48,11 @@
                     </a>
                 </li>
                 @endif
+                    @if(Auth::user()->user_type=='admin')
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin">Administration</a>
+                        </li>
+                    @endif
                     @if(Auth::user()->user_type=='landlord' && !Auth::user()->subscribed('main'))
                     <li class="nav-item">
                         <a class="nav-link" href="/subscribe">Edit my pub</a>

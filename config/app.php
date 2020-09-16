@@ -163,7 +163,6 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Cornford\Googlmapper\MapperServiceProvider::class,
         Crabbly\Fpdf\FpdfServiceProvider::class,
-
         /*
          * Package Service Providers...
          */
@@ -228,7 +227,6 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Mapper' => Cornford\Googlmapper\Facades\MapperFacade::class,
-
     ],
 
 ];

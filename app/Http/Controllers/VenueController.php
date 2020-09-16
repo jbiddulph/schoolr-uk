@@ -209,8 +209,34 @@ class VenueController extends Controller
             //create pdf document
             $pdf = app('Fpdf');
             $pdf->AddPage();
-            $pdf->SetFont('Arial','B',16);
-            $pdf->Cell(40,10,$v->venuename);
+            $pdf->SetFont('Arial','B',14);
+//            $address = $v->venuename.'<br />'.$v->address.'<br />'.$v->address2.'<br />'.$v->town.'<br />'.$v->county.'<br />'.$v->postcode.'<br />'.date('Y-m-d').'<br />';
+            $pdf->Cell(40,8,$v->venuename."\n");
+            $pdf->Ln();
+            $pdf->Cell(40,8,$v->address."\n");
+            if($v->address2 != ''){
+            $pdf->Ln();
+            $pdf->Cell(40,8,$v->address2."\n");
+            }
+            $pdf->Ln();
+            $pdf->Cell(40,8,$v->town."\n");
+            $pdf->Ln();
+            $pdf->Cell(40,8,$v->county."\n");
+            $pdf->Ln();
+            $pdf->Cell(40,8,date("F j, Y")."\n");
+
+
+            $pdf->SetFont('Arial','',12);
+            // set some text for example
+            $txt = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed imperdiet lectus. Phasellus quis velit velit, non condimentum quam. Sed neque urna, ultrices ac volutpat vel, laoreet vitae augue. Sed vel velit erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras eget velit nulla, eu sagittis elit. Nunc ac arcu est, in lobortis tellus. Praesent condimentum rhoncus sodales. In hac habitasse platea dictumst. Proin porta eros pharetra enim tincidunt dignissim nec vel dolor. Cras sapien elit, ornare ac dignissim eu, ultricies ac eros. Maecenas augue magna, ultrices a congue in, mollis eu nulla. Nunc venenatis massa at est eleifend faucibus. Vivamus sed risus lectus, nec interdum nunc.
+
+Fusce et felis vitae diam lobortis sollicitudin. Aenean tincidunt accumsan nisi, id vehicula quam laoreet elementum. Phasellus egestas interdum erat, et viverra ipsum ultricies ac. Praesent sagittis augue at augue volutpat eleifend. Cras nec orci neque. Mauris bibendum posuere blandit. Donec feugiat mollis dui sit amet pellentesque. Sed a enim justo. Donec tincidunt, nisl eget elementum aliquam, odio ipsum ultrices quam, eu porttitor ligula urna at lorem. Donec varius, eros et convallis laoreet, ligula tellus consequat felis, ut ornare metus tellus sodales velit. Duis sed diam ante. Ut rutrum malesuada massa, vitae consectetur ipsum rhoncus sed. Suspendisse potenti. Pellentesque a congue massa.';
+
+// print a blox of text using multicell()
+            $pdf->setX(20);
+            $pdf->setY(80);
+//            $pdf->MultiCell(184, 6, $txt."\n",0,0,'L');
+            $pdf->MultiCell(184, 6, $txt, 0, 'L', 0, 0, '', '', false);
 
             //save file
             Storage::put('/public/letters/'.$town.'/'.$v->venuename.'.pdf', $pdf->Output('S'));
