@@ -11404,6 +11404,13 @@ ul.icons li span {
   padding: 10px;
 }
 
+.header-img .mainpic {
+  height: 300px;
+  width: 100%;
+  background-size: 100%;
+  background-position: center;
+}
+
 .edit-photo {
   position: absolute;
   top: 15px;
