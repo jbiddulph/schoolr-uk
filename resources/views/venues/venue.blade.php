@@ -11,9 +11,9 @@
 {{--                <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$thevenue->venuename}}">--}}
             </div>
         @endif
-            <div class="qr-code" style="text-align:center; padding-bottom: 20px;">
+            <div class="qr-code" style="text-align:center; padding-bottom: 10px;">
                 <h3>Customer Tag-in</h3>
-                <img src="{{url('qrcodes/'. $thevenue->town .'/customers/tagin-'.$thevenue->id.'.png')}}" width="150" />
+                <img src="{{url('qrcodes/'. $thevenue->town .'/customers/tagin-'.$thevenue->id.'.png')}}" width="180" />
             </div>
     </div>
     <div class="container mt-4 welcome">
