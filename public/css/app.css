@@ -11402,6 +11402,7 @@ ul.icons li span {
   right: 100px;
   background-color: #ffffff;
   padding: 10px;
+  box-shadow: 5px 10px #888888;
 }
 
 .header-img .mainpic {
