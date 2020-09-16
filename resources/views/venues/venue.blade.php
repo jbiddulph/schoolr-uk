@@ -8,7 +8,7 @@
     <div class="container mt-4 welcome">
         <h1>{{$thevenue->venuename}}, <a href="{{route('venues.town', [request('town')])}}" style="text-transform: capitalize;">{{request('town')}}</a></h1>
         <div class="row mt-4">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="property-card card mb-4">
                     @if(isset($thevenue->photo))
                         @php
@@ -18,6 +18,7 @@
                             <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$thevenue->venuename}}">
                         </div>
                     @endif
+
                     <div class="card-body">
                         <strong>{{$thevenue->postalsearch}}</strong>
 {{--                            <h4 class="card-title"><a href="{{route('venues.show',[$thevenue->id, $thevenue->slug])}}">{{$thevenue->propname}}</a></h4>--}}
@@ -31,13 +32,16 @@
                         @if($thevenue->user_id != '')
                             <div class="flag flag-up"><i class="fas fa-key"></i></div>
                         @else
-                            <a class="btn btn-primary btn-sm" href="{{route('register.claim',["venue_id"=>$thevenue->id, "venue_name"=>$thevenue->slug])}}">Claim this venue</a>
+                            <a class="btn btn-primary btn-md" href="{{route('register.claim',["venue_id"=>$thevenue->id, "venue_name"=>$thevenue->slug])}}">Claim this venue</a>
                         @endif
 
                     </div>
+                        <div class="qr-code" style="text-align:center; padding-bottom: 20px;">
+                            <img src="{{url('qrcodes/'. $thevenue->town .'/venues/qrcode-'.$thevenue->id.'.png')}}" width="250" />
+                        </div>
                 </div>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-8">
 
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
                         <strong>Covid-19 Lockdown notice</strong> Due to the current lockdown and social distancing measures that are in place to help save lives, venues and pubs will have a limited amount of events listed.

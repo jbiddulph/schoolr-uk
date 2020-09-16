@@ -39,6 +39,7 @@
                                 @if(Storage::url('letters/'. $venue->town .'/'.$venue->venuename.'.pdf'))
                                     <a href="{{Storage::url('letters/'. $venue->town .'/'.$venue->venuename.'.pdf')}}">View Letter</a>
                                 @endif
+                                <img src="{{url('qrcodes/'. $venue->town .'/venues/qrcode-'.$venue->id.'.png')}}" width="150" />
                             </div>
                         </div>
                     </div>
