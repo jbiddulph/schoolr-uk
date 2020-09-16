@@ -34,13 +34,13 @@ class AdministrationController extends Controller
     public function venue() {
 //        Generate QR CODE
 
-//        ini_set('max_execution_time', 300);
-//        $venueslist = Venue::where('town','Worthing')->get();
-//        foreach ($venueslist as $v) {
-//            \QrCode::size(500)
-//                ->format('png')
-//                ->generate('https://www.bnhere.co.uk/venues/'.$v->id.'/tagin', public_path('qrcodes/Worthing/customers/tagin-'.$v->id.'.png'));
-//        }
+        ini_set('max_execution_time', 300);
+        $venueslist = Venue::where('town','Worthing')->get();
+        foreach ($venueslist as $v) {
+            \QrCode::size(500)
+                ->format('png')
+                ->generate('https://www.bnhere.co.uk/venues/'.$v->id.'/tagin', public_path('qrcodes/Worthing/venues/qrcode-'.$v->id.'.png'));
+        }
 
         $venues = Venue::paginate(52);
         return view('administration.adminvenue', compact('venues'));
