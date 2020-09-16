@@ -7,8 +7,8 @@
             @php
                 $mainphoto = str_replace('public/', 'storage/', $thevenue->photo)
             @endphp
-            <div class="mainpic">
-                <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$thevenue->venuename}}">
+            <div class="mainpic" style="background-image: url(/{{ $mainphoto }})">
+{{--                <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$thevenue->venuename}}">--}}
             </div>
         @endif
             <div class="qr-code" style="text-align:center; padding-bottom: 20px;">
