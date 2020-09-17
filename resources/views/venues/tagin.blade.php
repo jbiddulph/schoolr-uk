@@ -62,6 +62,18 @@
                                 </div>
                             </div>
                             <div class="row">
+                                <div class="col-md-6">
+                                    <label>I consent to this venue keeping my details hidden and private and will only be ussed if in an emergency.<br /> Or if someone else at the venue has symptoms of Covid-19:</label>
+                                    <input class="mktFormCheckbox" name="consent" id="marketing" type='checkbox' required/>
+                                    <span class="mktFormMsg"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Keep me up to date with future events and promotions at this venue:</label>
+                                    <input class="mktFormCheckbox" name="marketing" id="marketing" type='checkbox' value="1" />
+                                    <span class="mktFormMsg"></span>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-md-4 offset-md-4">
                                     <button type="submit" class="btn bt-lg btn-primary">Tag in!</button>
                                 </div>

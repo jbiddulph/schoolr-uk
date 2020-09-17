@@ -192,7 +192,8 @@ class VenueController extends Controller
             'venue_id'=>request('venue_id'),
             'phone_number'=>request('phone_number'),
             'email_address'=>request('email_address'),
-            'reason_visit'=>request('reason_visit')
+            'reason_visit'=>request('reason_visit'),
+            'marketing'=>request('marketing')
         ]);
 
         //LOGGING
