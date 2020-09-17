@@ -11034,7 +11034,9 @@ a.text-dark:focus {
      This is the majority of smarthphones. */
 
   .header-img .qr-code {
-    bottom: 30px !important;
+    box-shadow: none !important;
+    bottom: 10px !important;
+    right: 10px !important;
   }
 
   .header-img .qr-code h3 {
