@@ -108,22 +108,5 @@ $( document ).ready(function() {
     //     columnWidth: 200
     // });
 
-    // vanilla JS
-// init with element
-    var $container = $('.container');
-    $container.imagesLoaded( function() {
-        var grid = document.querySelector('.grid');
-        var msnry = new $container.Masonry( grid, {
-            // options...
-            itemSelector: '.grid-item',
-            columnWidth: 180,
-            gutter: 20
-        });
-
-    // init with selector
-        var msnry = new $container.Masonry( '.grid', {
-            // options...
-        });
-    });
 });
 

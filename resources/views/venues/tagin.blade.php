@@ -69,7 +69,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label>Keep me up to date with future events and promotions at this venue:</label>
-                                    <input class="mktFormCheckbox" name="marketing" id="marketing" type='checkbox' value="1" />
+                                    <input class="mktFormCheckbox marketing" name="marketing" id="marketing" type='checkbox' value="1" />
                                     <span class="mktFormMsg"></span>
                                 </div>
                             </div>

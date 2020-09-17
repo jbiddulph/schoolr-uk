@@ -211,6 +211,12 @@ class VenueController extends Controller
             $pdf = app('Fpdf');
             $pdf->AddPage();
             $pdf->SetFont('Arial','B',14);
+
+            $qrtagin = "qrcodes/".$v->town."/customers/tagin-".$v->id.".png";
+            $qrvenue = "qrcodes/".$v->town."/venues/qrcode-".$v->id.".png";
+
+
+
 //            $address = $v->venuename.'<br />'.$v->address.'<br />'.$v->address2.'<br />'.$v->town.'<br />'.$v->county.'<br />'.$v->postcode.'<br />'.date('Y-m-d').'<br />';
             $pdf->Cell(40,8,$v->venuename."\n");
             $pdf->Ln();
@@ -225,6 +231,15 @@ class VenueController extends Controller
             $pdf->Cell(40,8,$v->county."\n");
             $pdf->Ln();
             $pdf->Cell(40,8,date("F j, Y")."\n");
+
+
+//            $pdf->Cell( 160, 10, $pdf->Image($qrvenue, $pdf->GetX(), $pdf->GetY(), 33.78), 0, 0, 'R', false );
+//            $pdf->Ln();
+//            $pdf->Cell(160,8,'Venue QR-Code'."\n", 0, 0, 'R', false);
+
+            $pdf->Cell(100, 40, $pdf->Image($qrtagin, $pdf->GetX(), $pdf->GetY(), 33.78), 1, 1, 'R', false );
+//            $pdf->Ln();
+//            $pdf->Cell(160,20,'Tagin QR-Code'."\n", 1, 1, 'R', false);
 
 
             $pdf->SetFont('Arial','',12);

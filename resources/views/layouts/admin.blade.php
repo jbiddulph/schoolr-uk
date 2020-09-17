@@ -1493,8 +1493,6 @@
 
 <!--end::Page Vendors -->
 
-<!--begin::Page Scripts(used by this page) -->
-<script src="./assets/js/demo4/pages/dashboard.js" type="text/javascript"></script>
 
 <!--end::Page Scripts -->
 </body>

@@ -11033,6 +11033,15 @@ a.text-dark:focus {
      advice to design for the smallest common width, 320px.
      This is the majority of smarthphones. */
 
+  .header-img .qr-code {
+    bottom: 20px;
+  }
+
+  .header-img .qr-code img {
+    width: 80px !important;
+    height: 80px !important;
+  }
+
   #navbarSupportedContent .navbar-nav {
     text-align: center;
     font-size: 1.2rem;
