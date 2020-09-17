@@ -11033,6 +11033,10 @@ a.text-dark:focus {
      advice to design for the smallest common width, 320px.
      This is the majority of smarthphones. */
 
+  .header-img {
+    heigt: 350px !important;
+  }
+
   .header-img .qr-code {
     box-shadow: none !important;
     bottom: 10px !important;
