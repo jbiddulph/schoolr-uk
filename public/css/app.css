@@ -11037,6 +11037,10 @@ a.text-dark:focus {
     bottom: 30px !important;
   }
 
+  .header-img .qr-code h3 {
+    display: none;
+  }
+
   .header-img .qr-code img {
     width: 80px !important;
     height: 80px !important;

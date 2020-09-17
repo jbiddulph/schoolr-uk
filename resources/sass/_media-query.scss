@@ -5,6 +5,9 @@
     .header-img {
         .qr-code {
             bottom: 30px!important;
+            h3 {
+                display: none;
+            }
             img {
                 width:80px!important;
                 height: 80px!important;
