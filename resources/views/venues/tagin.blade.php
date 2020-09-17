@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="colorbar"></div>
     <div class="container mt-4">
         <h1>Venue Tag-in</h1>
         <div class="row justify-content-center">

@@ -226,7 +226,7 @@ class VenueController extends Controller
             $pdf->Cell(150,8,$v->venuename."\n");
             $pdf->Ln();
             $pdf->Cell(150,8,$v->address."\n");
-            if($v->address2 != ''){
+            if($v->address2){
             $pdf->Ln();
             $pdf->Cell(150,8,$v->address2."\n");
             }
