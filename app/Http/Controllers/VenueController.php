@@ -218,26 +218,31 @@ class VenueController extends Controller
 
 
 //            $address = $v->venuename.'<br />'.$v->address.'<br />'.$v->address2.'<br />'.$v->town.'<br />'.$v->county.'<br />'.$v->postcode.'<br />'.date('Y-m-d').'<br />';
-            $pdf->Cell(40,8,$v->venuename."\n");
+
+            $pdf->Cell(150,8,"\n");
+            $pdf->Cell(50, 40, $pdf->Image($qrtagin, $pdf->GetX(), $pdf->GetY(), 33.78), 0, 0, 'C' );
+            $pdf->Cell(150,8,$v->venuename."\n");
             $pdf->Ln();
-            $pdf->Cell(40,8,$v->address."\n");
+            $pdf->Cell(150,8,$v->venuename."\n");
+            $pdf->Ln();
+            $pdf->Cell(150,8,$v->address."\n");
             if($v->address2 != ''){
             $pdf->Ln();
-            $pdf->Cell(40,8,$v->address2."\n");
+            $pdf->Cell(150,8,$v->address2."\n");
             }
             $pdf->Ln();
-            $pdf->Cell(40,8,$v->town."\n");
+            $pdf->Cell(150,8,$v->town."\n");
             $pdf->Ln();
-            $pdf->Cell(40,8,$v->county."\n");
+            $pdf->Cell(150,8,$v->county."\n");
             $pdf->Ln();
-            $pdf->Cell(40,8,date("F j, Y")."\n");
+            $pdf->Cell(150,8,date("F j, Y")."\n");
 
 
 //            $pdf->Cell( 160, 10, $pdf->Image($qrvenue, $pdf->GetX(), $pdf->GetY(), 33.78), 0, 0, 'R', false );
 //            $pdf->Ln();
 //            $pdf->Cell(160,8,'Venue QR-Code'."\n", 0, 0, 'R', false);
 
-            $pdf->Cell(100, 40, $pdf->Image($qrtagin, $pdf->GetX(), $pdf->GetY(), 33.78), 1, 1, 'R', false );
+
 //            $pdf->Ln();
 //            $pdf->Cell(160,20,'Tagin QR-Code'."\n", 1, 1, 'R', false);
 
