@@ -249,9 +249,11 @@ class VenueController extends Controller
 
             $pdf->SetFont('Arial','',12);
             // set some text for example
-            $txt = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed imperdiet lectus. Phasellus quis velit velit, non condimentum quam. Sed neque urna, ultrices ac volutpat vel, laoreet vitae augue. Sed vel velit erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras eget velit nulla, eu sagittis elit. Nunc ac arcu est, in lobortis tellus. Praesent condimentum rhoncus sodales. In hac habitasse platea dictumst. Proin porta eros pharetra enim tincidunt dignissim nec vel dolor. Cras sapien elit, ornare ac dignissim eu, ultricies ac eros. Maecenas augue magna, ultrices a congue in, mollis eu nulla. Nunc venenatis massa at est eleifend faucibus. Vivamus sed risus lectus, nec interdum nunc.
+            $txt = $v->venuename . ' is currently listed on https://www.bnhere.co.uk. A website directory of venues in Sussex (the BN district) helping these venues with the NHS Test and Trace system. We make it easy for your customers to submit their details privately upon arrival and with their consent.
 
-Fusce et felis vitae diam lobortis sollicitudin. Aenean tincidunt accumsan nisi, id vehicula quam laoreet elementum. Phasellus egestas interdum erat, et viverra ipsum ultricies ac. Praesent sagittis augue at augue volutpat eleifend. Cras nec orci neque. Mauris bibendum posuere blandit. Donec feugiat mollis dui sit amet pellentesque. Sed a enim justo. Donec tincidunt, nisl eget elementum aliquam, odio ipsum ultrices quam, eu porttitor ligula urna at lorem. Donec varius, eros et convallis laoreet, ligula tellus consequat felis, ut ornare metus tellus sodales velit. Duis sed diam ante. Ut rutrum malesuada massa, vitae consectetur ipsum rhoncus sed. Suspendisse potenti. Pellentesque a congue massa.';
+        For customer with NFC enabled smart phones, NFC tags (included) can be tapped allowing the customer to easily fill out their details for test and trace. Scanning the QR code of your venue with the a smart phones camera will also allow yoru customer to enter their details.
+
+        And for just 5 pounds per month, you can claim your venue on https://bnhere.co.uk, edit your venue details, view visitor/customer statistics, add additional photos of your venue and add future events.';
 
 // print a blox of text using multicell()
             $pdf->setX(20);
