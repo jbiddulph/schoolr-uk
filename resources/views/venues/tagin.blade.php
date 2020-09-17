@@ -85,6 +85,7 @@
             </div>
         </div>
     </div>
+    <div class="colorbar"></div>
 @endsection
 @section('script')
     <script type="text/javascript">
