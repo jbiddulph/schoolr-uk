@@ -4,6 +4,7 @@
     <div class="colorbar"></div>
     <div class="container mt-4">
         <h1>Venue Tag-in</h1>
+        <a href="../../venues/{{ str_slug($thevenue->town) }}/{{ str_slug($thevenue->venuename) }}/{{ $thevenue->id }}" class="btn bt-lg btn-primary">View {{ $thevenue->venuename }}</a>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
