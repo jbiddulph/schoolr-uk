@@ -6,6 +6,7 @@ use App\Company;
 use App\Event;
 use App\Http\Requests\TaginPostRequest;
 use App\Http\Requests\VenuePostRequest;
+use App\Http\Resources\VenueResource;
 use App\Property;
 use App\Tagin;
 use App\Venue;
@@ -19,6 +20,15 @@ use App\Http\Controllers\PDF_Label;
 
 class VenueController extends Controller
 {
+    /**
+     * @param Venue $venue
+     * @return VenueResource
+     */
+    public function show(Venue $venue): VenueResource {
+        return new VenueResource($venue);
+    }
+
+
     public function getVenue(Venue $venue)
     {
         return $venue;
