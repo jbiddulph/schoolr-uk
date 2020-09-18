@@ -89,6 +89,7 @@ Route::get('/venues/all', 'VenueController@index')->name('venues.show');
 Route::post('/venues/all', 'VenueController@index')->name('venues');
 Route::get('/venues/towns/{town}', 'VenueController@town')->name('venues.town');
 Route::get('/venues/{town}/{name}/{id}', 'VenueController@venue')->name('venue.name');
+Route::get('/venues/{id}/tagin/stats', 'VenueController@venueTaginstats')->name('venue.venuetaginstats');
 Route::get('/venues/{id}/tagin', 'VenueController@venueTagin')->name('venue.venuetagin');
 Route::post('/venues/{id}/tagin/add', 'VenueController@tagin')->name('venue.tagin');
 //Route::get('/venues/{id}/edit', 'AdministrationController@venueEdit')->name('venue.edit');

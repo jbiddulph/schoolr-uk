@@ -19,6 +19,13 @@ use App\Http\Controllers\PDF_Label;
 
 class VenueController extends Controller
 {
+    public function getVenues()
+    {
+        $venues = Venue::all();
+
+        return response()->json($venues);
+    }
+
     public function index(Request $request) {
 
         $mapswitch = request('mapswitch');
@@ -294,6 +301,12 @@ class VenueController extends Controller
         $venue = Venue::findOrFail($id);
         $venue->update($request->all());
         return redirect()->back()->with('message','Venue successfully updated!');
+    }
+
+    public function venueTaginstats($id) {
+        $tagins = Tagin::findOrFail($id);
+        return view('venues.tagins', compact(
+            'tagins'));
     }
 
 }

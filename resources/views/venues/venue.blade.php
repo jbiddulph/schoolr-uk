@@ -18,6 +18,7 @@
     </div>
     <div class="container mt-4 welcome">
         <h1>{{$thevenue->venuename}}, <a href="{{route('venues.town', [request('town')])}}" style="text-transform: capitalize;">{{request('town')}}</a> <a href="{{route('venue.venuetagin', [request('id')])}}" style="text-transform: capitalize;" class="btn bt-lg btn-primary">Check-in</a></h1>
+        <a href="{{route('venue.venuetaginstats', [$thevenue->id])}}" style="text-transform: capitalize;">Tagin Stats</a>
         <div class="row mt-4">
             <div class="col-md-4">
                 <div class="property-card card mb-4">
