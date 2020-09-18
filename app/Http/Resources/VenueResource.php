@@ -14,11 +14,11 @@ class VenueResource extends JsonResource
      */
     public function toArray($request)
     {
-        //return parent::toArray($request);
-        return [
-            'id'=> $this->id,
-            'venuename'=> $this->venuename,
-            'town'=> $this->town,
-        ];
+        return parent::toArray($request);
+//        return [
+//            'id'=> $this->id,
+//            'venuename'=> $this->venuename,
+//            'town'=> $this->town,
+//        ];
     }
 }
