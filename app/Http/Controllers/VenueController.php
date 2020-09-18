@@ -21,7 +21,6 @@ class VenueController extends Controller
 {
     public function getVenue(Venue $venue)
     {
-        dd($venue);
         return $venue;
     }
 
