@@ -18,3 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('venue', 'VenueController');
+Route::apiResource('event', 'EventController');
+//Route::apiResource('tagin', 'TaginController');

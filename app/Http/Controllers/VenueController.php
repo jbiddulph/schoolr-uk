@@ -28,7 +28,6 @@ class VenueController extends Controller
         return new VenueResource($venue);
     }
 
-
     public function getVenue(Venue $venue)
     {
         return $venue;
