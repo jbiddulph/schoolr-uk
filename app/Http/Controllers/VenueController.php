@@ -19,11 +19,10 @@ use App\Http\Controllers\PDF_Label;
 
 class VenueController extends Controller
 {
-    public function getVenues()
+    public function getVenue(Venue $venue)
     {
-        $venues = Venue::all();
-
-        return response()->json($venues);
+        dd($venue);
+        return $venue;
     }
 
     public function index(Request $request) {
