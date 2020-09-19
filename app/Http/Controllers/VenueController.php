@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Company;
 use App\Event;
+use App\Http\Controllers\PDF_Label;
 use App\Http\Requests\TaginPostRequest;
 use App\Http\Requests\VenuePostRequest;
 use App\Http\Resources\VenueResource;
+use App\Http\Resources\VenueResourceCollection;
 use App\Property;
 use App\Tagin;
 use App\Venue;
@@ -15,7 +17,6 @@ use Illuminate\Support\Facades\Log;
 use Mapper;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Controllers\PDF_Label;
 
 
 class VenueController extends Controller
@@ -24,7 +25,7 @@ class VenueController extends Controller
      * @param Venue $venue
      * @return VenueResource
      */
-    public function show(Venue $venue): VenueResource {
+    public function show(Venue $venue): VenueResourceCollection {
         return new VenueResource($venue);
     }
 
@@ -267,7 +268,13 @@ class VenueController extends Controller
 
         For customer with NFC enabled smart phones, NFC tags (included) can be tapped allowing the customer to easily fill out their details for test and trace. Scanning the QR code of your venue with the a smart phones camera will also allow yoru customer to enter their details.
 
-        And for just 5 pounds per month, you can claim your venue on https://bnhere.co.uk, edit your venue details, view visitor/customer statistics, add additional photos of your venue and add future events.';
+        And for just 5 pounds per month, you can claim your venue on https://bnhere.co.uk, edit your venue details, view visitor/customer statistics, add additional photos of your venue and add future events.
+
+        Have fun and stay safe with a safe distance whilst socialising.
+
+
+
+        BNHERE.CO.UK - Local Track & Trace.';
 
 // print a blox of text using multicell()
             $pdf->setX(20);
@@ -283,10 +290,30 @@ class VenueController extends Controller
             'pdf'));
     }
 
+
+    public function qrcodeLabels($town) {
+        $pdf = new PDF_Label('L7163');
+
+        $pdf->AddPage();
+        $venueslist = Venue::latest()->where('is_live',1)->where('town', $town)->paginate(1000);
+
+        // Print labels
+        foreach ($venueslist as $v) {
+            $qrtagin = "qrcodes/".$v->town."/customers/tagin-".$v->id.".png";
+            $qrcode = sprintf("%s\n", $pdf->Cell(50, 40, $pdf->Image($qrtagin, $pdf->GetX(), $pdf->GetY(), 33.78), 0, 0, 'C' ));
+            $pdf->Add_Label($qrcode);
+        }
+
+        Storage::put('/public/labels/'.$town.'/qrcodes.pdf', $pdf->Output('S'));
+        return view('venues.addresses', compact(
+            'pdf'));
+    }
+
     public function addressLabels($town) {
         $pdf = new PDF_Label('L7163');
 
         $pdf->AddPage();
+
         $venueslist = Venue::latest()->where('is_live',1)->where('town', $town)->paginate(1000);
 
         // Print labels

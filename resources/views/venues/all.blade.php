@@ -39,9 +39,10 @@
                                     width: 100%;
                                     height: 120px;">
                                     {{--                                    <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$venue->venuename}}" width="180">--}}
-                                </a>
+
                                 <h2 class="card-subtitle">{{$venue->venuename}}</h2>
                                 <span class="postal">{{$venue->postalsearch}}</span>
+                                </a>
                             </div>
                         @endif
                         <div class="card-body">

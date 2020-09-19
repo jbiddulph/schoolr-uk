@@ -55,11 +55,17 @@
                     @endif
                     @if(Auth::user()->user_type=='landlord' && !Auth::user()->subscribed('main'))
                     <li class="nav-item">
-                        <a class="nav-link" href="/subscribe">Edit my pub</a>
+                        <a class="nav-link" href="/subscribe">Edit my venue</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('event.create')}}">Add Event</a>
                     </li>
                     @elseif(Auth::user()->subscribed('main'))
                     <li class="nav-item">
                         <a class="nav-link" href="/venue/{{ Auth::user()->venue_id }}/edit">Edit my venue</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('event.create')}}">Add Event</a>
                     </li>
                     @endif
                     <li class="nav-item">
@@ -88,6 +94,9 @@
                             <a href="{{route('user.view')}}" class="dropdown-item">{{__('Profile')}}</a>
                             @endif
                         @endif
+                        <a class="dropdown-item" href="{{route('view.venue')}}">
+                            View Venue
+                        </a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">

@@ -36,6 +36,10 @@ Route::View('register/landlord','register-landlord')->name('register.landlord');
 //Route::View('register/claim','register-claim')->name('register.claim');
 Route::get('register/claim','LandlordRegisterController@registerClaim')->name('register.claim');
 Route::post('landlord/register', 'LandlordRegisterController@landlordRegister')->name('landlord.register');
+Route::get('venue/events/create', 'EventController@eventCreate')->name('event.create');
+Route::post('venue/events/create', 'EventController@eventStore')->name('event.store');
+Route::get('venue/view', 'LandlordRegisterController@viewVenue')->name('view.venue');
+
 
 //Subscribe
 Route::get('/subscribe', 'SubscriptionController@payment');
@@ -98,6 +102,7 @@ Route::get('/venues/{id}/uploads-edit', 'AdministrationController@venueuploadsed
 Route::post('/venues/{id}/uploads-edit', 'AdministrationController@venueImageUpdate')->name('venue.venueImageUpdate');
 Route::get('/venues/{town}/pdfs', 'VenueController@pdf')->name('venues.pdf');
 Route::get('/venues/{town}/address-labels', 'VenueController@addressLabels')->name('venues.addressLabels');
+Route::get('/venues/{town}/qrcode-labels', 'VenueController@qrcodeLabels')->name('venues.qrcodeLabels');
 
 //Save and unsave property
 Route::post('/saveproperty/{id}', 'FavouriteController@saveProperty');

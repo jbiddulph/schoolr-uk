@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Http\Requests\EventPostRequest;
 use App\Venue;
+use Illuminate\Support\Facades\Auth;
 use Mapper;
 use Illuminate\Http\Request;
 
@@ -122,69 +124,69 @@ class EventController extends Controller
 //        return response($response);
         return redirect('admin/event');
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function eventCreate() {
+        $venueid = Auth::user()->venue_id;
+        $thevenue = Venue::findOrFail($venueid);
+        //dd($thevenue);
+        return view('events.create', compact('venueid', 'thevenue'));
     }
+    public function eventStore(EventPostRequest $request) {
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Event  $event
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Event $event)
-    {
-        //
+        $eventphoto = $request->file('eventPhoto')->store('public/events/photos');
+        Event::create([
+            'venue_id'=>request('venue_id'),
+            'eventName'=>request('eventName'),
+            'slug'=>str_slug(request('eventName')),
+            'eventPhoto'=>$eventphoto,
+            'eventDate'=>request('eventDate'),
+            'eventTimeStart'=>request('eventTimeStart'),
+            'eventTimeEnd'=>request('eventTimeEnd'),
+            'eventType'=>request('eventType'),
+            'eventCost'=>request('eventCost')
+        ]);
+
+
+        return redirect()->back()->with('message','Event added successfully!');
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Event  $event
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Event $event)
-    {
-        //
+    public function eventEdit($id) {
+        $event = Event::findOrFail($id);
+        return view('events.edit', compact('event'));
     }
+    public function eventUpdate(Request $request, $id) {
+        $event = Event::findOrFail($id);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Event  $event
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Event $event)
-    {
-        //
+        if ($request->file('eventPhoto') != ''){
+            $eventphoto = $request->file('eventPhoto')->store('public/events/photos');
+            $event->update([
+                'eventPhoto'=>$eventphoto,
+            ]);
+        }
+
+        $event->update([
+            'venue_id'=>request('venue_id'),
+            'eventName'=>request('eventName'),
+            'slug'=>str_slug(request('eventName')),
+            'eventDate'=>request('eventDate'),
+            'eventTimeStart'=>request('eventTimeStart'),
+            'eventTimeEnd'=>request('eventTimeEnd'),
+            'eventType'=>request('eventType'),
+            'eventCost'=>request('eventCost')
+        ]);
+        return redirect()->back()->with('message','Event successfully updated!');
     }
+    public function eventuploadsedit($id) {
+        $event = Event::findOrFail($id);
+        return view('events.uploads-edit', compact('event'));
+    }
+    public function eventImageUpdate(Request $request, $id) {
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Event  $event
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Event $event)
-    {
-        //
+        $event = Venue::findOrFail($id);
+        $eventphoto = $request->file('eventPhoto')->store('public/events/photos');
+
+        $event->update([
+            'eventPhoto'=>$eventphoto,
+        ]);
+        return redirect()->back()->with('message','Event image updated!');
     }
 }

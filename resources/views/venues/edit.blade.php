@@ -6,11 +6,13 @@
 
     <div class="container mt-4">
         @if(Auth::user()->user_type == 'admin')
+            <div class="text-right"><a href="/venues/{{$venue->town}}/{{$venue->venuename}}/{{$venue->id}}" class="btn btn-primary">View {{$venue->venuename}}</a></div>
             <h1>Edit Venue | <a href="/admin">Admin</a>
                    | <a href="/admin/venue">Edit Venue List</a>
             </h1>
         @else
-            <h1>Edit Venue</h1>{{ $venue->venuetype }}
+            <div class="text-right"><a href="/venues/{{$venue->town}}/{{$venue->venuename}}/{{$venue->id}}" class="btn btn-primary">View {{$venue->venuename}}</a></div>
+            <h1>Edit Venue </h1>{{ $venue->venuetype }}
         @endif
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -20,7 +22,7 @@
 {{--                    <p>Not subscribed</p>--}}
                 @endif
                 <div class="card">
-                    <div class="card-header"><h2>Editing {{ $venue->venuename }}</h2></div>
+                    <div class="card-header"><h2>{{ $venue->venuename }}</h2></div>
                     <div class="card-body">
                         @if(Session::has('message'))
                             <div class="alert alert-success">

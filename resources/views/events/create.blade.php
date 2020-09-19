@@ -1,9 +1,7 @@
 @extends('layouts.app1')
 
 @section('content')
-    @if(Auth::user()->user_type != 'admin')
-    <div class="container-fluid" style="border-top:6px solid {{Auth::user()->company->primary_color}}"></div>
-    @endif
+    <div class="colorbar"></div>
     <div class="container mt-4">
         @if(Auth::user()->user_type == 'admin')
             <a href="/admin/event">Edit Event List</a>
@@ -11,16 +9,25 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header"><h2>Event Create</h2></div>
+                    <div class="card-header"><h2>Event Create for {{ $thevenue->venuename }}</h2></div>
                     <div class="card-body">
                         @if(Session::has('message'))
                             <div class="alert alert-success">
                                 {{Session::get('message')}}
                             </div>
                         @endif
-                            <form action="{{route('adminevent.store')}}" method="post" enctype="multipart/form-data">@csrf
+                            <form action="{{route('event.store')}}" method="post" enctype="multipart/form-data">@csrf
                                 <div class="row">
                                     <div class="col-md-12">
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger">
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
                                         <label for="eventPhoto">Event Photo</label>
                                         <input type="file" class="form-control @error('eventPhoto') is-invalid @enderror" name="eventPhoto">
                                         <br />
@@ -99,9 +106,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <input type="hidden" name="venue_id" id="venue_id" value="">
-                                </div>
+                                @if($thevenue->id)
+                                    <div class="row">
+                                        <input type="hidden" name="venue_id" id="venue_id" value="{{$thevenue->id}}">
+                                    </div>
+                                @else
+                                    <div class="row">
+                                        <input type="hidden" name="venue_id" id="venue_id" value="">
+                                    </div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -118,6 +130,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                @endif
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
@@ -132,9 +145,7 @@
                 </div>
             </div>
         </div>
-    @if(Auth::user()->user_type != 'admin')
-    <div class="container-fluid mt-4" style="border-top:6px solid {{Auth::user()->company->primary_color}}"></div>
-    @endif
+    <div class="colorbar"></div>
     @section('script')
         <script type="text/javascript">
         $(document).ready(function(){
@@ -175,12 +186,12 @@
 
                 }
             });
-            function saveevent() {
-                var venueval = $("input:radio[name=selectedVenueID]:checked").val();
-
-                $("#venue_id").val(venueval);
-            }
-            $( "#saveevent" ).on( "click", saveevent );
+            // function saveevent() {
+            //     var venueval = $("input:radio[name=selectedVenueID]:checked").val();
+            //
+            //     $("#venue_id").val(venueval);
+            // }
+            // $( "#saveevent" ).on( "click", saveevent );
 
             $('.timepicker').timepicker({
                 timeFormat: 'H:mm p',

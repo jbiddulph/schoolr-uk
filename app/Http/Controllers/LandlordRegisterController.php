@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Event;
 use App\User;
 use App\Venue;
+use Mapper;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -37,6 +41,27 @@ class LandlordRegisterController extends Controller
         return view('register-claim', compact(
             'venue_id',
             'venue_name'));
+
+    }
+
+    public function viewVenue(Request $request) {
+        $venueid = Auth::user()->venue_id;
+        $thevenue = Venue::findOrFail($venueid);
+        $towns = Venue::select('town')->distinct()->get();
+        $events = Event::latest()->where("venue_id", "=", "$venueid")->get();
+
+
+        Mapper::map($thevenue->latitude,$thevenue->longitude, [
+            'zoom' => 16,
+            'marker' => true,
+            'cluster' => false
+        ]);
+        Mapper::informationWindow($thevenue->latitude, $thevenue->longitude, '<a href="/venues/' . str_slug($thevenue->town) . '/' . str_slug($thevenue->venuename) . '/'. $thevenue->id .'">' . $thevenue->venuename . '</a>', ['icon' => ['url' => 'https://bnhere.co.uk/logo/primary_map_marker.png', 'scale' => 100]]);
+        $venues = Venue::get();
+        $venueslist = Venue::latest()->where('is_live',1)->paginate(52);
+
+        return view('venues.venue', compact(
+            'venues', 'venueslist', 'thevenue','towns', 'events'));
 
     }
 }

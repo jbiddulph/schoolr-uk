@@ -17,7 +17,7 @@
             </div>
     </div>
     <div class="container mt-4 welcome">
-        <h1>{{$thevenue->venuename}}, <a href="{{route('venues.town', [request('town')])}}" style="text-transform: capitalize;">{{request('town')}}</a> <a href="{{route('venue.venuetagin', [request('id')])}}" style="text-transform: capitalize;" class="btn bt-lg btn-primary">Check-in</a></h1>
+        <h1>{{$thevenue->venuename}}, <a href="{{route('venues.town', [$thevenue->town])}}" style="text-transform: capitalize;">{{$thevenue->town}}</a> <a href="{{route('venue.venuetagin', [$thevenue->id])}}" style="text-transform: capitalize;" class="btn bt-lg btn-primary">Check-in</a></h1>
         <a href="{{route('venue.venuetaginstats', [$thevenue->id])}}" style="text-transform: capitalize;">Tagin Stats</a>
         <div class="row mt-4">
             <div class="col-md-4">
@@ -53,10 +53,38 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-
+                <div class="inline-flex">
                 @foreach($events as $event)
-                    {{$event->eventName}}
+                    <div class="col-md-4 col-sm-12">
+                        <div class="venue-card card mb-4">
+                            @if(isset($event->eventPhoto))
+                                @php
+                                    $mainphoto = str_replace('public/', 'storage/', $event->eventPhoto)
+                                @endphp
+                                <div class="mainpic">
+                                    <a href="/events/{{$event->id}}"><img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$event->eventName}}" width="180"></a>
+                                </div>
+                            @endif
+                            <div class="card-body">
+                                <strong>{{$event->eventType}}</strong>
+                                <h4>{{$event->eventName}}</h4>
+                                <h5 class="card-subtitle text-right">at the {{$event->venue->venuename}} in {{$event->venue->town}}</h5>
+                                <p class="card-text">{{$event->eventDate}}<br />
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 @endforeach
+                </div>
+{{--                @foreach($events as $event)--}}
+{{--                    {{$event->eventName}}--}}
+{{--                    {{$event->eventPhoto}}--}}
+{{--                    {{$event->eventDate}}--}}
+{{--                    {{$event->eventTimeStart}}--}}
+{{--                    {{$event->eventTimeEnd}}--}}
+{{--                    {{$event->eventType}}--}}
+{{--                    {{$event->eventCost}}--}}
+{{--                @endforeach--}}
             </div>
         </div>
         <div class="row">

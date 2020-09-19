@@ -17,6 +17,10 @@
                                     <h4 class="card-title"> <i class="far fa-address-card"></i>Generate Address Labels</h4>
                                     <a href="{{Storage::url('labels/'. $town->town .'/addresses.pdf')}}">View Labels</a>
                                 </a>
+                                <a href="{{route('venues.qrcodeLabels', [$town->town])}}">
+                                    <h4 class="card-title"> <i class="far fa-address-card"></i>Generate QR Code Labels</h4>
+                                    <a href="{{Storage::url('labels/'. $town->town .'/qrcodes.pdf')}}">View QR-Codes</a>
+                                </a>
                                 <a href="{{route('venues.pdf', [$town->town])}}">
                                     <h4 class="card-title"> <i class="fas fa-envelope-open-text"></i> Letters </h4>
                                 </a>
