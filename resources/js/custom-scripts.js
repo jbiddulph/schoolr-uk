@@ -89,18 +89,18 @@ $( document ).ready(function() {
     )
 
 
-    $('#subscription-plan').on('change', function() {
-        if ( this.value == 'plan_H5l5lbmw0nviEe')
-        {
-            $("#yearly-option").show();
-            $("#monthly-option").hide();
-        }
-        else if ( this.value == 'price_1HNvjiB9HABsmFZYGdYz4Muy')
-        {
-            $("#yearly-option").hide();
-            $("#monthly-option").show();
-        }
-    });
+    // $('#subscription-plan').on('change', function() {
+    //     if ( this.value == 'price_1HTPqPB9HABsmFZYYSALtKrp')
+    //     {
+    //         $("#yearly-option").show();
+    //         $("#monthly-option").hide();
+    //     }
+    //     else if ( this.value == 'price_1HTPqPB9HABsmFZYYSALtKrp')
+    //     {
+    //         $("#yearly-option").hide();
+    //         $("#monthly-option").show();
+    //     }
+    // });
 
     // $('.grid').masonry({
     //     // options...
