@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);@charset "UTF-8";
 
-#yearly-option {
+#three-option {
   display: none;
 }
 
@@ -21,7 +21,7 @@
   background-color: #123c69;
 }
 
-#yearly-option img {
+#three-option img {
   margin-top: 30px;
   border: 4px solid #ffffff;
 }
