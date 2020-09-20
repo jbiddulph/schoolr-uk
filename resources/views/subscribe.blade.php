@@ -63,6 +63,7 @@
                         <button id="card-button" class="btn btn-sm btn-primary" data-secret="{{ $intent->client_secret }}">
                             Subscribe
                         </button>
+                    <p>Click Subscribe once and wait to be redirected</p>
                 </div>
             </div>
         </div>
