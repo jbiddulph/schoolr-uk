@@ -70,7 +70,7 @@
             <div id="monthly-option">
                 <img src="{{asset('assets/media/misc/monthly-option.jpg')}}" alt="" width="100%" align="right">
             </div>
-            <div id="yearly-option">
+            <div id="three-option">
                 <img src="{{asset('assets/media/misc/yearly-option.jpg')}}" alt="" width="100%" align="right">
             </div>
         </div>

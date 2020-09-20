@@ -50311,19 +50311,16 @@ $(document).ready(function () {
     } else {
       $("#mapswitchform").submit();
     }
-  }); // $('#subscription-plan').on('change', function() {
-  //     if ( this.value == 'price_1HTPqPB9HABsmFZYYSALtKrp')
-  //     {
-  //         $("#yearly-option").show();
-  //         $("#monthly-option").hide();
-  //     }
-  //     else if ( this.value == 'price_1HTPqPB9HABsmFZYYSALtKrp')
-  //     {
-  //         $("#yearly-option").hide();
-  //         $("#monthly-option").show();
-  //     }
-  // });
-  // $('.grid').masonry({
+  });
+  $('#subscription-plan').on('change', function () {
+    if (this.value == 'price_1HTQB9B9HABsmFZYy4mQYXWF') {
+      $("#three-option").show();
+      $("#monthly-option").hide();
+    } else if (this.value == 'price_1HTPqPB9HABsmFZYYSALtKrp') {
+      $("#three-option").hide();
+      $("#monthly-option").show();
+    }
+  }); // $('.grid').masonry({
   //     // options...
   //     itemSelector: '.grid-item',
   //     columnWidth: 200
