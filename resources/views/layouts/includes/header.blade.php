@@ -58,7 +58,7 @@
                         <a class="nav-link" href="/subscribe">Edit my venue</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('event.create')}}">Add Event</a>
+                        <a class="nav-link" href="/subscribe">Add Event</a>
                     </li>
                     @elseif(Auth::user()->subscribed('main'))
                     <li class="nav-item">
