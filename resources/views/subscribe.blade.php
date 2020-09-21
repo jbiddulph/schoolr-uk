@@ -104,13 +104,15 @@
                 );
 
                 if(error) {
-
+                    console.log(error)
                 } else {
                     console.log('handling success', setupIntent.payment_method);
                     axios.post('/subscribe',{
                         payment_method: setupIntent.payment_method,
                         plan: plan
                     }).then((data)=>{
+                        console.log(data)
+                        alert(data)
                         location.replace(data.data.success)
                     });
                 }
