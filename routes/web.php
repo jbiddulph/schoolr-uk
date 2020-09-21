@@ -39,7 +39,7 @@ Route::post('landlord/register', 'LandlordRegisterController@landlordRegister')-
 Route::get('venue/events/create', 'EventController@eventCreate')->name('event.create');
 Route::post('venue/events/create', 'EventController@eventStore')->name('event.store');
 Route::get('venue/view', 'LandlordRegisterController@viewVenue')->name('view.venue');
-
+Route::get('venue/{id}/tagin/stats', 'VenueController@venueTaginstats')->name('venue.venuetaginstats');
 
 //Subscribe
 Route::get('/subscribe', 'SubscriptionController@payment');
@@ -77,6 +77,7 @@ Route::get('/properties/applications', 'PropertyController@applicant')->name('ap
 
 //Events
 Route::get('/events/all', 'EventController@index')->name('events.show');
+Route::get('/events/{id}', 'EventController@show')->name('events.event');
 
 
 Route::get('qr-code-g', function () {
@@ -93,7 +94,7 @@ Route::get('/venues/all', 'VenueController@index')->name('venues.show');
 Route::post('/venues/all', 'VenueController@index')->name('venues');
 Route::get('/venues/towns/{town}', 'VenueController@town')->name('venues.town');
 Route::get('/venues/{town}/{name}/{id}', 'VenueController@venue')->name('venue.name');
-Route::get('/venues/{id}/tagin/stats', 'VenueController@venueTaginstats')->name('venue.venuetaginstats');
+
 Route::get('/venues/{id}/tagin', 'VenueController@venueTagin')->name('venue.venuetagin');
 Route::post('/venues/{id}/tagin/add', 'VenueController@tagin')->name('venue.tagin');
 //Route::get('/venues/{id}/edit', 'AdministrationController@venueEdit')->name('venue.edit');

@@ -338,10 +338,11 @@ class VenueController extends Controller
     }
 
     public function venueTaginstats($id) {
-        $tagins = Tagin::findOrFail($id);
-        dd($tagins);
-//        return view('venues.tagins', compact(
-//            'tagins'));
+    $tagins = Tagin::latest()->where('venue_id',$id)->paginate(1000);
+
+
+        return view('venues.tagins', compact(
+            'tagins'));
     }
 
 }

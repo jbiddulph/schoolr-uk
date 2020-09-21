@@ -39,6 +39,17 @@ class EventController extends Controller
 
     }
 
+    public function show($id)
+    {
+        $event = Event::findOrFail($id);
+        $venueid = $event->venue_id;
+        $thevenue = Venue::findOrFail($venueid);
+        return view('events.show', compact(
+            'event',
+            'venueid',
+            'thevenue'
+        ));
+    }
     private function notFoundMessage()
     {
 

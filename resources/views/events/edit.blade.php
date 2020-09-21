@@ -1,9 +1,7 @@
 @extends('layouts.app1')
 
 @section('content')
-    @if(Auth::user()->user_type != 'admin')
-    <div class="container-fluid" style="border-top:6px solid {{Auth::user()->company->primary_color}}"></div>
-    @endif
+    <div class="colorbar"></div>
     <div class="container mt-4">
         <h1>Edit Event | <a href="/admin">Admin</a>@if(Auth::user()->user_type == 'admin')
                 | <a href="/admin/event">Edit Event List</a>
@@ -129,9 +127,7 @@
                 </div>
             </div>
         </div>
-    @if(Auth::user()->user_type != 'admin')
-    <div class="container-fluid mt-4" style="border-top:6px solid {{Auth::user()->company->primary_color}}"></div>
-    @endif
+    <div class="colorbar"></div>
     @section('script')
         <script type="text/javascript">
         $(document).ready(function(){
