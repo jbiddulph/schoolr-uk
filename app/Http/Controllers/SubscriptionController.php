@@ -49,7 +49,7 @@ class SubscriptionController extends Controller
 //            'message'=>'success'
 //        ]);
         return response([
-            'success' => redirect()->intended('/home')->getTargetUrl(),
+            'success' => redirect()->intended('/venue/'.$venueid.'/edit')->getTargetUrl(),
             'message' => 'success'
         ]);
     }
