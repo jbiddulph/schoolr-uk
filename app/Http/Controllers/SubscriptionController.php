@@ -49,10 +49,8 @@ class SubscriptionController extends Controller
 //            'message'=>'success'
 //        ]);
         return response([
-            'data' => [
-                'success' => redirect()->intended('/home')->getTargetUrl(),
-                'message' => 'success'
-            ]
+            'success' => redirect()->intended('/home')->getTargetUrl(),
+            'message' => 'success'
         ]);
     }
 
