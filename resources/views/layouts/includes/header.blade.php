@@ -60,12 +60,19 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/subscribe">Add Event</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/subscribe">Tagin Stats</a>
+                    </li>
+
                     @elseif(Auth::user()->subscribed('main'))
                     <li class="nav-item">
                         <a class="nav-link" href="/venue/{{ Auth::user()->venue_id }}/edit">Edit my venue</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('event.create')}}">Add Event</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('venue.venuetaginstats', [Auth::user()->venue_id])}}">Tagin Stats</a>
                     </li>
                     @endif
                     <li class="nav-item">

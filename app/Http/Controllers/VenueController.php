@@ -339,8 +339,9 @@ class VenueController extends Controller
 
     public function venueTaginstats($id) {
         $tagins = Tagin::findOrFail($id);
-        return view('venues.tagins', compact(
-            'tagins'));
+        dd($tagins);
+//        return view('venues.tagins', compact(
+//            'tagins'));
     }
 
 }

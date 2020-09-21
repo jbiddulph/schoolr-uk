@@ -42,12 +42,18 @@ class SubscriptionController extends Controller
         $user->newSubscription('main', $planId)->create($paymentMethod);
 //        $venueid = Venue::where('user_id',$userid)->get();
 
-        return redirect()->intended('/home')->getTargetUrl();
+//        return redirect()->intended('/home')->getTargetUrl();
 //        return response([
 //
 //            'success_url'=>redirect()->intended('/venue/'.$venueid.'/edit')->getTargetUrl(),
 //            'message'=>'success'
 //        ]);
+        return response([
+            'data' => [
+                'success' => redirect()->intended('/home')->getTargetUrl(),
+                'message' => 'success'
+            ]
+        ]);
     }
 
 //    public function store()

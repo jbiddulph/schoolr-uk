@@ -12,6 +12,6 @@ class Tagin extends Model
     protected $guarded = [];
 
     public function venue() {
-        return $this->belongsToMany(Venue::class);
+        return $this->belongsTo(Venue::class);
     }
 }
