@@ -64,7 +64,7 @@
                             Subscribe
                         </button>
                         <br />
-                        <div id="errormessage">{{data.message}}</div>
+                        <div id="errormessage"></div>
                     <p>Click Subscribe once and wait to be redirected</p>
                 </div>
             </div>
