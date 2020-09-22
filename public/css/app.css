@@ -11413,6 +11413,23 @@ ul.icons li span {
   display: inline-flex;
 }
 
+#loading {
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type=button] {
+  cursor: pointer;
+}
+
 .header-img {
   width: 100%;
   heigt: 300px !important;

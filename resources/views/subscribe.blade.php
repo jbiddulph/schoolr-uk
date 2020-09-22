@@ -31,7 +31,7 @@
 @endsection
 
 @section('content')
-
+    <div id="loading" style="display:none;">Processing payment</div>
 <div class="container subscription-page">
     <div class="row">
         <div class="col-md-8 offset-sm-2">
@@ -107,13 +107,15 @@
 
                 if(error) {
                     console.log(error)
+                    $('#loading').hide();
                 } else {
-
+                    $('#loading').show();
                     console.log('handling success', setupIntent.payment_method);
                     axios.post('/subscribe',{
                         payment_method: setupIntent.payment_method,
                         plan: plan
                     }).then((data)=>{
+                        $('#loading').hide();
                         console.log(data.message)
                         $('#errormessage').text({message});
                         location.replace(data.data.success)
