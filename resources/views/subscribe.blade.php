@@ -115,7 +115,7 @@
                         plan: plan
                     }).then((data)=>{
                         console.log(data.message)
-                        $('#errormessage').val(data.message);
+                        $('#errormessage').text(message);
                         location.replace(data.data.success)
                     });
                 }
