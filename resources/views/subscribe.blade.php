@@ -63,6 +63,8 @@
                         <button id="card-button" class="btn btn-sm btn-primary" data-secret="{{ $intent->client_secret }}">
                             Subscribe
                         </button>
+                        <br />
+                        <div id="errormessage"></div>
                     <p>Click Subscribe once and wait to be redirected</p>
                 </div>
             </div>
@@ -106,13 +108,14 @@
                 if(error) {
                     console.log(error)
                 } else {
-                    debugger;
+
                     console.log('handling success', setupIntent.payment_method);
                     axios.post('/subscribe',{
                         payment_method: setupIntent.payment_method,
                         plan: plan
                     }).then((data)=>{
-                        console.log(data)
+                        console.log(data.message)
+                        $('#errormessage').text(data.message);
                         location.replace(data.data.success)
                     });
                 }
