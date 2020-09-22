@@ -32,7 +32,7 @@
 
 @section('content')
     <div id="loading" style="display:none;">
-        <img src="{{asset('assets/media/misc/loading.gif')}}" alt="" width="100%">
+        <img src="{{asset('assets/media/misc/loading.gif')}}" alt="" height="250" width="250">
         Processing payment
     </div>
 <div class="container subscription-page">
