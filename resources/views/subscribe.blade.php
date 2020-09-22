@@ -31,7 +31,10 @@
 @endsection
 
 @section('content')
-    <div id="loading" style="display:none;">Processing payment</div>
+    <div id="loading" style="display:none;">
+        <img src="{{asset('assets/media/misc/loading.gif')}}" alt="" width="100%">
+        Processing payment
+    </div>
 <div class="container subscription-page">
     <div class="row">
         <div class="col-md-8 offset-sm-2">
