@@ -116,8 +116,8 @@
                         plan: plan
                     }).then((data)=>{
                         $('#loading').hide();
-                        console.log(data.message)
-                        $('#errormessage').text({message});
+                        // console.log(data.message)
+                        // $('#errormessage').text({message});
                         location.replace(data.data.success)
                     });
                 }
