@@ -2,6 +2,20 @@
 
 @section('content')
     <div class="colorbar"></div>
+    <div style="height: 300px;" class="header-img">
+        @if(isset($thevenue->photo))
+            @php
+                $mainphoto = str_replace('public/', 'storage/', $thevenue->photo)
+            @endphp
+            <div class="mainpic" style="background-image: url(/{{ $mainphoto }})">
+                {{--                <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$thevenue->venuename}}">--}}
+            </div>
+        @endif
+        <div class="qr-code" style="text-align:center; padding-bottom: 10px;">
+            <h3>Customer Tag-in</h3>
+            <img src="{{url('qrcodes/'. $thevenue->town .'/customers/tagin-'.$thevenue->id.'.png')}}" width="180" />
+        </div>
+    </div>
     <div class="container mt-4">
         <h1>Venue Tag-in</h1>
         <a href="../../venues/{{ str_slug($thevenue->town) }}/{{ str_slug($thevenue->venuename) }}/{{ $thevenue->id }}" class="btn bt-lg btn-primary">View {{ $thevenue->venuename }}</a>
