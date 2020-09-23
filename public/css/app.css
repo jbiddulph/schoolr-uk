@@ -11395,6 +11395,11 @@ ul.icons li span {
   color: #666666;
 }
 
+.tagincards {
+  display: inline-flex;
+  flex-direction: row;
+}
+
 .mainpic {
   position: relative;
 }

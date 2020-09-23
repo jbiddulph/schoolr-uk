@@ -266,7 +266,10 @@ ul.icons {
         }
     }
 }
-
+.tagincards {
+    display:inline-flex;
+    flex-direction:row;
+}
 .mainpic {
     position: relative;
     h2 {
