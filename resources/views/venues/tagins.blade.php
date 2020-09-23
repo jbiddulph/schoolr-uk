@@ -18,30 +18,21 @@
         </div>
     </div>
 
-
-    <form id="date-form" action="{{ route('venue.venuetaginstats', [Auth::user()->venue_id, today()->toDateString()]) }}">
-        <select id="taginDate" name="taginDate" onchange="this.form.submit()">
-            <option value="{{date('Y-m-d')}}">Please select</option>
-            @foreach($data as $date)
-                <option value="{{$date->taginDate }}">
-                    {{ Carbon\Carbon::parse($date->taginDate)->format('l jS \of F Y') }}
-                </option>
-            @endforeach
-        </select>
-    </form>
-
-    <script>
-        document.getElementById('taginDate').onchange = function() {
-            document.getElementById('date-form').action = this.value;
-        };
-
-        document.getElementById('date-form').onsubmit = function() {
-            window.location = this.action;
-
-            return false;
-        };
-    </script>
-
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="bold">Scrollable Menu</h2>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Please select a date to filter <span class="caret"></span></button>
+                    <ul class="dropdown-menu scrollable-menu" role="menu" style="width:310px; padding:10px;">
+                        @foreach($data as $date)
+                            <li><a href="{{ route('venue.venuetaginstats', [Auth::user()->venue_id, $date->taginDate]) }}">{{ Carbon\Carbon::parse($date->taginDate)->format('l jS \of F Y') }}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="container mt-4 welcome">
         <div class="row">

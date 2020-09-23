@@ -72,7 +72,7 @@
                         <a class="nav-link" href="{{route('event.create')}}">Add Event</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('venue.venuetaginstats', [Auth::user()->venue_id])}}">Tagin Stats</a>
+                        <a class="nav-link" href="{{route('venue.venuetaginstats', [Auth::user()->venue_id, date('Y-m-d')])}}">Tagin Stats</a>
                     </li>
                     @endif
                     <li class="nav-item">

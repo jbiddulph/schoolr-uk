@@ -39,7 +39,7 @@ Route::post('landlord/register', 'LandlordRegisterController@landlordRegister')-
 Route::get('venue/events/create', 'EventController@eventCreate')->name('event.create');
 Route::post('venue/events/create', 'EventController@eventStore')->name('event.store');
 Route::get('venue/view', 'LandlordRegisterController@viewVenue')->name('view.venue');
-Route::get('venue/{id}/tagin/stats', 'VenueController@venueTaginstats')->name('venue.venuetaginstats');
+Route::get('venue/{id}/{now}/tagin/stats', 'VenueController@venueTaginstats')->name('venue.venuetaginstats');
 
 //Subscribe
 Route::get('/subscribe', 'SubscriptionController@payment');

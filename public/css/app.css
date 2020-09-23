@@ -11413,6 +11413,23 @@ ul.icons li span {
   display: inline-flex;
 }
 
+.scrollable-menu {
+  height: auto;
+  max-height: 180px;
+  overflow-x: hidden;
+}
+
+.scrollable-menu::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 4px;
+}
+
+.scrollable-menu::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: lightgray;
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.75);
+}
+
 #loading {
   top: 0px;
   left: 0px;
