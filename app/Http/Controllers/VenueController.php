@@ -338,11 +338,12 @@ class VenueController extends Controller
     }
 
     public function venueTaginstats($id) {
+       // $tagins = Tagin::select('id', 'venue_id','phone_number','email_address','reason_visit','marketing','created_at', DB::raw("DATE_FORMAT(created_at, %Y-%m-%d) as date")->where('venue_id',$id))->get()->groupBy('date');
     $tagins = Tagin::latest()->where('venue_id',$id)->paginate(1000);
-
+        $thevenue = Venue::findOrFail($id);
 
         return view('venues.tagins', compact(
-            'tagins'));
+            'tagins','thevenue'));
     }
 
 }
