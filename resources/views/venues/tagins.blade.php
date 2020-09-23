@@ -1,6 +1,7 @@
 @extends('layouts.list')
 
 @section('content')
+    @if(Auth::user()->user_type=='admin' || Auth::user()->venue_id==$thevenue->id && Auth::user()->user_type=='landlord')
     <div class="colorbar"></div>
     <div style="height: 300px;" class="header-img">
         @if(isset($thevenue->photo))
@@ -16,6 +17,32 @@
             <img src="{{url('qrcodes/'. $thevenue->town .'/customers/tagin-'.$thevenue->id.'.png')}}" width="180" />
         </div>
     </div>
+
+
+    <form id="date-form" action="{{ route('venue.venuetaginstats', [Auth::user()->venue_id, today()->toDateString()]) }}">
+        <select id="taginDate" name="taginDate" onchange="this.form.submit()">
+            <option value="{{date('Y-m-d')}}">Please select</option>
+            @foreach($data as $date)
+                <option value="{{$date->taginDate }}">
+                    {{ Carbon\Carbon::parse($date->taginDate)->format('l jS \of F Y') }}
+                </option>
+            @endforeach
+        </select>
+    </form>
+
+    <script>
+        document.getElementById('taginDate').onchange = function() {
+            document.getElementById('date-form').action = this.value;
+        };
+
+        document.getElementById('date-form').onsubmit = function() {
+            window.location = this.action;
+
+            return false;
+        };
+    </script>
+
+
     <div class="container mt-4 welcome">
         <div class="row">
             @foreach($tagins as $tagin)
@@ -40,4 +67,5 @@
         </div>
     </div>
     <div class="colorbar mt-5"></div>
+    @endif
 @endsection

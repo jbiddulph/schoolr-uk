@@ -337,13 +337,18 @@ class VenueController extends Controller
         return redirect()->back()->with('message','Venue successfully updated!');
     }
 
-    public function venueTaginstats($id) {
-       // $tagins = Tagin::select('id', 'venue_id','phone_number','email_address','reason_visit','marketing','created_at', DB::raw("DATE_FORMAT(created_at, %Y-%m-%d) as date")->where('venue_id',$id))->get()->groupBy('date');
-    $tagins = Tagin::latest()->where('venue_id',$id)->paginate(1000);
+    public function venueTaginstats($id, Request $request) {
+
+        $date = $request->get('taginDate');
+        if($date == ''){
+            $date = date('Y-m-d');
+        }
+        $tagins = Tagin::latest()->where('venue_id',$id)->where('created_at', 'like', '%' . $date . '%')->paginate(1000);
+        $data = Tagin::select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as taginDate'))->distinct()->where('venue_id',$id)->get();
         $thevenue = Venue::findOrFail($id);
 
         return view('venues.tagins', compact(
-            'tagins','thevenue'));
+            'tagins','thevenue', 'data'));
     }
 
 }
