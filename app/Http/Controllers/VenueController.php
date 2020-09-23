@@ -340,7 +340,7 @@ class VenueController extends Controller
     public function venueTaginstats($id, $date) {
 
     $tagins = Tagin::latest()->where('venue_id',$id)->where('created_at', 'like', '%' . $date . '%')->paginate(1000);
-    $data = Tagin::select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as taginDate'))->distinct()->where('venue_id',$id)->get();
+    $data = Tagin::select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as taginDate'))->distinct()->where('venue_id',$id)->orderBy('created_at', 'DESC')->get();
 
 
         $thevenue = Venue::findOrFail($id);
