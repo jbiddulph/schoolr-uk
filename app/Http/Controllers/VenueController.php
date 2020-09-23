@@ -339,6 +339,7 @@ class VenueController extends Controller
 
     public function venueTaginstats($id, $date) {
 
+    $selecteddate = $date;
     $tagins = Tagin::latest()->where('venue_id',$id)->where('created_at', 'like', '%' . $date . '%')->paginate(1000);
     $data = Tagin::select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as taginDate'))->distinct()->where('venue_id',$id)->orderBy('created_at', 'DESC')->get();
 
@@ -346,7 +347,7 @@ class VenueController extends Controller
         $thevenue = Venue::findOrFail($id);
 
         return view('venues.tagins', compact(
-            'tagins','thevenue', 'data'));
+            'tagins','thevenue', 'data', 'selecteddate'));
     }
 
 }

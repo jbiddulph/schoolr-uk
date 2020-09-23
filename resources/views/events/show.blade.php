@@ -92,8 +92,11 @@
                     </div>
                 </div>
             </div>
+
         </div>
-    <div class="colorbar"></div>
+        </div>
+    </div>
+        <div class="colorbar"></div>
     @section('script')
         <script type="text/javascript">
         $(document).ready(function(){
@@ -154,5 +157,6 @@
             });
         });
         </script>
+
     @endsection
 @endsection

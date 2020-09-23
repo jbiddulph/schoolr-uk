@@ -20,8 +20,8 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <h2 class="bold"></h2>
+            <div class="col-md-12 mt-4">
+                <h2>{{ Carbon\Carbon::parse($selecteddate)->format('l jS \of F Y') }}</h2>
                 <div class="btn-group">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Please select a date to filter <span class="caret"></span></button>
                     <ul class="dropdown-menu scrollable-menu" role="menu" style="width:310px; padding:10px;">
