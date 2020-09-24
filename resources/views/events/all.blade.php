@@ -11,7 +11,7 @@
         <div class="row">
             <ul class="towns-list">
             @foreach($towns as $town)
-                <li><h3><a href="{{route('venues.town', [$town->town])}}" class="btn btn-secondary btn-sm">{{$town->town}}</a></h3></li>
+                <li><h3><a href="{{route('venues.town', [$town->town])}}" class="btn btn-secondary btn-lg hvr-grow-rotate">{{$town->town}}</a></h3></li>
             @endforeach
             </ul>
         </div>

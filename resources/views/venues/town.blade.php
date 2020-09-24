@@ -10,18 +10,19 @@
         <div class="grid mt-4 row">
             @foreach($venueslist as $venue)
                 <div class="col-md-2 col-sm-12">
-                    <div class="venue-card card mb-4">
+                    <a href="/venues/{{ str_slug($venue->town)}}/{{str_slug($venue->venuename)}}/{{$venue->id}}" >
+                        <div class="venue-card card mb-4">
                         @if(isset($venue->photo))
                             @php
                                 $mainphoto = str_replace('public/', 'storage/', $venue->photo)
                             @endphp
-                            <div class="mainpic">
-                                <a href="/venues/{{ str_slug($venue->town)}}/{{str_slug($venue->venuename)}}/{{$venue->id}}" style="background-image: url('/\{{ $mainphoto }}'); background-repeat: no-repeat;     background-size: cover;
-                                    display: block;
-                                    width: 100%;
-                                    height: 120px;">
+                            <div class="mainpic" style="background-image: url('/\{{ $mainphoto }}'); background-repeat: no-repeat;     background-size: cover;
+                                display: block;
+                                width: 100%;
+                                height: 120px;">
+
 {{--                                    <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$venue->venuename}}" width="180">--}}
-                                </a>
+
                                 <h2 class="card-subtitle">{{$venue->venuename}}</h2>
                                 <span class="postal">{{$venue->postalsearch}}</span>
                             </div>
@@ -50,6 +51,7 @@
 {{--                            <a class="btn btn-primary btn-sm" href="{{route('properties.show',[$venue->id, $venue->slug])}}">Enquire</a>--}}
                         </div>
                     </div>
+                    </a>
                 </div>
             @endforeach
         </div>
@@ -61,7 +63,7 @@
         <div class="row">
             <ul class="towns-list">
                 @foreach($towns as $town)
-                    <li><h3><a href="{{route('venues.town', [$town->town])}}" class="btn btn-secondary btn-md">{{$town->town}}</a></h3></li>
+                    <li><h3><a href="{{route('venues.town', [$town->town])}}" class="btn btn-secondary btn-lg hvr-grow-rotate">{{$town->town}}</a></h3></li>
                 @endforeach
             </ul>
         </div>
