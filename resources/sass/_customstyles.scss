@@ -4,6 +4,9 @@ html, body {
 a {
     color: $secondary_color!important;
 }
+body {
+    font-size: 1.1rem!important;
+}
 p.short-description {
     overflow: hidden;
     display: -webkit-box;

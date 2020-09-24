@@ -11117,6 +11117,10 @@ a {
   color: #ac3b61 !important;
 }
 
+body {
+  font-size: 1.1rem !important;
+}
+
 p.short-description {
   overflow: hidden;
   display: -webkit-box;

@@ -17,7 +17,7 @@
             </div>
     </div>
     <div class="container mt-4 welcome">
-        <h1>{{$thevenue->venuename}}, <a href="{{route('venues.town', [$thevenue->town])}}" style="text-transform: capitalize;">{{$thevenue->town}}</a> <a href="{{route('venue.venuetagin', [$thevenue->id])}}" style="text-transform: capitalize;" class="btn bt-lg btn-primary">Check-in</a></h1>
+        <h1>{{$thevenue->venuename}}, <a href="{{route('venues.town', [$thevenue->town])}}" style="text-transform: capitalize;">{{$thevenue->town}}</a> <a href="{{route('venue.venuetagin', [$thevenue->id])}}" style="text-transform: capitalize;" class="btn btn-lg btn-primary">Check-in</a></h1>
         <div class="row mt-4">
             <div class="col-md-4">
                 <div class="property-card card mb-4">
@@ -38,7 +38,7 @@
                         @if($thevenue->user_id != '')
                             <div class="flag flag-up"><i class="fas fa-key"></i></div>
                         @else
-                            <a class="btn btn-primary btn-md" href="{{route('register.claim',["venue_id"=>$thevenue->id, "venue_name"=>$thevenue->slug])}}">Claim this venue</a>
+                            <a class="btn btn-primary btn-lg" href="{{route('register.claim',["venue_id"=>$thevenue->id, "venue_name"=>$thevenue->slug])}}">Claim this venue</a>
                         @endif
 
                     </div>
@@ -89,7 +89,7 @@
         <div class="row">
             <ul class="towns-list">
                 @foreach($towns as $town)
-                    <li><h3><a href="{{route('venues.town', [$town->town])}}" class="btn btn-secondary btn-md">{{$town->town}}</a></h3></li>
+                    <li><h3><a href="{{route('venues.town', [$town->town])}}" class="btn btn-secondary btn-lg hvr-grow-rotate">{{$town->town}}</a></h3></li>
                 @endforeach
             </ul>
         </div>
