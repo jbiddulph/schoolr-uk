@@ -64,7 +64,7 @@
     <link href="./assets/vendors/custom/vendors/flaticon/flaticon.css" rel="stylesheet" type="text/css" />
     <link href="./assets/vendors/custom/vendors/flaticon2/flaticon.css" rel="stylesheet" type="text/css" />
     <link href="./assets/vendors/general/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
-
+    <link href="{{ asset('css/hover-min.css') }}" rel="stylesheet">
     <!--end:: Global Optional Vendors -->
 
     <!--begin::Global Theme Styles(used by all pages) -->

@@ -44,6 +44,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/hover-min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="https://vanderlee.github.io/colorpicker/jquery.colorpicker.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->

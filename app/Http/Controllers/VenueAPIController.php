@@ -26,6 +26,10 @@ class VenueAPIController extends Controller
         return new VenueResource($venue);
     }
 
+    /**
+     * @param Request $request
+     * @return VenueResource
+     */
     public function store(Request $request) {
         $request->validate([
            'venuename'=>'required',
@@ -43,5 +47,24 @@ class VenueAPIController extends Controller
         $venue = Venue::create($request->all());
 
         return new VenueResource($venue);
+    }
+
+    public function update(Venue $venue, Request $request): VenueResource {
+
+        //update our venue
+        $venue->update($request->all());
+
+        return new VenueResource($venue);
+    }
+
+    /**
+     * @param Venue $venue
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Exception
+     */
+    public function destroy(Venue $venue) {
+        $venue->delete();
+
+        return response()->json();
     }
 }
