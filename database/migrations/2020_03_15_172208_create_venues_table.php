@@ -15,17 +15,23 @@ class CreateVenuesTable extends Migration
     {
         Schema::create('venues', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('venuename');
-            $table->string('venuetype')->nullable();
-            $table->string('address');
-            $table->string('address2')->nullable();
-            $table->string('town');
+            $table->string('school')->nullable();
+            $table->string('byb_type')->nullable();
+            $table->string('position')->nullable();
+            $table->string('address_1')->nullable();
+            $table->string('address_2')->nullable();
+            $table->string('address_3')->nullable();
+            $table->string('address_4')->nullable();
+            $table->string('address_5')->nullable();
+            $table->string('town')->nullable();
             $table->string('county')->nullable();
-            $table->string('postcode');
-            $table->string('postalsearch');
+            $table->string('postcode')->nullable();
+            $table->string('title')->nullable();
+            $table->string('firstname')->nullable();
+            $table->string('surname')->nullable();
             $table->string('telephone')->nullable();
-            $table->string('latitude');
-            $table->string('longitude');
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
             $table->string('website')->nullable();
             $table->string('photo')->default('venue-default.png');
             $table->integer('is_live')->default('1');

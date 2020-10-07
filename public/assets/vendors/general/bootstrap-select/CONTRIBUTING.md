@@ -85,7 +85,7 @@ code as deemed necessary.
 * To instantiate a context or use it, use the variable **that** instead of
   **_this**.
 * Please check to make sure that there aren't existing pull requests attempting
-  to address the issue mentioned. We also recommend checking for issues related
+  to address_1 the issue mentioned. We also recommend checking for issues related
   to the issue on the tracker, as a team member may be working on the issue in
   a branch or fork.
 * Non-trivial changes should be discussed in an issue first

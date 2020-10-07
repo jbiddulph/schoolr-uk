@@ -19,7 +19,7 @@ class LandlordRegisterController extends Controller
         $venue = Venue::findOrFail(request('selectedVenueID'));
 
         $user =  User::create([
-            'name' => $venue->venuename,
+            'name' => $venue->school,
             'venue_id' => $venue->id,
             'email' => request('email'),
             'user_type' => request('user_type'),
@@ -36,7 +36,7 @@ class LandlordRegisterController extends Controller
     public function registerClaim() {
         $venue = Venue::findOrFail(request('venue_id'));
         $venue_id = $venue->id;
-        $venue_name = $venue->venuename;
+        $venue_name = $venue->school;
 
         return view('register-claim', compact(
             'venue_id',
@@ -56,7 +56,7 @@ class LandlordRegisterController extends Controller
             'marker' => true,
             'cluster' => false
         ]);
-        Mapper::informationWindow($thevenue->latitude, $thevenue->longitude, '<a href="/venues/' . str_slug($thevenue->town) . '/' . str_slug($thevenue->venuename) . '/'. $thevenue->id .'">' . $thevenue->venuename . '</a>', ['icon' => ['url' => 'https://bnhere.co.uk/logo/primary_map_marker.png', 'scale' => 100]]);
+        Mapper::informationWindow($thevenue->latitude, $thevenue->longitude, '<a href="/venues/' . str_slug($thevenue->town) . '/' . str_slug($thevenue->school) . '/'. $thevenue->id .'">' . $thevenue->school . '</a>', ['icon' => ['url' => 'https://bnhere.co.uk/logo/primary_map_marker.png', 'scale' => 100]]);
         $venues = Venue::get();
         $venueslist = Venue::latest()->where('is_live',1)->paginate(52);
 

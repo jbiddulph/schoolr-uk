@@ -143,7 +143,7 @@ class PropertyController extends Controller
             'reception'=>request('reception'),
             'conservatory'=>request('conservatory'),
             'outbuilding'=>request('outbuilding'),
-            'address'=>request('address'),
+            'address_1'=>request('address_1'),
             'town'=>$requestedtown,
             'county'=>request('county'),
             'postcode'=>request('postcode'),

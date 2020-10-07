@@ -28,7 +28,7 @@
         <div class="row">
             @foreach($venueslist as $venue)
                 <div class="col-md-2 col-sm-12">
-                    <a href="/venues/{{ str_slug($venue->town)}}/{{str_slug($venue->venuename)}}/{{$venue->id}}">
+                    <a href="/venues/{{ str_slug($venue->town)}}/{{str_slug($venue->school)}}/{{$venue->id}}">
                         <div class="venue-card card mb-4">
                         @if(isset($venue->photo))
                             @php
@@ -39,10 +39,9 @@
                                 width: 100%;
                                 height: 120px;">
 
-                                    {{--                                    <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$venue->venuename}}" width="180">--}}
+                                    {{--                                    <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$venue->school}}" width="180">--}}
 
-                                <h2 class="card-subtitle">{{$venue->venuename}}</h2>
-                                <span class="postal">{{$venue->postalsearch}}</span>
+                                <h2 class="card-subtitle">{{$venue->school}}</h2>
 
                             </div>
                         @endif
@@ -50,9 +49,9 @@
                             {{--                        <h4 class="card-title"><a href="{{route('venues.show',[$venue->id, $venue->slug])}}">{{$venue->propname}}</a></h4>--}}
 
                             <div class="card-text">
-                                <div class="address">{{$venue->address}}<br />
-                                    @if($venue->address2 != '')
-                                        {{$venue->address2}}<br />
+                                <div class="address_1">{{$venue->address_1}}<br />
+                                    @if($venue->address_2 != '')
+                                        {{$venue->address_2}}<br />
                                     @endif
                                     {{$venue->town}}<br />
                                     {{$venue->county}}<br />

@@ -18,7 +18,7 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">Venue Name</label>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" readonly name="venuenamesearch" placeholder="Start typing venue name" class="form-control" value="{{ $venue_name }}">
+                                        <input type="text" readonly name="schoolsearch" placeholder="Start typing venue name" class="form-control" value="{{ $venue_name }}">
                                         <input type="hidden" value="{{ $venue_id }}" name="selectedVenueID">
                                         <div id="venueList"></div>
                                     </div>
@@ -99,7 +99,7 @@
                 }
             });
 
-            $('#venuenamesearch').keyup(function() {
+            $('#schoolsearch').keyup(function() {
                 var query = $(this).val();
                 if(query != ''){
                     // var _token = $('meta[name="csrf-token"]').attr('content');

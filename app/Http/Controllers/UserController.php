@@ -50,12 +50,12 @@ class UserController extends Controller
     }
     public function profilestore(Request $request) {
         $this->validate($request,[
-            'address'=>'required',
+            'address_1'=>'required',
             'phone_number'=>'required|min:10|numeric',
         ]);
         $user_id = auth()->user()->id;
         Profile::where('user_id', $user_id)->update([
-            'address'=>request('address'),
+            'address_1'=>request('address_1'),
             'phone_number'=>request('phone_number'),
             'experience'=>request('experience'),
             'bio'=>request('bio'),

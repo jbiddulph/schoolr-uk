@@ -90,6 +90,9 @@ Route::get('qr-code-g', function () {
 });
 
 //Venues
+Route::get('/venues/postcodes', 'VenueController@postcodes')->name('venues.postcodes');
+Route::get('/venues/updatescool', 'VenueController@updateScool')->name('venues.updateScool');
+
 Route::get('/venues/all', 'VenueController@index')->name('venues.show');
 Route::post('/venues/all', 'VenueController@index')->name('venues');
 Route::get('/venues/towns/{town}', 'VenueController@town')->name('venues.town');
@@ -102,7 +105,7 @@ Route::post('/venues/{id}/tagin/add', 'VenueController@tagin')->name('venue.tagi
 Route::get('/venues/{id}/uploads-edit', 'AdministrationController@venueuploadsedit')->name('venue.uploadsedit');
 Route::post('/venues/{id}/uploads-edit', 'AdministrationController@venueImageUpdate')->name('venue.venueImageUpdate');
 Route::get('/venues/{town}/pdfs', 'VenueController@pdf')->name('venues.pdf');
-Route::get('/venues/{town}/address-labels', 'VenueController@addressLabels')->name('venues.addressLabels');
+Route::get('/venues/{town}/address_1-labels', 'VenueController@addressLabels')->name('venues.addressLabels');
 Route::get('/venues/{town}/qrcode-labels', 'VenueController@qrcodeLabels')->name('venues.qrcodeLabels');
 
 //Save and unsave property

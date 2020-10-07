@@ -24,14 +24,13 @@ class VenuePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'venuename'=>'required',
-            'venuetype'=>'required',
-            'address'=>'required',
-            'address2'=>'required',
+            'school'=>'required',
+            'byb_type'=>'required',
+            'address_1'=>'required',
+            'address_2'=>'required',
             'town'=>'required',
             'county'=>'required',
             'postcode'=>'required',
-            'postalsearch'=>'required',
             'telephone'=>'required',
             'latitude'=>'required',
             'longitude'=>'required',

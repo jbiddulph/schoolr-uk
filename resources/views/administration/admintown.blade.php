@@ -14,11 +14,11 @@
                             </div>
                             <div class="card-body">
                                 <a href="{{route('venues.addressLabels', [$town->town])}}">
-                                    <h4 class="card-title"> <i class="far fa-address-card"></i>Generate Address Labels</h4>
+                                    <h4 class="card-title"> <i class="far fa-address_1-card"></i>Generate Address Labels</h4>
                                     <a href="{{Storage::url('labels/'. $town->town .'/addresses.pdf')}}">View Labels</a>
                                 </a>
                                 <a href="{{route('venues.qrcodeLabels', [$town->town])}}">
-                                    <h4 class="card-title"> <i class="far fa-address-card"></i>Generate QR Code Labels</h4>
+                                    <h4 class="card-title"> <i class="far fa-address_1-card"></i>Generate QR Code Labels</h4>
                                     <a href="{{Storage::url('labels/'. $town->town .'/qrcodes.pdf')}}">View QR-Codes</a>
                                 </a>
                                 <a href="{{route('venues.pdf', [$town->town])}}">

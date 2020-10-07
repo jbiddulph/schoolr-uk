@@ -28,7 +28,7 @@
                                 <tr>
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->email}}</td>
-                                    <td>{{$user->profile->address}}</td>
+                                    <td>{{$user->profile->address_1}}</td>
                                     <td>{{$user->profile->phone_number}}</td>
                                     <td>{{$user->user_type}}</td>
                                     @if(!empty($user->profile->identification))

@@ -121,7 +121,7 @@
                                                         <span class="kt-widget11__sub">CRM System</span>
                                                     </td>
                                                     <td>@if ($user->profile)
-                                                            {{$user->profile->address}}
+                                                            {{$user->profile->address_1}}
                                                         @endif</td>
                                                     <td>$63</td>
                                                     <td><span class="kt-badge kt-badge--inline kt-badge--danger">pending</span></td>

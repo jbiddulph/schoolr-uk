@@ -10,7 +10,7 @@ class Property extends Model
 {
     use Notifiable, LogsActivity;
     protected $fillable = ['user_id', 'company_id', 'propname', 'slug', 'propcost', 'proptype_id', 'propimage',
-        'bedroom', 'bathroom', 'kitchen', 'garage', 'reception', 'conservatory', 'outbuilding', 'address',
+        'bedroom', 'bathroom', 'kitchen', 'garage', 'reception', 'conservatory', 'outbuilding', 'address_1',
         'town', 'othertown', 'county', 'postcode', 'latitude', 'longitude', 'short_summary', 'description', 'summary', 'floorplan', 'brochure',
         'category_id', 'is_featured', 'is_live'];
 

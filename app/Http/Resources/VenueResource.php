@@ -17,7 +17,7 @@ class VenueResource extends JsonResource
         return parent::toArray($request);
 //        return [
 //            'id'=> $this->id,
-//            'venuename'=> $this->venuename,
+//            'school'=> $this->school,
 //            'town'=> $this->town,
 //        ];
     }

@@ -173,7 +173,7 @@ var KTGoogleMapsDemo = function() {
         var handleAction = function() {
             var text = $.trim($('#kt_gmap_8_address').val());
             GMaps.geocode({
-                address: text,
+                address_1: text,
                 callback: function(results, status) {
                     if (status == 'OK') {
                         var latlng = results[0].geometry.location;

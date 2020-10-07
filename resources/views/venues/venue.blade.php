@@ -8,7 +8,7 @@
                 $mainphoto = str_replace('public/', 'storage/', $thevenue->photo)
             @endphp
             <div class="mainpic" style="background-image: url(/{{ $mainphoto }})">
-{{--                <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$thevenue->venuename}}">--}}
+{{--                <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$thevenue->school}}">--}}
             </div>
         @endif
             <div class="qr-code" style="text-align:center; padding-bottom: 10px;">
@@ -17,7 +17,7 @@
             </div>
     </div>
     <div class="container mt-4 welcome">
-        <h1>{{$thevenue->venuename}}, <a href="{{route('venues.town', [$thevenue->town])}}" style="text-transform: capitalize;">{{$thevenue->town}}</a> <a href="{{route('venue.venuetagin', [$thevenue->id])}}" style="text-transform: capitalize;" class="btn btn-lg btn-primary">Check-in</a></h1>
+        <h1>{{$thevenue->school}}, <a href="{{route('venues.town', [$thevenue->town])}}" style="text-transform: capitalize;">{{$thevenue->town}}</a> <a href="{{route('venue.venuetagin', [$thevenue->id])}}" style="text-transform: capitalize;" class="btn btn-lg btn-primary">Check-in</a></h1>
         <div class="row mt-4">
             <div class="col-md-4">
                 <div class="property-card card mb-4">
@@ -26,19 +26,20 @@
                         {!! Mapper::render() !!}
                     </div>
                     <div class="card-body">
-                        <strong>{{$thevenue->postalsearch}}</strong>
-{{--                            <h4 class="card-title"><a href="{{route('venues.show',[$thevenue->id, $thevenue->slug])}}">{{$thevenue->propname}}</a></h4>--}}
-                        <h5 class="card-subtitle text-right">{{$thevenue->venuename}}</h5>
-                        <p class="card-text">{{$thevenue->address}}<br />
-                        {{$thevenue->address2}}<br />
+                        <h5 class="card-subtitle text-right">{{$thevenue->school}}</h5>
+                        <p class="card-text">{{$thevenue->address_1}}<br />
+                        {{$thevenue->address_2}}<br />
                         {{$thevenue->town}}<br />
                         {{$thevenue->county}}<br />
                         {{$thevenue->postcode}}</p>
                         <p class="card-text short-description">{{$thevenue->telephone}}</p>
+                        @if($thevenue->website)
+                        <p class="card-text short-description"><a class="btn btn-secondary btn-lg hvr-bob" target="_blank" href="http://{{$thevenue->website}}" title="{{$thevenue->school}} in {{$thevenue->town}}">View Website</a></p>
+                        @endif
                         @if($thevenue->user_id != '')
                             <div class="flag flag-up"><i class="fas fa-key"></i></div>
                         @else
-                            <a class="btn btn-primary btn-lg" href="{{route('register.claim',["venue_id"=>$thevenue->id, "venue_name"=>$thevenue->slug])}}">Claim this venue</a>
+                            <a class="btn btn-primary btn-lg hvr-bob" href="{{route('register.claim',["venue_id"=>$thevenue->id, "venue_name"=>$thevenue->slug])}}">Claim this venue</a>
                         @endif
 
                     </div>
@@ -67,7 +68,7 @@
                             <div class="card-body">
                                 <strong>{{$event->eventType}}</strong>
                                 <h4>{{$event->eventName}}</h4>
-                                <h5 class="card-subtitle text-right">at the {{$event->venue->venuename}} in {{$event->venue->town}}</h5>
+                                <h5 class="card-subtitle text-right">at the {{$event->venue->school}} in {{$event->venue->town}}</h5>
                                 <p class="card-text">{{$event->eventDate}}<br />
                                 </p>
                             </div>

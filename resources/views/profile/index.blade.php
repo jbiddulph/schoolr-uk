@@ -30,10 +30,10 @@
                     <form action="{{route('profile.create')}}" method="POST">@csrf
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="address">Address</label>
-                            <input type="text" class="form-control" name="address" value="{{Auth::user()->profile->address}}">
-                            @if($errors->has('address'))
-                                <div class="error text-danger">{{$errors->first('address')}}</div>
+                            <label for="address_1">Address</label>
+                            <input type="text" class="form-control" name="address_1" value="{{Auth::user()->profile->address_1}}">
+                            @if($errors->has('address_1'))
+                                <div class="error text-danger">{{$errors->first('address_1')}}</div>
                             @endif
                         </div>
                         <div class="form-group">
@@ -68,7 +68,7 @@
                     <div class="card-header">Your Information</div>
                     <div class="card-body">
                         <p><strong>Name:</strong> {{Auth::user()->name}}</p>
-                        <p><strong>Address:</strong> {{Auth::user()->profile->address}}</p>
+                        <p><strong>Address:</strong> {{Auth::user()->profile->address_1}}</p>
                         <p><strong>Phone Number:</strong> {{Auth::user()->profile->phone_number}}</p>
                         <p><strong>Gender:</strong> {{Auth::user()->profile->gender}}</p>
                         <p><strong>Exp:</strong> {{Auth::user()->profile->experience}}</p>

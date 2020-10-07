@@ -30,7 +30,7 @@
                         <div class="card-body">
                             <strong>{{$event->eventType}}</strong>
                             <h4>{{$event->eventName}}</h4>
-                            <h5 class="card-subtitle text-right">at the {{$event->venue->venuename}} in {{$event->venue->town}}</h5>
+                            <h5 class="card-subtitle text-right">at the {{$event->venue->school}} in {{$event->venue->town}}</h5>
                             <p class="card-text">{{$event->eventDate}}<br />
                             </p>
                         </div>

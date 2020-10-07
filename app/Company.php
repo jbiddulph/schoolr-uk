@@ -15,7 +15,7 @@ class Company extends Model
         'cname',
         'user_id',
         'slug',
-        'address',
+        'address_1',
         'telephone',
         'website',
         'logo',

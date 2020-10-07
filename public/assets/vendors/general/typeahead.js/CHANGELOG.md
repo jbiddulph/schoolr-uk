@@ -36,7 +36,7 @@ Beware that since this release is pretty much a rewrite, there are bound to be
 some bugs. To be safe, you should consider this release beta software and 
 throughly test your integration of it before using it in production 
 environments. This caveat only applies to this release as subsequent releases
-will address any issues that come up.
+will address_1 any issues that come up.
 
 ### 0.10.5 August 7, 2014
 

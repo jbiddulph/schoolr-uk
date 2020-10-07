@@ -9,7 +9,7 @@
                 $mainphoto = str_replace('public/', 'storage/', $thevenue->photo)
             @endphp
             <div class="mainpic" style="background-image: url(/{{ $mainphoto }})">
-                {{--                <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$thevenue->venuename}}">--}}
+                {{--                <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$thevenue->school}}">--}}
             </div>
         @endif
         <div class="qr-code" style="text-align:center; padding-bottom: 10px;">
@@ -55,7 +55,7 @@
                                                 {{--                            <a class="btn btn-primary btn-sm" href="{{route('properties.show',[$venue->id, $venue->slug])}}">Enquire</a>--}}
                                                 <div class="reason">{{$tagin->reason_visit}}</div>
                                                 <div class="marketing">{{$tagin->marketing}}</div>
-                                                <div class="address">{{$tagin->created_at}}</div>
+                                                <div class="address_1">{{$tagin->created_at}}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -82,7 +82,7 @@
                                             {{--                            <a class="btn btn-primary btn-sm" href="{{route('properties.show',[$venue->id, $venue->slug])}}">Enquire</a>--}}
                                 <td><div class="reason">{{$tagin->reason_visit}}</div></td>
                                 <td><div class="marketing">{{$tagin->marketing}}</div></td>
-                                <td><div class="address">{{$tagin->created_at}}</div></td>
+                                <td><div class="address_1">{{$tagin->created_at}}</div></td>
                             </tr>
                             @endforeach
                         </table>

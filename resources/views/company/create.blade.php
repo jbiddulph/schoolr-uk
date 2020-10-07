@@ -66,10 +66,10 @@
                     <form action="{{route('company.store')}}" method="POST">@csrf
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="address">Address</label>
-                                <input type="text" class="form-control" name="address" value="{{Auth::user()->company->address}}">
-                                @if($errors->has('address'))
-                                    <div class="error text-danger">{{$errors->first('address')}}</div>
+                                <label for="address_1">Address</label>
+                                <input type="text" class="form-control" name="address_1" value="{{Auth::user()->company->address_1}}">
+                                @if($errors->has('address_1'))
+                                    <div class="error text-danger">{{$errors->first('address_1')}}</div>
                                 @endif
                             </div>
                             <div class="form-group">
@@ -114,7 +114,7 @@
                     <div class="card-header">Your Company</div>
                     <div class="card-body">
                         <p>Company Name: {{Auth::user()->company->cname}}</p>
-                        <p>Address: {{Auth::user()->company->address}}</p>
+                        <p>Address: {{Auth::user()->company->address_1}}</p>
                         <p>Phone: {{Auth::user()->company->telephone}}</p>
                         <p>Website: <a href="{{Auth::user()->company->website}}">{{Auth::user()->company->website}}</a></p>
                         <p>Slogan: {{Auth::user()->company->slogan}}</p>

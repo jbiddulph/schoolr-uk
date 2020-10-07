@@ -229,7 +229,7 @@
   * Update link in comment for Luhn algorithm
 
 ## Additionals
-  * Update dateITA to address timezone issue
+  * Update dateITA to address_1 timezone issue
   * Fix extension method to only method period
   * Fix accept method to match period only
   * Update time method to allow single digit hour

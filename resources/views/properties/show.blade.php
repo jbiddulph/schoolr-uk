@@ -67,13 +67,13 @@
                                 </li>
                             @endif
                         </ul>
-                        <p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{$property->address}}, {{$property->town}}</p>
+                        <p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{$property->address_1}}, {{$property->town}}</p>
 {{--                        <p>Created at: {{$property->created_at->diffForHumans()}}</p>--}}
                         <p>Company: <a href="{{route('company.index', [$property->company->id,$property->company->slug])}}">
                                 {{$property->company->cname}}
                             </a>
                         </p>
-                        <p>Address: {{$property->company->address}}</p>
+                        <p>Address: {{$property->company->address_1}}</p>
                         @if(isset($property->company->logo))
                             <p class="card-text"><img src="{{asset('uploads/logo')}}/{{ $property->company->logo }}" width="80" alt=""></p>
                         @else

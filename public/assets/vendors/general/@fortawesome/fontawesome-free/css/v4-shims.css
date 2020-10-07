@@ -1999,21 +1999,21 @@
   font-family: 'Font Awesome 5 Brands';
   font-weight: 400; }
 
-.fa.fa-address-book-o {
+.fa.fa-address_1-book-o {
   font-family: 'Font Awesome 5 Free';
   font-weight: 400; }
 
-.fa.fa-address-book-o:before {
+.fa.fa-address_1-book-o:before {
   content: "\f2b9"; }
 
 .fa.fa-vcard:before {
   content: "\f2bb"; }
 
-.fa.fa-address-card-o {
+.fa.fa-address_1-card-o {
   font-family: 'Font Awesome 5 Free';
   font-weight: 400; }
 
-.fa.fa-address-card-o:before {
+.fa.fa-address_1-card-o:before {
   content: "\f2bb"; }
 
 .fa.fa-vcard-o {

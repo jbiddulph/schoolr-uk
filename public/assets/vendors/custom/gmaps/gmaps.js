@@ -982,7 +982,7 @@ GMaps.prototype.drawOverlay = function(options) {
     if (!options.layer) {
       options.layer = 'overlayLayer';
     }
-    
+
     var panes = this.getPanes(),
         overlayLayer = panes[options.layer],
         stop_overlay_events = ['contextmenu', 'DOMMouseScroll', 'dblclick', 'mousedown'];
@@ -1847,7 +1847,7 @@ GMaps.prototype.toImage = function(options) {
 
   if (this.markers.length > 0) {
     static_map_options['markers'] = [];
-    
+
     for (var i = 0; i < this.markers.length; i++) {
       static_map_options['markers'].push({
         lat: this.markers[i].getPosition().lat(),
@@ -1858,7 +1858,7 @@ GMaps.prototype.toImage = function(options) {
 
   if (this.polylines.length > 0) {
     var polyline = this.polylines[0];
-    
+
     static_map_options['polyline'] = {};
     static_map_options['polyline']['path'] = google.maps.geometry.encoding.encodePath(polyline.getPath());
     static_map_options['polyline']['strokeColor'] = polyline.strokeColor
@@ -1882,7 +1882,7 @@ GMaps.staticMapURL = function(options){
   static_root += '?';
 
   var markers = options.markers;
-  
+
   delete options.markers;
 
   if (!markers && options.marker) {
@@ -1902,9 +1902,9 @@ GMaps.staticMapURL = function(options){
     parameters.push('center=' + options.center);
     delete options.center;
   }
-  else if (options.address) {
-    parameters.push('center=' + options.address);
-    delete options.address;
+  else if (options.address_1) {
+    parameters.push('center=' + options.address_1);
+    delete options.address_1;
   }
   else if (options.lat) {
     parameters.push(['center=', options.lat, ',', options.lng].join(''));
@@ -1968,8 +1968,8 @@ GMaps.staticMapURL = function(options){
         delete data.label;
       }
 
-      loc = (data.address ? data.address : data.lat + ',' + data.lng);
-      delete data.address;
+      loc = (data.address_1 ? data.address_1 : data.lat + ',' + data.lng);
+      delete data.address_1;
       delete data.lat;
       delete data.lng;
 
@@ -2184,7 +2184,7 @@ GMaps.custom_events = ['marker_added', 'marker_removed', 'polyline_added', 'poly
 
 GMaps.on = function(event_name, object, handler) {
   if (GMaps.custom_events.indexOf(event_name) == -1) {
-    if(object instanceof GMaps) object = object.map; 
+    if(object instanceof GMaps) object = object.map;
     return google.maps.event.addListener(object, event_name, handler);
   }
   else {
@@ -2202,7 +2202,7 @@ GMaps.on = function(event_name, object, handler) {
 
 GMaps.off = function(event_name, object) {
   if (GMaps.custom_events.indexOf(event_name) == -1) {
-    if(object instanceof GMaps) object = object.map; 
+    if(object instanceof GMaps) object = object.map;
     google.maps.event.clearListeners(object, event_name);
   }
   else {
@@ -2271,7 +2271,7 @@ GMaps.geocode = function(options) {
   delete options.lat;
   delete options.lng;
   delete options.callback;
-  
+
   this.geocoder.geocode(options, function(results, status) {
     callback(results, status);
   });

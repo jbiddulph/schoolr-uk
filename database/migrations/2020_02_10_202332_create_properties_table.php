@@ -29,7 +29,7 @@ class CreatePropertiesTable extends Migration
             $table->integer('reception')->default(0);
             $table->integer('conservatory')->default(0);
             $table->integer('outbuilding')->default(0);
-            $table->string('address');
+            $table->string('address_1');
             $table->string('town');
             $table->string('county');
             $table->string('postcode');

@@ -192,9 +192,9 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="address">Address</label>
-                                        <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" value="{{ $property->address }}">
-                                        @error('address')
+                                        <label for="address_1">Address</label>
+                                        <input type="text" name="address_1" class="form-control @error('address_1') is-invalid @enderror" value="{{ $property->address_1 }}">
+                                        @error('address_1')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

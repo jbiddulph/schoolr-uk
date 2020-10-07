@@ -30,14 +30,14 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <a href="{{route('adminvenue.edit',[$venue->id])}}"><h3 class="card-title">{{$venue->venuename}}</h3>
+                                <a href="{{route('adminvenue.edit',[$venue->id])}}"><h3 class="card-title">{{$venue->school}}</h3>
                                 <p class="card-text short-description">
-                                    {{$venue->address}}<br />
+                                    {{$venue->address_1}}<br />
                                     {{$venue->town}}
                                 </p>
                                 </a>
-                                @if(Storage::url('letters/'. $venue->town .'/'.$venue->venuename.'.pdf'))
-                                    <a href="{{Storage::url('letters/'. $venue->town .'/'.$venue->venuename.'.pdf')}}">View Letter</a>
+                                @if(Storage::url('letters/'. $venue->town .'/'.$venue->school.'.pdf'))
+                                    <a href="{{Storage::url('letters/'. $venue->town .'/'.$venue->school.'.pdf')}}">View Letter</a>
                                 @endif
                                 <img src="{{url('qrcodes/'. $venue->town .'/venues/qrcode-'.$venue->id.'.png')}}" width="150" />
                             </div>

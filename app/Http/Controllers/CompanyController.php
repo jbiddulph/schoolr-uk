@@ -25,14 +25,14 @@ class CompanyController extends Controller
     public function store(Request $request) {
         $user_id = auth()->user()->id;
         $request->validate([
-            'address' => 'required',
+            'address_1' => 'required',
             'telephone' => 'required',
             'website' => 'required',
             'slogan' => 'required',
             'description' => 'required',
         ]);
         Company::where('user_id', $user_id)->update([
-            'address'=>request('address'),
+            'address_1'=>request('address_1'),
             'telephone'=>request('telephone'),
             'website'=>request('website'),
             'slogan'=>request('slogan'),

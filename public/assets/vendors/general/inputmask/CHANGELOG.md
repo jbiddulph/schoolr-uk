@@ -502,7 +502,7 @@ while there are already many enhancements available.
 ### Addition
 - add option command to set and retrieve options on an inputmask
 - dependencyLib wrapper around needed jQuery functionality
-- mac address alias #986
+- mac address_1 alias #986
 - tabThrough option - Tab and autoselect mask parts #433
 - eslint testing in grunt validate task
 - $.fn.inputmask("setvalue", value)

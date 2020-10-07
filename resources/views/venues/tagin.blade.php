@@ -8,7 +8,7 @@
                 $mainphoto = str_replace('public/', 'storage/', $thevenue->photo)
             @endphp
             <div class="mainpic" style="background-image: url(/{{ $mainphoto }})">
-                {{--                <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$thevenue->venuename}}">--}}
+                {{--                <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$thevenue->school}}">--}}
             </div>
         @endif
         <div class="qr-code" style="text-align:center; padding-bottom: 10px;">
@@ -18,11 +18,11 @@
     </div>
     <div class="container mt-4">
         <h1>Venue Tag-in</h1>
-        <a href="../../venues/{{ str_slug($thevenue->town) }}/{{ str_slug($thevenue->venuename) }}/{{ $thevenue->id }}" class="btn bt-lg btn-primary">View {{ $thevenue->venuename }}</a>
+        <a href="../../venues/{{ str_slug($thevenue->town) }}/{{ str_slug($thevenue->school) }}/{{ $thevenue->id }}" class="btn bt-lg btn-primary">View {{ $thevenue->school }}</a>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header"><h2>{{ $thevenue->venuename }}, {{ $thevenue->town }}</h2></div>
+                    <div class="card-header"><h2>{{ $thevenue->school }}, {{ $thevenue->town }}</h2></div>
                     <div class="card-body">
                         @if(Session::has('message'))
                             <div class="alert alert-success">
@@ -36,7 +36,7 @@
                                         <label for="propname">Phone number</label>
                                         <input type="hidden" name="venue_id" value="{{$thevenue->id}}">
                                         <input type="number" id="phone_number" name="phone_number" class="phone_number form-control @error('phone_number') is-invalid @enderror" autofocus>
-                                        @error('venuename')
+                                        @error('school')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -45,9 +45,9 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="venuetype">Email Address</label>
+                                        <label for="byb_type">Email Address</label>
                                         <input type="text" name="email_address" class="form-control @error('email_address') is-invalid @enderror">
-                                        @error('venuetype')
+                                        @error('byb_type')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                         </span>
@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="address">Reason for visit</label>
+                                        <label for="address_1">Reason for visit</label>
                                         <select name="reason_visit" id="reason_visit" class="form-control @error('reason_visit') is-invalid @enderror">
                                             <option value="">Please select</option>
                                             <option value="meet">Meet someone</option>
@@ -69,7 +69,7 @@
                                             <option value="other">Other</option>
                                         </select>
 
-                                        @error('address')
+                                        @error('address_1')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

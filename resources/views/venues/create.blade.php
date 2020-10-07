@@ -33,8 +33,8 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="propname">Venue Name</label>
-                                        <input type="text" name="venuename" class="form-control @error('venuename') is-invalid @enderror">
-                                        @error('venuename')
+                                        <input type="text" name="school" class="form-control @error('school') is-invalid @enderror">
+                                        @error('school')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -43,9 +43,9 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="venuetype">Venue Type</label>
-                                        <input type="text" name="venuetype" class="form-control @error('venuetype') is-invalid @enderror">
-                                        @error('venuetype')
+                                        <label for="byb_type">Venue Type</label>
+                                        <input type="text" name="byb_type" class="form-control @error('byb_type') is-invalid @enderror">
+                                        @error('byb_type')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                         </span>
@@ -54,9 +54,9 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="address">Venue Address</label>
-                                        <input type="text" name="address" class="form-control @error('address') is-invalid @enderror">
-                                        @error('address')
+                                        <label for="address_1">Venue Address</label>
+                                        <input type="text" name="address_1" class="form-control @error('address_1') is-invalid @enderror">
+                                        @error('address_1')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -68,8 +68,8 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="propname">Address 2</label>
-                                        <input type="text" name="address2" class="form-control @error('address2') is-invalid @enderror">
-                                        @error('address2')
+                                        <input type="text" name="address_2" class="form-control @error('address_2') is-invalid @enderror">
+                                        @error('address_2')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -78,7 +78,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="venuetype">Town</label>
+                                        <label for="byb_type">Town</label>
                                         <input type="text" name="town" class="form-control @error('town') is-invalid @enderror">
                                         @error('town')
                                         <span class="invalid-feedback" role="alert">
@@ -89,7 +89,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="address">County</label>
+                                        <label for="address_1">County</label>
                                         <input type="text" name="county" class="form-control @error('county') is-invalid @enderror">
                                         @error('county')
                                         <span class="invalid-feedback" role="alert">
@@ -112,19 +112,19 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="venuetype">Postal Search</label>
-                                        <input type="text" name="postalsearch" class="form-control @error('postalsearch') is-invalid @enderror">
-                                        @error('postalsearch')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
+{{--                                    <div class="form-group">--}}
+{{--                                        <label for="byb_type">Postal Search</label>--}}
+{{--                                        <input type="text" name="postalsearch" class="form-control @error('postalsearch') is-invalid @enderror">--}}
+{{--                                        @error('postalsearch')--}}
+{{--                                        <span class="invalid-feedback" role="alert">--}}
+{{--                                        <strong>{{ $message }}</strong>--}}
+{{--                                        </span>--}}
+{{--                                        @enderror--}}
+{{--                                    </div>--}}
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="address">Telephone</label>
+                                        <label for="address_1">Telephone</label>
                                         <input type="text" name="telephone" class="form-control @error('telephone') is-invalid @enderror">
                                         @error('telephone')
                                         <span class="invalid-feedback" role="alert">
@@ -148,7 +148,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="venuetype">Longitude</label>
+                                        <label for="byb_type">Longitude</label>
                                         <input type="text" name="longitude" class="form-control @error('longitude') is-invalid @enderror">
                                         @error('longitude')
                                         <span class="invalid-feedback" role="alert">
@@ -159,7 +159,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="address">Website</label>
+                                        <label for="address_1">Website</label>
                                         <input type="text" name="website" class="form-control @error('website') is-invalid @enderror">
                                         @error('website')
                                         <span class="invalid-feedback" role="alert">

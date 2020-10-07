@@ -8,7 +8,7 @@
                 $eventphoto = str_replace('public/', 'storage/', $event->eventPhoto)
             @endphp
             <div class="mainpic" style="background-image: url(/{{ $eventphoto }})">
-                {{--                <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$thevenue->venuename}}">--}}
+                {{--                <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$thevenue->school}}">--}}
             </div>
         @endif
         <div class="qr-code" style="text-align:center; padding-bottom: 10px;">
@@ -33,9 +33,9 @@
                     @endif
 
                     <div class="card-body">
-                        <h5 class="card-title">{{$thevenue->venuename}}</h5>
-                        <p class="card-text">{{$thevenue->address}}<br />
-                            {{$thevenue->address2}}<br />
+                        <h5 class="card-title">{{$thevenue->school}}</h5>
+                        <p class="card-text">{{$thevenue->address_1}}<br />
+                            {{$thevenue->address_2}}<br />
                             {{$thevenue->town}}<br />
                             {{$thevenue->county}}<br />
                             {{$thevenue->postcode}}<br /><br />
@@ -117,7 +117,7 @@
                 }
             });
 
-            $('#venuenamesearch').keyup(function() {
+            $('#schoolsearch').keyup(function() {
                 var query = $(this).val();
                 if(query != ''){
                     // var _token = $('meta[name="csrf-token"]').attr('content');

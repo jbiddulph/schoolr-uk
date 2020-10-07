@@ -30,7 +30,7 @@ class EventController extends Controller
         ]);
         foreach ($eventslist as $e) {
             Mapper::marker($e->venue->latitude, $e->venue->longitude);
-            Mapper::informationWindow($e->venue->latitude, $e->venue->longitude, '<a href="/venues/' . str_slug($e->venue->town) . '/' . str_slug($e->venue->venuename) . '/'. $e->venue->id .'">' . $e->venue->venuename . '</a>', ['icon' => ['url' => 'https://bnhere.co.uk/logo/secondary_map_marker.png', 'scale' => 100]]);
+            Mapper::informationWindow($e->venue->latitude, $e->venue->longitude, '<a href="/venues/' . str_slug($e->venue->town) . '/' . str_slug($e->venue->school) . '/'. $e->venue->id .'">' . $e->venue->school . '</a>', ['icon' => ['url' => 'https://bnhere.co.uk/logo/secondary_map_marker.png', 'scale' => 100]]);
         }
         return view('events.all', compact(
             'events',

@@ -9,7 +9,7 @@
                 $mainphoto = str_replace('public/', 'storage/', $venue->photo)
             @endphp
             <div class="mainpic" style="background-image: url(/{{ $mainphoto }})">
-                {{--                <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$thevenue->venuename}}">--}}
+                {{--                <img class="d-block img-fluid prop_photo" src="/{{ $mainphoto }}" alt="{{$thevenue->school}}">--}}
             </div>
         @endif
         <div class="qr-code" style="text-align:center; padding-bottom: 10px;">
@@ -22,10 +22,10 @@
             <h1>Edit Venue | <a href="/admin">Admin</a>
                    | <a href="/admin/venue">Edit Venue List</a>
             </h1>
-            <div class="text-right"><a href="/venues/{{$venue->town}}/{{$venue->venuename}}/{{$venue->id}}" class="btn btn-primary">View {{$venue->venuename}}</a></div>
+            <div class="text-right"><a href="/venues/{{$venue->town}}/{{$venue->school}}/{{$venue->id}}" class="btn btn-primary">View {{$venue->school}}</a></div>
         @else
-            <h1>Edit Venue </h1>{{ $venue->venuetype }}
-            <div class="text-right"><a href="/venues/{{$venue->town}}/{{$venue->venuename}}/{{$venue->id}}" class="btn btn-primary">View {{$venue->venuename}}</a></div>
+            <h1>Edit Venue </h1>{{ $venue->byb_type }}
+            <div class="text-right"><a href="/venues/{{$venue->town}}/{{$venue->school}}/{{$venue->id}}" class="btn btn-primary">View {{$venue->school}}</a></div>
         @endif
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -35,7 +35,7 @@
 {{--                    <p>Not subscribed</p>--}}
                 @endif
                 <div class="card">
-                    <div class="card-header"><h2>{{ $venue->venuename }}</h2></div>
+                    <div class="card-header"><h2>{{ $venue->school }}</h2></div>
                     <div class="card-body">
                         @if(Session::has('message'))
                             <div class="alert alert-success">
@@ -51,8 +51,8 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="propname">Venue Name</label>
-                                        <input type="text" name="venuename" class="form-control @error('venuename') is-invalid @enderror" value="{{ $venue->venuename }}">
-                                        @error('venuename')
+                                        <input type="text" name="school" class="form-control @error('school') is-invalid @enderror" value="{{ $venue->school }}">
+                                        @error('school')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -61,9 +61,9 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="venuetype">Venue Type</label>
-                                        <input type="text" name="venuetype" class="form-control @error('venuetype') is-invalid @enderror" value="{{ $venue->venuetype }}">
-                                        @error('venuetype')
+                                        <label for="byb_type">Venue Type</label>
+                                        <input type="text" name="byb_type" class="form-control @error('byb_type') is-invalid @enderror" value="{{ $venue->byb_type }}">
+                                        @error('byb_type')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                         </span>
@@ -72,9 +72,9 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="address">Venue Address</label>
-                                        <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" value="{{ $venue->address }}">
-                                        @error('address')
+                                        <label for="address_1">Venue Address</label>
+                                        <input type="text" name="address_1" class="form-control @error('address_1') is-invalid @enderror" value="{{ $venue->address_1 }}">
+                                        @error('address_1')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -86,8 +86,8 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="propname">Address 2</label>
-                                        <input type="text" name="address2" class="form-control @error('address2') is-invalid @enderror" value="{{ $venue->address2 }}">
-                                        @error('address2')
+                                        <input type="text" name="address_2" class="form-control @error('address_2') is-invalid @enderror" value="{{ $venue->address_2 }}">
+                                        @error('address_2')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -96,7 +96,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="venuetype">Town</label>
+                                        <label for="byb_type">Town</label>
                                         <input type="text" name="town" class="form-control @error('town') is-invalid @enderror" value="{{ $venue->town }}">
                                         @error('town')
                                         <span class="invalid-feedback" role="alert">
@@ -107,7 +107,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="address">County</label>
+                                        <label for="address_1">County</label>
                                         <input type="text" name="county" class="form-control @error('county') is-invalid @enderror" value="{{ $venue->county }}">
                                         @error('county')
                                         <span class="invalid-feedback" role="alert">
@@ -130,19 +130,19 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="venuetype">Postal Search</label>
-                                        <input type="text" name="postalsearch" class="form-control @error('postalsearch') is-invalid @enderror" value="{{ $venue->postalsearch }}">
-                                        @error('postalsearch')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
+{{--                                    <div class="form-group">--}}
+{{--                                        <label for="byb_type">Postal Search</label>--}}
+{{--                                        <input type="text" name="postalsearch" class="form-control @error('postalsearch') is-invalid @enderror" value="{{ $venue->postalsearch }}">--}}
+{{--                                        @error('postalsearch')--}}
+{{--                                        <span class="invalid-feedback" role="alert">--}}
+{{--                                        <strong>{{ $message }}</strong>--}}
+{{--                                        </span>--}}
+{{--                                        @enderror--}}
+{{--                                    </div>--}}
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="address">Telephone</label>
+                                        <label for="address_1">Telephone</label>
                                         <input type="text" name="telephone" class="form-control @error('telephone') is-invalid @enderror" value="{{ $venue->telephone }}">
                                         @error('telephone')
                                         <span class="invalid-feedback" role="alert">
@@ -166,7 +166,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="venuetype">Longitude</label>
+                                        <label for="byb_type">Longitude</label>
                                         <input type="text" name="longitude" class="form-control @error('longitude') is-invalid @enderror" value="{{ $venue->longitude }}">
                                         @error('longitude')
                                         <span class="invalid-feedback" role="alert">
@@ -177,7 +177,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="address">Website</label>
+                                        <label for="address_1">Website</label>
                                         <input type="text" name="website" class="form-control @error('website') is-invalid @enderror" value="{{ $venue->website }}">
                                         @error('website')
                                         <span class="invalid-feedback" role="alert">
@@ -212,9 +212,9 @@
                         @else(Auth::user()->user_type === 'admin')
                         <form action="{{route('adminvenue.venueImageUpdate', [$venue->id])}}" method="POST" enctype="multipart/form-data">@csrf
                             @endif
-                            <h5 class="card-title">{{$venue->venuename}}</h5>
-                            <p class="card-text">{{$venue->address}}, <br />
-                                {{$venue->address2}}<br />
+                            <h5 class="card-title">{{$venue->school}}</h5>
+                            <p class="card-text">{{$venue->address_1}}, <br />
+                                {{$venue->address_2}}<br />
                                 {{$venue->town}}<br />
                                 {{$venue->county}}
                             </p>

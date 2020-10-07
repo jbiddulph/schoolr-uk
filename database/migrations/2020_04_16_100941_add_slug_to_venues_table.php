@@ -14,7 +14,7 @@ class AddSlugToVenuesTable extends Migration
     public function up()
     {
         Schema::table('venues', function (Blueprint $table) {
-            $table->string('slug')->after('venuename')->nullable();
+            $table->string('slug')->after('school')->nullable();
         });
     }
 

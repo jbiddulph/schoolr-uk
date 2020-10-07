@@ -7,5 +7,11 @@
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/moveme</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="scool@localhost" uuid="fa9accd3-adda-43f1-94c5-9372157c6540">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/scool</jdbc-url>
+    </data-source>
   </component>
 </project>

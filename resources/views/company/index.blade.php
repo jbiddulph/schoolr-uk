@@ -35,7 +35,7 @@
                     {{--                    <img src="{{asset('/uploads/coverphoto/default.jpg')}}" style="width: 100%;" alt="Company cover">--}}
                     <h1>{{$company->cname}}</h1>
                     <h2>{{$company->slogan}}</h2>
-                    <p>Address: {{$company->address}}, <br />phone: {{$company->telephone}} <br />website: {{$company->website}}</p>
+                    <p>Address: {{$company->address_1}}, <br />phone: {{$company->telephone}} <br />website: {{$company->website}}</p>
                 </div>
             @endif
         </div>

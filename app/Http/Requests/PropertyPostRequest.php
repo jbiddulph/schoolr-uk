@@ -29,7 +29,7 @@ class PropertyPostRequest extends FormRequest
             'propcost'=>'required',
             'proptype_id'=>'required',
             'propimage'=>'required',
-            'address'=>'required',
+            'address_1'=>'required',
             'county'=>'required',
             'postcode'=>'required',
             'latitude'=>'required',

@@ -120,16 +120,15 @@ class AdministrationController extends Controller
         $venuephoto = $request->file('photo')->store('public/venues/photos');
 
         Venue::create([
-            'venuename'=>request('venuename'),
-            'slug'=>str_slug(request('venuename')),
-            'venuetype'=>request('venuetype'),
-            'address'=>request('address'),
+            'school'=>request('school'),
+            'slug'=>str_slug(request('school')),
+            'byb_type'=>request('byb_type'),
+            'address_1'=>request('address_1'),
             'photo'=>$venuephoto,
-            'address2'=>request('address2'),
+            'address_2'=>request('address_2'),
             'town'=>request('town'),
             'county'=>request('county'),
             'postcode'=>request('postcode'),
-            'postalsearch'=>request('postalsearch'),
             'telephone'=>request('telephone'),
             'latitude'=>request('latitude'),
             'longitude'=>request('longitude'),
@@ -137,7 +136,7 @@ class AdministrationController extends Controller
         ]);
 
         //LOGGING
-        Log::info('Venue Name: '.request('venuename').'');
+        Log::info('Venue Name: '.request('school').'');
 
         return redirect()->back()->with('message','Venue added successfully!');
     }
@@ -197,7 +196,7 @@ class AdministrationController extends Controller
             'reception'=>request('reception'),
             'conservatory'=>request('conservatory'),
             'outbuilding'=>request('outbuilding'),
-            'address'=>request('address'),
+            'address_1'=>request('address_1'),
             'town'=>$requestedtown,
             'county'=>request('county'),
             'postcode'=>request('postcode'),

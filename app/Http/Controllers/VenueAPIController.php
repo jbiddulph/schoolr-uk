@@ -32,10 +32,10 @@ class VenueAPIController extends Controller
      */
     public function store(Request $request) {
         $request->validate([
-           'venuename'=>'required',
+           'school'=>'required',
            'slug'=>'required',
-           'venuetype'=>'required',
-           'address'=>'required',
+           'byb_type'=>'required',
+           'address_1'=>'required',
            'town'=>'required',
            'county'=>'required',
            'postcode'=>'required',
