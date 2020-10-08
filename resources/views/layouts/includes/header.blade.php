@@ -76,7 +76,7 @@
                     </li>
                     @endif
                     <li class="nav-item">
-                        <a class="nav-link hvr-underline-from-center" href="{{ route('venues.show') }}">Pubs &amp; Venues</a>
+                        <a class="nav-link hvr-underline-from-center" href="{{ route('venues.show') }}">Schools</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link hvr-underline-from-center" href="{{ route('events.show') }}">Events</a>
