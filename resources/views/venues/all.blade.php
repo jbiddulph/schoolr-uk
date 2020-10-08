@@ -1,11 +1,11 @@
-@extends('layouts.list')
+{{--@extends('layouts.list')--}}
 
-@section('content')
-    <div class="colorbar"></div>
-    <div style="width: 100%; height: 300px;">
+{{--@section('content')--}}
+{{--    <div class="colorbar"></div>--}}
+{{--    <div style="width: 100%; height: 300px;">--}}
 {{--        {!! Mapper::render() !!}--}}
-    </div>
-    <small class="justify-content-center" style="width: 100%; display:flex;">Map markers are shown on paginated search of 52 max per page</small>
+{{--    </div>--}}
+{{--    <small class="justify-content-center" style="width: 100%; display:flex;">Map markers are shown on paginated search of 52 max per page</small>--}}
 {{--    <form action="{{route('venues')}}" name="mapswitchform" id="mapswitchform" method="post" enctype="multipart/form-data">@csrf--}}
 {{--        <div class="switchdesc justify-content-center text-center">--}}
 {{--            <span>Paginated</span>--}}
@@ -16,16 +16,16 @@
 {{--            <span>All</span>--}}
 {{--        </div>--}}
 {{--    </form>--}}
-    <div class="container mt-4 welcome">
-        <h1>Pubs &amp; Venues</h1>
-        <div class="row">
-            <ul class="towns-list">
+{{--    <div class="container mt-4 welcome">--}}
+{{--        <h1>Pubs &amp; Venues</h1>--}}
+{{--        <div class="row">--}}
+{{--            <ul class="towns-list">--}}
 {{--            @foreach($towns as $town)--}}
 {{--                <li><h3><a href="{{route('venues.town', [$town->town])}}" class="btn btn-secondary btn-lg hvr-grow-rotate">{{$town->town}}</a></h3></li>--}}
 {{--            @endforeach--}}
-            </ul>
-        </div>
-        <div class="row">
+{{--            </ul>--}}
+{{--        </div>--}}
+{{--        <div class="row">--}}
 {{--            @foreach($venueslist as $venue)--}}
 {{--                <div class="col-md-2 col-sm-12">--}}
 {{--                    <a href="/venues/{{ str_slug($venue->town)}}/{{str_slug($venue->school)}}/{{$venue->id}}">--}}
@@ -64,12 +64,13 @@
 {{--                    </a>--}}
 {{--                </div>--}}
 {{--            @endforeach--}}
-        </div>
-        <div class="row justify-content-center">
-            <div class="offset-md-2 col-md-8 text-center">
-                {{$venueslist->links()}}
-            </div>
-        </div>
-    </div>
-    <div class="colorbar mt-5"></div>
-@endsection
+{{--        </div>--}}
+{{--        <div class="row justify-content-center">--}}
+{{--            <div class="offset-md-2 col-md-8 text-center">--}}
+{{--                {{$venueslist->links()}}--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--    <div class="colorbar mt-5"></div>--}}
+{{--@endsection--}}
+<h1>here</h1>
