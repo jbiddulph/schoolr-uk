@@ -173,12 +173,12 @@ class VenueController extends Controller
                 Mapper::informationWindow($v->latitude, $v->longitude, '<a href="/venues/' . str_slug($v->town) . '/' . str_slug($v->school) . '/'. $v->id .'">' . $v->school . '</a>', ['icon' => ['url' => 'https://bnhere.co.uk/logo/secondary_map_marker.png', 'scale' => 60]]);
             }
         }
-
-        return view('venues.all', compact(
-            'venues',
-            'venueslist',
-                'towns',
-                'checked'));
+        return view('venues.all');
+//        return view('venues.all', compact(
+//            'venues',
+//            'venueslist',
+//                'towns',
+//                'checked'));
     }
 
     public function welcome() {
