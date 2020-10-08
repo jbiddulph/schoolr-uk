@@ -3,19 +3,19 @@
 @section('content')
     <div class="colorbar"></div>
     <div style="width: 100%; height: 300px;">
-        {!! Mapper::render() !!}
+{{--        {!! Mapper::render() !!}--}}
     </div>
     <small class="justify-content-center" style="width: 100%; display:flex;">Map markers are shown on paginated search of 52 max per page</small>
-    <form action="{{route('venues')}}" name="mapswitchform" id="mapswitchform" method="post" enctype="multipart/form-data">@csrf
-        <div class="switchdesc justify-content-center text-center">
-            <span>Paginated</span>
-            <label class="switch">
-                <input name="mapswitch" type="checkbox" {{$checked}}>
-                <span class="slider round"></span>
-            </label>
-            <span>All</span>
-        </div>
-    </form>
+{{--    <form action="{{route('venues')}}" name="mapswitchform" id="mapswitchform" method="post" enctype="multipart/form-data">@csrf--}}
+{{--        <div class="switchdesc justify-content-center text-center">--}}
+{{--            <span>Paginated</span>--}}
+{{--            <label class="switch">--}}
+{{--                <input name="mapswitch" type="checkbox" {{$checked}}>--}}
+{{--                <span class="slider round"></span>--}}
+{{--            </label>--}}
+{{--            <span>All</span>--}}
+{{--        </div>--}}
+{{--    </form>--}}
     <div class="container mt-4 welcome">
         <h1>Pubs &amp; Venues</h1>
         <div class="row">
