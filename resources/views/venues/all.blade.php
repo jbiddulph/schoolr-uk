@@ -20,9 +20,9 @@
         <h1>Pubs &amp; Venues</h1>
         <div class="row">
             <ul class="towns-list">
-            @foreach($towns as $town)
-                <li><h3><a href="{{route('venues.town', [$town->town])}}" class="btn btn-secondary btn-lg hvr-grow-rotate">{{$town->town}}</a></h3></li>
-            @endforeach
+{{--            @foreach($towns as $town)--}}
+{{--                <li><h3><a href="{{route('venues.town', [$town->town])}}" class="btn btn-secondary btn-lg hvr-grow-rotate">{{$town->town}}</a></h3></li>--}}
+{{--            @endforeach--}}
             </ul>
         </div>
         <div class="row">
